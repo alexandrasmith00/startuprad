@@ -1,0 +1,17 @@
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "variables";
+
+@import "components/navbar";
+@import "components/footer";
+
+
+body {
+    background: $background-color;
+    color: $text-color;
+    
+    a {
+        color: $emph-color;
+        
+    }
+}
+

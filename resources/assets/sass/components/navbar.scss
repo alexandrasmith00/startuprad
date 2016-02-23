@@ -1,0 +1,102 @@
+body {
+    padding-top: $header-height + 25px + $default-padding;   
+}
+.content-portion {
+    padding-top: $padding-below-header;   
+}
+nav.navbar-home { 
+    background: $white; 
+    border-color: $light-grey; 
+    box-shadow: 0 0 2px 0 $light-grey; 
+}
+
+nav.navbar-home a { 
+    color: $primary-color; 
+}
+
+nav.navbar-home a.navbar-brand {
+    
+}
+
+nav.navbar-home a.navbar-brand:hover {
+    color: $emph-color;
+}
+
+
+nav.navbar-home ul.navbar-nav a { 
+    color: $dark-grey; 
+    border-style: solid; 
+    border-width: 0 0 2px 0; 
+    border-color: $white; 
+}
+
+nav.navbar-home ul.navbar-nav a:hover,
+nav.navbar-home ul.navbar-nav a:visited,
+nav.navbar-home ul.navbar-nav a:focus,
+nav.navbar-home ul.navbar-nav a:active { 
+    background: $white; 
+    color: $emph-color; 
+}
+
+nav.navbar-home ul.navbar-nav a:focus,
+nav.navbar-home ul.navbar-nav a:visited { 
+    border-color: $white; 
+}
+
+nav.navbar-home ul.navbar-nav a:active,
+nav.navbar-home ul.navbar-nav a:hover { 
+    border-color: $emph-color; 
+}
+
+nav.navbar-home li.divider { 
+    background: $light-grey; 
+}
+
+nav.navbar-home button.navbar-toggle { 
+    background: $emph-color; 
+    border-radius: 2px; 
+}
+
+nav.navbar-home button.navbar-toggle:hover { 
+    background: $dark-grey; 
+}
+
+nav.navbar-home button.navbar-toggle > span.icon-bar { 
+    background: $white; 
+}
+
+nav.navbar-home ul.dropdown-menu { 
+    border: 0; 
+    background: $white; 
+    border-radius: 4px; 
+    margin: 4px 0; 
+    box-shadow: 0 0 4px 0 $light-grey; 
+}
+
+nav.navbar-home ul.dropdown-menu > li > a { 
+    color: $dark-grey; 
+    border-color: $white;
+}
+
+nav.navbar-home ul.dropdown-menu > li > a:hover { 
+    background: $primary-color; 
+    border-color: $primary-color; 
+    color: $white; 
+}
+
+nav.navbar-home span.badge { 
+    background: $emph-color; 
+    font-weight: normal; 
+    font-size: 11px; 
+    margin: 0 4px; 
+}
+
+nav.navbar-home span.badge:hover { 
+    background: $emph-color; 
+}
+
+nav.navbar-home span.badge.new { 
+    background: $highlight-color; 
+    color: $white; 
+
+}

@@ -1,0 +1,27 @@
+@import "colors";
+
+$default-padding:               20px;
+
+// header variables
+$header-height:                 30px;
+$padding-below-header:          $default-padding;
+
+// footer variables
+$footer-height:                 250px;
+$footer-color:                  $dark-color;
+$footer-font-color:             $dark-grey;
+
+
+// chat message variables
+$messages-height:               500px;
+
+
+// sizing for responsive design
+$screen-xs-min:                 1px;
+$screen-xs-max:                 767px;
+$screen-sm-min:                 768px;
+$screen-sm-max:                 991px;
+$screen-md-min:                 992px;
+$screen-md-max:                 1199px;
+$screen-lg-min:                 1200px;
+
