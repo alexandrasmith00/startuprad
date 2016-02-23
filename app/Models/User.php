@@ -51,6 +51,14 @@ class User extends Authenticatable
         
     }
     
+    public function hasProject($check)
+    {
+        $projects = [];
+        foreach ($this->teams as $team)
+            foreach ($team->idea as $idea)
+                array_push($projects, $idea->id);
+        return in_array($check, $projects);
+    }
     
     
     /**

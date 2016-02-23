@@ -33,8 +33,8 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li><a href=" <?php echo e(url('/account/show').'/'. Auth::user()->id); ?>">Account</a></li>                         
-                            <li><a href="<?php echo e(url('/network/caregivers')); ?>"> Add Caregivers</a></li>
-                            <li><a href="<?php echo e(url('/network/carerecipients')); ?>"> Add Care Recipients</a></li>
+                            <li><a href="<?php echo e(url('/project')); ?>">Projects</a></li>
+                            
                             <li><a href="<?php echo e(url('/logout')); ?>"> Logout</a></li>
                         
                         </ul>

@@ -18,7 +18,7 @@
                         <li>
 
                         <?php foreach($team->idea as $idea): ?>
-                            <b><?php echo e($idea->name); ?>: <?php echo e($idea->tagline); ?> </b><br/>
+                            <b><a href="/project/<?php echo e($idea->id); ?>"><?php echo e($idea->name); ?>: <?php echo e($idea->tagline); ?> </a></b><br/>
                             <a href="<?php echo e($idea->website); ?>"><?php echo e($idea->website); ?></a><br/>
                             <img src="<?php echo e($idea->logo); ?>"><br/>
                         <?php endforeach; ?>

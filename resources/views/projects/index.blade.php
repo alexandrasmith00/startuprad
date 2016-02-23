@@ -21,7 +21,7 @@
                                 {{ $cohort->name }}
                     
                                 @foreach ($cohort->ideas as $project)
-                                    <a href="/project/show/{{ $project->id }}"> {{ $project->name }}</a><br>
+                                    <a href="/project/{{ $project->id }}"> {{ $project->name }}</a><br>
                                 @endforeach
                             @endforeach
                             

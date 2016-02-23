@@ -20,7 +20,7 @@
                         <li>
 
                         @foreach ($team->idea as $idea)
-                            <b>{{ $idea->name }}: {{ $idea->tagline }} </b><br/>
+                            <b><a href="/project/{{ $idea->id }}">{{ $idea->name }}: {{ $idea->tagline }} </a></b><br/>
                             <a href="{{$idea->website}}">{{ $idea->website }}</a><br/>
                             <img src="{{ $idea->logo }}"><br/>
                         @endforeach

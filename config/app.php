@@ -148,6 +148,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
+        Vinkla\Pusher\PusherServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

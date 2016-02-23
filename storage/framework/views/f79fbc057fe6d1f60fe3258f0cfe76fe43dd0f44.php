@@ -19,7 +19,7 @@
 
                     
                                 <?php foreach($cohort->ideas as $project): ?>
-                                    <a href="/project/show/<?php echo e($project->id); ?>"> <?php echo e($project->name); ?></a><br>
+                                    <a href="/project/<?php echo e($project->id); ?>"> <?php echo e($project->name); ?></a><br>
                                 <?php endforeach; ?>
                             <?php endforeach; ?>
                             
