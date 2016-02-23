@@ -4,7 +4,8 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Models\User;
 use App\Models\Role;
-use App\Models\Blog\Post;
+use App\Models\Post;
+use App\Models\Idea;
 
 class PostsTableSeeder extends Seeder
 {
@@ -16,22 +17,29 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-               
-        // get ids of contributors
-        $contributors = User::whereHas(
-            'roles', function($r){
-                $r->where('name', 'Contributor');
-            }
-        )->lists('id')->toArray();
-                        
+        
+        // get thinkings for each thinking update, create a post
+        // make a couple rad now posts
+        // make a couple questions
+        
+//        idea_id (subject)
+//        user_id (poster)
+        
+
+
+        $users = User::get()->lists('id')->toArray();
+        $ideas = Idea::get()->lists('id')->toArray();
+    
         // create 100 posts in posts table
         foreach(range(1, 80) as $index)
         {
+    
             $post = Post::create([
-                'title' => $faker->sentence(mt_rand(3, 10)),
-                'content' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
-                'published_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
-                'user_id' =>  $faker->randomElement($contributors)
+                'user_id' => $faker->randomElement($users),
+                'idea_id' => $faker->randomElement($ideas),
+                'title' => $faker->sentence(),
+                'content' => $faker->paragraph(),
+                'type'=> 'random'
             ]);
         }
 

@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
         Vinkla\Pusher\PusherServiceProvider::class,
+        Slynova\Commentable\ServiceProvider::class,
 
         /*
          * Application Service Providers...

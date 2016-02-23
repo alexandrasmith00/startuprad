@@ -15,11 +15,12 @@ nav.navbar-home a {
 }
 
 nav.navbar-home a.navbar-brand {
+    color: $white;
     
 }
 
 nav.navbar-home a.navbar-brand:hover {
-    color: $emph-color;
+    color: $secondary-color;
 }
 
 
@@ -34,8 +35,8 @@ nav.navbar-home ul.navbar-nav a:hover,
 nav.navbar-home ul.navbar-nav a:visited,
 nav.navbar-home ul.navbar-nav a:focus,
 nav.navbar-home ul.navbar-nav a:active { 
-    background: $white; 
-    color: $emph-color; 
+    background: $primary-color; 
+    color: $secondary-color;
 }
 
 nav.navbar-home ul.navbar-nav a:focus,

@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         'thinkings',
         'cohorts',
         'cohorts_ideas',
-        'cohorts_users'
+        'cohorts_users',
+        'comments',
+        'posts'
     ];
     /**
      * @var array
@@ -32,6 +34,8 @@ class DatabaseSeeder extends Seeder
         'CohortsTableSeeder',
         'UsersTableSeeder',
         'TeamsTableSeeder',
+        'PostsTableSeeder',
+        'CommentsTableSeeder'
         
     ];
     

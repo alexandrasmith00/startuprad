@@ -6,7 +6,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'PagesController@welcome');
 
 //
-//    Route::get('blog', 'BlogController@index');
+    Route::get('feed', 'FeedController@index');
+    
+    Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
+
 //    Route::get('blog/{slug}', 'BlogController@showPost');
 //
 //    

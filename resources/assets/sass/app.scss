@@ -3,6 +3,7 @@
 
 @import "components/navbar";
 @import "components/footer";
+@import "components/buttons";
 
 
 body {
@@ -10,7 +11,7 @@ body {
     color: $text-color;
     
     a {
-        color: $emph-color;
+        color: $primary-color;
         
     }
 }
