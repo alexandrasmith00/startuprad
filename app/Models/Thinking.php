@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thinking extends Model
 {
+     protected $table = 'thinkings';
 
     /**
      * The attributes that are mass assignable.
@@ -13,7 +14,7 @@ class Thinking extends Model
      * @var array
      */
     protected $fillable = [
-        'body', 'current'
+        'body', 'current', 'category_id', 'idea_id'
     ];
 
     /**
@@ -38,6 +39,14 @@ class Thinking extends Model
     {
         return in_array($check, array_fetch($this->category, 'dataType'));
     }
+    
+    public function hasCategory($check)
+    {
+        return in_array($check, array_fetch($this->category, 'name'));
+    }
+    
+    
+    
     
  
 }

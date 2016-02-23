@@ -18,23 +18,29 @@
 
         var update = $(this).attr("name");
         var current_value = $("#" + update ).text();
-
+        
         $('#edit-modal').modal('show');
         $('#edit-modal-title').text("Edit your " + update);
-        $("#edit-field").attr("value", current_value);
+        
+
         $('#update-label').text("Your " + update);
-        $('.update-field').attr("name", update);
+        $("#edit-field").val(current_value);
+        $("#edit-field").focus().select();
+
+        $('.update-field').val(update);
+        
+        
     }
       
     function updateField() {
-        var update = $(this).attr("name"); 
+        var update = $('.update-field').val();
         var new_val = $("#edit-field").val();
         
-        var data = {field: update, new_val: new_val, id: {{ $project->id }}   };
+        // needs some sort of verification that field has actually changed
+        
+        var data = {field: update, new_val: new_val, id: {{ $project->id }} };
         $.post('/project/update', data).success(notifySuccess);
 
-
-        console.log(new_val);
     }
       
     function sendMessage() {
@@ -48,11 +54,12 @@
     }
       
     function notifySuccess() {
-        console.log('something was updated');
+        // close modal
+        $('#edit-modal').modal('hide');
     }
       
-    function checkingNow() {
-        alert('something has changed');   
+    function updateDisplay(data) {
+        $('#' + data.field).text(data.new_val);
     }
       
     $(init);
