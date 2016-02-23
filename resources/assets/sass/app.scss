@@ -1,10 +1,8 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "variables";
 
-@import "components/navbar";
-@import "components/footer";
-@import "components/buttons";
-
+@import "libraries/all";
+@import "components/all";
 
 body {
     background: $background-color;

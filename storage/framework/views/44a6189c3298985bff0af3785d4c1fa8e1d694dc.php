@@ -32,10 +32,24 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href=" <?php echo e(url('/account/show').'/'. Auth::user()->id); ?>">Account</a></li>                         
-                            <li><a href="<?php echo e(url('/project')); ?>">Projects</a></li>
+     
                             
-                            <li><a href="<?php echo e(url('/logout')); ?>"> Logout</a></li>
+                              <li class="dropdown-header">Your Project</li>
+                              <li><a href="<?php echo e(url('/project')); ?>">View All</a></li>
+
+                              <li class="dropdown-header">Your RAD</li>
+                            
+
+                                
+                                
+                              <li><a href="<?php echo e(url('/project')); ?>">View All</a></li>
+
+                              <li class="dropdown-header">Your Account</li>
+                              <li><a href=" <?php echo e(url('/account/show').'/'. Auth::user()->id); ?>">Account</a></li>                         
+                              <li><a href="<?php echo e(url('/logout')); ?>">Settings</a></li>
+                              <li><a href="<?php echo e(url('/logout')); ?>">Logout</a></li>
+
+                            
                         
                         </ul>
                     </li>

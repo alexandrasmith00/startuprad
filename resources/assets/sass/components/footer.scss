@@ -6,12 +6,16 @@ html {
     
 }
 
-body {
+.page-content {
     
   /* Set the alignment and positioning here */
-  margin-bottom: $footer-height;
-  padding-bottom: $default-padding;
+  padding-bottom: $footer-height + $default-padding;
+  min-height: 100%;     
     
+}
+
+.push-content-down {
+  min-height: 100%;   
 }
 
 .footer {

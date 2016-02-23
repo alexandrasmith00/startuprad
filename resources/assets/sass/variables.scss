@@ -1,6 +1,8 @@
 @import "colors";
 
 $default-padding:               20px;
+$default-font-size:             15px;
+$default-border-radius:         3px;
 
 // header variables
 $header-height:                 60px;
@@ -15,6 +17,16 @@ $footer-font-color:             $dark-grey;
 // chat message variables
 $messages-height:               500px;
 
+// login variables
+$login-form-width:              250px;
+$login-grow:                    50px;
+
+// button variables
+$padding-top-buttons:           10px;
+$padding-side-buttons:          18px;
+$button-border-radius:          $default-border-radius;
+$default-button-width:          250px;
+$button-margin:                 0 auto 10px auto;
 
 // sizing for responsive design
 $screen-xs-min:                 1px;

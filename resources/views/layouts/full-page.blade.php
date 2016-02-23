@@ -9,16 +9,11 @@
     
         @include('includes.header')
 
-        <div class="page-content">
+        <div class="full-page-content">
             @yield('content')
         </div>
 
-        @include('includes.footer')
-    
-            
         @include('includes.scripts')
-
-
 </body>
 </html>
 

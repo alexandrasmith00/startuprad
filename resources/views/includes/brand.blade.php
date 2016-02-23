@@ -1,1 +1,1 @@
-<span class="brand">startup rad</span>
+<span class="brand">Startup Rad</span>

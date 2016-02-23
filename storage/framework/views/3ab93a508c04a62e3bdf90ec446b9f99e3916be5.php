@@ -1,15 +1,26 @@
-<ul class="nav nav-sidebar">
-    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-    <li><a href="/account"><b>View all users</b></a></li>
-    <li><a href="#">Alerts</a></li>
-    <li><a href="#">Analytics</a></li>
-    <li><a href="#">Export</a></li>
-</ul>
-<ul class="nav nav-sidebar">
-    <li><a href="">Activity</a></li>
-    <li><a href="">Sleep Quality</a></li>
-    <li><a href="">Heart Rate</a></li>
-    <li><a href="">Temperature</a></li>
-    <li><a href="">Falls</a></li>
-    <li><a href="">Steps</a></li>
-</ul>
+<nav class="st-menu st-effect-2" id="menu-2">
+    <h2 class="icon icon-lab">Sidebar</h2>
+    <ul>
+        <li><a class="icon icon-data" href="#">Data Management</a></li>
+        <li><a class="icon icon-location" href="#">Location</a></li>
+        <li><a class="icon icon-study" href="#">Study</a></li>
+        <li><a class="icon icon-photo" href="#">Collections</a></li>
+        <li><a class="icon icon-wallet" href="#">Credits</a></li>
+        <li><a class="icon icon-data" href="#">Data Management</a></li>
+        <li><a class="icon icon-location" href="#">Location</a></li>
+        <li><a class="icon icon-study" href="#">Study</a></li>
+        <li><a class="icon icon-photo" href="#">Collections</a></li>
+        <li><a class="icon icon-wallet" href="#">Credits</a></li>
+        <li><a class="icon icon-data" href="#">Data Management</a></li>
+        <li><a class="icon icon-location" href="#">Location</a></li>
+        <li><a class="icon icon-study" href="#">Study</a></li>
+        <li><a class="icon icon-photo" href="#">Collections</a></li>
+        <li><a class="icon icon-wallet" href="#">Credits</a></li>
+        <li><a class="icon icon-data" href="#">Data Management</a></li>
+        <li><a class="icon icon-location" href="#">Location</a></li>
+        <li><a class="icon icon-study" href="#">Study</a></li>
+        <li><a class="icon icon-photo" href="#">Collections</a></li>
+        <li><a class="icon icon-wallet" href="#">Credits</a></li>
+
+    </ul>
+</nav>

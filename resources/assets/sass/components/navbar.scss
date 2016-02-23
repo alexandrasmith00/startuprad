@@ -1,9 +1,12 @@
-body {
-    padding-top: $header-height + 25px + $default-padding;   
-}
+
 .content-portion {
     padding-top: $padding-below-header;   
 }
+
+.page-content {
+    padding-top: $header-height + $default-padding;
+}
+
 nav.navbar-home { 
     background: $white; 
     border-color: $light-grey; 
@@ -15,12 +18,13 @@ nav.navbar-home a {
 }
 
 nav.navbar-home a.navbar-brand {
-    color: $white;
-    
+    color: $emph-color;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2.5em;
 }
 
 nav.navbar-home a.navbar-brand:hover {
-    color: $secondary-color;
+    color: $highlight-color;
 }
 
 

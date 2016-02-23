@@ -3,31 +3,38 @@
 <head>
     @include('includes.head')
 </head>
-    
 
-<body id="sidebar-layout">
+<body>
     
-    @include('includes.navbar')
-    
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
-                @include('includes.sidebar')
+    <div id="sidebar-container" class="sidebar-container">
+
+        @include('includes.sidebar')
+			
+        <div class="st-pusher">
+
+            <div class="all-content">
+                <div class="push-content-down">
+
+                    @include('includes.header')
+                    
+                    <div class="page-content">
+                        @yield('content')
+                    </div>
+
+                    @include('includes.footer')
+
+                </div>
             </div>
             
-            <div class="col-sm-9 col-md-10 content-portion">
-                @yield('content')
-            </div>
         </div>
+        
     </div>
-    
-    
-    @include('includes.footer')
-
+        
     @include('includes.scripts')
+    <script src="js/classie.js"></script>
+    <script src="js/sidebarEffects.js"></script>
     
 </body>
-</html>
 
 
 
