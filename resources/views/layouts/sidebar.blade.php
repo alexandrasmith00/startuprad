@@ -10,7 +10,7 @@
 
         @include('includes.sidebar')
 			
-        <div class="st-pusher">
+        <div class="sidebar-pusher">
 
             <div class="all-content">
                 <div class="push-content-down">
@@ -31,9 +31,7 @@
     </div>
         
     @include('includes.scripts')
-    <script src="js/classie.js"></script>
-    <script src="js/sidebarEffects.js"></script>
-    
+
 </body>
 
 

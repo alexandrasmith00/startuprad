@@ -10,7 +10,7 @@
 
         <?php echo $__env->make('includes.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			
-        <div class="st-pusher">
+        <div class="sidebar-pusher">
 
             <div class="all-content">
                 <div class="push-content-down">
@@ -31,9 +31,7 @@
     </div>
         
     <?php echo $__env->make('includes.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <script src="js/classie.js"></script>
-    <script src="js/sidebarEffects.js"></script>
-    
+
 </body>
 
 

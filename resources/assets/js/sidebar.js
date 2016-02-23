@@ -27,15 +27,15 @@
 
 	function init() {
 
-		var container = document.getElementById( 'st-container' ),
-			buttons = Array.prototype.slice.call( document.querySelectorAll( '#st-trigger-effects > button' ) ),
+		var container = document.getElementById( 'sidebar-container' ),
+			buttons = Array.prototype.slice.call( document.querySelectorAll( '#sidebar-trigger > button' ) ),
 			// event type (if mobile use touch events)
 			eventtype = mobilecheck() ? 'touchstart' : 'click',
 			resetMenu = function() {
-				classie.remove( container, 'st-menu-open' );
+				classie.remove( container, 'sidebar-menu-open' );
 			},
 			bodyClickFn = function(evt) {
-				if( !hasParentClass( evt.target, 'st-menu' ) ) {
+				if( !hasParentClass( evt.target, 'sidebar-menu' ) ) {
 					resetMenu();
 					document.removeEventListener( eventtype, bodyClickFn );
 				}
@@ -47,10 +47,10 @@
 			el.addEventListener( eventtype, function( ev ) {
 				ev.stopPropagation();
 				ev.preventDefault();
-				container.className = 'st-container'; // clear
+				container.className = 'sidebar-container'; // clear
 				classie.add( container, effect );
 				setTimeout( function() {
-					classie.add( container, 'st-menu-open' );
+					classie.add( container, 'sidebar-menu-open' );
 				}, 25 );
 				document.addEventListener( eventtype, bodyClickFn );
 			});

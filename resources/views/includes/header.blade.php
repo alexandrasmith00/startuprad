@@ -37,7 +37,7 @@
      
                             
                               <li class="dropdown-header">Your Project</li>
-                              <div id="st-trigger-effects" class="column">
+                              <div id="sidebar-trigger" class="column">
     <button data-effect="st-effect-2">Slide in on top</button>
 </div>
                               <li class="dropdown-header">Your RAD</li>

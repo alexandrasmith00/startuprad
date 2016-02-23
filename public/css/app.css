@@ -5930,6 +5930,9 @@ table {
 .page-content {
   padding-top: 80px; }
 
+.navbar {
+  z-index: 100; }
+
 nav.navbar-home {
   background: #ffffff;
   border-color: #cccccc;
@@ -5941,7 +5944,7 @@ nav.navbar-home a {
 nav.navbar-home a.navbar-brand {
   color: #77BA9B;
   font-family: 'Oleo Script Swash Caps', cursive;
-  font-size: 2.5em; }
+  font-size: 2em; }
 
 nav.navbar-home a.navbar-brand:hover {
   color: #B6A754; }
@@ -6039,7 +6042,7 @@ html {
 html,
 body,
 .sidebar-container,
-.st-pusher,
+.sidebar-pusher,
 .all-content {
   height: 100%; }
 
@@ -6055,32 +6058,32 @@ body,
   position: relative;
   overflow: hidden; }
 
-.st-pusher {
+.sidebar-pusher {
   position: relative;
   left: 0;
-  z-index: 99;
+  z-index: 500;
   height: 100%;
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s; }
 
-.st-pusher::after {
+.sidebar-pusher::after {
   position: absolute;
   top: 0;
   right: 0;
   width: 0;
   height: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.5);
   content: '';
   opacity: 0;
   transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s; }
 
-.st-menu-open .st-pusher::after {
+.sidebar-menu-open .sidebar-pusher::after {
   width: 100%;
   height: 100%;
   opacity: 1;
   transition: opacity 0.5s; }
 
-.st-menu {
+.sidebar-menu {
   position: absolute;
   top: 0;
   left: 0;
@@ -6092,7 +6095,7 @@ body,
   transition: all 0.5s;
   overflow-y: scroll; }
 
-.st-menu::after {
+.sidebar-menu::after {
   position: absolute;
   top: 0;
   right: 0;
@@ -6103,19 +6106,19 @@ body,
   opacity: 1;
   transition: opacity 0.5s; }
 
-.st-menu-open .st-menu::after {
+.sidebar-menu-open .sidebar-menu::after {
   width: 0;
   height: 0;
   opacity: 0;
   transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s; }
 
 /* content style */
-.st-menu ul {
+.sidebar-menu ul {
   margin: 0;
   padding: 0;
   list-style: none; }
 
-.st-menu h2 {
+.sidebar-menu h2 {
   margin: 0;
   padding: 1em;
   color: rgba(0, 0, 0, 0.4);
@@ -6123,7 +6126,7 @@ body,
   font-weight: 300;
   font-size: 2em; }
 
-.st-menu ul li a {
+.sidebar-menu ul li a {
   display: block;
   padding: 1em 1em 1em 1.2em;
   outline: none;
@@ -6134,33 +6137,33 @@ body,
   font-weight: 400;
   transition: background 0.3s, box-shadow 0.3s; }
 
-.st-menu ul li:first-child a {
+.sidebar-menu ul li:first-child a {
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2), inset 0 1px rgba(0, 0, 0, 0.2); }
 
-.st-menu ul li a:hover {
+.sidebar-menu ul li a:hover {
   background: rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -1px transparent;
   color: #fff; }
 
 /* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
-.no-csstransforms3d .st-pusher,
-.no-js .st-pusher {
+.no-csstransforms3d .sidebar-pusher,
+.no-js .sidebar-pusher {
   padding-left: 300px; }
 
 /* Effect 2: Reveal */
-.st-effect-2.st-menu-open .st-pusher {
+.st-effect-2.sidebar-menu-open .sidebar-pusher {
   -webkit-transform: translate3d(300px, 0, 0);
   transform: translate3d(300px, 0, 0); }
 
-.st-effect-2.st-menu {
+.st-effect-2.sidebar-menu {
   z-index: 1; }
 
-.st-effect-2.st-menu-open .st-effect-2.st-menu {
+.st-effect-2.sidebar-menu-open .st-effect-2.sidebar-menu {
   visibility: visible;
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s; }
 
-.st-effect-2.st-menu::after {
+.st-effect-2.sidebar-menu::after {
   display: none; }
 
 .full-page-content {

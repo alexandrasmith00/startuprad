@@ -1,4 +1,4 @@
-<nav class="st-menu st-effect-2" id="menu-2">
+<nav class="sidebar-menu st-effect-2" id="menu-2">
     <h2 class="icon icon-lab">Sidebar</h2>
     <ul>
         <li><a class="icon icon-data" href="#">Data Management</a></li>

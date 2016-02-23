@@ -6,7 +6,9 @@
 .page-content {
     padding-top: $header-height + $default-padding;
 }
-
+.navbar {
+    z-index: 100;
+}
 nav.navbar-home { 
     background: $white; 
     border-color: $light-grey; 
@@ -20,13 +22,12 @@ nav.navbar-home a {
 nav.navbar-home a.navbar-brand {
     color: $emph-color;
     font-family: 'Oleo Script Swash Caps', cursive;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 nav.navbar-home a.navbar-brand:hover {
     color: $highlight-color;
 }
-
 
 nav.navbar-home ul.navbar-nav a { 
     color: $dark-grey; 
