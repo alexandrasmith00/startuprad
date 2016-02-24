@@ -1,9 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.sidebar')
 
 @section('content')
 
-    <div class="container">
-        <h1>{{ config('blog.title') }}</h1>
 
         <h5>Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }}</h5>
         <hr>
@@ -28,6 +26,7 @@
             @endforeach
         </ul>
         <hr>
-        {!! $posts->render() !!}
-    </div>
+<!--        {!! $posts->render() !!}-->
+
+
 @stop

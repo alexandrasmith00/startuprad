@@ -6553,7 +6553,7 @@ nav.navbar-home a {
   color: #3B5998; }
 
 nav.navbar-home ul.navbar-nav a {
-  color: #2e2e2e;
+  color: #293E6A;
   border-style: solid;
   border-width: 0 0 2px 0;
   border-color: #ffffff; }
@@ -6562,15 +6562,15 @@ nav.navbar-home ul.navbar-nav a:hover,
 nav.navbar-home ul.navbar-nav a:visited,
 nav.navbar-home ul.navbar-nav a:focus,
 nav.navbar-home ul.navbar-nav a:active {
-  background: #3B5998;
-  color: #639BF1; }
+  background: #ffffff;
+  color: #293E6A; }
 
-nav.navbar-home ul.navbar-nav a:focus,
-nav.navbar-home ul.navbar-nav a:visited {
-  border-color: #ffffff; }
+nav.navbar-home ul.navbar-nav a:hover,
+nav.navbar-home ul.navbar-nav a:focus {
+  color: #B6A754;
+  border-color: #B6A754; }
 
-nav.navbar-home ul.navbar-nav a:active,
-nav.navbar-home ul.navbar-nav a:hover {
+nav.navbar-home ul.navbar-nav a:active {
   border-color: #77BA9B; }
 
 nav.navbar-home li.divider {
@@ -6581,7 +6581,7 @@ nav.navbar-home button.navbar-toggle {
   border-radius: 2px; }
 
 nav.navbar-home button.navbar-toggle:hover {
-  background: #2e2e2e; }
+  background: #293E6A; }
 
 nav.navbar-home button.navbar-toggle > span.icon-bar {
   background: #ffffff; }
@@ -6594,7 +6594,7 @@ nav.navbar-home ul.dropdown-menu {
   box-shadow: 0 0 4px 0 #cccccc; }
 
 nav.navbar-home ul.dropdown-menu > li > a {
-  color: #2e2e2e;
+  color: #293E6A;
   border-color: #ffffff; }
 
 nav.navbar-home ul.dropdown-menu > li > a:hover {
@@ -6618,12 +6618,17 @@ nav.navbar-home span.badge.new {
 html {
   /* Set the alignment and positioning here */
   position: relative;
+  height: 100%; }
+
+body {
   min-height: 100%; }
 
 .page-content {
   /* Set the alignment and positioning here */
-  padding-bottom: 70px;
-  min-height: 100%; }
+  /* Set the alignment and positioning here */
+  position: relative;
+  margin-bottom: 50px;
+  padding-bottom: 20px; }
 
 .push-content-down {
   min-height: 100%; }
@@ -6633,7 +6638,6 @@ html {
   text-align: center;
   position: absolute;
   bottom: 0;
-  /* Set any padding here */
   /* Set any sizing here */
   height: 50px;
   width: 100%;

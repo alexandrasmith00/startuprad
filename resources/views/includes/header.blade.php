@@ -27,7 +27,8 @@
             <ul class="nav navbar-nav navbar-left">
                 @if ( ! Auth::guest())
                 
-                    <li id="sidebar-trigger" data-effect="st-effect-2"><a>Projects</a></li>
+                    <li><a><i class="fa fa-home"></i></a></li>
+                    <li id="sidebar-trigger" data-effect="st-effect-2"><a href="/" >RAD</a></li>
                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>  
 
                 @endif
@@ -42,23 +43,9 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-     
-                            
-                              <li class="dropdown-header">Your Project</li>
-                              <div id="sidebar-trigger" class="column">
-                                <button data-effect="st-effect-2">Slide in on top</button>
-                            </div>
-                              <li class="dropdown-header">Your RAD</li>
-                            
-
-                                
-                                
-                              <li><a href="{{ url('/project') }}">View All</a></li>
-
-                              <li class="dropdown-header">Your Account</li>
                               <li><a href=" {{ url('/account/show').'/'. Auth::user()->id }}">Account</a></li>                         
-                              <li><a href="{{ url('/logout') }}">Settings</a></li>
-                              <li><a href="{{ url('/logout') }}">Logout</a></li>
+                              <li><a href="{{ url('/account/settings').'/'. Auth::user()->id  }}">Settings</a></li>
+                              <li><a href="{{ url('/logout') }}">Log Out</a></li>
 
                             
                         
