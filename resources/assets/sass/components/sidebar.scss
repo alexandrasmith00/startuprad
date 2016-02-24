@@ -7,8 +7,7 @@ body,
 }
 
 .all-content {
-  overflow-y: scroll;
-  background: #f3efe0;
+  background: $background-color;
 }
 
 .all-content,
@@ -58,9 +57,9 @@ body,
 	left: 0;
 	z-index: 100;
 	visibility: hidden;
-	width: 300px;
+	width: $sidebar-width;
 	height: 100%;
-	background: #48a770;
+	background: $primary-color;
 	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
     overflow-y: scroll;
@@ -95,50 +94,51 @@ body,
 	list-style: none;
 }
 
-.sidebar-menu h2 {
+.sidebar-menu h4 {
 	margin: 0;
 	padding: 1em;
-	color: rgba(0,0,0,0.4);
-	text-shadow: 0 0 1px rgba(0,0,0,0.1);
-	font-weight: 300;
-	font-size: 2em;
+	color: $white;
+    font-weight: 300;
+    text-align: center;
+    background-color: $white;
 }
 
 .sidebar-menu ul li a {
 	display: block;
-	padding: 1em 1em 1em 1.2em;
+	padding: .5em 1em .5em 1.2em;
 	outline: none;
-	box-shadow: inset 0 -1px rgba(0,0,0,0.2);
-	text-transform: uppercase;
-	text-shadow: 0 0 1px rgba(255,255,255,0.1);
-	letter-spacing: 1px;
 	font-weight: 400;
-	-webkit-transition: background 0.3s, box-shadow 0.3s;
-	transition: background 0.3s, box-shadow 0.3s;
+    color: $white;
+    border-bottom: 1px solid $more-transparent;
+//	-webkit-transition: background 0.3s, box-shadow 0.3s;
+//	transition: background 0.3s, box-shadow 0.3s;
 }
 
-.sidebar-menu ul li:first-child a {
-	box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);
+.sidebar-menu ul li a.cohort {
+    background-color: $dark-color;
+}
+.sidebar-menu ul li a.cohort:hover {
+    background-color: $dark-color;
 }
 
 .sidebar-menu ul li a:hover {
-	background: rgba(0,0,0,0.2);
-	box-shadow: inset 0 -1px rgba(0,0,0,0);
-	color: #fff;
+	background: $highlight-color;
+	color: $white;
+    text-decoration: none;
 }
 
 
 /* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
 .no-csstransforms3d .sidebar-pusher,
 .no-js .sidebar-pusher {
-	padding-left: 300px;
+	padding-left: $sidebar-width;
 }
 
 
-/* Effect 2: Reveal */
+// effect
 .st-effect-2.sidebar-menu-open .sidebar-pusher {
-	-webkit-transform: translate3d(300px, 0, 0);
-	transform: translate3d(300px, 0, 0);
+	-webkit-transform: translate3d($sidebar-width, 0, 0);
+	transform: translate3d($sidebar-width, 0, 0);
 }
 
 .st-effect-2.sidebar-menu {

@@ -1,6 +1,11 @@
 <nav class="navbar navbar-home navbar-fixed-top">
+   
+
     <div class="container">
+        
+
         <div class="navbar-header">
+
 
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -13,19 +18,22 @@
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 @include('includes.brand')
-
             </a>
         </div>
-        <div class="collapse navbar-collapse" id="navbar">
+        
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
             
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-left">
                 @if ( ! Auth::guest())
+                
+                    <li id="sidebar-trigger" data-effect="st-effect-2"><a>Projects</a></li>
                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>  
+
                 @endif
             </ul>
             
             <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
                 @if ( ! Auth::guest())
             
                     <li class="dropdown">
@@ -38,8 +46,8 @@
                             
                               <li class="dropdown-header">Your Project</li>
                               <div id="sidebar-trigger" class="column">
-    <button data-effect="st-effect-2">Slide in on top</button>
-</div>
+                                <button data-effect="st-effect-2">Slide in on top</button>
+                            </div>
                               <li class="dropdown-header">Your RAD</li>
                             
 

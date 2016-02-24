@@ -26,7 +26,7 @@ html {
   bottom: 0;
  
   /* Set any padding here */
-  padding-top: $default-padding;
+//  padding-top: $default-padding;
 
   /* Set any sizing here */
   height: $footer-height;
@@ -36,4 +36,8 @@ html {
   background-color: $footer-color;
   color: $footer-font-color;
 
+  .name {
+    line-height: $footer-height;   
+  }
+    
 }

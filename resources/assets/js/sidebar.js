@@ -28,7 +28,7 @@
 	function init() {
 
 		var container = document.getElementById( 'sidebar-container' ),
-			buttons = Array.prototype.slice.call( document.querySelectorAll( '#sidebar-trigger > button' ) ),
+			buttons = Array.prototype.slice.call( document.querySelectorAll( '#sidebar-trigger ' ) ),
 			// event type (if mobile use touch events)
 			eventtype = mobilecheck() ? 'touchstart' : 'click',
 			resetMenu = function() {

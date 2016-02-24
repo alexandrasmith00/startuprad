@@ -1,0 +1,9 @@
+.brand {
+    color: $emph-color;
+    font-family: 'Montserrat';
+    font-size: 1.5em;
+}
+
+.brand:hover {
+    color: $highlight-color;
+}

@@ -1,26 +1,18 @@
 <nav class="sidebar-menu st-effect-2" id="menu-2">
-    <h2 class="icon icon-lab">Sidebar</h2>
+    <h4><span class="brand">RADs</span></h4>
     <ul>
-        <li><a class="icon icon-data" href="#">Data Management</a></li>
-        <li><a class="icon icon-location" href="#">Location</a></li>
-        <li><a class="icon icon-study" href="#">Study</a></li>
-        <li><a class="icon icon-photo" href="#">Collections</a></li>
-        <li><a class="icon icon-wallet" href="#">Credits</a></li>
-        <li><a class="icon icon-data" href="#">Data Management</a></li>
-        <li><a class="icon icon-location" href="#">Location</a></li>
-        <li><a class="icon icon-study" href="#">Study</a></li>
-        <li><a class="icon icon-photo" href="#">Collections</a></li>
-        <li><a class="icon icon-wallet" href="#">Credits</a></li>
-        <li><a class="icon icon-data" href="#">Data Management</a></li>
-        <li><a class="icon icon-location" href="#">Location</a></li>
-        <li><a class="icon icon-study" href="#">Study</a></li>
-        <li><a class="icon icon-photo" href="#">Collections</a></li>
-        <li><a class="icon icon-wallet" href="#">Credits</a></li>
-        <li><a class="icon icon-data" href="#">Data Management</a></li>
-        <li><a class="icon icon-location" href="#">Location</a></li>
-        <li><a class="icon icon-study" href="#">Study</a></li>
-        <li><a class="icon icon-photo" href="#">Collections</a></li>
-        <li><a class="icon icon-wallet" href="#">Credits</a></li>
+        
+                                    
+        <?php foreach(Auth::user()->cohorts as $cohort): ?>
+            <li><a class="cohort"><?php echo e($cohort->name); ?></a></li>
+        
+            <?php foreach($cohort->ideas as $project): ?>
+                <li><a href="/project/<?php echo e($project->id); ?>"><?php echo e($project->name); ?></a></li>
+            <?php endforeach; ?>
+        
+        <?php endforeach; ?>
+       
 
     </ul>
+    
 </nav>
