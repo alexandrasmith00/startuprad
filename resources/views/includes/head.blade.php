@@ -14,7 +14,6 @@
 <link rel="stylesheet" type="text/css" href="/css/app.css">
 <link rel="stylesheet" href="/css/AdminLTE.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-<link rel="stylesheet" href="/css/_all-skins.min.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

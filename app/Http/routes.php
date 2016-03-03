@@ -3,7 +3,7 @@
 Route::group(['middleware' => 'web'], function () {
 
     // routes that don't need authentication
-    Route::get('/', 'PagesController@welcome');
+    Route::get('/', 'FeedController@index');
 
 //
     Route::get('feed', 'FeedController@index');

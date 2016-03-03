@@ -48,6 +48,13 @@ class TeamsTableSeeder extends Seeder
                 'logo' => $logo
             ]);
             
+            foreach($team_members as $member)
+            {
+                DB::table('users')
+                    ->where('id', $member)
+                    ->update(array('idea_id' => $idea->id));
+            }
+            
             DB::table('teams_ideas')->insert([
                 'idea_id' => $idea->id,
                 'team_id' => $team->id           

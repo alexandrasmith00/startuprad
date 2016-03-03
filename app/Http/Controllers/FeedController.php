@@ -16,7 +16,7 @@ class FeedController extends Controller
     public function index()
     {
         $posts = Post::orderBy('published_at', 'desc')
-            ->paginate(config('blog.posts_per_page'));
+            ->paginate(8);
 
         return view('feed.index', compact('posts'));
     }

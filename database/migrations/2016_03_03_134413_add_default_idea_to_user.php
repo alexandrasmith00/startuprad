@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDefaultTeideaToUser extends Migration
+class AddDefaultIdeaToUser extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,10 @@ class AddDefaultTeideaToUser extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('users', function($table)
+        {
+            $table->integer('idea_id');
+        });
     }
 
     /**
@@ -22,6 +25,10 @@ class AddDefaultTeideaToUser extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function($table)
+        {
+            $table->dropColumn('idea_id');
+        });
+        
     }
 }

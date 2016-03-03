@@ -41,6 +41,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Team', 'teams_users');
     }
     
+    public function idea()
+    {
+        return $this->belongsTo('App\Models\Idea', 'idea_id');
+    }
+    
     public function cohorts()
     {
         return $this->belongsToMany('App\Models\Cohort', 'cohorts_users');
