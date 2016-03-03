@@ -3,10 +3,10 @@
 Route::group(['middleware' => 'web'], function () {
 
     // routes that don't need authentication
-    Route::get('/', 'FeedController@index');
+    Route::get('/', 'PagesController@welcome');
 
 //
-//    Route::get('feed', 'FeedController@index');
+    Route::get('feed', 'FeedController@index');
     
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
 

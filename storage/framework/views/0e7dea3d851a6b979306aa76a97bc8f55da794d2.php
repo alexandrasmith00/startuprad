@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
 
-        <form  role="form" method="POST" action="<?php echo e(url('/login')); ?>">
+        <form  id="login-form" role="form" method="POST" action="<?php echo e(url('/login')); ?>">
             <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
 
                 <input type="email" name="email" value="<?php echo e(old('email')); ?>" placeholder="Email">

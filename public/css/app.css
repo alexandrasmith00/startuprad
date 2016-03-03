@@ -6484,49 +6484,6 @@ table {
   -webkit-animation: burst 3s infinite linear;
   animation: burst 3s infinite linear; }
 
-.btn {
-  padding: 10px 18px;
-  border-radius: 3px;
-  width: 250px;
-  outline: 0;
-  border: 0;
-  margin: 0 auto 10px auto;
-  color: #ffffff; }
-
-.btn:hover,
-.btn:visited,
-.btn:focus,
-.btn:active {
-  color: #ffffff; }
-
-.btn-primary {
-  background-color: #3B5998;
-  border-color: #3B5998;
-  color: #ffffff; }
-
-.btn-transparent {
-  border: 1px solid transparent;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.2); }
-
-.btn-skinny {
-  padding: 5px 18px;
-  margin: 0 auto 10px auto; }
-
-.btn-primary:hover,
-.btn-primary:visited,
-.btn-primary:focus,
-.btn-primary:active {
-  color: #ffffff; }
-
-.btn-link {
-  color: #ffffff; }
-
-.btn-link:hover {
-  color: #B6A754;
-  text-decoration: none;
-  font-weight: bold; }
-
 .brand {
   color: #77BA9B;
   font-family: 'Montserrat';
@@ -6618,16 +6575,12 @@ nav.navbar-home span.badge.new {
 html {
   /* Set the alignment and positioning here */
   position: relative;
-  height: 100%; }
-
-body {
   min-height: 100%; }
 
 .page-content {
   /* Set the alignment and positioning here */
   /* Set the alignment and positioning here */
   position: relative;
-  margin-bottom: 50px;
   padding-bottom: 20px; }
 
 .push-content-down {
@@ -6636,7 +6589,7 @@ body {
 .footer {
   /* Set the alignment and positioning here */
   text-align: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   /* Set any sizing here */
   height: 50px;
@@ -6647,130 +6600,96 @@ body {
   .footer .name {
     line-height: 50px; }
 
-html,
-body,
-.sidebar-container,
-.sidebar-pusher,
-.all-content {
-  height: 100%; }
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+/* Toggle Styles */
+#wrapper {
+  padding-left: 0;
+  transition: all 0.5s ease; }
 
-.all-content {
-  background: #f5f5f5; }
+#wrapper.toggled {
+  padding-left: 250px; }
 
-.all-content,
-.all-content-inner {
-  position: relative; }
-
-.sidebar-container {
-  position: relative;
-  overflow: hidden; }
-
-.sidebar-pusher {
-  position: relative;
-  left: 0;
-  z-index: 500;
-  height: 100%;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s; }
-
-.sidebar-pusher::after {
-  position: absolute;
-  top: 0;
-  right: 0;
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
   width: 0;
-  height: 0;
-  background: rgba(0, 0, 0, 0.5);
-  content: '';
-  opacity: 0;
-  transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s; }
-
-.sidebar-menu-open .sidebar-pusher::after {
-  width: 100%;
   height: 100%;
-  opacity: 1;
-  transition: opacity 0.5s; }
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+  transition: all 0.5s ease; }
 
-.sidebar-menu {
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px; }
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px; }
+
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -250px; }
+
+/* Sidebar Styles */
+.sidebar-nav {
   position: absolute;
   top: 0;
-  left: 0;
-  z-index: 100;
-  visibility: hidden;
-  width: 300px;
-  height: 100%;
-  background: #3B5998;
-  transition: all 0.5s;
-  overflow-y: scroll; }
-
-.sidebar-menu::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  content: '';
-  opacity: 1;
-  transition: opacity 0.5s; }
-
-.sidebar-menu-open .sidebar-menu::after {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s; }
-
-/* content style */
-.sidebar-menu ul {
+  width: 250px;
   margin: 0;
   padding: 0;
   list-style: none; }
 
-.sidebar-menu h4 {
-  margin: 0;
-  padding: 1em;
-  color: #ffffff;
-  font-weight: 300;
-  text-align: center;
-  background-color: #ffffff; }
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px; }
 
-.sidebar-menu ul li a {
+.sidebar-nav li a {
   display: block;
-  padding: .5em 1em .5em 1.2em;
-  outline: none;
-  font-weight: 400;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+  text-decoration: none;
+  color: #999999; }
 
-.sidebar-menu ul li a.cohort {
-  background-color: #293E6A; }
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2); }
 
-.sidebar-menu ul li a.cohort:hover {
-  background-color: #293E6A; }
-
-.sidebar-menu ul li a:hover {
-  background: #B6A754;
-  color: #ffffff;
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
   text-decoration: none; }
 
-/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
-.no-csstransforms3d .sidebar-pusher,
-.no-js .sidebar-pusher {
-  padding-left: 300px; }
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px; }
 
-.st-effect-2.sidebar-menu-open .sidebar-pusher {
-  -webkit-transform: translate3d(300px, 0, 0);
-  transform: translate3d(300px, 0, 0); }
+.sidebar-nav > .sidebar-brand a {
+  color: #999999; }
 
-.st-effect-2.sidebar-menu {
-  z-index: 1; }
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none; }
 
-.st-effect-2.sidebar-menu-open .st-effect-2.sidebar-menu {
-  visibility: visible;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s; }
-
-.st-effect-2.sidebar-menu::after {
-  display: none; }
+@media (min-width: 768px) {
+  #wrapper {
+    padding-left: 250px; }
+  #wrapper.toggled {
+    padding-left: 0; }
+  #sidebar-wrapper {
+    width: 250px; }
+  #wrapper.toggled #sidebar-wrapper {
+    width: 0; }
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative; }
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0; } }
 
 .full-page-content {
   padding-top: 60px;
@@ -6791,12 +6710,47 @@ body,
   .form-non-input .btn-link a:hover {
     color: #77BA9B; }
 
-form {
+#login-form {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
+  #login-form .btn {
+    padding: 10px 18px;
+    border-radius: 3px;
+    width: 250px;
+    outline: 0;
+    border: 0;
+    margin: 0 auto 10px auto;
+    color: #ffffff; }
+  #login-form .btn:hover,
+  #login-form .btn:visited,
+  #login-form .btn:focus,
+  #login-form .btn:active {
+    color: #ffffff; }
+  #login-form .btn-primary {
+    background-color: #3B5998;
+    border-color: #3B5998;
+    color: #ffffff; }
+  #login-form .btn-transparent {
+    border: 1px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2); }
+  #login-form .btn-skinny {
+    padding: 5px 18px;
+    margin: 0 auto 10px auto; }
+  #login-form .btn-primary:hover,
+  #login-form .btn-primary:visited,
+  #login-form .btn-primary:focus,
+  #login-form .btn-primary:active {
+    color: #ffffff; }
+  #login-form .btn-link {
+    color: #ffffff; }
+  #login-form .btn-link:hover {
+    color: #B6A754;
+    text-decoration: none;
+    font-weight: bold; }
 
 form input {
   -webkit-appearance: none;
@@ -6848,10 +6802,11 @@ form button:visited,
 form button:active {
   color: #ffffff; }
 
-body {
+html, body {
+  height: 100%;
   background: #f5f5f5;
   color: #333333; }
-  body a {
+  html a, body a {
     color: #3B5998; }
 
 /*# sourceMappingURL=app.css.map */

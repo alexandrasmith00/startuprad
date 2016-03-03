@@ -7,7 +7,7 @@
 
 <body>
     
-        @include('includes.header')
+
 
         <div class="full-page-content">
             @yield('content')

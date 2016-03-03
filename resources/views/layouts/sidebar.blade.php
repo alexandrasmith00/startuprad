@@ -15,7 +15,7 @@
             <div class="all-content">
                 <div class="push-content-down">
 
-                    @include('includes.header')
+<!--                    @include('includes.header')-->
                     
                     <div class="page-content">
                         <div class="container">
@@ -23,7 +23,7 @@
                         </div>
                     </div>
 
-                    @include('includes.footer')
+<!-- @include('includes.footer')-->
 
                 </div>
             </div>

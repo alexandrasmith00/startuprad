@@ -1,61 +1,31 @@
-<nav class="navbar navbar-home navbar-fixed-top">
-   
 
-    <div class="container">
-        
+      <header class="main-header">
+          
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>A</b>LT</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg">Startup <b>RAD</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
 
-        <div class="navbar-header">
+              @include('includes.header.messages')
+              @include('includes.header.notifications')
+              @include('includes.header.tasks')
+              @include('includes.header.user')
 
-
-            <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                @include('includes.brand')
-            </a>
-        </div>
-        
-
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            
-            <ul class="nav navbar-nav navbar-left">
-                @if ( ! Auth::guest())
-                
-                    <li><a><i class="fa fa-home"></i></a></li>
-                    <li id="sidebar-trigger" data-effect="st-effect-2"><a href="/" >RAD</a></li>
-                    <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>  
-
-                @endif
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li>
             </ul>
-            
-            <ul class="nav navbar-nav navbar-right">
-                @if ( ! Auth::guest())
-            
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->first }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                              <li><a href=" {{ url('/account/show').'/'. Auth::user()->id }}">Account</a></li>                         
-                              <li><a href="{{ url('/account/settings').'/'. Auth::user()->id  }}">Settings</a></li>
-                              <li><a href="{{ url('/logout') }}">Log Out</a></li>
-
-                            
-                        
-                        </ul>
-                    </li>
-                @endif
-            </ul>
-            
-        </div>  
-    </div>
-</nav>
-
-
+          </div>
+        </nav>
+      </header>

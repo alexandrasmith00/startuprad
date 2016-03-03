@@ -15,7 +15,7 @@
             <div class="all-content">
                 <div class="push-content-down">
 
-                    <?php echo $__env->make('includes.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<!--                    <?php echo $__env->make('includes.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>-->
                     
                     <div class="page-content">
                         <div class="container">
@@ -23,7 +23,7 @@
                         </div>
                     </div>
 
-                    <?php echo $__env->make('includes.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<!-- <?php echo $__env->make('includes.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>-->
 
                 </div>
             </div>

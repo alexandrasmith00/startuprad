@@ -1,156 +1,125 @@
-html,
-body,
-.sidebar-container,
-.sidebar-pusher,
-.all-content {
-  height: 100%;
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-.all-content {
-  background: $background-color;
+#wrapper.toggled {
+    padding-left: 250px;
 }
 
-.all-content,
-.all-content-inner {
-  position: relative;
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-.sidebar-container {
-  position: relative;
-  overflow: hidden;
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
 }
 
-
-.sidebar-pusher {
-  position: relative;
-  left: 0;
-  z-index: 500;
-  height: 100%;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
 }
 
-.sidebar-pusher::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  background: rgba(0,0,0,0.5);
-  content: '';
-  opacity: 0;
-  -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-  transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
 }
 
-.sidebar-menu-open .sidebar-pusher::after {
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.sidebar-menu {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 100;
-	visibility: hidden;
-	width: $sidebar-width;
-	height: 100%;
-	background: $primary-color;
-	-webkit-transition: all 0.5s;
-	transition: all 0.5s;
-    overflow-y: scroll;
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
 }
 
-.sidebar-menu::after {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0,0,0,0.2);
-	content: '';
-	opacity: 1;
-	-webkit-transition: opacity 0.5s;
-	transition: opacity 0.5s;
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
 }
 
-.sidebar-menu-open .sidebar-menu::after {
-	width: 0;
-	height: 0;
-	opacity: 0;
-	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
 }
 
-/* content style */
-
-.sidebar-menu ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.sidebar-menu h4 {
-	margin: 0;
-	padding: 1em;
-	color: $white;
-    font-weight: 300;
-    text-align: center;
-    background-color: $white;
-}
-
-.sidebar-menu ul li a {
-	display: block;
-	padding: .5em 1em .5em 1.2em;
-	outline: none;
-	font-weight: 400;
-    color: $white;
-    border-bottom: 1px solid $more-transparent;
-//	-webkit-transition: background 0.3s, box-shadow 0.3s;
-//	transition: background 0.3s, box-shadow 0.3s;
-}
-
-.sidebar-menu ul li a.cohort {
-    background-color: $dark-color;
-}
-.sidebar-menu ul li a.cohort:hover {
-    background-color: $dark-color;
-}
-
-.sidebar-menu ul li a:hover {
-	background: $highlight-color;
-	color: $white;
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
     text-decoration: none;
 }
 
-
-/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
-.no-csstransforms3d .sidebar-pusher,
-.no-js .sidebar-pusher {
-	padding-left: $sidebar-width;
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
 }
 
-
-// effect
-.st-effect-2.sidebar-menu-open .sidebar-pusher {
-	-webkit-transform: translate3d($sidebar-width, 0, 0);
-	transform: translate3d($sidebar-width, 0, 0);
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
 }
 
-.st-effect-2.sidebar-menu {
-	z-index: 1;
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
 }
 
-.st-effect-2.sidebar-menu-open .st-effect-2.sidebar-menu {
-	visibility: visible;
-	-webkit-transition: -webkit-transform 0.5s;
-	transition: transform 0.5s;
-}
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
 
-.st-effect-2.sidebar-menu::after {
-	display: none;
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
 }
