@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
+    <form id="login-form" class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
             <input type="hidden" name="token" value="{{ $token }}">

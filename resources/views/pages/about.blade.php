@@ -23,4 +23,6 @@
 @stop
 
 @section('scripts')
+
+
 @stop

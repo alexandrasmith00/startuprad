@@ -32,7 +32,9 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                  
+                                  
+                <li><a href="/project" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><i class="fa fa-circle-o"></i>View All</a></li>
+ 
                 <?php foreach(Auth::user()->cohorts as $cohort): ?>
                         <?php foreach($cohort->ideas as $project): ?>
                             <li><a href="/project/<?php echo e($project->id); ?>" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><i class="fa fa-circle-o"></i><?php echo e($project->name); ?></a></li>

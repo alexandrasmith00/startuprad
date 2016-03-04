@@ -1,0 +1,153 @@
+/*
+ * Page: Login & Register
+ * ----------------------
+ */
+
+.full-page-content {
+  width: 100%;
+  height: 100%;
+  background-color: @dark-color;
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 0px;
+}
+
+.form-non-input {
+  margin: 0;
+  background-color: transparent;
+  text-align: center;   
+    
+    .btn-link a {
+      color: @white;
+    }
+            
+    .btn-link a:hover {
+      color: @emph-color;
+    }
+}
+
+
+
+
+
+#login-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    
+    .btn {
+      padding: @padding-top-buttons @padding-side-buttons;
+      border-radius: @button-border-radius;
+      width: @default-button-width;
+      outline: 0;
+      border: 0;
+      margin: @button-margin;
+      color: @white;
+    }
+
+    .btn:hover,
+    .btn:visited,
+    .btn:focus,
+    .btn:active { 
+      color: @white;
+    }
+
+    .btn-primary {
+      background-color: @primary-color;
+      border-color: @primary-color;
+      color: @white;
+
+    }
+
+    .btn-transparent {
+      border: 1px solid transparent;
+      border: 1px solid @transparent;
+      background-color: @more-transparent;
+    }
+
+    .btn-skinny {
+      padding: @padding-top-buttons/2 @padding-side-buttons;
+      margin: @button-margin;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:visited,
+    .btn-primary:focus,
+    .btn-primary:active { 
+      color: @white;
+    }
+
+    .btn-link {
+        color: @white;
+    }
+
+    .btn-link:hover { 
+      color: @highlight-color;
+      text-decoration: none;
+      font-weight: bold;
+    }
+}
+
+
+form input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  -webkit-transition-duration: 0.25s;
+      transition-duration: 0.25s;
+    
+  border: 1px solid @transparent;
+  background-color: @more-transparent;
+  border-radius: @default-border-radius;
+  padding: @padding-top-buttons @padding-side-buttons;
+  margin: @button-margin;
+  font-size: @default-font-size;
+  color: @white;
+  width: @login-form-width;
+  outline: 0;
+  display: block;
+  text-align: center;
+}
+
+form input:hover {
+  background-color: @more-transparent;
+}
+
+form input:focus {
+  background-color: @white;
+  width: @login-form-width + @login-grow;
+  color: @emph-color;
+  border: 0;
+}
+
+form button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  padding: @padding-top-buttons @padding-side-buttons;
+  margin: @button-margin;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: @emph-color;
+  color: @white;
+  text-align: center;
+  outline: 0;
+}
+
+form button:hover {
+  background-color: @highlight-color;
+  color:@white;
+}
+
+form button:hover,
+form button:focus,
+form button:visited,
+form button:active {
+  color: @white;
+}

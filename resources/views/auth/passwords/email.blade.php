@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
+    <form id="login-form" class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
             <input type="email" name="email" value="{{ old('email') }}" placeholder="Email">

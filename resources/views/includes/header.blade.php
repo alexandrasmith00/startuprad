@@ -4,7 +4,7 @@
         <!-- Logo -->
         <a href="/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>RAD</b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg">Startup <b>RAD</b></span>
         </a>
@@ -22,9 +22,11 @@
               @include('includes.header.tasks')
               @include('includes.header.user')
 
+<!--
               <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
               </li>
+-->
             </ul>
           </div>
         </nav>

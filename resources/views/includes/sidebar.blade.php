@@ -32,7 +32,9 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                  
+                                  
+                <li><a href="/project" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><i class="fa fa-circle-o"></i>View All</a></li>
+ 
                 @foreach (Auth::user()->cohorts as $cohort)
                         @foreach ($cohort->ideas as $project)
                             <li><a href="/project/{{ $project->id }}" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><i class="fa fa-circle-o"></i>{{ $project->name }}</a></li>

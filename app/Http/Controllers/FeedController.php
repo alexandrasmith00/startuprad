@@ -13,6 +13,17 @@ use Carbon\Carbon;
 
 class FeedController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function index()
     {
         $posts = Post::orderBy('published_at', 'desc')

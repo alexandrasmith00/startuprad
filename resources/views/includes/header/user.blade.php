@@ -8,8 +8,10 @@
                   <!-- User image -->
                   <li class="user-header">
                     <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                    <p>
-                      {{ Auth::user()->name }}  
+                    <p style="color: black;"> 
+                      {{ Auth::user()->name }} 
+                        
+                      <small>{{ Auth::user()->idea->name }}</small>
                         
 
                       <small>
@@ -19,7 +21,6 @@
                           RAD
                       </small>
                             
-
                     </p>
                   </li>
                   <!-- Menu Body -->

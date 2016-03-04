@@ -143,6 +143,7 @@ $(function () {
   //Fix for IE page transitions
   $("body").removeClass("hold-transition");
 
+
   //Extend options if external options exist
   if (typeof AdminLTEOptions !== "undefined") {
     $.extend(true,

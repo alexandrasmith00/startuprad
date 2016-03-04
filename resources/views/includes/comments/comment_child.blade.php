@@ -1,4 +1,4 @@
-<div class="box-comment col-md-offset-{{ $comment->depth }}">
+<div class="box-comment col-xs-offset-{{ $comment->depth }}">
     <!-- User image -->
     <img class='img-circle img-sm' src='../dist/img/user3-128x128.jpg' alt='user image'>
     <div class='comment-text'>
