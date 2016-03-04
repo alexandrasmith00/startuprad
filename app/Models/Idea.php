@@ -15,8 +15,12 @@ class Idea extends Model
      */
     public function team()
     {
-        return $this->belongsTo('App\Models\Team', 'team_ideas');
+        return $this->hasOne('App\Models\Team');
     }
+//    public function people() 
+//    {
+//        return $this->hasManyThrough('App\Models\Team', 'App\Models\User');
+//    }
 
     public function thinkings()
     {

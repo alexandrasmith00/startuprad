@@ -44,11 +44,15 @@ class RadTeamsSeeder extends Seeder
         
         foreach ($teams as $name => $team)
         {
-            $new_team = Team::create();
             
             $idea = Idea::create([
                 'name' => $name
             ]);
+            
+            $new_team = Team::create([
+                'idea_id' => $idea->id
+            ]);
+
 
             foreach ($team as $member)
             {
@@ -65,13 +69,7 @@ class RadTeamsSeeder extends Seeder
                 
             }
 
-            
-            
-            
-            DB::table('teams_ideas')->insert([
-                'idea_id' => $idea->id,
-                'team_id' => $new_team->id           
-            ]);   
+        
             
             // add idea to current cohort
             DB::table('cohorts_ideas')->insert([

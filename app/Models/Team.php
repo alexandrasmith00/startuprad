@@ -22,7 +22,7 @@ class Team extends Model
      */
     public function idea()
     {
-        return $this->belongsToMany('App\Models\Idea', 'teams_ideas');
+        return $this->belongsTo('App\Models\Idea');
     }
 
  

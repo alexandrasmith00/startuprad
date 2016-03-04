@@ -60,8 +60,7 @@ class User extends Authenticatable
     {
         $projects = [];
         foreach ($this->teams as $team)
-            foreach ($team->idea as $idea)
-                array_push($projects, $idea->id);
+                array_push($projects, $team->idea->id);
         return in_array($check, $projects);
     }
     

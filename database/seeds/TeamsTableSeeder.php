@@ -24,18 +24,6 @@ class TeamsTableSeeder extends Seeder
         // create 50 teams with 50 ideas
         foreach(range(1, 50) as $index)
         {
-            $team = Team::create();
-            
-            $team_members = $faker->randomElements($users, $count = 3);
-            
-            foreach($team_members as $member)
-            {
-                DB::table('teams_users')->insert([
-                    'user_id' => $member,
-                    'team_id' => $team->id           
-                ]);
-            }
-            
             $name = $faker->company;
             $tagline = $faker->catchPhrase;
             $website = $faker->url;
@@ -48,6 +36,22 @@ class TeamsTableSeeder extends Seeder
                 'logo' => $logo
             ]);
             
+            $team = Team::create([
+                'idea_id' => $idea->id
+            ]);
+            
+            $team_members = $faker->randomElements($users, $count = 3);
+            
+            foreach($team_members as $member)
+            {
+                DB::table('teams_users')->insert([
+                    'user_id' => $member,
+                    'team_id' => $team->id           
+                ]);
+            }
+            
+
+
             foreach($team_members as $member)
             {
                 DB::table('users')
@@ -55,10 +59,7 @@ class TeamsTableSeeder extends Seeder
                     ->update(array('idea_id' => $idea->id));
             }
             
-            DB::table('teams_ideas')->insert([
-                'idea_id' => $idea->id,
-                'team_id' => $team->id           
-            ]);    
+ 
              
             // for the idea, add a default thinking for each category
             $new_name = Thinking::create([

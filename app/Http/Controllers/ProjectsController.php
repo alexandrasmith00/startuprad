@@ -68,8 +68,8 @@ class ProjectsController extends Controller
     public function show($index)
     {
         $editsChannel = 'edits' . $index .'Channel';
-        $project = Idea::find($index);
-
+        $project = Idea::where('id', $index)->first();
+        
         if( Auth::user()->hasProject($index) ) {
             $isYours = true;
             return view('projects.edit', compact('project', 'editsChannel', 'isYours'));

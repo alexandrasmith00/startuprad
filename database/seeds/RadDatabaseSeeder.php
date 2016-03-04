@@ -15,7 +15,6 @@ class RadDatabaseSeeder extends Seeder
         'posts',
         'teams',
         'ideas',
-        'teams_ideas',
         'teams_users',
         'categories',
         'thinkings',
