@@ -181,7 +181,7 @@ a:focus {
   position: relative;
   max-height: 100px;
   z-index: 1030;
-  background-color: #3B5998;
+  background-color: #77BA9B;
 }
 .main-header > a {
   color: white;
@@ -243,7 +243,7 @@ a:focus {
   float: left;
   background-color: transparent;
   background-image: none;
-  color: #77BA9B;
+  color: white;
   padding: 15px 15px;
   font-family: fontAwesome;
 }
@@ -446,6 +446,7 @@ a:focus {
   }
 }
 .sidebar {
+  color: #B6A754;
   padding-bottom: 10px;
 }
 .sidebar-form input:focus {
@@ -485,6 +486,7 @@ a:focus {
   padding-right: 5px;
   margin-top: 3px;
   font-size: 11px;
+  color: white;
 }
 .user-panel > .info > a > .fa,
 .user-panel > .info > a > .ion,
@@ -492,6 +494,7 @@ a:focus {
   margin-right: 3px;
 }
 .sidebar-menu {
+  color: white;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -504,6 +507,7 @@ a:focus {
 .sidebar-menu > li > a {
   padding: 12px 5px 12px 15px;
   display: block;
+  color: white;
 }
 .sidebar-menu > li > a > .fa,
 .sidebar-menu > li > a > .glyphicon,
@@ -511,8 +515,9 @@ a:focus {
   width: 20px;
 }
 .sidebar-menu > li > a:hover {
-  background-color: #293E6A;
-  color: white;
+  background-color: white;
+  color: #77BA9B;
+  border-left: 2px solid #77BA9B;
 }
 .sidebar-menu > li .label,
 .sidebar-menu > li .badge {
@@ -522,6 +527,7 @@ a:focus {
 .sidebar-menu li.header {
   padding: 10px 25px 10px 15px;
   font-size: 12px;
+  color: #B6A754;
 }
 .sidebar-menu li > a > .fa-angle-left {
   width: auto;
@@ -554,6 +560,7 @@ a:focus {
   padding: 5px 5px 5px 15px;
   display: block;
   font-size: 14px;
+  color: #77BA9B;
 }
 .sidebar-menu .treeview-menu > li > a > .fa,
 .sidebar-menu .treeview-menu > li > a > .glyphicon,
@@ -563,6 +570,9 @@ a:focus {
 .sidebar-menu .treeview-menu > li > a > .fa-angle-left,
 .sidebar-menu .treeview-menu > li > a > .fa-angle-down {
   width: auto;
+}
+.sidebar-menu .treeview-menu > li > a:hover {
+  color: #B6A754;
 }
 /*
  * Component: Sidebar Mini
