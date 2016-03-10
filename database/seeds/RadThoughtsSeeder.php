@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Models\Team;
 use App\Models\Idea;
+use App\Models\Post;
 use App\Models\User;
 use App\Models\Thinking;
 
@@ -119,8 +120,6 @@ class RadThoughtsSeeder extends Seeder
             
             $category = DB::table('categories')->where('name', $thinking[1])->first();
             
-            if ($category == null)
-                echo($thinking[1]);
             // for the idea, add a default thinking for each category
             $new_name = Thinking::create([
                 'category_id' => $category->id,
@@ -132,21 +131,22 @@ class RadThoughtsSeeder extends Seeder
             DB::table('ideas')
                 ->where('id', $idea->id)
                 ->update(array($category->name => $thinking[2]));
+            
+            
+            $author = DB::table('teams_users')->where('team_id', $idea->id)->first();
+
+            
+            // add a post for this update
+            $post = Post::create([
+                'user_id' => $author->user_id,
+                'idea_id' => $idea->id,
+                'title' => $thinking[0] . " updated their profile.",
+                'content' => $thinking[0] . " has updated their " . $thinking[1] . " to " . $thinking[2],
+                'type'=> 'update'
+            ]);
+
+
         }
-//        foreach ($teams as $name => $team)
-//        {
-//        
-//            
-//            
-//            // for the idea, add a default thinking for each category
-//            $new_name = Thinking::create([
-//                'category_id' => '1',
-//                'idea_id' => $idea->id,
-//                'body' => $name,
-//                'current' => true
-//            ]);
-//            
-//        }
 
     }
 }

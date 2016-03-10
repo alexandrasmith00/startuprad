@@ -2,14 +2,14 @@
 
 @section('content')
 
-    {{ $project }}
-         <div class="row">
+
+    <div class="row">
             <div class="col-md-3">
 
               <!-- Profile Image -->
               <div class="box box-primary">
                 <div class="box-body box-profile">
-                  <img class=" img-responsive" src="{{ $project->logo }}" alt="User profile picture">
+                  <img class="img-responsive img-center" src="{{ $project->logo }}" alt="User profile picture">
                   <h3 class="profile-username text-center">{{ $project->name }}</h3>
                   <p class="text-muted text-center">{{ $project->tagline }} </p>
                   <p class="text-muted text-center"><a href="http://{{ $project->site }}">{{ $project->site }} </a></p>
@@ -44,31 +44,32 @@
                   <h3 class="box-title">About {{ $project->name }}</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
+
+                  <strong><i class="fa fa-user-plus margin-r-5"></i> Mentors</strong>
+                  <p class="text-muted">Legal Status</p>
+                  <p class="text-muted">Lawyers</p>
+                    
+                  <hr>
+                    
+                  <strong><i class="fa fa-black-tie margin-r-5"></i> Partnerships</strong>
+                  <p class="text-muted">Legal Status</p>
+                  <p class="text-muted">Lawyers</p>
+                    
+                  <hr>
+
                   <strong><i class="fa fa-money margin-r-5"></i>  Funding</strong>
-                  <p class="text-muted">
-                    B.S. in Computer Science from the University of Tennessee at Knoxville
-                  </p>
+                  <p class="text-muted">Equity Split</p>
+                  <p class="text-muted">Funding Round</p>
+                  <p class="text-muted">Outside Investors</p>
+                  <p class="text-muted">Debt Equity</p>
 
                   <hr>
 
                   <strong><i class="fa fa-legal margin-r-5"></i> Legal</strong>
-                  <p class="text-muted">Malibu, California</p>
+                  <p class="text-muted">Legal Status</p>
+                  <p class="text-muted">Lawyers</p>
 
-                  <hr>
-
-                  <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
-                  <p>
-                    <span class="label label-danger">UI Design</span>
-                    <span class="label label-success">Coding</span>
-                    <span class="label label-info">Javascript</span>
-                    <span class="label label-warning">PHP</span>
-                    <span class="label label-primary">Node.js</span>
-                  </p>
-
-                  <hr>
-
-                  <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+        
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
@@ -275,6 +276,10 @@
         
         $('ul.nav-tabs li.active').removeClass('active');
         $('#profile-tab').addClass('active');
+    }
+    
+    function doThisOnLoad() {
+        $("offcanvas").toggle();
     }
 
 </script>
