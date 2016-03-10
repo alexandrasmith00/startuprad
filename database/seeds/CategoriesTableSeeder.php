@@ -85,6 +85,26 @@ class CategoriesTableSeeder extends Seeder
             'name' => 'description',
             'datatype' => 'text'
         ]);
+        
+        DB::table('categories')->insert([
+            'name' => 'customerName',
+            'datatype' => 'text'
+        ]);        
+        
+        DB::table('categories')->insert([
+            'name' => 'customerNeed',
+            'datatype' => 'text'
+        ]);        
+        
+        DB::table('categories')->insert([
+            'name' => 'customerMeet',
+            'datatype' => 'text'
+        ]);        
+        
+        DB::table('categories')->insert([
+            'name' => 'customerResult',
+            'datatype' => 'text'
+        ]);
     
     }
 }

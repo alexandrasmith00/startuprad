@@ -48,11 +48,12 @@ class AddNewCurrentsToProject extends Migration
         
         foreach ($categories as $category)
         {            
-            
-            Schema::table('ideas', function($table) use ($category)
-            {
-                $table->dropColumn($category->name);
-            });
+            if (Schema::hasColumn('ideas', $category->name))
+                Schema::table('ideas', function($table) use ($category)
+                {
+
+                    $table->dropColumn($category->name);
+                });
         }
         
         Schema::table('ideas', function($table)
