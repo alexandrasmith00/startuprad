@@ -32,8 +32,9 @@ class RadDatabaseSeeder extends Seeder
         'CategoriesTableSeeder',
         'CohortsTableSeeder',
         'RadUserSeeder',
-        'RadTeamsSeeder'
-        
+        'RadTeamsSeeder',
+        'RadThoughtsSeeder'
+
     ];
     
     

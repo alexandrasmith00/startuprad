@@ -69,67 +69,13 @@ class RadTeamsSeeder extends Seeder
                 
             }
 
-        
-            
             // add idea to current cohort
             DB::table('cohorts_ideas')->insert([
                 'idea_id' => $idea->id,
                 'cohort_id' => '1'            
             ]);
-            
-        }
         
-
-
-//            
-//            $name = $faker->company;
-//            $tagline = $faker->catchPhrase;
-//            $website = $faker->url;
-//            $logo = $faker->imageUrl($width = 200, $height = 200);
-//            
-
-            
-
-            
-            
-//            
-//            
-//            
-//            
-//             
-//            // for the idea, add a default thinking for each category
-//            $new_name = Thinking::create([
-//                'category_id' => '1',
-//                'idea_id' => $idea->id,
-//                'body' => $name,
-//                'current' => true
-//            ]);
-//                
-//            $new_tagline = Thinking::create([
-//                'category_id' => '2',
-//                'idea_id' => $idea->id,
-//                'body' => $tagline,
-//                'current' => true
-//            ]);
-//            
-//            $new_website = Thinking::create([
-//                'category_id' => '3',
-//                'idea_id' => $idea->id,
-//                'body' => $website,
-//                'current' => true
-//            ]);
-//            
-//            $new_logo = Thinking::create([
-//                'category_id' => '4',
-//                'idea_id' => $idea->id,
-//                'body' => $logo,
-//                'current' => true
-//            ]);
-//            
-
-            
-
-//        }
+        }
 
     }
 }
