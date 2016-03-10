@@ -128,6 +128,9 @@
     margin-right: 10px;
     margin-top: 3px;
   }
+  li.main:hover {
+   border-left: 2px solid @emph-color;   
+  }
   li.active {
     > a > .fa-angle-left {
       .rotate(-90deg);
@@ -153,7 +156,7 @@
         padding: 5px 5px 5px 15px;
         display: block;
         font-size: 14px;
-        color: @emph-color;
+        color: @highlight-color;
         > .fa,
         > .glyphicon,
         > .ion {
@@ -165,7 +168,7 @@
         }
       }
       > a:hover {
-        color: @highlight-color;
+        color: @secondary-color;
       }
     }
   }

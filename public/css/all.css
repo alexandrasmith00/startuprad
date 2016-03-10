@@ -536,6 +536,9 @@ a:focus {
   margin-right: 10px;
   margin-top: 3px;
 }
+.sidebar-menu li.main:hover {
+  border-left: 2px solid #77BA9B;
+}
 .sidebar-menu li.active > a > .fa-angle-left {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
@@ -560,7 +563,7 @@ a:focus {
   padding: 5px 5px 5px 15px;
   display: block;
   font-size: 14px;
-  color: #77BA9B;
+  color: #B6A754;
 }
 .sidebar-menu .treeview-menu > li > a > .fa,
 .sidebar-menu .treeview-menu > li > a > .glyphicon,
@@ -572,7 +575,7 @@ a:focus {
   width: auto;
 }
 .sidebar-menu .treeview-menu > li > a:hover {
-  color: #B6A754;
+  color: #639BF1;
 }
 /*
  * Component: Sidebar Mini

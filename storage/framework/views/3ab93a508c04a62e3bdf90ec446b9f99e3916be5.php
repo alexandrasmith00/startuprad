@@ -25,8 +25,8 @@
 
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li><a href="/"><i class="fa fa-home"></i> <span>Home</span></a></li>              
-            <li class="treeview">
+            <li class="main"><a href="/"><i class="fa fa-home"></i> <span>Home</span></a></li>              
+            <li class="main treeview">
               <a href="#">
                 <i class="fa fa-lightbulb-o"></i> <span>Startups</span>
                 <i class="fa fa-angle-left pull-right"></i>
