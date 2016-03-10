@@ -55,7 +55,6 @@ class RadThoughtsSeeder extends Seeder
             DB::table('ideas')
                 ->where('id', $idea->id)
                 ->update(array($category->name => $thinking[2]));
-
         }
 //        foreach ($teams as $name => $team)
 //        {

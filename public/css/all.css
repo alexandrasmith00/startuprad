@@ -3310,6 +3310,12 @@ form button:active {
 .post .user-block {
   margin-bottom: 15px;
 }
+.profile-fieldname {
+  text-transform: uppercase;
+  color: #aaaaaa;
+  font-weight: bold;
+  padding-bottom: 2em;
+}
 /*
  * Social Buttons for Bootstrap
  *
