@@ -23,7 +23,7 @@ class RadUserSeeder extends Seeder
             ['email' => 'matallah@college.harvard.edu', 'first' => 'Atallah', 'last' => 'Atallah' ],
             ['email' => 'catie@froth.nyc', 'first' => 'Catie', 'last' => 'Cole' ],
             ['email' => 'cthariani@college.harvard.edu', 'first' => 'Cameron', 'last' => 'Thariani' ],
-            ['email' => 'benjylevin@college.harvard.edu', 'first' => 'Benjy', 'last' => 'Levin' ],
+            ['email' => 'benjylevin@college.harvard.edu', 'first' => 'Benjy', 'last' => 'Levin', "profile_picture" => "https://s3.amazonaws.com/alanacoolfilestorage/5018/me%20face.jpg" ],
             ['email' => 'matthewcarter@college.harvard.edu', 'first' => 'Matthew', 'last' => 'Carter' ],
             ['email' => 'antuantran@college.harvard.edu', 'first' => 'Antuan', 'last' => 'Tran' ],
             ['email' => 'bpleat@college.harvard.edu', 'first' => 'Benjamin', 'last' => 'Pleat' ],
@@ -68,6 +68,12 @@ class RadUserSeeder extends Seeder
                 'email' => $student['email'],
                 'password' => bcrypt('secret')
             ]);
+            
+            if (array_key_exists('profile_picture', $student)) 
+            { 
+                $user->profile_picture = $student['profile_picture'];
+                $user->save();
+            }
             
             // add roles of student to these users
             DB::table('users_roles')->insert([

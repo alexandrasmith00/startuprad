@@ -1,29 +1,27 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <div class="row">
   <div class="col-md-3">
-    @include('includes.profile.about')
-    @include('includes.profile.organization')
+    <?php echo $__env->make('includes.profile.about', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('includes.profile.organization', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   </div>
     
   <div class="col-md-9">
     <div class="nav-tabs-custom">
-      @include('includes.profile.navigation')
+      <?php echo $__env->make('includes.profile.navigation', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       
         <div class="tab-content">
 
-            @include('includes.profile.activity')
+            <?php echo $__env->make('includes.profile.activity', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                   <div class="tab-pane" id="profile">
                     <!-- The timeline -->
 
-                    @include('projects.templates.field', array('fieldname'=>'Description', 'fieldbody' => $project->description))
-                    @include('projects.templates.field', array('fieldname'=>'Product Idea', 'fieldbody' => $project->product_idea))
-                    @include('projects.templates.field', array('fieldname'=>'Elevator Pitch', 'fieldbody' => $project->elevator_pitch))
-                    @include('projects.templates.field', array('fieldname'=>'Pitch Video', 'fieldbody' => $project->pitch_video))
-                    @include('projects.templates.field', array('fieldname'=>'Slide Deck', 'fieldbody' => $project->slide_deck))
+                    <?php echo $__env->make('projects.templates.field', array('fieldname'=>'Description', 'fieldbody' => $project->description), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                    <?php echo $__env->make('projects.templates.field', array('fieldname'=>'Product Idea', 'fieldbody' => $project->product_idea), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                    <?php echo $__env->make('projects.templates.field', array('fieldname'=>'Elevator Pitch', 'fieldbody' => $project->elevator_pitch), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                    <?php echo $__env->make('projects.templates.field', array('fieldname'=>'Pitch Video', 'fieldbody' => $project->pitch_video), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                    <?php echo $__env->make('projects.templates.field', array('fieldname'=>'Slide Deck', 'fieldbody' => $project->slide_deck), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
                       
                       <div class="row">
@@ -39,7 +37,7 @@
                             
                             <br/><br/>
                             
-                            <b>How {{ $project->name }} Is Meeting It  :  </b>
+                            <b>How <?php echo e($project->name); ?> Is Meeting It  :  </b>
                             
                             <br/><br/>
 
@@ -49,7 +47,7 @@
                     </div>
 
                   </div><!-- /.tab-pane -->
-                  @if ($isYours)
+                  <?php if($isYours): ?>
                       <div class="tab-pane" id="settings">
                         <form class="form-horizontal">
                           <div class="form-group">
@@ -98,16 +96,16 @@
                           </div>
                         </form>
                       </div><!-- /.tab-pane -->
-                    @endif
+                    <?php endif; ?>
                 </div><!-- /.tab-content -->
               </div><!-- /.nav-tabs-custom -->
             </div><!-- /.col -->
           </div><!-- /.row -->
 
 
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 <script>
     function makeActive() {
         
@@ -121,4 +119,5 @@
 
 </script>
 
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

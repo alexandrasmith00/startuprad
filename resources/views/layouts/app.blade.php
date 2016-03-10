@@ -5,7 +5,7 @@
 </head>
     
 
-  <body onload="doThisOnLoad()" class="hold-transition skin-blue">
+  <body class="hold-transition">
     <div class="wrapper">
         
         @include('includes.header')

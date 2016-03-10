@@ -5,7 +5,7 @@
 </head>
     
 
-  <body onload="doThisOnLoad()" class="hold-transition skin-blue">
+  <body class="hold-transition">
     <div class="wrapper">
         
         <?php echo $__env->make('includes.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

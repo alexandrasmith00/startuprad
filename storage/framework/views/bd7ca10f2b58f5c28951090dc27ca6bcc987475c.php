@@ -1,23 +1,24 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="{{{ Auth::user()->profile_picture != "" ? Auth::user()->profile_picture : 'http://www.startuprad.com/assets/images/db414718.default_no_profile.jpg' }}}" class="user-image" alt="User Image">
-                  <span class="hidden-xs">{{ Auth::user()->name }} </span>
+                  <img src="<?php echo e(Auth::user()->profile_picture != "" ? Auth::user()->profile_picture : 'http://www.startuprad.com/assets/images/db414718.default_no_profile.jpg'); ?>" class="user-image" alt="User Image">
+                  <span class="hidden-xs"><?php echo e(Auth::user()->name); ?> </span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img onclick="changeProfPic()" src="{{{ Auth::user()->profile_picture != "" ? Auth::user()->profile_picture : 'http://www.startuprad.com/assets/images/db414718.default_no_profile.jpg' }}}" class="img-circle editable-profile-pic" alt="User Image">
+                    <img onclick="changeProfPic()" src="<?php echo e(Auth::user()->profile_picture != "" ? Auth::user()->profile_picture : 'http://www.startuprad.com/assets/images/db414718.default_no_profile.jpg'); ?>" class="img-circle editable-profile-pic" alt="User Image">
                     <p style="color: black;"> 
-                      {{ Auth::user()->name }} 
+                      <?php echo e(Auth::user()->name); ?> 
                         
-                      <small><a href="/project/{{ Auth::user()->idea->id }}">{{ Auth::user()->idea->name }}</a></small>
+                      <small><a href="/project/<?php echo e(Auth::user()->idea->id); ?>"><?php echo e(Auth::user()->idea->name); ?></a></small>
                         
 
                       <small>
-                          @foreach (Auth::user()->cohorts as $cohort)
-                                {{ $cohort->name }}
-                          @endforeach
+                          <?php foreach(Auth::user()->cohorts as $cohort): ?>
+                                <?php echo e($cohort->name); ?>
+
+                          <?php endforeach; ?>
                           RAD
                       </small>
                             
@@ -51,7 +52,7 @@
                 </ul>
               </li>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 <script>
     
     function changeProfPic() {
@@ -59,4 +60,4 @@
     }
 </script>
     
-@stop
+<?php $__env->stopSection(); ?>

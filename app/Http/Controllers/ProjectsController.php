@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\App;
 
 use App\Models\Idea;
+use App\Models\Post;
 use App\Models\Thinking;
 
 
@@ -70,13 +71,15 @@ class ProjectsController extends Controller
         $editsChannel = 'edits' . $index .'Channel';
         $project = Idea::where('id', $index)->first();
         
+        $posts = Post::where('idea_id', $project->id)->orderBy('published_at', 'desc')->get();
+        
         if( Auth::user()->hasProject($index) ) {
             $isYours = true;
-            return view('projects.edit', compact('project', 'editsChannel', 'isYours'));
+            return view('projects.edit', compact('project', 'editsChannel', 'isYours', 'posts'));
         }
         else {
             $isYours = false;
-            return view('projects.show', compact('project', 'commentChannel', 'isYours'));
+            return view('projects.show', compact('project', 'commentChannel', 'isYours', 'posts'));
         }
     }
     

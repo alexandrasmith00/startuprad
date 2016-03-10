@@ -140,8 +140,8 @@ class RadThoughtsSeeder extends Seeder
             $post = Post::create([
                 'user_id' => $author->user_id,
                 'idea_id' => $idea->id,
-                'title' => $thinking[0] . " updated their profile.",
-                'content' => $thinking[0] . " has updated their " . $thinking[1] . " to " . $thinking[2],
+                'title' => " updated its " . $thinking[1] . ".",
+                'content' => $thinking[2],
                 'type'=> 'update'
             ]);
 

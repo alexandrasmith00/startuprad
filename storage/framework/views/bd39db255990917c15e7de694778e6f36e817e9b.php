@@ -17,8 +17,8 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
-              @include('includes.header.notifications')
-              @include('includes.header.user')
+              <?php echo $__env->make('includes.header.notifications', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+              <?php echo $__env->make('includes.header.user', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <!--
               <li>

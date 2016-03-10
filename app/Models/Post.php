@@ -19,12 +19,13 @@ class Post extends Model
     {
         $this->attributes['title'] = $value;
         
+        $core = str_slug($value);
         $new_value = str_slug($value);
         $increment = 1;
         
         while (DB::table('posts')->where('slug', $new_value)->exists())
         {
-            $new_value = $new_value . "-" . $increment;
+            $new_value = $core . "-" . $increment;
             $increment++;
         }
 

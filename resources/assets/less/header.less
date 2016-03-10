@@ -4,9 +4,13 @@
  */
 
 .main-header {
+  > a {
+    color: white;
+  }
   position: relative;
   max-height: 100px;
   z-index: 1030;
+  background-color: @primary-color;
     
   //Navbar
   > .navbar {
@@ -120,6 +124,8 @@
     padding: 0 15px;
     font-weight: 300;
     overflow: hidden;
+    color: white;
+    background-color: @dark-color;
 
     //Add support to sidebar mini by allowing the user to create
     //2 logo designs. mini and lg
@@ -244,4 +250,8 @@
       right: 40px;
     }
   }
+}
+
+.editable-profile-pic:hover {
+    opacity: 0.5;
 }
