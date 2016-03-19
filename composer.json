@@ -11,7 +11,8 @@
         "laravel/cashier": "^6.0",
         "vinkla/pusher": "^2.2",
         "slynova/laravel-commentable": "^2.0",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "guzzlehttp/guzzle": "^6.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
