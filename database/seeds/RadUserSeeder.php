@@ -54,7 +54,10 @@ class RadUserSeeder extends Seeder
             ['email' => 'mperry01@college.harvard.edu', 'first' => 'Matthew', 'last' => 'Perry' ],
             ['email' => 'rking@college.harvard.edu', 'first' => 'Rahsaan', 'last' => 'King' ],   
             ['email' => 'jmartter@college.harvard.edu', 'first' => 'James', 'last' => 'Martter' ],
-            ['email' => 'jordandegraaf@college.harvard.edu', 'first' => 'Jordan', 'last' => 'DeGraaf' ]
+            ['email' => 'jordandegraaf@college.harvard.edu', 'first' => 'Jordan', 'last' => 'DeGraaf' ],
+            ['email' => 'alexandrasmith00@gmail.com', 'first' => 'Lexi', 'last' => 'Smith' ],
+            ['email' => 'ninahooper@college.harvard.edu', 'first' => 'Nina', 'last' => 'Hooper' ],
+            ['email' => 'pbottino@seas.harvard.edu', 'first' => 'Paul', 'last' => 'Bottino' ]
         ];
         
         // create 50 people with registered accounts who are caregivers
