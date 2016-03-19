@@ -25,7 +25,7 @@
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        <h3>Welcom in basic email template</h3>
+                                        <h3>Reset your RAD password</h3>
                                     </td>
                                 </tr>
                                 <tr>
