@@ -25766,6 +25766,32 @@ a.action-link {
   width: 50%;
   text-align: center;
 }
+#wide-tabs {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-righT: 0px;
+}
+#narrow-content {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.organization-nav {
+  width: 25%;
+  text-align: center;
+}
+.emph {
+  color: #17bab8;
+  font-weight: bold;
+}
+#add-border {
+  border-bottom: #eee 1px solid;
+  margin-bottom: 0px;
+  margin-left: -30px;
+  margin-right: -30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
 .padding-top-2 {
   padding-top: 2px;
 }
