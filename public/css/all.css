@@ -25762,6 +25762,10 @@ table.dataTable > tbody > tr.child span.dtr-title {
 a.action-link {
   font-weight: bold;
 }
+.profile-nav {
+  width: 50%;
+  text-align: center;
+}
 .padding-top-2 {
   padding-top: 2px;
 }

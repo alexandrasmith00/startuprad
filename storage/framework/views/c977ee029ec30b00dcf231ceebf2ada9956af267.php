@@ -9,14 +9,13 @@
             </div>
             <div class="chat-user-status">
                 <ul>
-                    <li>Feeling Blessed</li>
                     <li>Amarkdalen</li>
                 </ul>
             </div>
         </div>
         <div class="conversation-action">
             <ul>
-                <li><i class="zmdi zmdi-phone-in-talk"></i></li>
+<!--                <li><i class="zmdi zmdi-phone-in-talk"></i></li>-->
                 <li class="dropdown">
                     <a href="#" class="btn-more dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
                     <ul class="dropdown-menu">

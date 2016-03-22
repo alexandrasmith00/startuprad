@@ -29,7 +29,7 @@
             confirmButtonText: "Log me out",   
             closeOnConfirm: false 
         }, function(){   
-                window.location.href = 'logout';
+                window.location.href = '/logout';
         });
     });
 </script>

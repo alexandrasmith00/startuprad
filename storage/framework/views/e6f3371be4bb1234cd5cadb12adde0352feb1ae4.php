@@ -3,7 +3,7 @@
         <div class="col-md-7 col-sm-7">
         </div>
         <div class="col-md-5 col-sm-5">
-            @include('includes.posts.tags')
+            <?php echo $__env->make('includes.posts.tags', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </div>
     </div>
 </div>
