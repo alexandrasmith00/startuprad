@@ -32,7 +32,10 @@ if ($.fn.tagsInput) {
                     $('.tag', elem_tags).each(function() {
                         if ($(this).text().search(new RegExp('\\b(' + actions.join('|') + ')\\b')) >= 0) $(this).css('background-color', highlightColor);
                     });
-
+                    var fields = ['#name', '#team', '#tagline', '#site', '#logo', '#description', '#market', '#product', '#organization', '#slidedeck', '#pitch'  ];
+                    $('.tag', elem_tags).each(function() {
+                        if ($(this).text().search(new RegExp('\\b(' + fields.join('|') + ')\\b')) >= 0) $(this).css('background-color', highlightColor);
+                    });
                     
                 }
             });
