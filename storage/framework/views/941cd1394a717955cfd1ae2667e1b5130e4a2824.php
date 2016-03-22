@@ -4,7 +4,7 @@
             <li><span class="left-toggle-switch"><i class="zmdi zmdi-menu"></i></span></li>
             <li>
                 <div class="logo">
-                    <a href="index.html" title="Admin Template"><img src="images/logo.png" alt="logo"></a>
+                    <a href="/" title="Startup RAD"><h2>Startup RAD</h2></a>
                 </div>
             </li>
         </ul>

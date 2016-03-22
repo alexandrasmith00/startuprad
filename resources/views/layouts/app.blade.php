@@ -6,6 +6,8 @@
     
 
 <body class="overlay-leftbar">
+    @include('includes.header')
+
     @yield('content')
     
     @include('includes.scripts')

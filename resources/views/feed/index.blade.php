@@ -2,111 +2,32 @@
 
 @section('content')
 
-<header class="topbar clearfix">
 
-    @include('includes.header.search')
-
-    @include('includes.header.brand')
-
-    <!--Topbar Right Start-->
-    <div class="topbar-right pull-right">
-        <div class="clearfix">
-            <!--Mobile View Leftbar Toggle-->
-            <ul class="left-bar-switch pull-left">
-                <li><span class="left-toggle-switch"><i class="zmdi zmdi-menu"></i></span></li>
-            </ul>
-            <ul class="pull-right top-right-icons">
-                <li><a href="#" class="btn-top-search"><i class="zmdi zmdi-search"></i></a></li>
-                <li class="dropdown apps-dropdown">
-                    <a href="#" class="btn-apps dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-apps"></i></a>
-                    <div class="dropdown-menu">
-                        <ul class="apps-shortcut clearfix">
-                            <li>
-                                <a href="#"><i class="zmdi zmdi-email"></i>
-                                    <span class="apps-noty">23</span>
-                                    <span class="apps-label">Email</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="zmdi zmdi-accounts-alt"></i>
-                                    <span class="apps-noty">15</span>
-                                    <span class="apps-label">Forum</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="zmdi zmdi-file-text"></i>
-                                    <span class="apps-label">Note</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="zmdi zmdi-chart"></i>
-                                    <span class="apps-label">Analytics</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="more-apps">
-                            <li><a href="#"><i class="zmdi zmdi-camera"></i> Gallery</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-comments"></i> Chat</a></li>
-                        </ul>
-                    </div>
-                </li>
-                @include('includes.header.notifications')
-                <li><a href="#" class="right-toggle-switch"><i class="zmdi zmdi-format-align-left"></i><span class="more-noty"></span></a></li>
-            </ul>
-        </div>
-    </div>
-    <!--Topbar Right End-->
-</header>
 <!--Topbar End Here-->
 <!--Leftbar Start Here-->
 <aside class="leftbar">
     <div class="left-aside-container">
         <div class="user-profile-container">
-            <div class="user-profile clearfix">
-                <div class="admin-user-thumb">
-                    <img src="images/avatar/jaman_01.jpg" alt="admin">
-                </div>
-                <div class="admin-user-info">
-                    <ul>
-                        <li><a href="#">Kamrujaman Shohel</a></li>
-                        <li><a href="#">Info@jaman.me</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="admin-bar">
-                <ul>
-                    <li><a href="#"><i class="zmdi zmdi-power"></i>
-                    </a>
-                    </li>
-                    <li><a href="#"><i class="zmdi zmdi-account"></i>
-                    </a>
-                    </li>
-                    <li><a href="#"><i class="zmdi zmdi-key"></i>
-                    </a>
-                    </li>
-                    <li><a href="#"><i class="zmdi zmdi-settings"></i>
-                    </a>
-                    </li>
-                </ul>
-            </div>
+            @include('includes.sidebar.user')
+            @include('includes.sidebar.admin-links')
         </div>
+        
         <ul class="list-accordion tree-style">
-            <li class="list-title">Layouts</li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label">Layouts Variations</span></a>
-                <ul>
-                    <li><a href="boxed-layout.html">Boxed Layout</a></li>
-                    <li><a href="iconic-view.html">Iconic Leftbar</a></li>
-                    <li><a href="material-style-leftbar.html">Material Styled Leftbar</a></li>
-                    <li><a href="tile-leftbar.html">Tile Leftbar</a></li>
-                    <li><a href="with-language-bar.html">With Language Bar</a></li>
-                    <li><a href="top-user-thumb.html">Topbar User Thumb</a></li>
-                    <li><a href="tabby-leftbar.html">Tabby Leftbar</a></li>
-                    <li><a href="notification-rightbar.html">Only Notifications Rightbar</a></li>
-                    <li><a href="without-rightbar.html">Without Rightbar</a></li>
-                    <li><a href="activities-rightbar.html">Activities Rightbar</a></li>
-                </ul>
-            </li>
+            <li class="list-title">Startups</li>
+            
+                
+                @foreach (Auth::user()->cohorts as $cohort)
+                <li>
+                    <a href="#"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label">{{ $cohort->name }}</span></a>
+                    <ul>
+                        @foreach ($cohort->ideas as $project)
+                            <li><a href="/project/{{ $project->id }}">{{ $project->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+                @endforeach
+
+            
             <li class="list-title">Forms</li>
             <li>
                 <a href="#"><i class="zmdi zmdi-view-web"></i><span class="list-label">From Elements</span></a>
@@ -1538,6 +1459,25 @@
 </div>
 </aside>
 
+@stop
+
+@section('scripts')
+<script>
+    $('.logout-alert').on('click', function (e) {
+    
+        swal({   
+            title: "Are you sure?",   
+            text: "You will be logged out.",   
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Log me out",   
+            closeOnConfirm: false 
+        }, function(){   
+                window.location.href = 'logout';
+        });
+    });
+</Script>
 @stop
 
 

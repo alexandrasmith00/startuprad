@@ -33,6 +33,9 @@
 <script src="js/lib/chart/flot/jquery.flot.tooltip.min.js"></script>
 <script src="js/lib/chart/flot/jquery.flot.spline.js"></script>
 <script src="js/lib/chart/flot/jquery.flot.pie.min.js"></script>
+
+<script src="js/lib/bootbox.js"></script>
+<script src="js/lib/sweetalert.js"></script>
 <!--Forms-->
 <script src="js/lib/jquery.maskedinput.js"></script>
 <script src="js/lib/jquery.validate.js"></script>
