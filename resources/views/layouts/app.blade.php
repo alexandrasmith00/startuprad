@@ -5,25 +5,11 @@
 </head>
     
 
-  <body class="hold-transition">
-    <div class="wrapper">
-        
-        @include('includes.header')
-        @include('includes.sidebar')
-        
-        <div class="content-wrapper">
-          <section class="content">
-            @yield('content')
-          </section>
-        </div>
+<body class="overlay-leftbar">
+    @yield('content')
     
-        @include('includes.footer') 
-        @include('includes.scripts')
-
-    </div>
+    @include('includes.scripts')
 </body>
 </html>
 
 
-
-    

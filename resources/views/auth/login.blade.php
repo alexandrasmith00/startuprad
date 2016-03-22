@@ -1,39 +1,71 @@
-@extends('layouts.full-page')
+@extends('layouts.outside')
 
 @section('content')
 
-        <form  id="login-form" role="form" method="POST" action="{{ url('/login') }}">
-            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+<form  id="form-logins"  class="j-forms" role="form" method="POST" action="{{ url('/login') }}" novalidate>
 
-                <input type="email" name="email" value="{{ old('email') }}" placeholder="Email">
+  <div class="login-form-header">
+    <div class="logo">
+        <a href="/" title="Startup RAD">Startup RAD</a>
+    </div>
+  </div>
 
-                @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                @endif
-                
-            </div>
-            
-            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+  <div class="login-form-content">
+    <!-- start login -->
+    <div class="unit">
+        <div class="input login-input form-group">
+            <label class="icon-left" for="login">
+                <i class="zmdi zmdi-account"></i>
+            </label>
+            <input class="form-control login-frm-input"  type="email" id="login" name="email" value="{{ old('email') }}" placeholder="Email">
 
-                <input type="password" name="password" placeholder="Password">
+            @if ($errors->has('email'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+             @endif
 
-                @if ($errors->has('password'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
-            </div>
-            
-            <div class="form-non-input">
-                <button type="submit" class="btn">Login</button>
-            </div>
-            
-            <div class="form-non-input">
-                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-            </div>
-            
-		</form>
+        </div>
+    </div>
+    <!-- end login -->
 
-@endsection
+    <!-- start password -->
+    <div class="unit">
+        <div class="input login-input">
+            <label class="icon-left" for="password">
+                <i class="zmdi zmdi-key"></i>
+            </label>
+            <input class="form-control login-frm-input"  type="password" id="password" name="password" placeholder="Password">
+                <span class="hint">
+                    <a  href="{{ url('/password/reset') }}" class="link">Forgot password?</a>
+                </span>
+        </div>
+    </div>
+    <!-- end password -->
+
+
+    <!-- start keep logged -->
+<!--
+    <div class="unit">
+        <label class="checkbox">
+            <input type="checkbox" name="logged" value="true" checked="">
+            <i></i>
+            Keep me logged in
+        </label>
+    </div>
+-->
+    <!-- end keep logged -->
+
+    <!-- start response from server -->
+    <div class="response"></div>
+    <!-- end response from server -->
+
+  </div>
+
+  <div class="login-form-footer">
+    <button type="submit" class="btn-block btn btn-primary">Sign in</button>
+  </div>
+
+</form>
+
+@stop

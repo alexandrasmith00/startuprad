@@ -1,41 +1,69 @@
-              <!-- Notifications: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-bell-o"></i>
-                  <span class="label label-warning">10</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 10 notifications</li>
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-users text-red"></i> 5 new members joined
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-user text-red"></i> You changed your username
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="footer"><a href="#">View all</a></li>
-                </ul>
-              </li>
+    <li class="dropdown notifications-dropdown">
+                    <a href="#" class="btn-notification dropdown-toggle" data-toggle="dropdown"><span class="noty-bubble">10</span><i class="zmdi zmdi-globe"></i></a>
+                    <div class="dropdown-menu notifications-tabs">
+                        <div>
+                            <ul class="nav material-tabs nav-tabs" role="tablist">
+                                <li class="active"><a href="#message" aria-controls="message" role="tab" data-toggle="tab">Message</a></li>
+                                <li><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">Notifications</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="message">
+                                    <div class="message-list-container">
+                                        <h4>You have 15 new messages</h4>
+                                        <ul class="clearfix">
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><img src="images/avatar/robertoortiz.jpg" alt="image">
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Robertoortiz </span>Nunc aliquam dolor... <span class="message-time">today at 10:20 pm</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><span class="message-letter w_bg_purple">A</span>
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Allisongrayce </span>In hac habitasse ... <span class="message-time">today at 8:29 pm</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><img src="images/avatar/michael-owens.jpg" alt="image">
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Michael </span>Suspendisse ac mauris ... <span class="message-time">yesterday at 12:29 pm</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><span class="message-letter w_bg_blue">B</span>
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Bobbyjkane </span>Vivamus lacinia facilisis... <span class="message-time">yesterday at 11:48 pm</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><img src="images/avatar/bobbyjkane.jpg" alt="image">
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Bobbyjkane </span>Donec vel iaculis ... <span class="message-time">1 month ago</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><span class="message-letter w_bg_teal">C</span>
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Chexee </span> Curabitur eget blandit...<span class="message-time">3 months ago</span></a>
+                                            </li>
+                                            <li class="clearfix">
+                                                <a href="#" class="message-thumb"><img src="images/avatar/coreyweb.jpg" alt="image">
+                                                </a><a href="#" class="message-intro"><span class="message-meta">Coreyweb </span>Etiam molestie nulla... <span class="message-time">1 year ago</span></a>
+                                            </li>
+                                        </ul>
+                                        <a class="btn btn-link btn-block btn-view-all" href="#"><span>View All</span></a>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="notifications">
+                                    <div class="notification-wrap">
+                                        <h4>You have 10 new notifications</h4>
+                                        <ul>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_purple"><i class="fa fa-bullhorn"></i></span><span class="notification-message">Pellentesque semper posuere. <span class="notification-time clearfix">3 Min Ago</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_orange"><i class="fa fa-life-ring"></i></span><span class="notification-message">Nulla commodo sem at purus. <span class="notification-time clearfix">1 Hours Ago</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_red"><i class="fa fa-star-o"></i></span><span class="notification-message">Fusce condimentum turpis. <span class="notification-time clearfix">3 Hours Ago</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_light_blue"><i class="fa fa-trophy"></i></span><span class="notification-message">Pellentesque habitant morbi. <span class="notification-time clearfix">Yesterday</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_cyan"><i class="fa fa-bolt"></i></span><span class="notification-message">Fusce bibendum lacus mauris.<span class="notification-time clearfix">1 Month Ago</span></span></a>
+                                            </li>
+                                            <li><a href="#" class="clearfix"><span class="ni w_bg_yellow"><i class="fa fa-bookmark-o"></i></span><span class="notification-message">Donec id mi placerat, scelerisque.<span class="notification-time clearfix">3 Months Ago</span></span></a>
+                                            </li>
+                                        </ul>
+                                        <a class="btn btn-link btn-block btn-view-all clearfix" href="#"><span>View All</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
