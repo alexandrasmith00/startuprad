@@ -20,22 +20,12 @@
 <!--iCheck-->
 <script src="js/lib/icheck.js"></script>
 <script src="js/lib/jquery.switch.button.js"></script>
-<!--CHARTS-->
-<script src="js/lib/chart/sparkline/jquery.sparkline.js"></script>
-<script src="js/lib/chart/easypie/jquery.easypiechart.min.js"></script>
-<script src="js/lib/chart/flot/excanvas.min.js"></script>
-<script src="js/lib/chart/flot/jquery.flot.min.js"></script>
-<script src="js/lib/chart/flot/curvedLines.js"></script>
-<script src="js/lib/chart/flot/jquery.flot.time.min.js"></script>
-<script src="js/lib/chart/flot/jquery.flot.stack.min.js"></script>
-<script src="js/lib/chart/flot/jquery.flot.axislabels.js"></script>
-<script src="js/lib/chart/flot/jquery.flot.resize.min.js"></script>
-<script src="js/lib/chart/flot/jquery.flot.tooltip.min.js"></script>
-<script src="js/lib/chart/flot/jquery.flot.spline.js"></script>
-<script src="js/lib/chart/flot/jquery.flot.pie.min.js"></script>
+
 
 <script src="js/lib/bootbox.js"></script>
 <script src="js/lib/sweetalert.js"></script>
+<script src="js/lib/select2.full.js"></script>
+
 <!--Forms-->
 <script src="js/lib/jquery.maskedinput.js"></script>
 <script src="js/lib/jquery.validate.js"></script>

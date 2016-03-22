@@ -3,668 +3,100 @@
 @section('content')
 
 
-<!--Topbar End Here-->
-<!--Leftbar Start Here-->
-<aside class="leftbar">
-    <div class="left-aside-container">
-        <div class="user-profile-container">
-            @include('includes.sidebar.user')
-            @include('includes.sidebar.admin-links')
-        </div>
-        
-        <ul class="list-accordion tree-style">
-            <li class="list-title">Startups</li>
-            
-                
-                @foreach (Auth::user()->cohorts as $cohort)
-                <li>
-                    <a href="#"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label">{{ $cohort->name }}</span></a>
-                    <ul>
-                        @foreach ($cohort->ideas as $project)
-                            <li><a href="/project/{{ $project->id }}">{{ $project->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
-                @endforeach
-
-            
-            <li class="list-title">Forms</li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-view-web"></i><span class="list-label">From Elements</span></a>
-                <ul>
-                    <li><a href="form-all-elements.html">All Form Elements</a></li>
-                    <li><a href="form-basic-elements.html">Basic Form Elements</a></li>
-                    <li><a href="form-material-elements.html">Material Form Elements</a></li>
-                    <li><a href="form-icons-label.html">All Icons Labels</a></li>
-                    <li><a href="form-clone-element.html">Clone Form ELements </a></li>
-                    <li><a href="form-autocomplete.html">Autocomplete </a></li>
-                    <li><a href="form-currency-format.html">Currency Format</a></li>
-                    <li><a href="form-success-state.html">Form Success State </a></li>
-                    <li><a href="form-error-state.html">Form Error State </a></li>
-                    <li><a href="form-disable-state.html">Form Disable State </a></li>
-                    <li><a href="form-grid.html">Form Grid </a></li>
-                    <li><a href="form-tooltips.html">Form Tooltips </a></li>
-                    <li><a href="tags-input.html">Tags Input</a></li>
-                    <li><a href="input-mask.html">Input Mask </a></li>
-                    <li><a href="select2.html">Select2</a></li>
-                    <li><a href="file-styles.html">File Styles</a></li>
-                    <li><a href="spinner.html">Spinner</a></li>
-                    <li><a href="icheck.html">iCheck</a></li>
-                    <li><a href="form-ui-datepicker.html">UI Datepickers</a></li>
-                    <li><a href="form-timepicker.html">UI Timepickers</a></li>
-                    <li><a href="form-spectrum-colorpickers.html">Spectrum Colorpickers</a></li>
-                    <li><a href="date-pickers.html">Bootstrap Datepickers</a></li>
-                    <li><a href="color-pickers.html">Bootstrap &amp; jqColorPickers</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-check"></i><span class="list-label">From Validations</span></a>
-                <ul>
-                    <li><a href="form-validation.html">Form Validation</a></li>
-                    <li><a href="form-booking.html">Booking Form</a></li>
-                    <li><a href="form-call-me.html">Call Me Form </a></li>
-                    <li><a href="form-call-me-captcha.html">Call Me Cptacha Form </a></li>
-                    <li><a href="form-checkout.html">Checkout Form </a></li>
-                    <li><a href="form-order-check-radio.html">Order Form </a></li>
-                    <li><a href="form-order-field.html">Order Form With Quantity </a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-swap"></i><span class="list-label">From Wizard</span></a>
-                <ul>
-                    <li><a href="wizard-default-style.html">Default Style Wizard</a></li>
-                    <li><a href="wizard-tab-style.html">Tab Style Wizard</a></li>
-                    <li><a href="wizard-number-style.html">Number Style Wizard</a></li>
-                    <li><a href="wizard-checkout.html">Checkout Form Wizard</a></li>
-                </ul>
-            </li>
-            <li class="list-title">Tables</li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-grid"></i><span class="list-label">Table Styles</span></a>
-                <ul>
-                    <li><a href="basic-tables.html">Basic Styles</a></li>
-                    <li><a href="foo-tables.html">Responsive FooTables </a></li>
-                    <li><a href="data-tables.html">Data Tables</a></li>
-                    <li><a href="exportable-data-tables.html">Exportable Data Tables</a></li>
-                </ul>
-            </li>
-            <li class="list-title">Charts</li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-chart"></i><span class="list-label">Charts & Graphs</span></a>
-                <ul>
-                    <li><a href="chart-flot.html">Flot Chart</a></li>
-                    <li><a href="chart-sparkline.html">Sparkline Chart</a></li>
-                    <li><a href="chart-js.html">Chart Js</a></li>
-                    <li><a href="chart-nvd3.html">nvd3.js</a></li>
-                </ul>
-            </li>
-            <li class="list-title">Ui Kits</li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-apps"></i><span class="list-label">Ui Elements</span></a>
-                <ul>
-                    <li><a href="header.html">Page Header</a></li>
-                    <li><a href="buttons-icons.html">Buttons &amp; Icons</a></li>
-                    <li><a href="noty.html">Noty</a></li>
-                    <li><a href="bootbox.html">Bootbox</a></li>
-                    <li><a href="sweet-alerts.html">SweetAlert</a></li>
-                    <li><a href="no-ui-slider.html">NoUI Slider</a></li>
-                    <li><a href="on-off-switch.html">On/Off Switch</a></li>
-                </ul>
-            </li>
-            <li><a href="ui-widgets.html"><i class="zmdi zmdi-widgets"></i><span class="list-label">Ui Widgtes</span></a></li>
-            <li><a href="calendar.html"><i class="zmdi zmdi-calendar-alt"></i><span class="list-label">Calendar</span></a></li>
-            <li><a href="typography.html"><i class="zmdi zmdi-format-size"></i><span class="list-label">Typography</span></a></li>
-            <li><a href="grid.html"><i class="zmdi zmdi-border-all"></i><span class="list-label">Grid</span></a></li>
-            <li class="list-title">Pages</li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label">Extra Pages</span></a>
-                <ul>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="login-boxed.html">Boxy Login</a></li>
-                    <li><a href="login-social.html">Social Login</a></li>
-                    <li><a href="404-error.html">404 Error Page</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</aside>
-<!--Leftbar End Here-->
 <!--Page Container Start Here-->
 <section class="main-container">
 <div class="container">
 <div class="page-header filled light">
     <div class="row">
-        <div class="col-md-6 col-sm-6">
-            <h2>Dashboard</h2>
-            <p>Bootstrap3 supported admin template</p>
+        <div class="col-md-7 col-sm-7">
         </div>
-        <div class="col-md-6 col-sm-6">
-            <ul class="list-page-breadcrumb">
-                <li><a href="#">Home <i class="zmdi zmdi-chevron-right"></i></a></li>
-                <li><a href="#">Layout <i class="zmdi zmdi-chevron-right"></i></a></li>
-                <li class="active-page"> Dashboard</li>
-            </ul>
+        <div class="col-md-5 col-sm-5">
+            
+
+  
+                        <form class="form-horizontal">
+         
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Tags</label>
+                            <div class="col-md-8">
+                                <select id="multiple" class="form-control select2-multiple" multiple>
+                                    <option value="AK">RAD NOW</option>
+
+                                    <optgroup label="Profile Fields">
+                                        <option value="name">Name</option>
+                                        <option value="tagline">Tagline</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                        <option value="CA">California</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="WA">Washington</option>
+                                    </optgroup>
+                                    <optgroup label="Mountain Time Zone">
+                                        <option value="AZ">Arizona</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="WY">Wyoming</option>
+                                    </optgroup>
+                                    <optgroup label="Central Time Zone">
+                                        <option value="AL">Alabama</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="WI">Wisconsin</option>
+                                    </optgroup>
+                                    <optgroup label="Eastern Time Zone">
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WV">West Virginia</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+
+            
+            
+       
         </div>
+
     </div>
 </div>
+
 <div class="row">
-    <div class="col-md-4 col-sm-4">
-        <div class="stats-widget stats-widget">
-            <div class="widget-header">
-                <h3>Today's Stats</h3>
-                <p>Total earnings and items sales today</p>
-            </div>
-            <div class="widget-stats-list">
-                <ul>
-                    <li><label>Earning:</label> $400 USD</li>
-                    <li><label>Items Sold:</label> 20 Items </li>
-                    <li><label>Last Hour Sales:</label> $34 USD </li>
-                </ul>
-            </div>
-            <div class="w_bg_teal stats-chart-container">
-                <div id="widget-stats-chart" class="stats-chart">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-sm-4">
-        <div class="widget-wrap stats-widget">
-            <div class="widget-header">
-                <h3>Monthly Stats</h3>
-                <p>Monthly earnings and items sales</p>
-            </div>
-            <div class="widget-stats-list">
-                <ul>
-                    <li><label>Earning:</label> $5,000 USD</li>
-                    <li><label>Items Sold:</label> 400 Items </li>
-                    <li><label>Last Month Earning:</label> $2,434 USD </li>
-                </ul>
-            </div>
-            <div class="w_bg_deep_purple stats-chart-container">
-                <div id="widget-monthly-chart" class="stats-chart"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-sm-4">
-        <div class="widget-wrap stats-widget">
-            <div class="widget-header">
-                <h3>Alltime Stats</h3>
-                <p>All earnings and items sales</p>
-            </div>
-            <div class="widget-stats-list">
-                <ul>
-                    <li><label>Earning:</label> $98,300 USD</li>
-                    <li><label>Items Sold:</label> 8,296 Items </li>
-                    <li><label>Last Year Earning:</label> $78,034 USD </li>
-                </ul>
-            </div>
-            <div class="w_bg_cyan stats-chart-container">
-                <div id="widget-alltime-chart" class="stats-chart"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="widget-wrap">
-            <div class="widget-header block-header margin-bottom-0 clearfix">
-                <div class="pull-left">
-                    <h3>Visitors Stats</h3>
-                    <p>Monthly visitors &amp; sell statistics</p>
-                </div>
-                <div class="pull-right w-action">
-                    <ul class="widget-action-bar">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-more"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="widget-reload"><a href="#"><i class="zmdi zmdi-refresh-alt"></i></a></li>
-                                <li class="widget-toggle"><a href="#"><i class="zmdi zmdi-chevron-down"></i></a></li>
-                                <li class="widget-fullscreen"><a href="#"><i class="zmdi zmdi-fullscreen"></i></a></li>
-                                <li class="widget-exit"><a href="#"><i class="zmdi zmdi-power"></i></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="widget-container margin-top-0">
-                <div class="widget-content">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="analytics-container">
-                                <div id="main-chart-legend"></div>
-                                <div id="main-chart">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="stats-meta">
-                                <h4>Traffic Source</h4>
-                                <ul>
-                                    <li class="clearfix"><a href="#" class="pull-left">Google</a> <span class="t-source-counter pull-right">13,489</span></li>
-                                    <li class="clearfix"><a href="#" class="pull-left">Yahoo</a> <span class="t-source-counter pull-right">6,866</span></li>
-                                    <li class="clearfix"><a href="#" class="pull-left">Envato</a> <span class="t-source-counter pull-right">23,908</span></li>
-                                    <li class="clearfix"><a href="#" class="pull-left">Themeforest</a> <span class="t-source-counter pull-right">12,767</span></li>
-                                    <li class="clearfix"><a href="#" class="pull-left">Codecanyon</a> <span class="t-source-counter pull-right">8,465</span></li>
-                                    <li class="clearfix"><a href="#" class="pull-left">One Page Love</a> <span class="t-source-counter pull-right">5,323</span></li>
-                                </ul>
-                                <h4>Top Visited Items</h4>
-                                <ul>
-                                    <li class="clearfix"><a href="#" class="pull-left">MatMix</a> <span class="t-source-counter pull-right">14,846</span></li>
-                                    <li class="clearfix"><a href="#" class="pull-left">Falgun</a> <span class="t-source-counter pull-right">12,080</span></li>
-                                    <li class="clearfix"><a href="#" class="pull-left">Bingo</a> <span class="t-source-counter pull-right">10,989</span></li>
-                                    <li class="clearfix"><a href="#" class="pull-left">Srabon</a> <span class="t-source-counter pull-right">3,947</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-chart-info">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <span class="chart-info-icon"><i class="zmdi zmdi-eye"></i></span>
-                                    <span class="main-chart-stat-label">109,273</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="chart-info-icon"><i class="zmdi zmdi-chart"></i></span>
-                                    <span class="main-chart-stat-label">48,979</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="chart-info-icon"><i class="zmdi zmdi-smartphone-iphone"></i></span>
-                                    <span class="main-chart-stat-label">20,998</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="chart-info-icon"><i class="zmdi zmdi-laptop-mac"></i></span>
-                                    <span class="main-chart-stat-label">28,764</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="chart-info-icon"><i class="zmdi zmdi-accounts"></i></span>
-                                    <span class="main-chart-stat-label">2,090</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="widget-wrap">
-            <div class="widget-header block-header margin-bottom-0 clearfix">
-                <div class="pull-left">
-                    <h3>Regional Stats</h3>
-                    <p>Country & region wise visitors & sells statistics</p>
-                </div>
-                <div class="pull-right w-action">
-                    <ul class="widget-action-bar">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-more"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="widget-reload"><a href="#"><i class="zmdi zmdi-refresh-alt"></i></a></li>
-                                <li class="widget-toggle"><a href="#"><i class="zmdi zmdi-chevron-down"></i></a></li>
-                                <li class="widget-fullscreen"><a href="#"><i class="zmdi zmdi-fullscreen"></i></a></li>
-                                <li class="widget-exit"><a href="#"><i class="zmdi zmdi-power"></i></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="widget-container margin-top-0">
-                <div class="widget-content">
-                    <div id="regional-visitors" class="regional-analytics">
-                    </div>
-                    <div class="regional-map-stats">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4 border-right">
-                                <div class="map-stats-container">
-                                    <h3>Most Visited</h3>
-                                    <div class="progress">
-                                        <div class="progress-bar p-most-visited" data-progress="60">
-                                        </div>
-                                    </div>
-                                    <div class="visit-progress-info">
-                                        <span class="v-more"><i class="zmdi zmdi-long-arrow-up"></i></span> <span class="v-percent">30%</span> More than last month
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4 border-right">
-                                <div class="map-stats-container">
-                                    <h3>Regular Visited</h3>
-                                    <div class="progress">
-                                        <div class="progress-bar p-reg-visited" data-progress="80">
-                                        </div>
-                                    </div>
-                                    <div class="visit-progress-info">
-                                        <span class="v-more"><i class="zmdi zmdi-long-arrow-up"></i></span> <span class="v-percent">60%</span> More than last month
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4 border-right">
-                                <div class="map-stats-container">
-                                    <h3>Repeated Visited</h3>
-                                    <div class="progress">
-                                        <div class="progress-bar p-rep-visited" data-progress="40">
-                                        </div>
-                                    </div>
-                                    <div class="visit-progress-info">
-                                        <span class="v-less"><i class="zmdi zmdi-long-arrow-down"></i></span> <span class="v-percent">20%</span> Less than last month
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-<div class="col-md-7">
-    <div class="widget-wrap">
-        <div class="widget-header block-header margin-bottom-0 clearfix">
-            <div class="pull-left">
-                <h3>Recent Activities</h3>
-                <p>All users recent activities timeline</p>
-            </div>
-            <div class="pull-right w-action">
-                <ul class="widget-action-bar">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-more"></i></a>
-                        <ul class="dropdown-menu">
-                            <li class="widget-reload"><a href="#"><i class="zmdi zmdi-refresh-alt"></i></a></li>
-                            <li class="widget-toggle"><a href="#"><i class="zmdi zmdi-chevron-down"></i></a></li>
-                            <li class="widget-fullscreen"><a href="#"><i class="zmdi zmdi-fullscreen"></i></a></li>
-                            <li class="widget-exit"><a href="#"><i class="zmdi zmdi-power"></i></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="widget-container margin-top-0">
-            <div class="widget-content">
-                <div class="activities-container">
-                    <ul class="activities-list">
-                        <li>
-                            <div class="activities-badge">
-                                <span class="w_bg_amber"><i class="zmdi zmdi-ticket-star"></i></span>
-                            </div>
-                            <div class="activities-details">
-                                <h3 class="activities-header"><a href="#">Resolved Tickets #LTK7865</a></h3>
-                                <div class="activities-meta">
-                                    <i class="fa fa-clock-o"></i> 30 min ago
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="activities-badge">
-                                <span class="w_bg_cyan"><i class="zmdi zmdi-file-plus"></i></span>
-                            </div>
-                            <div class="activities-details">
-                                <h3 class="activities-header"><a href="#">Files Uploaded</a></h3>
-                                <div class="activities-meta">
-                                    <i class="fa fa-clock-o"></i> 1 hour ago
-                                </div>
-                                <div class="activities-post">
-                                    <ul class="new-file-lists">
-                                        <li><a href="#"><i class="fa fa-file-text"></i> change-log.txt</a></li>
-                                        <li><a href="#"><i class="fa fa-file-audio-o"></i> skype-conversation.mp3</a></li>
-                                        <li><a href="#"><i class="fa fa-file-powerpoint-o"></i> presentation.ppt</a></li>
-                                        <li><a href="#"><i class="fa fa-file-video-o"></i> howtouse.avi</a></li>
-                                        <li><a href="#"><i class="fa fa-file-image-o"></i> screenshot.jpg</a></li>
-                                        <li><a href="#"><i class="fa fa-file-word-o"></i> nda.doc</a></li>
-                                        <li><a href="#"><i class="fa fa-file-pdf-o"></i> resume.pdf</a></li>
-                                        <li><a href="#"><i class="fa fa-file-archive-o"></i> all-files.zip</a></li>
-                                        <li><a href="#"><i class="fa fa-file-excel-o"></i> bill.xls</a></li>
-                                        <li><a href="#">+10</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="activities-badge">
-                                <span class="w_bg_light_blue"><i class="zmdi zmdi-image"></i></span>
-                            </div>
-                            <div class="activities-details">
-                                <h3 class="activities-header"><a href="#">Images Uploaded</a></h3>
-                                <div class="activities-meta">
-                                    <i class="fa fa-clock-o"></i> July 22 at 1:12pm
-                                </div>
-                                <div class="activities-post">
-                                    <ul class="new-image-lists">
-                                        <li><a href="#"><img src="images/img-1-thumb.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/img-2-thumb.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/img-3-thumb.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/img-4-thumb.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/img-5-thumb.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/img-6-thumb.jpg" alt="image"></a></li>
-                                        <li><a href="#" class="more-list"><i class="zmdi zmdi-more-horiz"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="activities-badge">
-                                <span class="w_bg_green"><i class="zmdi zmdi-accounts-alt"></i></span>
-                            </div>
-                            <div class="activities-details">
-                                <h3 class="activities-header"><a href="#">Users Approved</a></h3>
-                                <div class="activities-meta">
-                                    <i class="fa fa-clock-o"></i> July 22 at 1:12pm
-                                </div>
-                                <div class="activities-post">
-                                    <ul class="new-user-lists">
-                                        <li><a href="#"><img src="images/avatar/oykun.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/avatar/mds.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/avatar/robertoortiz.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/avatar/kurafire.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/avatar/coreyweb.jpg" alt="image"></a></li>
-                                        <li><a href="#"><img src="images/avatar/mikeluby.jpg" alt="image"></a></li>
-                                        <li><a href="#" class="more-list"><i class="zmdi zmdi-more-horiz"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="activities-badge">
-                                <span class="w_bg_deep_purple"><i class="zmdi zmdi-file-text"></i></span>
-                            </div>
-                            <div class="activities-details">
-                                <h3 class="activities-header"><a href="#">Post New Article</a></h3>
-                                <div class="activities-meta">
-                                    <i class="fa fa-clock-o"></i> July 22 at 1:12pm
-                                </div>
-                                <div class="activities-post">
-                                    <ul class="new-post-lists">
-                                        <li><a href="#">Man in the Verde Valley</a></li>
-                                        <li><a href="#">Sinagua Pueblo Life</a></li>
-                                        <li><a href="#">Montezuma Well</a></li>
-                                        <li><a href="#">The Natural Scene</a></li>
-                                        <li><a href="#">+6</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="activities-badge">
-                                <span class="w_bg_teal"><i class="zmdi zmdi-comments"></i></span>
-                            </div>
-                            <div class="activities-details">
-                                <h3 class="activities-header"><a href="#">Comments Replied</a></h3>
-                                <div class="activities-meta">
-                                    <i class="fa fa-clock-o"></i> July 22 at 1:12pm
-                                </div>
-                                <div class="activities-post">
-                                    <ul class="new-comments-lists">
-                                        <li><a href="#">As long as you are reasonably careful about where you step and avoid putting ...</a></li>
-                                        <li><a href="#">Montezuma Castle is 5 miles north of Camp Verde, 60 miles south...</a></li>
-                                        <li><a href="#">The stage is in deep shadow—nothing being visible amid the gloom save the silhouetted grey forms of some old</a></li>
-                                        <li><a href="#">Yes, but I doubt whether she has before. Listen to that voice of hers! One would hardly know it to be hers at all. It used to be such a sweet and gentle one.</a></li>
-                                        <li><a href="#">There! At last she is quiet again. I was getting tired of it all. It was such a monotonous, ugly screaming.</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <button class="btn btn-link btn-block btn-loadmore">Load More</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-5">
-<div class="widget-wrap">
-    <div class="widget-header block-header margin-bottom-0 clearfix">
-        <div class="pull-left">
-            <h3>Recent Users</h3>
-            <p>All recent registered members</p>
-        </div>
-        <div class="pull-right w-action">
-            <ul class="widget-action-bar">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-more"></i></a>
-                    <ul class="dropdown-menu">
-                        <li class="widget-reload"><a href="#"><i class="zmdi zmdi-refresh-alt"></i></a></li>
-                        <li class="widget-toggle"><a href="#"><i class="zmdi zmdi-chevron-down"></i></a></li>
-                        <li class="widget-fullscreen"><a href="#"><i class="zmdi zmdi-fullscreen"></i></a></li>
-                        <li class="widget-exit"><a href="#"><i class="zmdi zmdi-power"></i></a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="widget-container margin-top-0">
-        <div class="widget-content">
-            <div class="recent-users">
-                <div class="recent-users-list">
-                    <div class="individual-user info-expand">
-                        <div class="user-intro">
-                            <div class="user-thumb"><a href="#"><img src="images/avatar/amarkdalen.jpg" alt="user"></a></div>
-                            <div class="users-info">
-                                <ul>
-                                    <li class="u-name"><a href="#">Clyde L. Holcombe</a></li>
-                                    <li class="u-location">United States</li>
-                                </ul>
-                            </div>
-                            <span class="user-details-toggle"><i class="zmdi"></i></span>
-                        </div>
-                        <div class="users-details">
-                            <ul>
-                                <li><label>Email:</label> ClydeLHolcombe@iammail.com </li>
-                                <li><label>Company:</label> Olympic Sports</li>
-                                <li><label>Plan:</label> <label class="label label-primary">Platinum</label> </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="individual-user">
-                        <div class="user-intro">
-                            <div class="user-thumb"><a href="#"><img src="images/avatar/bobbyjkane.jpg" alt="user"></a></div>
-                            <div class="users-info">
-                                <ul>
-                                    <li class="u-name"><a href="#">John N. Ornelas</a></li>
-                                    <li class="u-location">United States</li>
-                                </ul>
-                            </div>
-                            <span class="user-details-toggle"><i class="zmdi"></i></span>
-                        </div>
-                        <div class="users-details">
-                            <ul>
-                                <li><label>Email:</label> JohnNOrnelas@teleerworm.us </li>
-                                <li><label>Company:</label> Happy Bear Investment</li>
-                                <li><label>Plan:</label> <label class="label label-warning">Gold</label> </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="individual-user">
-                        <div class="user-intro">
-                            <div class="user-thumb"><a href="#"><img src="images/avatar/coreyweb.jpg" alt="user"></a></div>
-                            <div class="users-info">
-                                <ul>
-                                    <li class="u-name"><a href="#">Melvin M. Spencer</a></li>
-                                    <li class="u-location">United States</li>
-                                </ul>
-                            </div>
-                            <span class="user-details-toggle"><i class="zmdi"></i></span>
-                        </div>
-                        <div class="users-details">
-                            <ul>
-                                <li><label>Email:</label> MelvinMSpencer@armyssupy.com </li>
-                                <li><label>Company:</label> Courtesy Hardware Store</li>
-                                <li><label>Plan:</label> <label class="label label-default">Silver</label> </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="individual-user">
-                        <div class="user-intro">
-                            <div class="user-thumb"><a href="#"><img src="images/avatar/mko.jpg" alt="user"></a></div>
-                            <div class="users-info">
-                                <ul>
-                                    <li class="u-name"><a href="#">Henry S. Langford</a></li>
-                                    <li class="u-location">United States</li>
-                                </ul>
-                            </div>
-                            <span class="user-details-toggle"><i class="zmdi"></i></span>
-                        </div>
-                        <div class="users-details">
-                            <ul>
-                                <li><label>Email:</label> HenrySLangford@dayreptic.com </li>
-                                <li><label>Company:</label> Wild Oats Markets</li>
-                                <li><label>Plan:</label> <label class="label label-primary">Platinum</label> </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="individual-user">
-                        <div class="user-intro">
-                            <div class="user-thumb"><a href="#"><img src="images/avatar/joostvanderree.jpg" alt="user"></a></div>
-                            <div class="users-info">
-                                <ul>
-                                    <li class="u-name"><a href="#">Curtis D. Canales</a></li>
-                                    <li class="u-location">United States</li>
-                                </ul>
-                            </div>
-                            <span class="user-details-toggle"><i class="zmdi"></i></span>
-                        </div>
-                        <div class="users-details">
-                            <ul>
-                                <li><label>Email:</label> CurtisDCanales@armysopypy.com </li>
-                                <li><label>Company:</label> L.L. Berger</li>
-                                <li><label>Plan:</label> <label class="label label-warning">Gold</label> </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="individual-user">
-                        <div class="user-intro">
-                            <div class="user-thumb"><a href="#"><img src="images/avatar/kurafire.jpg" alt="user"></a></div>
-                            <div class="users-info">
-                                <ul>
-                                    <li class="u-name"><a href="#">Jerry T. Kennedy</a></li>
-                                    <li class="u-location">United States</li>
-                                </ul>
-                            </div>
-                            <span class="user-details-toggle"><i class="zmdi"></i></span>
-                        </div>
-                        <div class="users-details">
-                            <ul>
-                                <li><label>Email:</label> JerryTKennedy@dayrep.com </li>
-                                <li><label>Company:</label> O.K. Fairbanks</li>
-                                <li><label>Plan:</label> <label class="label label-default">Silver</label> </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <button class="btn btn-link btn-block btn-loadmore">Load More</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+<div class="col-md-12">
 <div class="widget-wrap">
     <div class="widget-header block-header margin-bottom-0 clearfix">
         <div class="pull-left">

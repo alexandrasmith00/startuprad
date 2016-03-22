@@ -7,6 +7,7 @@
 
 <body class="overlay-leftbar">
     @include('includes.header')
+    @include('includes.sidebar')
 
     @yield('content')
     

@@ -6,6 +6,7 @@
         <li>
             <a href="#"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label">{{ $cohort->name }}</span></a>
             <ul>
+               <li><a href="/project">View All</a></li>
                 @foreach ($cohort->ideas as $project)
                     <li><a href="/project/{{ $project->id }}">{{ $project->name }}</a></li>
                 @endforeach
