@@ -23,9 +23,11 @@ class FeedController extends Controller
         $this->middleware('auth');
     }
 
-    
     public function index()
     {
+        
+        // ordering goes in here!
+        
         $posts = Post::orderBy('published_at', 'desc')
             ->paginate(8);
 

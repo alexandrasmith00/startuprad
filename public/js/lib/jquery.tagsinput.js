@@ -174,9 +174,9 @@
       defaultText:'add a tag',
       minChars:0,
       width:'300px',
-      height:'100px',
       autocomplete: {selectFirst: false },
       hide:true,
+      lineHeight: 1,
       delimiter: ',',
       unique:true,
       removeWithBackspace:true,
@@ -233,8 +233,7 @@
 			$(markup).insertAfter(this);
 
 			$(data.holder).css('width',settings.width);
-			$(data.holder).css('min-height',settings.height);
-			$(data.holder).css('height',settings.height);
+
 
 			if ($(data.real_input).val()!='') {
 				$.fn.tagsInput.importTags($(data.real_input),$(data.real_input).val());

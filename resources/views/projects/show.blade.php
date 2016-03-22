@@ -21,15 +21,25 @@
       </ul>
     
       <div class="tab-content">
+          
         <div role="tabpanel" class="tab-pane active" id="feed">
             @include('includes.posts.all')
         </div>
+          
+          
         <div role="tabpanel" class="tab-pane" id="profile">
-            @include('projects.templates.field', array('fieldname'=>'Description', 'fieldbody' => $project->description))
-            @include('projects.templates.field', array('fieldname'=>'Product Idea', 'fieldbody' => $project->product_idea))
-            @include('projects.templates.field', array('fieldname'=>'Elevator Pitch', 'fieldbody' => $project->elevator_pitch))
-            @include('projects.templates.field', array('fieldname'=>'Pitch Video', 'fieldbody' => $project->pitch_video))
-            @include('projects.templates.field', array('fieldname'=>'Slide Deck', 'fieldbody' => $project->slide_deck))
+            <div class="row">
+                <div class="col-md-6">
+                    @include('projects.includes.field', array('fieldname'=>'Product Idea', 'fieldbody' => $project->product_idea))
+                </div> 
+                <div class="col-md-6">
+                    @include('projects.includes.field', array('fieldname'=>'Product Idea', 'fieldbody' => $project->product_idea))
+                </div>
+            </div>
+            @include('projects.includes.field', array('fieldname'=>'Description', 'fieldbody' => $project->description))
+            @include('projects.includes.field', array('fieldname'=>'Elevator Pitch', 'fieldbody' => $project->elevator_pitch))
+            @include('projects.includes.field', array('fieldname'=>'Pitch Video', 'fieldbody' => $project->pitch_video))
+            @include('projects.includes.field', array('fieldname'=>'Slide Deck', 'fieldbody' => $project->slide_deck))
             
         <div class="row">
             <div class="col-sm-2">

@@ -18,10 +18,6 @@ class PagesController extends Controller
     {
         $this->middleware('auth');
     }
-    
-    public function welcome()
-    {
-        return view('pages.welcome');
-    }
+
     
 }

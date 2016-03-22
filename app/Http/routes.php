@@ -2,25 +2,16 @@
 
 Route::group(['middleware' => 'web'], function () {
 
-    // routes that don't need authentication
+    Route::auth();
+    // feed and comments
     Route::get('/', 'FeedController@index');
-
-//
-    Route::get('feed', 'FeedController@index');
-    
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
-
-//    Route::get('blog/{slug}', 'BlogController@showPost');
-//
-//    
-    // routes that need authentication
-    Route::auth(); 
-    Route::get('/dashboard', 'HomeController@index'); 
-    Route::controller('/account', 'UsersController');
-//    Route::controller('/project', 'ProjectsController');
-
-    Route::get('/profile/updatesomething', 'EditsController@update');
     
+    // user specific pages
+    Route::controller('/account', 'UsersController');
+    
+    // anything to do with projects and ideas
+    Route::get('/profile/updatesomething', 'EditsController@update');
     Route::group(['prefix' => 'project'], function () {
         Route::get('/', ['as' => 'messages', 'uses' => 'ProjectsController@index']);
         Route::post('/add', ['as' => 'messages.add', 'uses' => 'ProjectsController@add']);
