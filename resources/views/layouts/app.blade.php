@@ -16,6 +16,10 @@
     </section>
 
     @include('includes.footer')
+
+    
+    @include('includes.sidebar-right')
+
     
     @include('includes.scripts')
 </body>

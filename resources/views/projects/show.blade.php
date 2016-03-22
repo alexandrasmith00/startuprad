@@ -106,19 +106,3 @@
 
 
 @stop
-
-@section('scripts')
-<script>
-    function makeActive() {
-        
-        $('ul.nav-tabs li.active').removeClass('active');
-        $('#profile-tab').addClass('active');
-    }
-    
-    function doThisOnLoad() {
-        $("offcanvas").toggle();
-    }
-
-</script>
-
-@stop

@@ -1,8 +1,52 @@
-      
-    <div class="widget-wrap">
-      <div class="widget-header block-header margin-bottom-0 clearfix">
-        <div class="activities-timeline">
-        <h3 class="tab-pane-header">Recent Activity</h3>
+  
+<aside class="rightbar">
+<div class="rightbar-container">
+    
+    @include('includes.sidebar-right.chat')
+
+    <ul class="nav nav-tabs material-tabs rightbar-tab" role="tablist">
+        <li class="active"><a href="#chat" aria-controls="message" role="tab" data-toggle="tab">Chat</a></li>
+        <li><a href="#activities" aria-controls="notifications" role="tab" data-toggle="tab">Activities</a></li>
+    </ul>
+    
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="chat">
+          
+        <div class="chat-user-toolbar clearfix">
+            <div class="chat-user-search pull-left">
+                <span class="addon-icon"><i class="zmdi zmdi-search"></i></span>
+                <input type="text" class="form-control" placeholder="Nonfunctional Search">
+            </div>
+            <div class="add-chat-list pull-right">
+                <i class="zmdi zmdi-accounts-add"></i>
+            </div>
+        </div>
+          
+        <div class="chat-user-container">
+            <h3 class="clearfix"><span class="pull-left">Teaching Staff</span><span class="pull-right online-counter">3 Online</span></h3>
+            <ul class="chat-user-list">
+            </ul>
+            
+            @foreach (Auth::user()->cohorts as $cohort)
+              <h3 class="clearfix">
+              <span class="pull-left">{{$cohort->name}}</span>
+              <span class="pull-right online-counter">1 Online</span></h3>
+            
+              <ul class="chat-user-list">
+                @foreach ($cohort->ideas as $project)
+                  @foreach ($project->team->users as $member)
+                    @include('includes.sidebar-right.user')
+                  @endforeach
+                @endforeach
+              </ul>
+            @endforeach
+        </div>
+      </div>
+        
+        
+<div role="tabpanel" class="tab-pane" id="activities">
+    <div class="activities-timeline">
+        <h3 class="tab-pane-header">Recent Activities</h3>
         <ul class="activities-list">
             <li>
                 <div class="activities-badge">
@@ -117,5 +161,7 @@
             </li>
         </ul>
     </div>
-      </div>
-    </div>
+</div>
+</div>
+</div>
+</aside>

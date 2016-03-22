@@ -15,3 +15,22 @@
         </li>
     </ul>
 </div>
+
+@section('scripts')
+<script>
+    $('.logout-alert').on('click', function (e) {
+    
+        swal({   
+            title: "Are you sure?",   
+            text: "You will be logged out.",   
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Log me out",   
+            closeOnConfirm: false 
+        }, function(){   
+                window.location.href = 'logout';
+        });
+    });
+</script>
+@stop

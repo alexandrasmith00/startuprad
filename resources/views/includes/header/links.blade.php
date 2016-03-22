@@ -5,6 +5,7 @@
             <li><span class="left-toggle-switch"><i class="zmdi zmdi-menu"></i></span></li>
         </ul>
         <ul class="pull-right top-right-icons">
+            
             <li><a href="#" class="btn-top-search"><i class="zmdi zmdi-search"></i></a></li>
             @include('includes.header.apps')
             @include('includes.header.notifications')

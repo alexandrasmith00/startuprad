@@ -1,6 +1,7 @@
 <div class="user-profile clearfix">
     <div class="admin-user-thumb">
-        <img src="images/avatar/jaman_01.jpg" alt="admin">
+        <img src="{{asset('images/avatar/jaman_01.jpg')}}" alt="admin">
+        
     </div>
     <div class="admin-user-info">
         <ul>

@@ -226,8 +226,8 @@
         me.wrap(wrapper);
 
         // append to parent div
-        me.parent().append(bar);
-        me.parent().append(rail);
+//        me.parent().append(bar);
+//        me.parent().append(rail);
 
         // make it draggable and no longer dependent on the jqueryUI
         if (o.railDraggable){

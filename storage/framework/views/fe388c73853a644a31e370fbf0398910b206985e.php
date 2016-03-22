@@ -1,5 +1,19 @@
 <li class="dropdown apps-dropdown">
-    <a href="#" class="btn-apps dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-apps"></i></a>
+<!--    <a href="#" class="btn-apps dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-apps"></i></a>-->
+    <a href="#" class="btn-apps" title="Coming soon!" data-placement="bottom" data-toggle="tooltip"><i class="zmdi zmdi-apps"></i></a>
+
+
+<!-- Generated markup by the plugin -->
+<div class="tooltip bottom" role="tooltip">
+  <div class="tooltip-arrow"></div>
+  <div class="tooltip-inner">
+    Some tooltip text!
+  </div>
+</div>
+    
+    
+<!--    <span class="tooltip tooltip-right-bottom">Tooltip or useful information</span>-->
+
     <div class="dropdown-menu">
         <ul class="apps-shortcut clearfix">
             <li>

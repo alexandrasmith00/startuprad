@@ -3,8 +3,9 @@
         <div class="pull-left">
           <div class="recent-users-list">
             <div class="user-intro">
-                <div class="user-thumb"><a href="#"><img src="images/avatar/amarkdalen.jpg" alt="user"></a></div>
+                <div class="user-thumb"><a href="#"><img src="<?php echo e(asset('images/avatar/amarkdalen.jpg')); ?>" alt="user"></a></div>
                 <div class="users-info">
+                    
                     <ul>
                         <li class="u-name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->idea['name']); ?></a><small class="text-muted"> <?php echo e($post->title); ?></small></li>
                         <li class="u-location"> <i class="zmdi zmdi-time"></i> <?php echo e($post->created_at->diffForHumans()); ?></li>
