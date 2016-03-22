@@ -25751,6 +25751,12 @@ table.dataTable > tbody > tr.child span.dtr-title {
   transform: scale(1);
   -webkit-transform: scale(1);
 }
+.label-tag {
+  margin: 2px;
+}
+.post-tags {
+  padding-top: 2em;
+}
 .padding-top-2 {
   padding-top: 2px;
 }

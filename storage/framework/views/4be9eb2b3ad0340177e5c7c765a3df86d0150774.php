@@ -38,7 +38,7 @@
                             <tr>
                                 <td>
                                     <a href="/project/<?php echo e($project->id); ?>" class="td-profile-thumb">
-                                        <img src="images/avatar/michael-owens.jpg" alt="Logo">
+                                        <img src="images/img-3-thumb.jpg" alt="image"></a>
                                     </a>
                                     <a href="/project/<?php echo e($project->id); ?>">
                                         <span style="padding-left: 10px;" ><?php echo e($project->name); ?></span>
