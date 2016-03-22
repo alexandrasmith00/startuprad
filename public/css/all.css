@@ -25757,6 +25757,12 @@ table.dataTable > tbody > tr.child span.dtr-title {
 .post-tags {
   padding-top: 2em;
 }
+.comment-info {
+  padding-top: 2px;
+}
+a.action-link {
+  font-weight: bold;
+}
 .padding-top-2 {
   padding-top: 2px;
 }
@@ -26404,7 +26410,7 @@ table.dataTable > tbody > tr.child span.dtr-title {
   display: table;
   width: 100%;
   position: relative;
-  padding: 15px 30px 0px 30px;
+  padding: 0px 30px 0px 30px;
 }
 .recent-comments-list .recent-comment-meta .comment-user-thumb {
   display: table-cell;

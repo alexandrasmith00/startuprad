@@ -6,11 +6,11 @@
         <div class="comment-user-info">
             <ul>
                 <li class="u-name">
-                    <a style="color:#17bab8;" href="#"><b>{{ $comment->user->name }}</b></a> 
-                    {{ $comment->body }} 
+                    <a style="color:#17bab8;" href="#"><b><?php echo e($comment->user->name); ?></b></a> 
+                    <?php echo e($comment->body); ?> 
                 </li>
                 <li class="comment-info">
-                    <span class="p-time"><i class="zmdi zmdi-time"></i>  {{ $comment->created_at->diffForHumans() }}</span>
+                    <span class="p-time"><i class="zmdi zmdi-time"></i>  <?php echo e($comment->created_at->diffForHumans()); ?></span>
 <!--
                     &nbsp; &middot; &nbsp;
                     <span class="p-time"> Thank</span>

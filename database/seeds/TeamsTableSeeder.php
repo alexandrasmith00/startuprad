@@ -32,7 +32,7 @@ class TeamsTableSeeder extends Seeder
             $idea = Idea::create([
                 'name' => $name,
                 'tagline' => $tagline,
-                'website' => $website,
+                'site' => $website,
                 'logo' => $logo
             ]);
             
