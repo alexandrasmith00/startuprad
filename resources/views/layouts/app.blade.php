@@ -8,8 +8,14 @@
 <body class="overlay-leftbar">
     @include('includes.header')
     @include('includes.sidebar')
+    
+    <section class="main-container">
+      <div class="container">
+        @yield('content')
+      </div>
+    </section>
 
-    @yield('content')
+    @include('includes.footer')
     
     @include('includes.scripts')
 </body>

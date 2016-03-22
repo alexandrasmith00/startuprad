@@ -1,9 +1,6 @@
 <?php $__env->startSection('content'); ?>
 
 
-<!--Page Container Start Here-->
-<section class="main-container">
-<div class="container">
 <div class="page-header filled light">
     <div class="row">
         <div class="col-md-7 col-sm-7">
@@ -19,33 +16,15 @@
   <div class="col-md-8">
         <?php echo $__env->make('includes.posts.all', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   </div>
-    
+
   <div class="col-md-4">
       <?php echo $__env->make('includes.deliverables.list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       <?php echo $__env->make('includes.activity.all', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   </div>
 </div>
 
-    </div>
-    </div>
 
-<!--Footer Start Here -->
-<footer class="footer-container">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="footer-left">
-                    <span>© 2015 <a href="http://themeforest.net/user/westilian">westilian</a></span>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="footer-right">
-                    <span class="footer-meta">Crafted with&nbsp;<i class="fa fa-heart"></i>&nbsp;by&nbsp;<a href="http://themeforest.net/user/westilian">westilian</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+
 <!--Footer End Here -->
 </section>
 <!--Page Container End Here-->

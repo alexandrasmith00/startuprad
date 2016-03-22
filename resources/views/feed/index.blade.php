@@ -3,9 +3,6 @@
 @section('content')
 
 
-<!--Page Container Start Here-->
-<section class="main-container">
-<div class="container">
 <div class="page-header filled light">
     <div class="row">
         <div class="col-md-7 col-sm-7">
@@ -21,33 +18,15 @@
   <div class="col-md-8">
         @include('includes.posts.all')
   </div>
-    
+
   <div class="col-md-4">
       @include('includes.deliverables.list')
       @include('includes.activity.all')
   </div>
 </div>
 
-    </div>
-    </div>
 
-<!--Footer Start Here -->
-<footer class="footer-container">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="footer-left">
-                    <span>© 2015 <a href="http://themeforest.net/user/westilian">westilian</a></span>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="footer-right">
-                    <span class="footer-meta">Crafted with&nbsp;<i class="fa fa-heart"></i>&nbsp;by&nbsp;<a href="http://themeforest.net/user/westilian">westilian</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+
 <!--Footer End Here -->
 </section>
 <!--Page Container End Here-->
