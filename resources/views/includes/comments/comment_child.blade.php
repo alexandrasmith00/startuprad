@@ -18,13 +18,13 @@
                     @endif
 
                     &nbsp; &middot; &nbsp;
-                    <span class="p-time"> <a class="action-link">Reply</a></span>
+                    <span class="p-time"> <a id="{{ $comment->id }}"class="action-link reply-link">Reply</a></span>
+
                 </li>
             </ul>
         </div>
     </div>
 </div>
-
 
 @if($comment->hasChildren())
     @foreach($comment->getChildren() as $child)
@@ -32,5 +32,5 @@
     @endforeach
 @endif
 
-
+@include('includes.comments.make_reply')
 

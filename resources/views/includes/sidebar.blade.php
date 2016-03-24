@@ -1,4 +1,4 @@
-<aside class="leftbar material-leftbar">
+<aside class="leftbar">
     <div class="left-aside-container">
         <div class="user-profile-container">
             @include('includes.sidebar.user')

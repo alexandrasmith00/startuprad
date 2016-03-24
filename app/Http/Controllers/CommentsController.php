@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
+use Slynova\Commentable\Models\Comment;
 
 use App\Models\Post;
 use Carbon\Carbon;
@@ -19,8 +21,41 @@ class CommentsController extends Controller
         return 'indexing';
     }
 
-    public function reply()
+    public function reply(Request $request)
     {
-        return 'replying';
+        $content = $request->input('message');
+        $info = explode("-", $request->input('comment-id'));
+        $type = $info[0];
+        $parent_id = $info[1];
+        
+        if ($type == 'post')
+        {
+            $parent_post = Post::find($parent_id);
+            $new_comment = $parent_post->comments()->create(['user_id' => Auth::user()->id, 'body' => $content ]);
+        }   
+        else if ($type == 'comment')
+        {
+            $parent_comment = Comment::find($parent_id);
+            $new_comment = Comment::create(['body' => $content, 'user_id' => Auth::user()->id ]);
+            $new_comment->makeChildOf($parent_comment);
+        }
+        
+//        // find post or comment from above!
+//        
+        
+//                {
+//            $comment1 = $post->comments()->create(['body' => 'Is it really working?', 'user_id' => $commenters[0] ]);
+//            $comment2 = $post->comments()->create(['body' => 'Wow this is awesome!', 'user_id' => $commenters[1] ]);
+//            $comment3 = Comment::create(['body' => "Yes, and it's easy to use", 'user_id' => $commenters[0] ]);
+//            $comment3->makeChildOf($comment1);
+//        // add comment to that post
+//        
+//        
+//        // if child comment
+//        
+//        $comment3 = Comment::create(['body' => "Yes, and it's easy to use", 'user_id' => $commenters[0] ]);
+//        $comment3->makeChildOf($comment1);
+//
+//        return 'replying';
     }
 }

@@ -171,7 +171,7 @@
 	$.fn.tagsInput = function(options) {
     var settings = jQuery.extend({
       interactive:true,
-      defaultText:'add a tag',
+      defaultText:'create your own tag',
       minChars:0,
       width:'300px',
       autocomplete: {selectFirst: false },
@@ -183,7 +183,7 @@
       placeholderColor:'#666666',
       autosize: true,
       comfortZone: 20,
-      inputPadding: 6*2
+      inputPadding: 18
     },options);
 
     	var uniqueIdCounter = 0;

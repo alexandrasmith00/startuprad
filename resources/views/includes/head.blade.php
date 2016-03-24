@@ -10,6 +10,9 @@
 <!-- Universal Styles -->
 <link rel="stylesheet" type="text/css" href="/css/all.css">
 
+<link href='https://fonts.googleapis.com/css?family=Rock+Salt|Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+
+
 <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

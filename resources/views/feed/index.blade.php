@@ -2,19 +2,15 @@
 
 @section('content')
 
-@include('includes.posts.make')
-
 <div class="row">
-
-  <div class="col-md-8">
+    <div class="col-md-8 col-md-offset-2 col-sm-12">
+        @include('includes.posts.make')
+        
         @include('includes.posts.all')
-  </div>
 
-  <div class="col-md-4">
-      @include('includes.deliverables.list')
-      @include('includes.activity.all')
-  </div>
+    </div>
 </div>
+
 
 
 @stop

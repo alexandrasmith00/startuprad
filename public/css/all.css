@@ -14355,8 +14355,8 @@ button.close {
   border: #ddd 1px solid;
 }
 .topbar .topbar-left {
-  width: 250px;
-  padding: 0px 6px;
+  min-width: 250px;
+  padding: 0px 6px 0px;
   background-color: #17bab8;
 }
 .topbar .topbar-left .left-branding {
@@ -14368,6 +14368,8 @@ button.close {
   display: inline-block;
   list-style: none;
   float: left;
+  line-height: 60px;
+  font-family: 'Rock Salt';
 }
 .topbar .topbar-left .left-branding .top-mega-menu {
   width: 44px;
@@ -14449,6 +14451,7 @@ button.close {
 }
 .topbar .topbar-left .logo {
   height: 60px;
+  padding-left: 40px;
 }
 .topbar .topbar-left .mega-menu {
   width: 44px;
@@ -25820,6 +25823,10 @@ a.action-link {
 }
 .landscape img {
   height: 100%;
+}
+textarea.comment {
+  border: none;
+  box-shadow: none;
 }
 .padding-top-2 {
   padding-top: 2px;

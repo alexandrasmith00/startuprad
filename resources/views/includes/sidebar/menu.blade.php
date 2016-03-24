@@ -1,7 +1,6 @@
 <ul class="list-accordion tree-style">
     <li class="list-title">Startups</li>
 
-
         @foreach (Auth::user()->cohorts as $cohort)
         <li>
             <a href="#"><i class="zmdi zmdi-view-dashboard"></i><span class="list-label">{{ $cohort->name }}</span></a>
@@ -13,4 +12,5 @@
             </ul>
         </li>
         @endforeach
+    
 </ul>

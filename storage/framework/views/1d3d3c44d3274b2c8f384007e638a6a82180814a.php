@@ -14,6 +14,7 @@
 <script src="<?php echo e(asset('js/lib/jquery.syntaxhighlighter.js')); ?>"></script>
 <script src="<?php echo e(asset('js/lib/velocity.js')); ?>"></script>
 <script src="<?php echo e(asset('js/lib/smart-resize.js')); ?>"></script>
+<script src="<?php echo e(asset('js/lib/autosize.min.js')); ?>"></script>
 
 <script src="<?php echo e(asset('js/lib/icheck.js')); ?>"></script>
 <script src="<?php echo e(asset('js/lib/jquery.switch.button.js')); ?>"></script>
@@ -29,6 +30,29 @@
 <script src="<?php echo e(asset('js/lib/j-forms.js')); ?>"></script>
 <script src="<?php echo e(asset('js/lib/jquery.loadmask.js')); ?>"></script>
 <script src="<?php echo e(asset('js/apps.js')); ?>"></script>
+
+
+<script>
+    
+    // FOR POSTING COMMENTS
+    autosize($('textarea'));
+    
+    $('#comment-box textarea').keydown(function(e) {
+        if (e.keyCode == 13) {
+            this.form.submit();
+        }
+    });
+    
+    $('.reply-link').click(function() { 
+        $('[id*="reply-"]').hide();
+
+        var reply_to = $(this).attr("id");
+        var found = "reply-" + reply_to;
+        $('#' + found).show();
+    });
+
+
+</script>
 
 <?php echo $__env->yieldContent('scripts'); ?>
 

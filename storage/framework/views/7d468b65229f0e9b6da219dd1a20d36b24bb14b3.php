@@ -18,13 +18,13 @@
                     <?php endif; ?>
 
                     &nbsp; &middot; &nbsp;
-                    <span class="p-time"> <a class="action-link">Reply</a></span>
+                    <span class="p-time"> <a id="<?php echo e($comment->id); ?>"class="action-link reply-link">Reply</a></span>
+
                 </li>
             </ul>
         </div>
     </div>
 </div>
-
 
 <?php if($comment->hasChildren()): ?>
     <?php foreach($comment->getChildren() as $child): ?>
@@ -32,5 +32,5 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
-
+<?php echo $__env->make('includes.comments.make_reply', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 

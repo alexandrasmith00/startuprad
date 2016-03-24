@@ -196,8 +196,8 @@
   }
   // Branding With Logo
   .topbar-left{
-    width: @LeftBarWidth;
-    padding: 0px 6px;
+    min-width: @LeftBarWidth;
+    padding: 0px 6px 0px;
     background-color: @TopBrandingBg;
     .left-branding{
       padding: 0px;
@@ -207,6 +207,8 @@
        display: inline-block;
        list-style: none;
        float: left;
+       line-height: @TopBarHeight;
+       font-family: 'Rock Salt';
 
      }
 
@@ -296,6 +298,7 @@
 
     .logo{
       height: @TopBarHeight;
+      padding-left: 40px;
     }
     // Header Mega Menu
     .mega-menu{
