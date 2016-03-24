@@ -8,7 +8,7 @@
 <script src="<?php echo e(asset('js/lib/hammerjs.js')); ?>"></script>
 <script src="<?php echo e(asset('js/lib/jquery.hammer.js')); ?>"></script>
 <script src="<?php echo e(asset('js/lib/jquery.fitvids.js')); ?>"></script>
-<script src="<?php echo e(asset('js/lib/scrollup.js')); ?>"></script>
+<!--<script src="<?php echo e(asset('js/lib/scrollup.js')); ?>"></script>-->
 <script src="<?php echo e(asset('js/lib/smoothscroll.js')); ?>"></script>
 <script src="<?php echo e(asset('js/lib/jquery.slimscroll.js')); ?>"></script>
 <script src="<?php echo e(asset('js/lib/jquery.syntaxhighlighter.js')); ?>"></script>
