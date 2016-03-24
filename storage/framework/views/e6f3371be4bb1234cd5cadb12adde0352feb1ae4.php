@@ -1,28 +1,64 @@
-<div class="page-header filled light">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="unit">
-                <div class="input">
-                    <textarea spellcheck="false" style="resize: none;" name="message" class="form-control"></textarea>
-                </div>
-            </div><br/>
-        </div>
-    </div>
-<!--
-    <div class="row">
-        <div class="col-md-12">
-            <?php echo $__env->make('includes.posts.tags', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<div class="widget-wrap" style="padding-top: 0px;">
+<div class="widget-container margin-top-0">
+    <div class="widget-content">
+        <div class="recent-comments-list">
+                        
 
-        </div>
-    </div>
--->
+            <form action="" method="post">
+                    <input type="hidden" name="comment-id" value="post-1">
 
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="btn-ex-container">
-                <a href="#" class="btn btn-primary">Post</a>
-            </div>
+                    <textarea spellcheck="false" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" name="message" class="form-control comment" placeholder="Ask a question or share something interesting..."></textarea>
+                
+                   <input type="text" id="little-tags" class="tags tags-input" data-type="highlighted-tags" data-highlight-color="#e6e39c" value="#RADNOW"/>
+
+                
+                
+                <button class="btn btn-link btn-block btn-loadmore" style="padding: 6px 12px; text-transform: capitalize;">Get feedback now</button>
+                    
+         
+                </form>
+
         </div>
     </div>
 </div>
+</div>
 
+<?php $__env->startSection('scripts'); ?>
+@parent
+
+<script  src="<?php echo e(asset('js/lib/jquery.tagsinput.js')); ?>"></script>
+
+
+<script>
+// Initialize Code
+if ($.fn.tagsInput) {ut.
+
+    $('.tags-input').each(function() {
+        var tagsType = $(this).data('type')
+        var highlightColor = $(this).data('highlight-color')
+        if (tagsType === 'tags') {
+            $(this).tagsInput({
+                width: 'auto'
+            });
+        }
+        if (tagsType === 'highlighted-tags') {
+            $(this).tagsInput({
+                width: 'auto',
+                onChange: function(elem, elem_tags) {
+                    var actions = ['#update', '#ask', '#share'];
+                    $('.tag', elem_tags).each(function() {
+                        if ($(this).text().search(new RegExp('\\b(' + actions.join('|') + ')\\b')) >= 0) $(this).css('background-color', highlightColor);
+                    });
+                    var fields = ['#name', '#team', '#tagline', '#site', '#logo', '#description', '#market', '#product', '#organization', '#slidedeck', '#pitch'  ];
+                    $('.tag', elem_tags).each(function() {
+                        if ($(this).text().search(new RegExp('\\b(' + fields.join('|') + ')\\b')) >= 0) $(this).css('background-color', highlightColor);
+                    });
+                    
+                }
+            });
+        }
+    });
+}
+
+</script>
+<?php $__env->stopSection(); ?>

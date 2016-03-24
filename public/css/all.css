@@ -14371,6 +14371,9 @@ button.close {
   line-height: 60px;
   font-family: 'Rock Salt';
 }
+.topbar .topbar-left .left-branding a {
+  color: white;
+}
 .topbar .topbar-left .left-branding .top-mega-menu {
   width: 44px;
   height: 60px;
@@ -21108,11 +21111,10 @@ a.waves-effect .waves-ripple {
   vertical-align: baseline;
 }
 div.tagsinput {
-  border: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
   background: #FFF;
   padding: 5px;
   overflow-y: auto;
-  border-radius: 4px;
 }
 div.tagsinput span.tag {
   border-radius: 3px;
@@ -21123,8 +21125,8 @@ div.tagsinput span.tag {
   font-weight: 500;
   background-color: #139c9b;
   padding: .2em .6em .3em;
-  font-size: 75%;
-  line-height: 1;
+  font-size: 80%;
+  line-height: 1.846;
   color: #fff;
   text-align: center;
   white-space: nowrap;
@@ -21139,7 +21141,6 @@ div.tagsinput span.tag a {
   font-size: 11px;
 }
 div.tagsinput input {
-  width: 80px;
   margin: 0px;
   font-family: helvetica;
   font-size: 13px;

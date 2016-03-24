@@ -40,6 +40,6 @@ class CommentsController extends Controller
             $new_comment->makeChildOf($parent_comment);
         }
         
-        return [$request->input(), Auth::user()];
+        return [$request->input(), Auth::user(), $new_comment];
     }
 }

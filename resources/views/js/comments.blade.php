@@ -30,11 +30,16 @@
             var found = "reply-" + reply_to;
             $('#' + found).show();
         });
-        
+    }
+      
+    function showReply(button) {
+        $('[id*="reply-"]').hide();
+        var reply_to = $(button).attr("id");
+        var found = "reply-" + reply_to;
+        $('#' + found).show();
         
     }
       
-
     function makeComment(data) {
 
       // Build POST data and make AJAX request
@@ -53,19 +58,49 @@
     }
       
     function showComment(data) {
-        var el = createCommentEl();
+
         var message = data[0];
         var user = data[1];
+        var new_c = data[2];
+        
+        // add information to comment 
+        var el = createCommentEl();
         var offset = "col-xs-offset-" + message['depth'];
         $('#' + message['comment-id'] + '-show').append(el);
-        
+
         el.find('#new-comment-content').text(message['message']);
         el.find('#new-comment-name').text(user['name']);
         el.addClass(offset);
+        el.find('#reply-link').attr('id', data[2]['id']);
+        
+        // add information to hidden new reply
+        var reply_el = createReplyEl();
+        var offset = parseInt(message['depth']) + 1;
+        var reply_offset = "col-xs-offset-" + offset;
+        
+        $('#' + message['comment-id'] + '-show').after(reply_el);
+        
+        var change = $('#new-reply');
+        var change_2 =  $('#add-comment-id')
+        
+        change.attr('id', "reply-" + new_c['id']);
+        change_2.attr('id', "comment-" + new_c['id'] + '-show');
+        change.addClass(reply_offset);
+        reply_el.find('input[name="comment-id"]').val("comment-" + new_c['id']);
+        reply_el.find('input[name="depth"]').val(reply_offset);
+
     }
+
       
     function createCommentEl() {
         var text = $('#add-the-comment').text();
+        var el = $(text);
+        return el;
+    }    
+
+      
+    function createReplyEl() {
+        var text = $('#add-the-reply-form').text();
         var el = $(text);
         return el;
     }    

@@ -171,7 +171,7 @@
 	$.fn.tagsInput = function(options) {
     var settings = jQuery.extend({
       interactive:true,
-      defaultText:'create your own tag',
+      defaultText:'create your own tag...',
       minChars:0,
       width:'300px',
       autocomplete: {selectFirst: false },
