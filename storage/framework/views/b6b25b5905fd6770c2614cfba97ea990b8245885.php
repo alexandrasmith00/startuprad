@@ -9,6 +9,7 @@
                           
 
 <?php $__env->startSection('scripts'); ?>
+    @parent
 
 <script  src="<?php echo e(asset('js/lib/jquery.tagsinput.js')); ?>"></script>
 

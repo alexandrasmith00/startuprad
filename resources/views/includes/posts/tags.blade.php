@@ -9,6 +9,7 @@
                           
 
 @section('scripts')
+    @parent
 
 <script  src="{{asset('js/lib/jquery.tagsinput.js')}}"></script>
 

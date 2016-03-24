@@ -18,6 +18,8 @@
 @section('scripts')
 <script src="js/lib/additional-methods.js"></script>
 
+
+
 @stop
 
 

@@ -40,22 +40,6 @@ class CommentsController extends Controller
             $new_comment->makeChildOf($parent_comment);
         }
         
-//        // find post or comment from above!
-//        
-        
-//                {
-//            $comment1 = $post->comments()->create(['body' => 'Is it really working?', 'user_id' => $commenters[0] ]);
-//            $comment2 = $post->comments()->create(['body' => 'Wow this is awesome!', 'user_id' => $commenters[1] ]);
-//            $comment3 = Comment::create(['body' => "Yes, and it's easy to use", 'user_id' => $commenters[0] ]);
-//            $comment3->makeChildOf($comment1);
-//        // add comment to that post
-//        
-//        
-//        // if child comment
-//        
-//        $comment3 = Comment::create(['body' => "Yes, and it's easy to use", 'user_id' => $commenters[0] ]);
-//        $comment3->makeChildOf($comment1);
-//
-//        return 'replying';
+        return [$request->input(), Auth::user()];
     }
 }

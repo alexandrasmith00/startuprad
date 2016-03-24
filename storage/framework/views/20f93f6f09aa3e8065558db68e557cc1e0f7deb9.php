@@ -7,9 +7,11 @@
                 <?php endforeach; ?>
             <?php endif; ?>
             
+            <div id="post-<?php echo e($post->id); ?>-show"></div>
+
             <?php echo $__env->make('includes.comments.make', ['action' => 'Comment'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-            
         </div>
     </div>
 </div>
+

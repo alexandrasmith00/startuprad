@@ -34,25 +34,11 @@
 
 <script>
     
-    // FOR POSTING COMMENTS
-    autosize($('textarea'));
-    
-    $('#comment-box textarea').keydown(function(e) {
-        if (e.keyCode == 13) {
-            this.form.submit();
-        }
-    });
-    
-    $('.reply-link').click(function() { 
-        $('[id*="reply-"]').hide();
 
-        var reply_to = $(this).attr("id");
-        var found = "reply-" + reply_to;
-        $('#' + found).show();
-    });
-
-
+ 
 </script>
+
+@include('js.comments')
 
 @yield('scripts')
 

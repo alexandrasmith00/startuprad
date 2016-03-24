@@ -7,9 +7,11 @@
                 @endforeach
             @endif
             
+            <div id="post-{{ $post->id }}-show"></div>
+
             @include('includes.comments.make', ['action' => 'Comment'])
 
-            
         </div>
     </div>
 </div>
+
