@@ -7,13 +7,11 @@
             <form action="" method="post">
                     <input type="hidden" name="comment-id" value="post-1">
 
-                    <textarea spellcheck="false" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" name="message" class="form-control comment" placeholder="Ask a question or share something interesting..."></textarea>
+                    <textarea spellcheck="false" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" name="message" class="form-control comment" placeholder="<?php echo e($placeholder); ?>"></textarea>
                 
                    <input type="text" id="little-tags" class="tags tags-input" data-type="highlighted-tags" data-highlight-color="#e6e39c" value="#RADNOW"/>
-
                 
-                
-                <button class="btn btn-link btn-block btn-loadmore" style="padding: 6px 12px; text-transform: capitalize;">Get feedback now</button>
+                <button class="btn btn-link btn-block btn-loadmore" style="padding: 6px 12px; text-transform: capitalize;"><?php echo e($button); ?></button>
                     
          
                 </form>

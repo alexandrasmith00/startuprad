@@ -5,11 +5,8 @@
             <li><span class="left-toggle-switch"><i class="zmdi zmdi-menu"></i></span></li>
         </ul>
         <ul class="pull-right top-right-icons">
-            
-            <li><a href="#" class="btn-top-search"><i class="zmdi zmdi-search"></i></a></li>
-            @include('includes.header.apps')
-            @include('includes.header.notifications')
-            <li><a href="#" class="right-toggle-switch"><i class="zmdi zmdi-format-align-left"></i><span class="more-noty"></span></a></li>
+
+            <li><a href="#" ><i class="zmdi zmdi-wrench"></i></a></li>
         </ul>
     </div>
 </div>

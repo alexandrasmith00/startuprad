@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e4162f26947b8be2616c5c457c396fa6",
-    "content-hash": "2b3d739f6b71fe3a56d443250b47a036",
+    "hash": "09ebd44a2e9cceb0df6d4bca9040f772",
+    "content-hash": "1785c5fc511c102208e45a5ce1fec13a",
     "packages": [
         {
             "name": "baum/baum",
@@ -1809,6 +1809,61 @@
                 "trigger"
             ],
             "time": "2016-02-22 15:43:51"
+        },
+        {
+            "name": "rtconner/laravel-tagging",
+            "version": "2.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rtconner/laravel-tagging.git",
+                "reference": "f4995f4b93043574fe5032c68e9b41e9a53b8a25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rtconner/laravel-tagging/zipball/f4995f4b93043574fe5032c68e9b41e9a53b8a25",
+                "reference": "f4995f4b93043574fe5032c68e9b41e9a53b8a25",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">= 5.0",
+                "illuminate/support": ">= 5.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0",
+                "vlucas/phpdotenv": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Conner\\Tagging\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Conner",
+                    "email": "rtconner@smarter.bz"
+                }
+            ],
+            "description": "Use PHP traits to extend Laravel Eloquent Models to allow Tags. Models can be marked as Taggable.",
+            "homepage": "https://smartersoftware.net/packages/laravel-tagging-taggable",
+            "keywords": [
+                "Taggable",
+                "eloquent",
+                "laravel",
+                "laravel5",
+                "tag",
+                "tagged",
+                "tagging",
+                "tags"
+            ],
+            "time": "2016-02-15 17:54:58"
         },
         {
             "name": "slynova/laravel-commentable",

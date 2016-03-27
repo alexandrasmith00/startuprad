@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2 col-sm-12">
-        @include('includes.posts.make')
+        @include('includes.posts.make', ["placeholder" => "Ask a question or share something interesting...", 'button' => 'Get feedback now'])
         
         @include('includes.posts.all')
 

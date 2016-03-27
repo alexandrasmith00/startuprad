@@ -3,8 +3,8 @@
                     <div class="dropdown-menu notifications-tabs">
                         <div>
                             <ul class="nav material-tabs nav-tabs" role="tablist">
-                                <li class="active"><a href="#message" aria-controls="message" role="tab" data-toggle="tab">Message</a></li>
-                                <li><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">Notifications</a></li>
+                                <li style="width: 50%; text-align:center;" class="active"><a href="#message" aria-controls="message" role="tab" data-toggle="tab">Message</a></li>
+                                <li style="width: 50%; text-align:center;"><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">Notifications</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="message">

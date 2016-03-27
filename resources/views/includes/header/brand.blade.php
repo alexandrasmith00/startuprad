@@ -4,7 +4,7 @@
             <li><span class="left-toggle-switch"><i class="zmdi zmdi-menu"></i></span></li>
             <li>
                 <div class="logo">
-                    <a href="/" title="Startup RAD">startup RAD</a>
+                    <a href="/" title="Startup RAD">startup rad</a>
                 </div>
             </li>
         </ul>

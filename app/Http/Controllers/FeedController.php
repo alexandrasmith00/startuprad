@@ -27,17 +27,22 @@ class FeedController extends Controller
     {
         
         // ordering goes in here!
-        
         $posts = Post::orderBy('published_at', 'desc')
-            ->paginate(8);
+            ->paginate(10);
 
         return view('feed.index', compact('posts'));
     }
+    
 
     public function showPost($slug)
     {
         $post = Post::whereSlug($slug)->firstOrFail();
 
         return view('blog.post')->withPost($post);
+    }
+    
+    public function createPost(Request $request)
+    {
+        
     }
 }

@@ -2,21 +2,14 @@
 <div class="widget-container margin-top-0">
     <div class="widget-content">
         <div class="recent-comments-list">
-                        
-
-            <form action="" method="post">
-                    <input type="hidden" name="comment-id" value="post-1">
-
-                    <textarea spellcheck="false" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" name="message" class="form-control comment" placeholder="Ask a question or share something interesting..."></textarea>
-                
-                   <input type="text" id="little-tags" class="tags tags-input" data-type="highlighted-tags" data-highlight-color="#e6e39c" value="#RADNOW"/>
-
-                
-                
-                <button class="btn btn-link btn-block btn-loadmore" style="padding: 6px 12px; text-transform: capitalize;">Get feedback now</button>
                     
-         
-                </form>
+            <form action="" method="post">
+                <input type="hidden" name="comment-id" value="post-1">
+                <textarea spellcheck="false" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" name="message" class="form-control comment" placeholder="{{ $placeholder }}"></textarea>
+                <input type="text" id="little-tags" class="tags tags-input" data-type="highlighted-tags" data-highlight-color="#e6e39c" value="#RADNOW"/>
+                <button class="btn btn-link btn-block btn-loadmore" style="padding: 6px 12px; text-transform: capitalize;">{{ $button }}</button>
+
+            </form>
 
         </div>
     </div>
@@ -59,6 +52,8 @@ if ($.fn.tagsInput) {ut.
         }
     });
 }
+    
+    
 
 </script>
 @stop

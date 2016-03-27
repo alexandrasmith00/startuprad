@@ -5,9 +5,17 @@
             <div class="user-intro">
                 <div class="user-thumb"><a href="#"><img src="<?php echo e(asset('images/avatar/amarkdalen.jpg')); ?>" alt="user"></a></div>
                 <div class="users-info">
+
                     
                     <ul>
-                        <li class="u-name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->idea['name']); ?></a><small class="text-muted"> <?php echo e($post->title); ?></small></li>
+                        
+                                            
+                        <?php if($post->type == 'chat'): ?>
+                        <li class="u-name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->name); ?></a> <small class="text-muted"> <i style="color: #17bab8;"class="zmdi zmdi-chevron-right"></i></small> <a href="/project/<?php echo e($post->idea->id); ?>"><?php echo e($post->idea->name); ?></a></li>
+                        <?php else: ?>
+                          <li class="u-name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->idea['name']); ?></a><small class="text-muted"> <?php echo e($post->title); ?></small></li>
+                        <?php endif; ?>
+                        
                         <li class="u-location"> <i class="zmdi zmdi-time"></i> <?php echo e($post->created_at->diffForHumans()); ?></li>
                     </ul>
                 </div>

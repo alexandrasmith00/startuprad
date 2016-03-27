@@ -6,14 +6,12 @@
 
   <div class="col-md-4">
       @include('includes.profile.about')
-      @include('includes.deliverables.list')
       @include('includes.profile.organization')
 
-      @include('includes.activity.all')
   </div>
     
   <div class="col-md-8">
-    @include('includes.posts.make')
+    @include('includes.posts.make', ['placeholder' => "Share something with $project->name...", 'button' => 'Start the conversation'])
       
       <ul class="nav nav-tabs material-tabs rightbar-tab" role="tablist">
         <li class="active profile-nav"><a href="#feed" aria-controls="message" role="tab" data-toggle="tab">Feed</a></li>
@@ -22,7 +20,8 @@
     
       <div class="tab-content">
           
-        <div role="tabpanel" class="tab-pane active" id="feed">
+        <div role="tabpanel" class="tab-pane active" 
+             id="feed">
             @include('includes.posts.all')
         </div>
           

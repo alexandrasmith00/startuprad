@@ -4,14 +4,12 @@
 
   <div class="col-md-4">
       <?php echo $__env->make('includes.profile.about', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-      <?php echo $__env->make('includes.deliverables.list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       <?php echo $__env->make('includes.profile.organization', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-      <?php echo $__env->make('includes.activity.all', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   </div>
     
   <div class="col-md-8">
-    <?php echo $__env->make('includes.posts.make', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('includes.posts.make', ['placeholder' => "Share something with $project->name...", 'button' => 'Start the conversation'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       
       <ul class="nav nav-tabs material-tabs rightbar-tab" role="tablist">
         <li class="active profile-nav"><a href="#feed" aria-controls="message" role="tab" data-toggle="tab">Feed</a></li>
@@ -20,7 +18,8 @@
     
       <div class="tab-content">
           
-        <div role="tabpanel" class="tab-pane active" id="feed">
+        <div role="tabpanel" class="tab-pane active" 
+             id="feed">
             <?php echo $__env->make('includes.posts.all', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </div>
           
