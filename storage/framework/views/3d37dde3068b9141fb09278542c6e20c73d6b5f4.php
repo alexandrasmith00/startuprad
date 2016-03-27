@@ -27,10 +27,13 @@
 
                 </div>
                 <div class="post-tags">
-                    <label class="label label-primary label-tag">#update</label> 
-                    <label class="label label-primary label-tag">#equity</label> 
-                    <label class="label label-primary label-tag">#studentsofstrength</label>          
-                    <label class="label label-primary label-tag">#radnow</label>            
+                    
+                    <?php if($post->tags->count() > 0): ?>
+                        <?php foreach($post->tags as $tag): ?>
+                            <label class="label label-primary label-tag">#<?php echo e($tag->name); ?></label> 
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    
                 </div>
 
             </div>
@@ -42,3 +45,8 @@
     <?php echo $__env->make('includes.comments.all', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>    
 
 </div>
+
+<?php $__env->startSection('scripts'); ?>
+    @parent
+    <?php echo $__env->make('js.post', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>

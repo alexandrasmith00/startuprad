@@ -144,6 +144,11 @@ class RadThoughtsSeeder extends Seeder
                 'content' => $thinking[2],
                 'type'=> 'update'
             ]);
+            
+            $tag = str_replace(" ", "", $idea->name);
+            $tag = strtolower($tag);
+            
+            $post->tag($tag);
 
 
         }

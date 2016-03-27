@@ -4,10 +4,12 @@ namespace App\Models;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 use Slynova\Commentable\Traits\Commentable;
+use Conner\Tagging\Taggable;
 
 class Post extends Model
 {
     use Commentable;
+    use Taggable;
 
     protected $dates = ['published_at'];
     

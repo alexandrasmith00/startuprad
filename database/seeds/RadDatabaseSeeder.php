@@ -22,7 +22,9 @@ class RadDatabaseSeeder extends Seeder
         'cohorts_ideas',
         'cohorts_users',
         'comments',
-        'posts'
+        'posts',
+        'tagging_tagged',
+        'tagging_tags'
     ];
     /**
      * @var array

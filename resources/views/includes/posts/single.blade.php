@@ -7,11 +7,9 @@
                 <div class="users-info">
 
                     
-                    <ul>
-                        
-                                            
+                    <ul>               
                         @if ($post->type == 'chat')
-                        <li class="u-name"><a href="/project/{{ $post->user->idea['id'] }}">{{ $post->user->name }}</a> <small class="text-muted"> <i style="color: #17bab8;"class="zmdi zmdi-chevron-right"></i></small> <a href="/project/{{ $post->idea->id }}">{{ $post->idea->name }}</a></li>
+                            <li class="u-name"><a href="/project/{{ $post->user->idea['id'] }}">{{ $post->user->name }}</a> <small class="text-muted"> <i style="color: #17bab8;"class="zmdi zmdi-chevron-right"></i></small> <a href="/project/{{ $post->idea->id }}">{{ $post->idea->name }}</a></li>
                         @else
                           <li class="u-name"><a href="/project/{{ $post->user->idea['id'] }}">{{ $post->user->idea['name'] }}</a><small class="text-muted"> {{ $post->title }}</small></li>
                         @endif
@@ -26,10 +24,13 @@
                     {{ $post->content }}
                 </div>
                 <div class="post-tags">
-                    <label class="label label-primary label-tag">#update</label> 
-                    <label class="label label-primary label-tag">#equity</label> 
-                    <label class="label label-primary label-tag">#studentsofstrength</label>          
-                    <label class="label label-primary label-tag">#radnow</label>            
+                    
+                    @if ($post->tags->count() > 0)
+                        @foreach ($post->tags as $tag)
+                            <label class="label label-primary label-tag">#{{ $tag->name }}</label> 
+                        @endforeach
+                    @endif
+                    
                 </div>
 
             </div>
@@ -41,3 +42,10 @@
     @include('includes.comments.all')    
 
 </div>
+
+@section('scripts')
+    @parent
+    @include('js.post')
+
+    
+@stop
