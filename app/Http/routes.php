@@ -7,6 +7,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'FeedController@index');
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
     Route::post('/post', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
+    Route::post('/bugreport', ['as' => 'posts.create', 'uses' => 'FeedController@bugreport']);
 
     // user specific pages
     Route::controller('/account', 'UsersController');

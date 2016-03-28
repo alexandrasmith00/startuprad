@@ -38,8 +38,7 @@
     }
       
     function showPost(data) {
-        
-        
+    
         var post = data[0];
         var user = data[1];
         var idea = data[2];
@@ -59,18 +58,13 @@
             console.log(tags[tag]);
             tag_html += "<label class='label label-primary label-tag'>#" + tags[tag]['tag_slug'] + "</label>";
         }
-
-        console.log(post);
-
         
         // create post
         var el = createPostEl();
         el.find('#add-post-header').append(header_html);
         el.find('#add-post-content').text(post['content']);
         el.find('#add-post-tags').append(tag_html);
-
         $('#top-of-the-feed').append(el);
-
     }
       
     function createPostEl() {

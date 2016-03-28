@@ -22,6 +22,7 @@
 <script src="{{asset('js/lib/bootbox.js')}}"></script>
 <script src="{{asset('js/lib/sweetalert.js')}}"></script>
 <script src="{{asset('js/lib/select2.full.js')}}"></script>
+<script src="{{asset('js/lib/bootbox.js')}}"></script>
 
 <!--Forms-->
 <script src="{{asset('js/lib/jquery.maskedinput.js')}}"></script>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -57,5 +59,13 @@ class FeedController extends Controller
         
         return [$post, $post->user, $post->idea, $post->tagged];
 
+    }
+    
+    public function bugreport(Request $request)
+    {
+        DB::table('bugs')->insert(
+            ['user_id' => Auth::user()->id, 'report' => $request->input('bug'), 'importance' => $request->input('importance'),
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString(), 'updated_at' => \Carbon\Carbon::now()->toDateTimeString()]
+        );
     }
 }
