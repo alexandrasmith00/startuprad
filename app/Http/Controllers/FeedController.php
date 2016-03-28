@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Models\Post;
+use App\Models\User;
 use Carbon\Carbon;
 
 
@@ -45,12 +46,16 @@ class FeedController extends Controller
     
     public function createPost(Request $request)
     {
+        $title = 'asked a question';
+        if ($request->input('type') == 'chat')
+            $title = 'said to someone else';
+        
         $post = new Post;
         $post->content = $request->input('message');
         $post->user_id = $request->input('user-id');
         $post->idea_id = $request->input('idea-id');
-        $post->type = 'question';
-        $post->title = 'asked a question';
+        $post->type = $request->input('type');
+        $post->title = $title;
         $post->save();
 
  

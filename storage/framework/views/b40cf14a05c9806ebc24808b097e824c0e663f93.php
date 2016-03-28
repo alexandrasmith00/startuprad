@@ -39,6 +39,7 @@
       
     function showPost(data) {
     
+        console.log(data);
         var post = data[0];
         var user = data[1];
         var idea = data[2];
@@ -50,9 +51,10 @@
         } else if (post['type'] == 'question') {
             header_html = '<a href="/project/' + idea['id'] + '">' + idea['name'] + '</a>'
         } else if (post['type'] == 'chat') {
-            
+            header_html = '<a href="/project/' + idea['id'] + '">' + user['name'] + '</a> <small class="text-muted"> <i style="color: #17bab8;"class="zmdi zmdi-chevron-right"></i></small> <a href="/project/' + idea['id'] + '">' + idea['name'] + '</a></li>';
         }
         
+       
         var tag_html = "";
         for (var tag in tags) {
             console.log(tags[tag]);

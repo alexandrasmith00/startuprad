@@ -4,13 +4,19 @@
         <div class="recent-comments-list">
                     
             <form id="post-box" action="" method="post">
-                <input type="hidden" name="idea-id" value="<?php echo e(Auth::user()->idea->id); ?>">
                 <input type="hidden" name="user-id" value="<?php echo e(Auth::user()->id); ?>">
+                <?php if($isYours): ?>
+                  <input type="hidden" name="idea-id" value="<?php echo e(Auth::user()->idea->id); ?>">
+                  <input type="hidden" name="type" value="question">
+                <?php else: ?>
+                  <input type="hidden" name="idea-id" value="<?php echo e($project->id); ?>">
+                  <input type="hidden" name="type" value="chat">
+                <?php endif; ?>
 
                 <textarea  spellcheck="false" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" name="message" class="form-control comment" placeholder="<?php echo e($placeholder); ?>"></textarea>
                 <input name="tags" type="text" id="little-tags" class="tags tags-input" data-type="highlighted-tags" data-highlight-color="#e6e39c" value="#RADNOW"/>
                 <button id="post-button" class="btn btn-link btn-block btn-loadmore" style="padding: 6px 12px; text-transform: capitalize;"><?php echo e($button); ?></button>
-
+                
             </form>
 
 <!--

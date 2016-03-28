@@ -73,9 +73,10 @@ class ProjectsController extends Controller
         
         $posts = Post::where('idea_id', $project->id)->orderBy('published_at', 'desc')->paginate(10);
 
-        $ifYours = false;
+        $isYours = false;
         if( Auth::user()->hasProject($index) )
             $isYours = true;        
+        
         return view('projects.show', compact('project', 'editsChannel', 'isYours', 'posts'));
 
     }
