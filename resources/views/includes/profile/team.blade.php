@@ -8,13 +8,15 @@
     <div class="widget-content">
       <div class="recent-users">
         <div class="recent-users-list">
+            
+            
+         @foreach ($this_profile->team as $team)
+            @include('includes.profile.team-member')
+          @endforeach 
 
-            @foreach ($project->team->users as $member)
-              @include('includes.profile.team-member')
-            @endforeach
             
             @if ($isYours)
-                <button class="btn btn-link btn-block btn-loadmore">Add Team Member</button>
+                <button class="btn btn-link btn-block btn-loadmore">Edit Team</button>
             @endif
             
         </div>        

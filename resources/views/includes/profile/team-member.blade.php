@@ -4,13 +4,23 @@
 <!--        <div class="user-thumb"><a href="#"><img src="images/avatar/bobbyjkane.jpg" alt="user"></a></div>-->
         <div class="users-info">
             <ul>
-                <li class="u-name"><a href="#">{{ $member->name }}</a></li>
-                <li class="u-location">Co-Founder</li>
+                
+                @foreach ($team as $field)
+                    @if ($field->descriptor == 'Name')
+                        <li class="u-name"><a href="#">{{ $field->value }}</a></li>
+                    @elseif ($field->descriptor == 'Role')
+                        <li class="u-location">{{ $field->value }}</li>
+                    @endif
+                @endforeach
             </ul>
         </div>
         <span class="user-details-toggle"><i class="zmdi"></i></span>
     </div>
     <div class="users-details">
-        <label>Email:</label> {{ $member->email }}
+        @foreach ($team as $field)
+            @if ($field->descriptor != 'Name' && $field->descriptor != 'Role')
+                <label>{{ $field->descriptor }}:</label> {{ $field->value }}
+            @endif
+        @endforeach
     </div>
 </div>

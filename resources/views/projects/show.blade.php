@@ -19,20 +19,6 @@
         <li class="active profile-nav"><a href="#feed" aria-controls="message" role="tab" data-toggle="tab">Feed</a></li>
         <li class="profile-nav"><a href="#profile" aria-controls="notifications" role="tab" data-toggle="tab">Profile</a></li>
       </ul>
-
-      @foreach ($this_profile->team as $team)
-        {{ $team }}<br><br>
-      @endforeach 
-      
-      {{ $this_profile->logo }}
-      
-
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload Image" name="submit">
-    </form>
-
       
       <div class="tab-content">
           

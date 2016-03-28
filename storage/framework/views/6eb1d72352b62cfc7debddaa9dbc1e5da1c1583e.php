@@ -14,7 +14,7 @@
     
     <?php if($isYours): ?>
       <div class="recent-users-list">
-        <button class="btn btn-link btn-block btn-loadmore">Edit Overview</button>
+        <button class="btn btn-link btn-block btn-loadmore editable">Edit Overview</button>
       </div>
     <?php endif; ?>
     

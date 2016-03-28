@@ -4,14 +4,24 @@
 <!--        <div class="user-thumb"><a href="#"><img src="images/avatar/bobbyjkane.jpg" alt="user"></a></div>-->
         <div class="users-info">
             <ul>
-                <li class="u-name"><a href="#"><?php echo e($member->name); ?></a></li>
-                <li class="u-location">Co-Founder</li>
+                
+                <?php foreach($team as $field): ?>
+                    <?php if($field->descriptor == 'Name'): ?>
+                        <li class="u-name"><a href="#"><?php echo e($field->value); ?></a></li>
+                    <?php elseif($field->descriptor == 'Role'): ?>
+                        <li class="u-location"><?php echo e($field->value); ?></li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </ul>
         </div>
         <span class="user-details-toggle"><i class="zmdi"></i></span>
     </div>
     <div class="users-details">
-        <label>Email:</label> <?php echo e($member->email); ?>
+        <?php foreach($team as $field): ?>
+            <?php if($field->descriptor != 'Name' && $field->descriptor != 'Role'): ?>
+                <label><?php echo e($field->descriptor); ?>:</label> <?php echo e($field->value); ?>
 
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
 </div>

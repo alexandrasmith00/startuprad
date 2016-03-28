@@ -10,5 +10,6 @@ class Profile
     public $tagline = "";
     public $logo = "";
     public $site = "";
+    public $social = [];
 
 }
