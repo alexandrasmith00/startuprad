@@ -8,7 +8,7 @@
 <div class="widget-container margin-top-0">
   <div class="widget-content">
     <div class="task-widget">
-      <div class="widget-task-list">
+      <div class="widget-task-list recent-users-list">
 
           @foreach ($fields as $key => $vals)
             @foreach ($vals as $value)
@@ -21,8 +21,13 @@
                 </div>
             @endforeach
           @endforeach
-
+          
+            @if ($isYours)
+                <button class="btn btn-link btn-block btn-loadmore">Edit Organization</button>
+            @endif
+            
         </div>
       </div>
+
   </div>
-</div>
+</div>                      

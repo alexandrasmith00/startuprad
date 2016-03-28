@@ -30,6 +30,11 @@ class Thinking extends Model
         return $this->belongsToMany('App\Models\Idea');
     }
     
+    public function resources()
+    {
+        return $this->hasMany('App\Models\Resource', 'thinking_id');
+    }
+    
     /**
      * Find out if a user has a certain role
      *

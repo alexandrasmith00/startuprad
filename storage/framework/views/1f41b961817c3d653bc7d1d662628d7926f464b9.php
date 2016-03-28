@@ -13,9 +13,9 @@
               <?php echo $__env->make('includes.profile.team-member', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <?php endforeach; ?>
             
-                <!--only show if it's your profile!-->
+            <?php if($isYours): ?>
                 <button class="btn btn-link btn-block btn-loadmore">Add Team Member</button>
-
+            <?php endif; ?>
             
         </div>        
       </div>

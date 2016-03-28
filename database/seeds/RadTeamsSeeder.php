@@ -39,7 +39,9 @@ class RadTeamsSeeder extends Seeder
             'Datanautix' => ['npatel@college.harvard.edu'],
             'Trignis' => ['mperry01@college.harvard.edu','jordandegraaf@college.harvard.edu', 'jmartter@college.harvard.edu'],
             'Students of Strength' => ['rking@college.harvard.edu'],
-            'RAD Team' => ['alexandrasmith00@gmail.com', 'ninahooper@college.harvard.edu', 'pbottino@seas.harvard.edu']
+            'RAD Team' => ['alexandrasmith00@gmail.com', 'ninahooper@college.harvard.edu', 'pbottino@seas.harvard.edu'],
+            'Carewell' => ['alexandrasmith00@gmail.com']
+
         ];
         
         

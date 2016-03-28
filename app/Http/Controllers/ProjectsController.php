@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\App;
+use Illuminate\Contracts\Filesystem\Filesystem;
 
 use App\Models\Idea;
 use App\Models\Post;
+use App\Models\Profile;
 use App\Models\Thinking;
 
 
@@ -75,9 +77,26 @@ class ProjectsController extends Controller
 
         $isYours = false;
         if( Auth::user()->hasProject($index) )
-            $isYours = true;        
+            $isYours = true; 
         
-        return view('projects.show', compact('project', 'editsChannel', 'isYours', 'posts'));
+        $this_profile = new Profile();
+        
+        foreach ($project->thinkings as $thinking) {
+            if ($thinking->name == 'teamMember' and $thinking->current == 1)
+                array_push($this_profile->team, $thinking->resources);   
+            if ($thinking->name == 'name' and $thinking->current == 1)
+                $this_profile->name = $thinking->resources[0];
+            if ($thinking->name == 'tagline' and $thinking->current == 1)
+                $this_profile->tagline = $thinking->resources[0];
+            if ($thinking->name == 'site' and $thinking->current == 1)
+                $this_profile->site = $thinking->resources[0];
+            if ($thinking->name == 'logo' and $thinking->current == 1)
+                $this_profile->logo = $thinking->resources[0];
+        }
+        
+        
+        
+        return view('projects.show', compact('project', 'editsChannel', 'isYours', 'posts', 'this_profile'));
 
     }
     
@@ -126,6 +145,24 @@ class ProjectsController extends Controller
         
         $this->pusher->trigger($editsChannel, 'something-edited', $updated);
     }
+    
+    public function uploadImage(Request $request)
+    {
+        $image = $request->file('fileToUpload');
+        $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+        
+        $filePath =  'img/' . Auth::user()->id . '/' . $imageFileName;
+       
+        $s3 = \AWS::createClient('s3');
+        $s3->putObject(array(
+            'Bucket'     => 'startuprad',
+            'Key'        => $filePath,
+            'SourceFile' => $request->file('fileToUpload'),
+        ));
+
+    }
+    
+
         
     
     

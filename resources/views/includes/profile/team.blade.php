@@ -13,9 +13,9 @@
               @include('includes.profile.team-member')
             @endforeach
             
-                <!--only show if it's your profile!-->
+            @if ($isYours)
                 <button class="btn btn-link btn-block btn-loadmore">Add Team Member</button>
-
+            @endif
             
         </div>        
       </div>

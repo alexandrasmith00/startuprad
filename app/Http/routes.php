@@ -8,6 +8,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
     Route::post('/post', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
     Route::post('/bugreport', ['as' => 'posts.create', 'uses' => 'FeedController@bugreport']);
+    Route::post('/upload', 'ProjectsController@uploadImage');
 
     // user specific pages
     Route::controller('/account', 'UsersController');

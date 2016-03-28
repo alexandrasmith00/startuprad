@@ -27,5 +27,7 @@ class Idea extends Model
         return $this->hasMany('App\Models\Thinking');
     }
    
+    
+   
 
 }
