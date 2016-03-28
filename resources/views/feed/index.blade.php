@@ -16,10 +16,8 @@
 @stop
 
 @section('scripts')
-<script src="js/lib/additional-methods.js"></script>
-
-
-
+    @parent
+    <script src="js/lib/additional-methods.js"></script>
 @stop
 
 

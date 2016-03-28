@@ -1,3 +1,5 @@
+<div id="top-of-the-feed"></div>
+
 @if($posts->count() > 0)
   @foreach ($posts as $post)
     @include('includes.posts.single')
@@ -8,4 +10,3 @@
 </div>
 
 @endif
-

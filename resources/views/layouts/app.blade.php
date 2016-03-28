@@ -18,5 +18,6 @@
         @include('includes.sidebar-right')
 
         @include('includes.scripts')
+        
     </body>
 </html>

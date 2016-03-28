@@ -14,10 +14,8 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('scripts'); ?>
-<script src="js/lib/additional-methods.js"></script>
-
-
-
+    @parent
+    <script src="js/lib/additional-methods.js"></script>
 <?php $__env->stopSection(); ?>
 
 

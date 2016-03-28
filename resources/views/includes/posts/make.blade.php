@@ -13,49 +13,25 @@
 
             </form>
 
+<!--
+            <div class=" col-md-4 col-sm-4 margin-bottom-10">
+                <a href="#" data-bb="html_forms" class="btn btn-default btn-block"><i class="icon-play"></i>HTML Forms</a>
+            </div>
+-->
+
+            
         </div>
     </div>
 </div>
 </div>
 
 @section('scripts')
-@parent
 
-<script  src="{{asset('js/lib/jquery.tagsinput.js')}}"></script>
+    @parent
 
+    @include('js.post')
+    @include('templates.new-post')
 
-<script>
-// Initialize Code
-if ($.fn.tagsInput) {ut.
+    <script  src="{{asset('js/lib/jquery.tagsinput.js')}}"></script>
 
-    $('.tags-input').each(function() {
-        var tagsType = $(this).data('type')
-        var highlightColor = $(this).data('highlight-color')
-        if (tagsType === 'tags') {
-            $(this).tagsInput({
-                width: 'auto'
-            });
-        }
-        if (tagsType === 'highlighted-tags') {
-            $(this).tagsInput({
-                width: 'auto',
-                onChange: function(elem, elem_tags) {
-                    var actions = ['#update', '#ask', '#share'];
-                    $('.tag', elem_tags).each(function() {
-                        if ($(this).text().search(new RegExp('\\b(' + actions.join('|') + ')\\b')) >= 0) $(this).css('background-color', highlightColor);
-                    });
-                    var fields = ['#name', '#team', '#tagline', '#site', '#logo', '#description', '#market', '#product', '#organization', '#slidedeck', '#pitch'  ];
-                    $('.tag', elem_tags).each(function() {
-                        if ($(this).text().search(new RegExp('\\b(' + fields.join('|') + ')\\b')) >= 0) $(this).css('background-color', highlightColor);
-                    });
-                    
-                }
-            });
-        }
-    });
-}
-    
-    
-
-</script>
 @stop

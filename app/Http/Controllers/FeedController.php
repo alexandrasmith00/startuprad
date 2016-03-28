@@ -27,7 +27,7 @@ class FeedController extends Controller
     {
         
         // ordering goes in here!
-        $posts = Post::orderBy('published_at', 'desc')->with('tagged')
+        $posts = Post::orderBy('created_at', 'desc')->with('tagged')
             ->paginate(10);
 
         return view('feed.index', compact('posts'));
@@ -52,7 +52,10 @@ class FeedController extends Controller
         $post->save();
 
  
-        $post->tag(explode(',', $request->input('tags')));
+        $post->tag(explode(',', str_replace("#", "", $request->input('tags'))));
+        
+        
+        return [$post, $post->user, $post->idea, $post->tagged];
 
     }
 }

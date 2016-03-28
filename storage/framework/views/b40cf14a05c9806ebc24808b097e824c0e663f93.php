@@ -10,16 +10,15 @@
             if (e.keyCode == 13) {
                 e.preventDefault();
                 makePost($(this.form).serialize());
+               
             }
         });
-        
+
         $("#post-button").click(function(e){
             e.preventDefault();
             makePost($(this.form).serialize());
-        }); 
+        });    
     }
-      
-
       
     function makePost(data) {
         
@@ -30,62 +29,56 @@
       return false;
     }
 
-    
     function postSuccess(data) {
         
-        alert('successful');
+        $('#post-box').find('textarea').val('');
+        $('#little-tags').importTags('#RADNOW');
+
+        showPost(data);
     }
       
-    function showComment(data) {
-
-        var message = data[0];
+    function showPost(data) {
+        
+        
+        var post = data[0];
         var user = data[1];
-        var new_c = data[2];
+        var idea = data[2];
+        var tags = data[3];
         
-        // add information to comment 
-        var el = createCommentEl();
-        var offset = "col-xs-offset-" + message['depth'];
-        $('#' + message['comment-id'] + '-show').append(el);
+        var header_html = "";
+        if (post['type'] == 'update') {
+            
+        } else if (post['type'] == 'question') {
+            header_html = '<a href="/project/' + idea['id'] + '">' + idea['name'] + '</a>'
+        } else if (post['type'] == 'chat') {
+            
+        }
+        
+        var tag_html = "";
+        for (var tag in tags) {
+            console.log(tags[tag]);
+            tag_html += "<label class='label label-primary label-tag'>#" + tags[tag]['tag_slug'] + "</label>";
+        }
 
-        el.find('#new-comment-content').text(message['message']);
-        el.find('#new-comment-name').text(user['name']);
-        el.addClass(offset);
-        el.find('#reply-link').attr('id', data[2]['id']);
+        console.log(post);
+
         
-        // add information to hidden new reply
-        var reply_el = createReplyEl();
-        var offset = parseInt(message['depth']) + 1;
-        var reply_offset = "col-xs-offset-" + offset;
-        
-        $('#' + message['comment-id'] + '-show').after(reply_el);
-        
-        var change = $('#new-reply');
-        var change_2 =  $('#add-comment-id')
-        
-        change.attr('id', "reply-" + new_c['id']);
-        change_2.attr('id', "comment-" + new_c['id'] + '-show');
-        change.addClass(reply_offset);
-        reply_el.find('input[name="comment-id"]').val("comment-" + new_c['id']);
-        reply_el.find('input[name="depth"]').val(reply_offset);
+        // create post
+        var el = createPostEl();
+        el.find('#add-post-header').append(header_html);
+        el.find('#add-post-content').text(post['content']);
+        el.find('#add-post-tags').append(tag_html);
+
+        $('#top-of-the-feed').append(el);
 
     }
-
       
-    function createCommentEl() {
-        var text = $('#add-the-comment').text();
+    function createPostEl() {
+        var text = $('#new-post').text();
         var el = $(text);
         return el;
     }    
 
-      
-    function createReplyEl() {
-        var text = $('#add-the-reply-form').text();
-        var el = $(text);
-        return el;
-    }    
-
-
-      
     $(init);
 
 </script>
