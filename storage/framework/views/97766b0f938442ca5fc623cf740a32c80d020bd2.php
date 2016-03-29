@@ -55,7 +55,7 @@
         
         // needs some sort of verification that field has actually changed
         
-        var data = {field: update, new_val: new_val, id: {{ $project->id }} };
+        var data = {field: update, new_val: new_val, id: <?php echo e($project->id); ?> };
         $.post('/project/update', data).success(notifySuccess);
 
     }
@@ -63,7 +63,7 @@
     function sendMessage() {
         
          // Build POST data and make AJAX request
-        var data = {something: 'hey there', id: {{ $project->id }}  };
+        var data = {something: 'hey there', id: <?php echo e($project->id); ?>  };
         $.post('/project/add', data).success(notifySuccess);
 
         // Ensure the normal browser event doesn't take place

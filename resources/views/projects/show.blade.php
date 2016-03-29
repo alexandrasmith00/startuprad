@@ -88,3 +88,9 @@
 </div>
 
 @stop
+
+
+@section('scripts')
+@parent
+    @include('js.profile')
+@stop
