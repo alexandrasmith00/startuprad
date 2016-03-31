@@ -16,8 +16,26 @@
     
     @if ($isYours)
       <div class="recent-users-list">
-        <button id="about" class="btn btn-link btn-block btn-loadmore editable">Edit Overview</button>
+              <!-- Single button -->
+                  
+          
+          <div class="dropdown">
+              <button type="button" class="btn dropdown-toggle btn btn-link btn-block btn-loadmore" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Edit Overview 
+                  </button>
+                <ul style="width: 100%;" class="dropdown-menu">
+                    <li><a href="#" id="logo" class="editable" >Edit Logo</a></li>
+                    <li><a href="#" id="name" class="editable" >Edit Name</a></li>
+                    <li><a href="#" id="tagline" class="editable" >Edit Tagline</a></li>
+                    <li><a href="#" id="website" class="editable" >Edit Website</a></li>
+                    <li><a href="#" id="social" class="editable" >Edit Social Links</a></li>
+                </ul>
+            </div>
+
+<!--        <button id="about" class="btn btn-link btn-block btn-loadmore editable">Edit Overview</button>-->
       </div>
+    
+
     @endif
     
 </div>
@@ -30,27 +48,28 @@
 @section('scripts')
 @parent
 
-    <script id="edit-about-form" type="text/template">
+    <script id="edit-form" type="text/template">
 
-        <form action="#" class="j-forms" novalidate>
-            <div class="unit">
-                <label class="label">Logo</label>
-                <div class="input"><input name="image" type="file"/></div>
-            </div>
-            <div class="unit">
-                <label class="label">Name</label>
-                <div class="input">
-                    <input id="edit-name" class="form-control" type="text" id="post" placeholder="Name">
-                </div>
-            </div>         
-            <div class="unit">
+        <form action="#" id="form-here" class="j-forms" novalidate>
+     
+ 
+            
+      
+        </form>
+    </script>
+
+    <script id="textarea" type="text/template">
+           <div class="unit">
                 <label class="label">Tagline</label>
                 <div class="input">
                     <textarea id="edit-tagline" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" rows="1" class="form-control" type="text" id="post" placeholder="Tagline"></textarea> 
                 </div>
             </div>
-            
-            <label class="label">Social</label>
+    </script>
+
+    <script id="social-add-to-form" type="text/template">
+
+      <label class="label">Social</label>
             <div style="margin-bottom: 0px;" class="unit">
                 <label class="icon-right" for="post">
                     <i class="fa fa-globe"></i>
@@ -91,7 +110,6 @@
                     <input id="edit-twitter" class="form-control" type="text" id="post" placeholder="Twitter Link"><br/> 
                 </div>
             </div>
-        </form>
     </script>
 
 @stop

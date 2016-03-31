@@ -16,9 +16,13 @@
       
     function showEdit() {
         
-
-        createModal(createEl(this.id));
+        createModal(this.id, createEl(this.id));
         autosize($('textarea'));
+        
+        var inner = '#' + this.id + "-add-to-form";
+        var inner_text = $(inner).text();
+        
+        $('#form-here').append(inner_text);
         
         $('#edit-name').attr('placeholder', $('#set-name').text());
         $('#edit-tagline').attr('placeholder', $('#set-tagline').text());
@@ -81,9 +85,9 @@
       
       
       
-    function createModal(form) {
+    function createModal(name, form) {
         bootbox.dialog({
-            title: "Update the overview",
+            title: "Update the " + name,
             message: form,
             buttons: {
                 success: {
@@ -92,7 +96,6 @@
                     callback: function () {
                         var name = $('#name').val();
                         var answer = $("input[name='awesomeness']:checked").val()
-                        DemoCallBack.show("Hello " + name + ". You've chosen <b>" + answer + "</b>");
                     }
                 }
             }
@@ -100,8 +103,7 @@
     }
       
       function createEl(name) {
-        var add = '#edit-' + name + '-form';
-        var text = $(add).text();
+        var text = $('#edit-form').text();
         var el = $(text);
         return el;
       }
