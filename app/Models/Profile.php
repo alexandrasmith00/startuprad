@@ -10,6 +10,9 @@ class Profile
     public $tagline = "";
     public $logo = "";
     public $site = "";
-    public $social = [];
+    public $contact = "";
+    public $facebook = "";
+    public $twitter = "";
+    public $linkedin = "";
 
 }

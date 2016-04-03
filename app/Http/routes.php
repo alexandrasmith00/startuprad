@@ -9,6 +9,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/post', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
     Route::post('/bugreport', ['as' => 'posts.create', 'uses' => 'FeedController@bugreport']);
     Route::post('/upload', 'ProjectsController@uploadImage');
+    
+    // update pieces of profile
+    Route::post('/update', 'ProjectsController@update');
+
 
     // user specific pages
     Route::controller('/account', 'UsersController');
@@ -18,8 +22,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::group(['prefix' => 'project'], function () {
         Route::get('/', ['as' => 'messages', 'uses' => 'ProjectsController@index']);
         Route::post('/add', ['as' => 'messages.add', 'uses' => 'ProjectsController@add']);
-        Route::get('{id}', ['as' => 'messages.show', 'uses' => 'ProjectsController@show']);
-        Route::post('/update', ['as' => 'messages.add', 'uses' => 'ProjectsController@update']);
+        Route::get('{id}', ['as' => 'project.show', 'uses' => 'ProjectsController@show']);
     });
 
 });

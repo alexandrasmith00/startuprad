@@ -14,7 +14,7 @@ class Thinking extends Model
      * @var array
      */
     protected $fillable = [
-        'body', 'current', 'category_id', 'idea_id'
+        'body', 'current', 'category_id', 'idea_id', 'name', 'name_view'
     ];
 
     /**

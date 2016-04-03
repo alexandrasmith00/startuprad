@@ -4,14 +4,14 @@
 
 <div class="row">
 
+
   <div class="col-md-4">
+      
       @include('includes.profile.about')
       @include('includes.profile.organization')
 
   </div>
-    
 
-    
   <div class="col-md-8">
     @include('includes.posts.make', ['placeholder' => "Share something with $project->name...", 'button' => 'Start the conversation'])
       

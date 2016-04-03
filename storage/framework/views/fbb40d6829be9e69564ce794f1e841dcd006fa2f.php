@@ -2,14 +2,14 @@
 
 <div class="row">
 
+
   <div class="col-md-4">
+      
       <?php echo $__env->make('includes.profile.about', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       <?php echo $__env->make('includes.profile.organization', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
   </div>
-    
 
-    
   <div class="col-md-8">
     <?php echo $__env->make('includes.posts.make', ['placeholder' => "Share something with $project->name...", 'button' => 'Start the conversation'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       

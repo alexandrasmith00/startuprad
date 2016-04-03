@@ -27,11 +27,7 @@
         $('#edit-name').attr('placeholder', $('#set-name').text());
         $('#edit-tagline').attr('placeholder', $('#set-tagline').text());
 
-        $('#edit-site').attr('placeholder', $('#set-site').text());
-        $('#edit-email').attr('placeholder', $('#set-email').text());
-        $('#edit-facebook').attr('placeholder', $('#set-facebook').text());
-        $('#edit-linkedin').attr('placeholder', $('#set-linkedin').text());
-        $('#edit-twitter').attr('placeholder', $('#set-twitter').text());
+
 
     }
 
@@ -94,8 +90,7 @@
                     label: "Update",
                     className: "btn-primary",
                     callback: function () {
-                        var name = $('#name').val();
-                        var answer = $("input[name='awesomeness']:checked").val()
+                        $('#form-here').submit();
                     }
                 }
             }
