@@ -1,6 +1,6 @@
   <script>
       
-    function init() {
+    function post_init() {
         
         // autosize the input area on typing
         autosize($('textarea'));
@@ -10,7 +10,6 @@
             if (e.keyCode == 13) {
                 e.preventDefault();
                 makePost($(this.form).serialize());
-               
             }
         });
 
@@ -22,8 +21,9 @@
       
     function makePost(data) {
         
+        alert('about to post');
       // Build POST data and make AJAX request
-      $.post('/post', data).success(postSuccess);
+      $.post('/addpost', data).success(postSuccess);
 
       // Ensure the normal browser event doesn't take place
       return false;
@@ -75,6 +75,6 @@
         return el;
     }    
 
-    $(init);
+    $(post_init);
 
 </script>

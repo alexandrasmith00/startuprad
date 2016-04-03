@@ -1,10 +1,8 @@
   <script>
       
-    function init() {
+    function profile_init() {
         // send button click handling
         $('.editable').click(showEdit);
-        $('.update-field').click(updateField);
-        $('#edit-field').keypress(checkSend);
     }
       
     // Send on enter/return key
@@ -15,75 +13,24 @@
     }
       
     function showEdit() {
+        var id_split = (this.id).split(" ");
         
-        createModal(this.id, createEl(this.id));
+        if (id_split.length > 1)
+            $('#resource_id').val(id_split[1]);
+        
+        var id =id_split[0];
+        createModal(id, createEl(this.id));
         autosize($('textarea'));
         
-        var inner = '#' + this.id + "-add-to-form";
+        var inner = '#' + id + "-add-to-form";
         var inner_text = $(inner).text();
         
         $('#form-here').append(inner_text);
-        
-        $('#edit-name').attr('placeholder', $('#set-name').text());
-        $('#edit-tagline').attr('placeholder', $('#set-tagline').text());
-
-
-
     }
-
-    function showEditModal() {
-
-        var update = $(this).attr("name");
-        var current_value = $("#" + update ).text();
-        
-        $('#edit-modal').modal('show');
-        $('#edit-modal-title').text("Edit your " + update);
-        
-
-        $('#update-label').text("Your " + update);
-        $("#edit-field").val(current_value);
-        $("#edit-field").focus().select();
-
-        $('.update-field').val(update);
-        
-        
-    }
-      
-    function updateField() {
-        var update = $('.update-field').val();
-        var new_val = $("#edit-field").val();
-        
-        // needs some sort of verification that field has actually changed
-        
-        var data = {field: update, new_val: new_val, id: {{ $project->id }} };
-        $.post('/project/update', data).success(notifySuccess);
-
-    }
-      
-    function sendMessage() {
-        
-         // Build POST data and make AJAX request
-        var data = {something: 'hey there', id: {{ $project->id }}  };
-        $.post('/project/add', data).success(notifySuccess);
-
-        // Ensure the normal browser event doesn't take place
-        return false;
-    }
-      
-    function notifySuccess() {
-        // close modal
-        $('#edit-modal').modal('hide');
-    }
-      
-    function updateDisplay(data) {
-        $('#' + data.field).text(data.new_val);
-    }
-      
-      
-      
+     
     function createModal(name, form) {
         bootbox.dialog({
-            title: "Update the " + name,
+            title: "Update " + name,
             message: form,
             buttons: {
                 success: {
@@ -102,6 +49,6 @@
         var el = $(text);
         return el;
       }
-    $(init);
+    $(profile_init);
 
 </script>

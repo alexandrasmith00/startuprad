@@ -1,8 +1,6 @@
 <?php $__env->startSection('content'); ?>
 
-<div class="row">
-
-
+<div class="row">    
   <div class="col-md-4">
       
       <?php echo $__env->make('includes.profile.about', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -36,46 +34,6 @@
              <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Customer', 'label' => 'Describe your initial target customer.', 'content' => $project->customer ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             
              <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Demands', 'label' => "Describe your customer's needs.", 'content' => $project->need ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<!--
-            <div class="row">
-                
-                
-                <div class="col-md-6">
-                    <?php echo $__env->make('projects.includes.field', array('fieldname'=>'Product Idea', 'fieldbody' => $project->product_idea), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                </div> 
-                <div class="col-md-6">
-                    <?php echo $__env->make('projects.includes.field', array('fieldname'=>'Product Idea', 'fieldbody' => $project->product_idea), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                </div>
-            </div>
-            <?php echo $__env->make('projects.includes.field', array('fieldname'=>'Description', 'fieldbody' => $project->description), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            <?php echo $__env->make('projects.includes.field', array('fieldname'=>'Elevator Pitch', 'fieldbody' => $project->elevator_pitch), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            <?php echo $__env->make('projects.includes.field', array('fieldname'=>'Pitch Video', 'fieldbody' => $project->pitch_video), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            <?php echo $__env->make('projects.includes.field', array('fieldname'=>'Slide Deck', 'fieldbody' => $project->slide_deck), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
--->
-            
-<!--
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="profile-fieldname">Customer</div>
-            </div>  
-            <div class="col-sm-10">
-                <b>Your Customer  :  </b>
-
-                <br/><br/>
-
-                <b>Their Unmet Need  :  </b>
-
-                <br/><br/>
-
-                <b>How <?php echo e($project->name); ?> Is Meeting It  :  </b>
-
-                <br/><br/>
-
-                <b>The Result  :  </b>
-
-            </div>
-        </div>
--->
         </div>
       </div>
       

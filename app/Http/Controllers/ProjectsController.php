@@ -73,7 +73,7 @@ class ProjectsController extends Controller
         $editsChannel = 'edits' . $index .'Channel';
         $project = Idea::where('id', $index)->first();
         
-        $posts = Post::where('idea_id', $project->id)->orderBy('published_at', 'desc')->paginate(10);
+        $posts = Post::where('idea_id', $project->id)->orderBy('created_at', 'desc')->paginate(10);
 
         $isYours = false;
         if( Auth::user()->hasProject($index) )
@@ -160,34 +160,42 @@ class ProjectsController extends Controller
         
         if ($request->input('type') == 'name')
         {
-            $this->update_resource($idea, $request->input('type'), 'name', 'Name', 'Name', $request->input('name'));
+            $this->update_resource($idea, $request->input('type'), 'name', 'Name', [['Name', $request->input('name')]]);
             Idea::where('id', $idea)->update(['name' => $request->input('name')]);
         }
          
         if ($request->input('type') == 'tagline')
-           $this->update_resource($idea, $request->input('type'), 'tagline', 'Tagline', 'Tagline', $request->input('tagline'));
+           $this->update_resource($idea, $request->input('type'), 'tagline', 'Tagline', [['Tagline', $request->input('tagline')]]);
                 
         if ($request->input('type') == 'logo')
         {
-            dd($request->all());
-
+            $file = $this->upload_image($request->file('logo'));
+            $this->update_resource($idea, $request->input('type'), 'logo', 'Logo', [['Logo', (env('FILE_BASE') . $file)]]);
+            Idea::where('id', $idea)->update(['logo' => (env('FILE_BASE') . $file)]);
         }
         
         if ($request->input('type') == 'website')
-            $this->update_resource($idea, $request->input('type'), 'site', 'Website', 'Site', $request->input('site'));
+            $this->update_resource($idea, $request->input('type'), 'site', 'Website', [['Site', $request->input('site')]] );
         
                 
         if ($request->input('type') == 'social')
         {
-            $this->update_resource($idea, $request->input('type'), 'site', 'Website', 'Site', $request->input('site'));
-            $this->update_resource($idea, $request->input('type'), 'site', 'Website', 'Site', $request->input('site'));
-            $this->update_resource($idea, $request->input('type'), 'site', 'Website', 'Site', $request->input('site'));
-            $this->update_resource($idea, $request->input('type'), 'site', 'Website', 'Site', $request->input('site'));
-            $this->update_resource($idea, $request->input('type'), 'site', 'Website', 'Site', $request->input('site'));
-            $this->update_resource($idea, $request->input('type'), 'site', 'Website', 'Site', $request->input('site'));
-
+            if ($request->input('site') != "")
+              $this->update_resource($idea, $request->input('type'), 'site', 'Website', [['Site', $request->input('site')]]);
+            if ($request->input('facebook') != "")
+              $this->update_resource($idea, $request->input('type'), 'facebook', 'Facebook Profile', [['Facebook', $request->input('facebook')]]);
+            if ($request->input('twitter') != "")
+              $this->update_resource($idea, $request->input('type'), 'twitter', 'Twitter Profile', [['Twitter', $request->input('twitter')]]);
+            if ($request->input('linkedin') != "")
+              $this->update_resource($idea, $request->input('type'), 'linkedIn', 'LinkedIn Profile', [['LinkedIn', $request->input('linkedin')]] );
+            if ($request->input('contact_email') != "")
+              $this->update_resource($idea, $request->input('type'), 'contact', 'Contact Email', [['Email', $request->input('contact_email')]]);
         }
-    
+        
+        if ($request->input('type') == 'add')
+        {
+            
+        }
         
         
         return redirect()->back();
@@ -195,9 +203,8 @@ class ProjectsController extends Controller
     
 
     
-    public function uploadImage(Request $request)
+    public function upload_image($image)
     {
-        $image = $request->file('fileToUpload');
         $imageFileName = time() . '.' . $image->getClientOriginalExtension();
         
         $filePath =  'img/' . Auth::user()->id . '/' . $imageFileName;
@@ -206,19 +213,25 @@ class ProjectsController extends Controller
         $s3->putObject(array(
             'Bucket'     => 'startuprad',
             'Key'        => $filePath,
-            'SourceFile' => $request->file('fileToUpload'),
+            'SourceFile' => $image,
         ));
+        
+        return $filePath;
 
     }
     
 
-    private function update_resource($idea_id, $resource_type, $name, $name_view, $descriptor, $value)
+    private function update_resource($idea_id, $resource_type, $name, $name_view, $resources, $specific=false)
     {
+        if ($specific) {
+            
+        } else {
             Thinking::where('idea_id', $idea_id)
                 ->where('current', true)
                 ->where('name', $resource_type)
                 ->update(['current' => false]);
-            
+        }
+
             // for the idea, add a default thinking for each category
             $thinking = Thinking::create([
                 'idea_id' => $idea_id,
@@ -226,12 +239,17 @@ class ProjectsController extends Controller
                 'name' => $name,
                 'name_view' => $name_view
             ]);
+        
+            foreach ($resources as $new_resource)
+            {
+                $resource = Resource::create([
+                    'descriptor' => $new_resource[0],
+                    'value' => $new_resource[1],
+                    'thinking_id' => $thinking->id
+                ]);
+            }
             
-            $resource = Resource::create([
-                'descriptor' => $descriptor,
-                'value' => $value,
-                'thinking_id' => $thinking->id
-            ]);
+            
     }
     
     

@@ -1,17 +1,72 @@
-
 <div class="widget-wrap stats-widget">
-    <img class="img-responsive img-center" src="{{{ $this_profile->logo->value != "" ? $this_profile->logo->value : 'http://static1.squarespace.com/static/54fe5d59e4b038fd96c9a7c5/550a1fa1e4b0fca40dc6f6b1/550a1fa1e4b03c7ec206969d/1426726818023/Placeholder+Logo.png'  }}}">
-    <h3 id="set-name" class="profile-username text-center">{{ $this_profile->name->value }}</h3>
+    <img class="img-responsive img-center" src="{{{ $this_profile->logo  != "" ? $this_profile->logo->value : 'http://static1.squarespace.com/static/54fe5d59e4b038fd96c9a7c5/550a1fa1e4b0fca40dc6f6b1/550a1fa1e4b03c7ec206969d/1426726818023/Placeholder+Logo.png'  }}}">
     
-    <p id="set-tagline" class="text-muted text-center">{{ $this_profile->tagline->value }} </p>
-    <p id="set-site" class="text-muted text-center"><a target="_blank" href="{{ $this_profile->site->value }}">{{ $this_profile->site->value }} </a></p><br>
+    <h3 id="set-name" class="profile-username text-center">
+        {{{ $this_profile->name  != "" ? $this_profile->name->value : 'No Name'  }}}
+    </h3>
     
+    <p id="set-tagline" class="text-muted text-center">
+        {{{ $this_profile->tagline != "" ? $this_profile->tagline->value : 'No Tagline'  }}}
+    </p>
+    
+    <p id="set-site" class="text-muted text-center">
+        <a target="_blank" href="">
+            {{{ $this_profile->site  != "" ? $this_profile->site->value : 'No Site'  }}}
+        </a>
+    </p><br>
+ 
     <div class="row" style="padding-bottom: 25px;">
-        <div class="col-xs-2 col-xs-offset-1"><a  target="_blank" href="{{ $this_profile->site->value }}"><i class="zmdi zmdi-globe zmdi-hc-lg"></i></a></div>
-        <div class="col-xs-2"><a href="mailto:{{ $this_profile->contact->value }}?Subject=Hello%20from%20Startup%20RAD"><i class="zmdi zmdi-email zmdi-hc-lg"></i></a></div>
-        <div class="col-xs-2"><a target="_blank" href="{{ $this_profile->facebook->value }}"><i class="zmdi zmdi-facebook zmdi-hc-lg"></i></a></div>
-        <div class="col-xs-2"><a target="_blank" href="{{ $this_profile->linkedin->value }}"><i class="zmdi zmdi-linkedin-box zmdi-hc-lg"></i></a></div>
-        <div class="col-xs-2"><a target="_blank" href="{{ $this_profile->twitter->value }}"><i class="zmdi zmdi-twitter zmdi-hc-lg"></i></a></div>
+        
+        <div class="col-xs-2 col-xs-offset-1">
+            @if ($this_profile->site != "")
+                <a  target="_blank" href="{{ $this_profile->site->value }}">
+                    <i class="zmdi zmdi-globe zmdi-hc-lg"></i>
+                </a>
+            @else
+                <i class="zmdi zmdi-globe zmdi-hc-lg"></i>
+            @endif
+        </div>
+        
+        <div class="col-xs-2 ">
+            @if ($this_profile->contact != "")
+                <a href="mailto:{{ $this_profile->contact->value }}?Subject=Hello%20from%20Startup%20RAD">
+                    <i class="zmdi zmdi-email zmdi-hc-lg"></i>
+                </a>
+            @else
+                <i class="zmdi zmdi-email zmdi-hc-lg"></i>
+            @endif
+        </div>
+        
+        <div class="col-xs-2 ">
+            @if ($this_profile->facebook != "")
+                <a target="_blank" href="{{ $this_profile->facebook->value }}">
+                    <i class="zmdi zmdi-facebook zmdi-hc-lg"></i>
+                </a>
+            @else
+                <i class="zmdi zmdi-facebook zmdi-hc-lg"></i>
+            @endif
+        </div>                
+
+        <div class="col-xs-2 ">
+            @if ($this_profile->linkedin != "")
+                <a target="_blank" href="{{ $this_profile->linkedin->value }}">
+                    <i class="zmdi zmdi-linkedin-box zmdi-hc-lg"></i>
+                </a>
+            @else
+                <i class="zmdi zmdi-linkedin-box zmdi-hc-lg"></i>
+            @endif
+        </div>    
+        
+        <div class="col-xs-2 ">
+            @if ($this_profile->twitter != "")
+                <a target="_blank" href="{{ $this_profile->twitter->value }}">
+                    <i class="zmdi zmdi-twitter zmdi-hc-lg"></i>
+                </a>
+            @else
+                <i class="zmdi zmdi-twitter zmdi-hc-lg"></i>
+            @endif
+        </div>    
+    
     </div>
     
     @if ($isYours)
@@ -34,19 +89,8 @@
                 </div>
               
               
-                <ul style="width: 100%;" class="dropdown-menu">
-                    <li><a href="#" id="logo" class="editable" >Edit Logo</a></li>
-                    <li><a href="#" id="name" class="editable" >Edit Name</a></li>
-                    <li><a href="#" id="tagline" class="editable" >Edit Tagline</a></li>
-                    <li><a href="#" id="website" class="editable" >Edit Website</a></li>
-                    <li><a href="#" id="social" class="editable" >Edit Social Links</a></li>
-                </ul>
             </div>
-
-<!--        <button id="about" class="btn btn-link btn-block btn-loadmore editable">Edit Overview</button>-->
       </div>
-    
-
     @endif
     
 </div>
@@ -60,7 +104,7 @@
 @parent
 
     <script id="edit-form" type="text/template">
-        <form action="/update" id="form-here" method="POST" class="j-forms" novalidate>
+        <form action="/update" id="form-here" method="POST" class="j-forms" enctype="multipart/form-data" novalidate>
             <input type="hidden" name="idea_id" value="{{ $project->id }}">
         </form>
     </script>
@@ -71,7 +115,7 @@
        <div class="unit">
             <label class="label">Tagline</label>
             <div class="input">
-                <textarea id="edit-tagline" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" rows="1" class="form-control" type="text" name="tagline" placeholder="{{ $this_profile->tagline->value }}"></textarea> 
+                <textarea id="edit-tagline" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" rows="1" class="form-control" type="text" name="tagline" placeholder="{{{ $this_profile->tagline != "" ? $this_profile->tagline->value : 'Enter Tagline'  }}}"></textarea> 
             </div>
         </div>
     </script>
@@ -82,14 +126,14 @@
        <div class="unit">
             <label class="label">Name</label>
             <div class="input">
-                <input id="edit-name" class="form-control" type="text" name="name" placeholder="{{ $this_profile->name->value }}"/> 
+                <input id="edit-name" class="form-control" type="text" name="name" placeholder="{{{ $this_profile->name != "" ? $this_profile->name->value : 'Enter name'  }}}"/> 
             </div>
         </div>
     </script>
 
     <script id="logo-add-to-form" type="text/template">
           <input type="hidden" name="type" value="logo">
-          <input name="thefile" type="file">
+          <input name="logo" type="file">
     </script>
 
     <script id="website-add-to-form" type="text/template">
@@ -100,7 +144,7 @@
                 <i class="fa fa-globe"></i>
             </label>
             <div class="input">
-                <input id="edit-site" class="form-control" type="text" name="site"  placeholder="{{ $this_profile->site->value }}"><br/> 
+                <input id="edit-site" class="form-control" type="text" name="site"  placeholder="{{{ $this_profile->site != "" ? $this_profile->site->value : 'Enter Website'  }}}"><br/> 
             </div>
         </div>
     </script>
@@ -114,7 +158,7 @@
                     <i class="fa fa-globe"></i>
                 </label>
                 <div class="input">
-                    <input id="edit-site" class="form-control" type="text" name="site" placeholder="{{ $this_profile->site->value }}"><br/> 
+                    <input id="edit-site" class="form-control" type="text" name="site" placeholder="{{{ $this_profile->site != "" ? $this_profile->site->value : 'Enter Website'  }}}"><br/> 
                 </div>
             </div>
             <div style="margin-bottom: 0px;" class="unit">
@@ -122,7 +166,7 @@
                     <i class="fa fa-envelope"></i>
                 </label>
                 <div class="input">
-                    <input id="edit-email" class="form-control" type="text" name="contact_email" placeholder="{{ $this_profile->contact->value }}"><br/> 
+                    <input id="edit-email" class="form-control" type="text" name="contact_email" placeholder="{{{ $this_profile->contact != "" ? $this_profile->contact->value : 'Enter Contact Email'  }}}"><br/> 
                 </div>
             </div>
             <div style="margin-bottom: 0px;" class="unit">
@@ -130,7 +174,7 @@
                     <i class="fa fa-facebook"></i>
                 </label>
                 <div class="input">
-                    <input id="edit-facebook" class="form-control" type="text" name="facebook"  placeholder="{{ $this_profile->facebook->value }}"><br/> 
+                    <input id="edit-facebook" class="form-control" type="text" name="facebook"  placeholder="{{{ $this_profile->facebook != "" ? $this_profile->facebook->value : 'Enter link to Facebook page'  }}}"><br/> 
                 </div>
             </div>
             <div style="margin-bottom: 0px;" class="unit">
@@ -138,7 +182,7 @@
                     <i class="fa fa-linkedin"></i>
                 </label>
                 <div class="input">
-                    <input id="edit-linkedin" class="form-control" type="text" name="linkedin" placeholder="{{ $this_profile->linkedin->value }}"><br/> 
+                    <input id="edit-linkedin" class="form-control" type="text" name="linkedin" placeholder="{{{ $this_profile->linkedin != "" ? $this_profile->linkedin->value : 'Enter link to LinkedIn page'  }}}"><br/> 
                 </div>
             </div>
             <div style="margin-bottom: 0px;" class="unit">
@@ -146,7 +190,7 @@
                     <i class="fa fa-twitter"></i>
                 </label>
                 <div class="input">
-                    <input id="edit-twitter" class="form-control" type="text" name="twitter"  placeholder="{{ $this_profile->twitter->value }}"><br/> 
+                    <input id="edit-twitter" class="form-control" type="text" name="twitter"  placeholder="{{{ $this_profile->twitter != "" ? $this_profile->twitter->value : 'Enter link to Twitter page'  }}}"><br/> 
                 </div>
             </div>
     </script>

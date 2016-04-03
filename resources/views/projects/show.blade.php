@@ -2,9 +2,7 @@
 
 @section('content')
 
-<div class="row">
-
-
+<div class="row">    
   <div class="col-md-4">
       
       @include('includes.profile.about')
@@ -38,46 +36,6 @@
              @include('includes.profile.field', [ 'topic' => 'Customer', 'label' => 'Describe your initial target customer.', 'content' => $project->customer ])
             
              @include('includes.profile.field', [ 'topic' => 'Demands', 'label' => "Describe your customer's needs.", 'content' => $project->need ])
-<!--
-            <div class="row">
-                
-                
-                <div class="col-md-6">
-                    @include('projects.includes.field', array('fieldname'=>'Product Idea', 'fieldbody' => $project->product_idea))
-                </div> 
-                <div class="col-md-6">
-                    @include('projects.includes.field', array('fieldname'=>'Product Idea', 'fieldbody' => $project->product_idea))
-                </div>
-            </div>
-            @include('projects.includes.field', array('fieldname'=>'Description', 'fieldbody' => $project->description))
-            @include('projects.includes.field', array('fieldname'=>'Elevator Pitch', 'fieldbody' => $project->elevator_pitch))
-            @include('projects.includes.field', array('fieldname'=>'Pitch Video', 'fieldbody' => $project->pitch_video))
-            @include('projects.includes.field', array('fieldname'=>'Slide Deck', 'fieldbody' => $project->slide_deck))
--->
-            
-<!--
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="profile-fieldname">Customer</div>
-            </div>  
-            <div class="col-sm-10">
-                <b>Your Customer  :  </b>
-
-                <br/><br/>
-
-                <b>Their Unmet Need  :  </b>
-
-                <br/><br/>
-
-                <b>How {{ $project->name }} Is Meeting It  :  </b>
-
-                <br/><br/>
-
-                <b>The Result  :  </b>
-
-            </div>
-        </div>
--->
         </div>
       </div>
       

@@ -4,6 +4,7 @@
         <div class="recent-comments-list">
                     
             <form id="post-box" action="" method="post">
+                <input name="_method" type="hidden" value="POST">
                 <input type="hidden" name="user-id" value="{{ Auth::user()->id}}">
                 @if ($isYours)
                   <input type="hidden" name="idea-id" value="{{ Auth::user()->idea->id}}">
