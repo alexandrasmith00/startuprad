@@ -82,6 +82,7 @@ class ProjectsController extends Controller
         $this_profile = new Profile();
         
         foreach ($project->thinkings as $thinking) {
+
             if ($thinking->name == 'teamMember' and $thinking->current == 1)
                 array_push($this_profile->team, $thinking->resources);   
             if ($thinking->name == 'name' and $thinking->current == 1)
@@ -100,7 +101,25 @@ class ProjectsController extends Controller
                 $this_profile->linkedin = $thinking->resources[0];
             if ($thinking->name == 'contact' and $thinking->current == 1)
                 $this_profile->contact = $thinking->resources[0];
+            if ($thinking->name == 'legalStatus' and $thinking->current == 1)
+                $this_profile->legalstatus = $thinking->resources[0];
+            if ($thinking->name == 'lawyers' and $thinking->current == 1)
+                $this_profile->lawyers = $thinking->resources[0];
+            if ($thinking->name == 'advisor' and $thinking->current == 1)
+                array_push($this_profile->advisors,  $thinking->resources[0]->value);   
+            if ($thinking->name == 'partnership' and $thinking->current == 1)
+                array_push($this_profile->partners, $thinking->resources[0]->value);   
+            if ($thinking->name == 'fundingRound' and $thinking->current == 1)
+                $this_profile->fundinground = $thinking->resources[0];
+            if ($thinking->name == 'outsideInvestors' and $thinking->current == 1)
+                $this_profile->outsideinvestors = $thinking->resources[0];
+            if ($thinking->name == 'debtEquity' and $thinking->current == 1)
+                $this_profile->debtequity = $thinking->resources[0];
+            if ($thinking->name == 'equitySplit' and $thinking->current == 1)
+                $this_profile->equitysplit = $thinking->resources[0];
+            
         }
+    
         
         
         
@@ -226,11 +245,38 @@ class ProjectsController extends Controller
         }     
         
         
-        if ($request->input('type') == '')
+        if ($request->input('type') == 'legal')
         {
             
+            if ($request->input('legal-status'))
+                $this->update_resource($idea, 'legalStatus', 'legalStatus', 'Legal Status', [['Legal Status', ($request->input('legal-status-state') . " " . $request->input('legal-status-type'))]]);
+            else
+                $this->update_resource($idea, 'legalStatus', 'legalStatus', 'Legal Status', [['Legal Status', 'None']]);
+            
+            if ($request->input('lawyers') != "")
+                $this->update_resource($idea, 'lawyers', 'lawyers', 'Lawyers', [['Lawyers', $request->input('lawyers') ]]);
         }
+        
+        if ($request->input('type') == 'funding')
+        {
+            
+            if ($request->input('funding-round') != "")
+                $this->update_resource($idea, 'fundingRound', 'fundingRound', 'Funding Round', [['Funding Round', $request->input('funding-round')]]);
+            if ($request->input('equity-split') != "")
+                $this->update_resource($idea, 'equitySplit', 'equitySplit', 'Equity Split', [['Equity Split', $request->input('equity-split')]]);
+            if ($request->input('outside-investors') != "")
+                $this->update_resource($idea, 'outsideInvestors', 'outsideInvestors', 'Outside Investors', [['Outside Investors', $request->input('outside-investors')]]);
+            if ($request->input('debt-equity') != "")
+                $this->update_resource($idea, 'debtEquity', 'debtEquity', 'Debt Equity', [['Debt Equity', $request->input('debt-equity')]]);
 
+        }
+        
+        if ($request->input('type') == 'partner')
+            $this->update_resource($idea, 'partnership', 'partnership', 'Partnership', [['Partnership', $request->input('partner')]]);
+        
+        if ($request->input('type') == 'advisor')
+            $this->update_resource($idea, 'advisor', 'advisor', 'Advisor', [['Advisor', $request->input('advisor')]]);
+    
         
         return redirect()->back();
     }

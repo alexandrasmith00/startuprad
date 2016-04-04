@@ -14,5 +14,13 @@ class Profile
     public $facebook = "";
     public $twitter = "";
     public $linkedin = "";
+    public $legalstatus = "";
+    public $lawyers = "";
+    public $equitysplit = "";
+    public $fundinground = "";
+    public $outsideinvestors = "";
+    public $debtequity = "";
+    public $advisors = [];
+    public $partners = [];
 
 }

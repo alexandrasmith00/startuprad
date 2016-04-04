@@ -10,12 +10,14 @@
     <div class="task-widget">
       <div class="widget-task-list recent-users-list">
 
+
           @foreach ($fields as $key => $vals)
+            
             @foreach ($vals as $value)
                 <div class="task-entry">
                   <div class="task-intro">
                     <div class="task-title">
-                        <span class="emph">{{ $key }}:</span>  {{ $value }}
+                        <span class="emph">{{ $key }}@if ($value != ""):</span> {{ $value }}@else</span>@endif
                     </div>
                   </div>
                 </div>
