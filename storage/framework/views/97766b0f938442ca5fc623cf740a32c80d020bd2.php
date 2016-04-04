@@ -13,16 +13,10 @@
     }
       
     function showEdit() {
-        var id_split = (this.id).split(" ");
-        
-        if (id_split.length > 1)
-            $('#resource_id').val(id_split[1]);
-        
-        var id =id_split[0];
-        createModal(id, createEl(this.id));
+        createModal((this.id).split("-")[0], createEl(this.id));
         autosize($('textarea'));
         
-        var inner = '#' + id + "-add-to-form";
+        var inner = '#' + this.id + "-add-to-form";
         var inner_text = $(inner).text();
         
         $('#form-here').append(inner_text);

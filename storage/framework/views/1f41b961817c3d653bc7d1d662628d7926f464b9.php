@@ -24,7 +24,7 @@
                     <?php foreach($this_profile->team as $team): ?>
                       <?php foreach($team as $field): ?>
                         <?php if($field->descriptor == 'Name'): ?>
-                          <li><a href="#" id="team <?php echo e($field->thinking_id); ?>" class="editable" >Edit <?php echo e($field->value); ?></a></li>
+                          <li><a href="#" id="team-<?php echo e($field->thinking_id); ?>" class="editable" >Edit <?php echo e($field->value); ?></a></li>
                         <?php endif; ?>
                       <?php endforeach; ?>
                     <?php endforeach; ?> 
@@ -78,15 +78,4 @@
         </div>
     </script>
 
-
-    <script id="team-edit-to-form" type="text/template">
-        <input type="hidden" name="type" value="editteam">
-
-       <div class="unit">
-            <label class="label">Name</label>
-            <div class="input">
-                <input id="edit-name" class="form-control" type="text" name="name" placeholder="<?php echo e($this_profile->name != "" ? $this_profile->name->value : 'Enter a startup name'); ?>"/> 
-            </div>
-        </div>
-    </script>
 <?php $__env->stopSection(); ?>

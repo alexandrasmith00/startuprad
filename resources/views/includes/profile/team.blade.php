@@ -24,7 +24,7 @@
                     @foreach ($this_profile->team as $team)
                       @foreach ($team as $field)
                         @if ($field->descriptor == 'Name')
-                          <li><a href="#" id="team {{$field->thinking_id}}" class="editable" >Edit {{ $field->value }}</a></li>
+                          <li><a href="#" id="team-{{$field->thinking_id}}" class="editable" >Edit {{ $field->value }}</a></li>
                         @endif
                       @endforeach
                     @endforeach 
@@ -78,15 +78,4 @@
         </div>
     </script>
 
-
-    <script id="team-edit-to-form" type="text/template">
-        <input type="hidden" name="type" value="editteam">
-
-       <div class="unit">
-            <label class="label">Name</label>
-            <div class="input">
-                <input id="edit-name" class="form-control" type="text" name="name" placeholder="{{{ $this_profile->name != "" ? $this_profile->name->value : 'Enter a startup name'  }}}"/> 
-            </div>
-        </div>
-    </script>
 @stop

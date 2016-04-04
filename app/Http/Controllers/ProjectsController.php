@@ -192,10 +192,40 @@ class ProjectsController extends Controller
               $this->update_resource($idea, $request->input('type'), 'contact', 'Contact Email', [['Email', $request->input('contact_email')]]);
         }
         
-        if ($request->input('type') == 'add')
+        if ($request->input('type') == 'newteam')
         {
-            
+            $this->update_resource($idea, 'teamMember', 'teamMember', 'Team Member', [
+                ['Name', $request->input('team-name')],
+                ['Email', $request->input('team-email')],
+                ['Role', $request->input('team-role')]
+            ], true);
+
         }
+        
+          
+        if ($request->input('type') == 'editteam')
+        {
+            $new_name = $request->input('team-name');
+            $new_email = $request->input('team-email');
+            $new_role = $request->input('team-role');
+            
+            if ($new_name == "")
+                $new_name = Resource::where('thinking_id', $request->input('resource_id'))->where('Descriptor', 'Name')->value('value');
+            
+            if ($new_email == "")
+                $new_email = Resource::where('thinking_id', $request->input('resource_id'))->where('Descriptor', 'Email')->value('value');
+
+            if ($new_role == "")
+                $new_role = Resource::where('thinking_id', $request->input('resource_id'))->where('Descriptor', 'Role')->value('value');   
+            
+            $this->update_resource($idea, 'teamMember', 'teamMember', 'Team Member', [
+                ['Name', $new_name],
+                ['Email', $new_email],
+                ['Role', $new_role]
+            ], true, $request->input('resource_id'));
+        }     
+        
+        
         
         
         return redirect()->back();
@@ -221,10 +251,14 @@ class ProjectsController extends Controller
     }
     
 
-    private function update_resource($idea_id, $resource_type, $name, $name_view, $resources, $specific=false)
+    private function update_resource($idea_id, $resource_type, $name, $name_view, $resources, $specific=false, $resource_id=0)
     {
         if ($specific) {
-            
+            if ($resource_id != 0) {
+                Thinking::where('id', $resource_id)
+                  ->update(['current' => false]);               
+            }
+
         } else {
             Thinking::where('idea_id', $idea_id)
                 ->where('current', true)
