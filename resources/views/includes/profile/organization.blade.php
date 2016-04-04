@@ -15,4 +15,11 @@
         @include('includes.profile.organization-pane', ['organization_title' => 'Legal', 'fields' => ['Legal Status' => ['Delaware C-Corp'], 'Lawyers' => ['Ropes & Gray'] ] ])
     </div>
   </div>
+    
+    
+    @include('includes.profile.organization-edit')
+
+    
 </div>
+
+

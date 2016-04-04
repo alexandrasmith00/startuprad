@@ -22,12 +22,8 @@
             @endforeach
           @endforeach
           
-            @if ($isYours)
-                <button class="btn btn-link btn-block btn-loadmore">Edit Organization</button>
-            @endif
             
         </div>
       </div>
-
   </div>
 </div>                      

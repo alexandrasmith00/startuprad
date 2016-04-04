@@ -23,12 +23,8 @@
             <?php endforeach; ?>
           <?php endforeach; ?>
           
-            <?php if($isYours): ?>
-                <button class="btn btn-link btn-block btn-loadmore">Edit Organization</button>
-            <?php endif; ?>
             
         </div>
       </div>
-
   </div>
 </div>                      

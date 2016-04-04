@@ -15,4 +15,11 @@
         <?php echo $__env->make('includes.profile.organization-pane', ['organization_title' => 'Legal', 'fields' => ['Legal Status' => ['Delaware C-Corp'], 'Lawyers' => ['Ropes & Gray'] ] ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     </div>
   </div>
+    
+    
+    <?php echo $__env->make('includes.profile.organization-edit', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    
 </div>
+
+

@@ -226,7 +226,11 @@ class ProjectsController extends Controller
         }     
         
         
-        
+        if ($request->input('type') == '')
+        {
+            
+        }
+
         
         return redirect()->back();
     }

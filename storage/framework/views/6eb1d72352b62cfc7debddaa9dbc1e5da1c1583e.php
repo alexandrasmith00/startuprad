@@ -135,8 +135,14 @@
     </script>
 
     <script id="logo-add-to-form" type="text/template">
-          <input type="hidden" name="type" value="logo">
-          <input name="logo" type="file">
+        <input type="hidden" name="type" value="logo">
+        <div class="input prepend-small-btn">
+            <div class="file-button">
+                Browse
+                <input class="btn btn-success" type="file" name="logo" onchange="document.getElementById('prepend-small-btn').value = this.value;">
+            </div>
+            <input class="form-control" type="text" id="prepend-small-btn" readonly="" placeholder="no file selected">
+        </div>
     </script>
 
     <script id="website-add-to-form" type="text/template">

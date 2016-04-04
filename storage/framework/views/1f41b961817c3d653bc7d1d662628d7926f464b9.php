@@ -45,13 +45,6 @@
 @parent
 
 
-    <script id="edit-form" type="text/template">
-        <form action="/update" id="form-here" method="POST" class="j-forms" enctype="multipart/form-data" novalidate>
-            <input type="hidden" name="idea_id" value="<?php echo e($project->id); ?>">
-        </form>
-    </script>
-
-
     <script id="team-add-to-form" type="text/template">
         <input type="hidden" name="type" value="newteam">
         <input type="hidden" id="resource_id" name="resource_id" value="">
