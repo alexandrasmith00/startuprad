@@ -14,7 +14,7 @@ class Post extends Model
     protected $dates = ['published_at'];
     
     protected $fillable = [
-        'title', 'content', 'user_id', 'idea_id',
+        'title', 'content', 'user_id', 'idea_id'
     ];
 
     public function setTitleAttribute($value)
