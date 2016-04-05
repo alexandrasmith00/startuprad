@@ -1,6 +1,5 @@
 <div class="widget-wrap stats-widget">
     <img style="margin: auto;" class="img-responsive img-center" src="<?php echo e($this_profile->logo  != "" ? $this_profile->logo->value : 'http://static1.squarespace.com/static/54fe5d59e4b038fd96c9a7c5/550a1fa1e4b0fca40dc6f6b1/550a1fa1e4b03c7ec206969d/1426726818023/Placeholder+Logo.png'); ?>">
-    <?php echo e(Auth::user()->id); ?>
 
     <h3 id="set-name" class="profile-username text-center">
         <?php echo e($this_profile->name  != "" ? $this_profile->name->value : 'No Name'); ?>

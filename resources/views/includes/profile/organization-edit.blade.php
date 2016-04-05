@@ -205,7 +205,7 @@
        <div class="unit">
             <label class="label">Add a partnership</label>
             <div class="input">
-                <input class="form-control" type="text" name="advisor" placeholder="Partner"/> 
+                <input class="form-control" type="text" name="partnership" placeholder="Partner"/> 
             </div>
         </div>
     </script>

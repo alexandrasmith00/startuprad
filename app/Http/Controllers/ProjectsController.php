@@ -177,7 +177,7 @@ class ProjectsController extends Controller
 
         $new_thinking->category_id = $category->id;
         $new_thinking->idea_id = $project_id;
-        $new_thinking->body = $new_value;
+        $new_thinking->body = $new_value;   
         $new_thinking->current = 1;
 
         $new_thinking->save();
@@ -292,7 +292,7 @@ class ProjectsController extends Controller
         }
         
         if ($request->input('type') == 'partner')
-            $this->update_resource($idea, 'partnership', 'partnership', 'partnership', [['Partnership', $request->input('partner')]]);
+            $this->update_resource($idea, 'partnership', 'partnership', 'partnership', [['Partnership', $request->input('partnership')]]);
         
         if ($request->input('type') == 'advisor')
             $this->update_resource($idea, 'advisor', 'advisor', 'advisor', [['Advisor', $request->input('advisor')]]);
