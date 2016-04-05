@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
 use App\Models\User;
 
 class RadUserSeeder extends Seeder
@@ -13,8 +12,6 @@ class RadUserSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        
 
         $rad = [
             ['email' => 'rashadhossain@college.harvard.edu', 'first' => 'Rashad', 'last' => 'Hossain' ],

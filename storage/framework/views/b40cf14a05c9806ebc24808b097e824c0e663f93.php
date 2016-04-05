@@ -20,8 +20,6 @@
     }
       
     function makePost(data) {
-        
-        alert('about to post');
       // Build POST data and make AJAX request
       $.post('/addpost', data).success(postSuccess);
 

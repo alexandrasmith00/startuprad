@@ -117,7 +117,8 @@ class ProjectsController extends Controller
                 $this_profile->debtequity = $thinking->resources[0];
             if ($thinking->name == 'equitySplit' and $thinking->current == 1)
                 $this_profile->equitysplit = $thinking->resources[0];
-            
+            if ($thinking->name == 'description' and $thinking->current == 1)
+                $this_profile->description = $thinking->resources[0];
         }
     
         
@@ -276,7 +277,10 @@ class ProjectsController extends Controller
         
         if ($request->input('type') == 'advisor')
             $this->update_resource($idea, 'advisor', 'advisor', 'Advisor', [['Advisor', $request->input('advisor')]]);
-    
+        
+        if ($request->input('type') == 'Description')
+            $this->update_resource($idea, 'description', 'description', 'Description', [['Description', $request->input('Description')]]);
+
         
         return redirect()->back();
     }

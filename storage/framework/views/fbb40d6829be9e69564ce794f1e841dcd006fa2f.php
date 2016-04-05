@@ -25,7 +25,7 @@
           
         <div role="tabpanel" class="tab-pane" id="profile">
             
-            <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Description', 'label' => 'Describe your startup in one sentence.', 'content' => $project->description ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Description', 'label' => 'Describe your startup in one sentence.', 'content' => $this_profile->description->value ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             
              <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Pitch Deck', 'label' => 'Upload your pitch deck.', 'content' => $project->pitchdeck ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             

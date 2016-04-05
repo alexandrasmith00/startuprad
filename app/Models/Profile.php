@@ -22,5 +22,7 @@ class Profile
     public $debtequity = "";
     public $advisors = [];
     public $partners = [];
+    public $description = "";
+
 
 }

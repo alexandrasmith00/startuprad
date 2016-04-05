@@ -14,7 +14,7 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="funding_tab">
         <?php echo $__env->make('includes.profile.organization-pane', ['organization_title' => 'Funding', 'fields' => array_merge(
-            ($this_profile->equitysplit != "" ? ['Equity Split' => [$this_profile->equitysplit->value]] : ["Legal Status hasn't been updated" => ['']]), 
+            ($this_profile->equitysplit != "" ? ['Equity Split' => [$this_profile->equitysplit->value]] : ["Equity Split hasn't been updated" => ['']]), 
             ($this_profile->outsideinvestors != "" ? ['Outside Investors' => [$this_profile->outsideinvestors->value]] : ["Outside Investors  haven't been updated" => ['']]), 
             ($this_profile->fundinground != "" ? ['Funding Round' => [$this_profile->fundinground->value]] : ["Funding Round  hasn't been updated" => ['']]), 
             ($this_profile->debtequity != "" ? ['Debt Equity' => [$this_profile->debtequity->value]] : ["Debt Equity hasn't been updated" => ['']])

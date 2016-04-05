@@ -13,7 +13,7 @@
                 <div class="user-intro">
                     <?php if($topic == 'Description'): ?>
                       <div style="text-align: center;" class="users-info">
-                        <ul><li><label><h3><?php echo e($content); ?></h3></label></li></ul>
+                        <ul><li><label><h3><?php echo e($content); ?></h3><br/></label></li></ul>
                       </div>
                     <?php else: ?>
                        <div class="users-info">
@@ -30,7 +30,7 @@
 
         <?php if($isYours): ?>
           <div class="recent-users-list">
-            <button id="post-button" class="btn btn-link btn-block btn-loadmore" style="padding: 6px 12px; text-transform: capitalize;">Edit <?php echo e($topic); ?></button>
+            <button id="<?php echo e($topic); ?>" class="btn btn-link btn-block btn-loadmore editable" style="padding: 6px 12px; text-transform: capitalize;">Edit <?php echo e($topic); ?></button>
 
         </div>
         <?php endif; ?>
@@ -39,7 +39,7 @@
     
         <?php if($isYours): ?>
           <div class="recent-users-list">
-            <button id="post-button" class="btn btn-link btn-block btn-loadmore" style="padding: 6px 12px; text-transform: capitalize;">Add Your <?php echo e($topic); ?></button>
+            <button id="<?php echo e($topic); ?>" class="btn btn-link btn-block btn-loadmore editable" style="padding: 6px 12px; text-transform: capitalize;">Add Your <?php echo e($topic); ?></button>
 
         </div>
         <?php else: ?>
@@ -64,4 +64,20 @@
     <?php endif; ?>
 
 </div>
+
+<?php $__env->startSection('scripts'); ?>
+@parent
+
+    <script id="<?php echo e($topic); ?>-add-to-form" type="text/template">
+      <input type="hidden" name="type" value="<?php echo e($topic); ?>">
+
+       <div class="unit">
+            <label class="label"><?php echo e($topic); ?></label>
+            <div class="input">
+                <textarea id="edit-tagline" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" rows="1" class="form-control" type="text" name="<?php echo e($topic); ?>" placeholder="<?php echo e($content != "" ? $content : ''); ?>"></textarea> 
+            </div>
+        </div>
+    </script>
+
+<?php $__env->stopSection(); ?>
    
