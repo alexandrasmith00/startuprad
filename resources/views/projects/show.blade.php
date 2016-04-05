@@ -27,7 +27,7 @@
           
         <div role="tabpanel" class="tab-pane" id="profile">
             
-            @include('includes.profile.field', [ 'topic' => 'Description', 'label' => 'Describe your startup in one sentence.', 'content' => $this_profile->description->value ])
+            @include('includes.profile.field', [ 'topic' => 'Description', 'label' => 'Describe your startup in one sentence.', 'content' => $this_profile->description != "" ? $this_profile->description->value : '' ])
 
              @include('includes.profile.field', [ 'topic' => 'Customer', 'label' => 'Describe your initial target customer.', 'content' => $this_profile->customer != "" ? $this_profile->customer->value : '' ])
              @include('includes.profile.field', [ 'topic' => 'Demands', 'label' => "Describe your customer's needs.", 'content' => $this_profile->demands != "" ? $this_profile->demands->value : '' ])
