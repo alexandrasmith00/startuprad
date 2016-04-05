@@ -27,7 +27,6 @@ class CommentsController extends Controller
         $info = explode("-", $request->input('comment-id'));
         $type = $info[0];
         $parent_id = $info[1];
-        dd(Auth::user()->id);
 
         if ($type == 'post')
         {
