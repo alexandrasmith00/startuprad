@@ -55,6 +55,7 @@
     }
       
     function commentSuccess(data) {
+        console.log(data);
         $('[id*="reply-"]').hide();
         $('[id*="reply-"]').find('textarea').val('');
         showComment(data);
