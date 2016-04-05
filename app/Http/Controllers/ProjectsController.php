@@ -318,16 +318,6 @@ class ProjectsController extends Controller
         if ($request->input('type') == 'Business Model')
             $this->update_resource($idea, 'businessModel', 'businessModel', 'business model', [['Business Model', $request->input('Business Model')]]);
 
-        
-        
-        
-//        if($request->input('ask') == 'yes')
-
-                    // add a post for this update
-
-
-
-        
         return redirect()->back();
     }
     

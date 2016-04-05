@@ -14,8 +14,8 @@
         });
         
         $('#click-post').click(function(e) {
-alert('hey');
-                makeComment($(this.form).serialize());
+            e.preventDefault();
+            makeComment($(this.form).serialize());
         });
         
         // submit on enter

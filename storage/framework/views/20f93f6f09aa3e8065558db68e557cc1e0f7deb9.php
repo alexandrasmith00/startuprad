@@ -35,10 +35,6 @@
                         <li class="comment-info">
                             <span class="p-time"><i class="zmdi zmdi-time"></i> Now</span>
 
-                            <?php if( Auth::user()->idea_id == $post->user->idea['id'] ): ?>
-                                &nbsp; &middot; &nbsp;
-                                <span class="p-time"><a class="action-link">Thank</a></span>
-                            <?php endif; ?>
 
                             &nbsp; &middot; &nbsp;
                             <span class="p-time"> <a id="reply-link" class="action-link reply-link">Reply</a></span>
