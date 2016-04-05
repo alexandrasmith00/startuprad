@@ -3,7 +3,7 @@
         <div class="pull-left">
           <div class="recent-users-list">
             <div class="user-intro">
-                <div class="user-thumb"><a href="/project/<?php echo e($post->idea->id); ?>"><img src="<?php echo e($post->idea->logo  != "" ? $post->idea->logo : asset('images/avatar/amarkdalen.jpg')); ?>" alt="user"></a></div>
+                <div class="user-thumb"><a href="/project/<?php echo e($post->idea->id); ?>"><img style="width: auto; border-radius: 0; padding-right: 15px;" src="<?php echo e($post->idea->logo  != "" ? $post->idea->logo : asset('images/avatar/amarkdalen.jpg')); ?>" alt="user"></a></div>
                 <div class="users-info">           
                     <ul>               
                         <?php if($post->type == 'chat'): ?>
