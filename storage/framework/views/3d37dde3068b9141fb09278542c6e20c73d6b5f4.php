@@ -20,10 +20,12 @@
             </div>
               
             <div class="user-intro">
-                <div class="post-body">
-                    <?php echo e($post->content); ?>
-
-                </div>
+                <?php if(strstr($post->content, "\n")): ?>
+                    <div class="post-body" style="white-space:pre;"><?php echo e($post->content); ?></div>
+                <?php else: ?>
+                    <div class="post-body"><?php echo e($post->content); ?></div>
+                <?php endif; ?>
+                
                 <div class="post-tags">
                     
                     <?php if($post->tags->count() > 0): ?>

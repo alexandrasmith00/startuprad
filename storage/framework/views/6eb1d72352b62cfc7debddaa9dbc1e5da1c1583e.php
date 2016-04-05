@@ -109,6 +109,9 @@
     <script id="edit-form" type="text/template">
         <form action="/update" id="form-here" method="POST" class="j-forms" enctype="multipart/form-data" novalidate>
             <input type="hidden" name="idea_id" value="<?php echo e($project->id); ?>">
+            <input id="ask" type="hidden" name="ask" value="">
+            <input id="ask-field" type="hidden" name="ask_field" value="">
+
         </form>
     </script>
 

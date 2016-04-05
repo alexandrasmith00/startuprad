@@ -7,13 +7,13 @@
     @if ($content != "")
          <div class="widget-content">
           <div class="recent-users">
-            <div class="recent-users-list">
+            <div style="margin-bottom: 0px;" class="recent-users-list">
 
               <div class="individual-user" style="border-top: #eee 1px solid;">
-                <div class="user-intro">
+                <div style="margin: 5px" class="user-intro">
                     @if ($topic == 'Description')
                       <div style="text-align: center;" class="users-info">
-                        <ul><li><label><h3>{{ $content }}</h3><br/></label></li></ul>
+                        <ul><li><label><h3>{{ $content }}</h3></label></li></ul>
                       </div>
                     @else
                        <div class="users-info">

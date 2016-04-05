@@ -28,14 +28,20 @@
         <div role="tabpanel" class="tab-pane" id="profile">
             
             @include('includes.profile.field', [ 'topic' => 'Description', 'label' => 'Describe your startup in one sentence.', 'content' => $this_profile->description->value ])
-            
-             @include('includes.profile.field', [ 'topic' => 'Pitch Deck', 'label' => 'Upload your pitch deck.', 'content' => $project->pitchdeck ])
-            
-             @include('includes.profile.field', [ 'topic' => 'Video', 'label' => 'Upload a pitch video.', 'content' => $project->pitchvideo ])
-            
-             @include('includes.profile.field', [ 'topic' => 'Customer', 'label' => 'Describe your initial target customer.', 'content' => $project->customer ])
-            
-             @include('includes.profile.field', [ 'topic' => 'Demands', 'label' => "Describe your customer's needs.", 'content' => $project->need ])
+<!--
+             @include('includes.profile.field', [ 'topic' => 'Pitch Deck', 'label' => 'Show is your pitch deck.', 'content' => '' ])
+             @include('includes.profile.field', [ 'topic' => 'Video', 'label' => 'Show us a pitch video.', 'content' => '' ])
+-->
+             @include('includes.profile.field', [ 'topic' => 'Customer', 'label' => 'Describe your initial target customer.', 'content' => $this_profile->customer != "" ? $this_profile->customer->value : '' ])
+             @include('includes.profile.field', [ 'topic' => 'Demands', 'label' => "Describe your customer's needs.", 'content' => $this_profile->demands != "" ? $this_profile->demands->value : '' ])
+             @include('includes.profile.field', [ 'topic' => 'Product', 'label' => "Describe your product in 1-2 sentences -- what are you building?", 'content' => $this_profile->product != "" ? $this_profile->product->value : ''  ])
+             @include('includes.profile.field', [ 'topic' => 'Value', 'label' => "Describe how your solution is bringing value to your customer's unmet need.", 'content' => $this_profile->value != "" ? $this_profile->value->value : '' ])
+             @include('includes.profile.field', [ 'topic' => 'Use Case', 'label' => "Describe how someone would use it.", 'content' => $this_profile->usecase != "" ? $this_profile->usecase->value : '' ])
+             @include('includes.profile.field', [ 'topic' => 'Market', 'label' => "Define potential market size .", 'content' => $this_profile->market != "" ? $this_profile->market->value : '' ])
+             @include('includes.profile.field', [ 'topic' => 'Competition', 'label' => "Who are your top three competitors?", 'content' => $this_profile->competition != "" ? $this_profile->competition->value : '' ])
+             @include('includes.profile.field', [ 'topic' => 'Marketing', 'label' => "What will be your message to users?", 'content' => $this_profile->marketing != "" ? $this_profile->marketing->value : '' ])
+             @include('includes.profile.field', [ 'topic' => 'Business Model', 'label' => "Describe how you will make money.", 'content' => $this_profile->businessmodel != "" ? $this_profile->businessmodel->value : '' ])
+
         </div>
       </div>
       
@@ -51,4 +57,20 @@
 @section('scripts')
 @parent
     @include('js.profile')
+
+ 
+    <script id="post-update" type="text/template">
+    
+            <form id="post-box" action="" method="post">
+
+                
+                <textarea id="ask-something" spellcheck="false" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" name="message" class="form-control comment" placeholder="Ask something about this update"></textarea>
+               
+                
+            </form>
+
+    </script>
+
+    
+
 @stop

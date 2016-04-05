@@ -8,6 +8,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/bugreport', ['as' => 'bug.create', 'uses' => 'FeedController@bugreport']);
     Route::post('addpost', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
     Route::post('/update', 'ProjectsController@update');
+    Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
 
     // update pieces of profile
 

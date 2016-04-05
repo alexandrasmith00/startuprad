@@ -119,11 +119,30 @@ class ProjectsController extends Controller
                 $this_profile->equitysplit = $thinking->resources[0];
             if ($thinking->name == 'description' and $thinking->current == 1)
                 $this_profile->description = $thinking->resources[0];
+            if ($thinking->name == 'pitchdeck' and $thinking->current == 1)
+                $this_profile->pitchdeck = $thinking->resources[0];
+            if ($thinking->name == 'video' and $thinking->current == 1)
+                $this_profile->video = $thinking->resources[0];
+            if ($thinking->name == 'customer' and $thinking->current == 1)
+                $this_profile->customer = $thinking->resources[0];
+            if ($thinking->name == 'demands' and $thinking->current == 1)
+                $this_profile->demands = $thinking->resources[0];            
+            if ($thinking->name == 'product' and $thinking->current == 1)
+                $this_profile->product = $thinking->resources[0];
+            if ($thinking->name == 'value' and $thinking->current == 1)
+                $this_profile->value = $thinking->resources[0];
+            if ($thinking->name == 'usecase' and $thinking->current == 1)
+                $this_profile->usecase = $thinking->resources[0];
+            if ($thinking->name == 'market' and $thinking->current == 1)
+                $this_profile->market = $thinking->resources[0];            
+            if ($thinking->name == 'competition' and $thinking->current == 1)
+                $this_profile->competition = $thinking->resources[0];
+            if ($thinking->name == 'marketing' and $thinking->current == 1)
+                $this_profile->marketing = $thinking->resources[0];
+            if ($thinking->name == 'businessModel' and $thinking->current == 1)
+                $this_profile->businessmodel = $thinking->resources[0];
         }
-    
-        
-        
-        
+
         return view('projects.show', compact('project', 'editsChannel', 'isYours', 'posts', 'this_profile'));
 
     }
@@ -180,41 +199,41 @@ class ProjectsController extends Controller
         
         if ($request->input('type') == 'name')
         {
-            $this->update_resource($idea, $request->input('type'), 'name', 'Name', [['Name', $request->input('name')]]);
+            $this->update_resource($idea, $request->input('type'), 'name', 'name', [['Name', $request->input('name')]]);
             Idea::where('id', $idea)->update(['name' => $request->input('name')]);
         }
          
         if ($request->input('type') == 'tagline')
-           $this->update_resource($idea, $request->input('type'), 'tagline', 'Tagline', [['Tagline', $request->input('tagline')]]);
+           $this->update_resource($idea, $request->input('type'), 'tagline', 'tagline', [['Tagline', $request->input('tagline')]]);
                 
         if ($request->input('type') == 'logo')
         {
             $file = $this->upload_image($request->file('logo'));
-            $this->update_resource($idea, $request->input('type'), 'logo', 'Logo', [['Logo', (env('FILE_BASE') . $file)]]);
+            $this->update_resource($idea, $request->input('type'), 'logo', 'logo', [['Logo', (env('FILE_BASE') . $file)]]);
             Idea::where('id', $idea)->update(['logo' => (env('FILE_BASE') . $file)]);
         }
         
         if ($request->input('type') == 'website')
-            $this->update_resource($idea, $request->input('type'), 'site', 'Website', [['Site', $request->input('site')]] );
+            $this->update_resource($idea, $request->input('type'), 'site', 'website', [['Site', $request->input('site')]] );
         
                 
         if ($request->input('type') == 'social')
         {
             if ($request->input('site') != "")
-              $this->update_resource($idea, $request->input('type'), 'site', 'Website', [['Site', $request->input('site')]]);
+              $this->update_resource($idea, $request->input('type'), 'site', 'website', [['Site', $request->input('site')]]);
             if ($request->input('facebook') != "")
-              $this->update_resource($idea, $request->input('type'), 'facebook', 'Facebook Profile', [['Facebook', $request->input('facebook')]]);
+              $this->update_resource($idea, $request->input('type'), 'facebook', 'Facebook page', [['Facebook', $request->input('facebook')]]);
             if ($request->input('twitter') != "")
-              $this->update_resource($idea, $request->input('type'), 'twitter', 'Twitter Profile', [['Twitter', $request->input('twitter')]]);
+              $this->update_resource($idea, $request->input('type'), 'twitter', 'Twitter page', [['Twitter', $request->input('twitter')]]);
             if ($request->input('linkedin') != "")
-              $this->update_resource($idea, $request->input('type'), 'linkedIn', 'LinkedIn Profile', [['LinkedIn', $request->input('linkedin')]] );
+              $this->update_resource($idea, $request->input('type'), 'linkedIn', 'LinkedIn page', [['LinkedIn', $request->input('linkedin')]] );
             if ($request->input('contact_email') != "")
-              $this->update_resource($idea, $request->input('type'), 'contact', 'Contact Email', [['Email', $request->input('contact_email')]]);
+              $this->update_resource($idea, $request->input('type'), 'contact', 'contact email', [['Email', $request->input('contact_email')]]);
         }
         
         if ($request->input('type') == 'newteam')
         {
-            $this->update_resource($idea, 'teamMember', 'teamMember', 'Team Member', [
+            $this->update_resource($idea, 'teamMember', 'teamMember', 'team member', [
                 ['Name', $request->input('team-name')],
                 ['Email', $request->input('team-email')],
                 ['Role', $request->input('team-role')]
@@ -238,7 +257,7 @@ class ProjectsController extends Controller
             if ($new_role == "")
                 $new_role = Resource::where('thinking_id', $request->input('resource_id'))->where('Descriptor', 'Role')->value('value');   
             
-            $this->update_resource($idea, 'teamMember', 'teamMember', 'Team Member', [
+            $this->update_resource($idea, 'teamMember', 'teamMember', 'team member', [
                 ['Name', $new_name],
                 ['Email', $new_email],
                 ['Role', $new_role]
@@ -250,36 +269,63 @@ class ProjectsController extends Controller
         {
             
             if ($request->input('legal-status'))
-                $this->update_resource($idea, 'legalStatus', 'legalStatus', 'Legal Status', [['Legal Status', ($request->input('legal-status-state') . " " . $request->input('legal-status-type'))]]);
+                $this->update_resource($idea, 'legalStatus', 'legalStatus', 'legal status', [['Legal Status', ($request->input('legal-status-state') . " " . $request->input('legal-status-type'))]]);
             else
-                $this->update_resource($idea, 'legalStatus', 'legalStatus', 'Legal Status', [['Legal Status', 'None']]);
+                $this->update_resource($idea, 'legalStatus', 'legalStatus', 'legal status', [['Legal Status', 'None']]);
             
             if ($request->input('lawyers') != "")
-                $this->update_resource($idea, 'lawyers', 'lawyers', 'Lawyers', [['Lawyers', $request->input('lawyers') ]]);
+                $this->update_resource($idea, 'lawyers', 'lawyers', 'lawyers', [['Lawyers', $request->input('lawyers') ]]);
         }
         
         if ($request->input('type') == 'funding')
         {
             
             if ($request->input('funding-round') != "")
-                $this->update_resource($idea, 'fundingRound', 'fundingRound', 'Funding Round', [['Funding Round', $request->input('funding-round')]]);
+                $this->update_resource($idea, 'fundingRound', 'fundingRound', 'funding round', [['Funding Round', $request->input('funding-round')]]);
             if ($request->input('equity-split') != "")
-                $this->update_resource($idea, 'equitySplit', 'equitySplit', 'Equity Split', [['Equity Split', $request->input('equity-split')]]);
+                $this->update_resource($idea, 'equitySplit', 'equitySplit', 'equity split', [['Equity Split', $request->input('equity-split')]]);
             if ($request->input('outside-investors') != "")
-                $this->update_resource($idea, 'outsideInvestors', 'outsideInvestors', 'Outside Investors', [['Outside Investors', $request->input('outside-investors')]]);
+                $this->update_resource($idea, 'outsideInvestors', 'outsideInvestors', 'outside investors', [['Outside Investors', $request->input('outside-investors')]]);
             if ($request->input('debt-equity') != "")
-                $this->update_resource($idea, 'debtEquity', 'debtEquity', 'Debt Equity', [['Debt Equity', $request->input('debt-equity')]]);
+                $this->update_resource($idea, 'debtEquity', 'debtEquity', 'debt equity', [['Debt Equity', $request->input('debt-equity')]]);
 
         }
         
         if ($request->input('type') == 'partner')
-            $this->update_resource($idea, 'partnership', 'partnership', 'Partnership', [['Partnership', $request->input('partner')]]);
+            $this->update_resource($idea, 'partnership', 'partnership', 'partnership', [['Partnership', $request->input('partner')]]);
         
         if ($request->input('type') == 'advisor')
-            $this->update_resource($idea, 'advisor', 'advisor', 'Advisor', [['Advisor', $request->input('advisor')]]);
+            $this->update_resource($idea, 'advisor', 'advisor', 'advisor', [['Advisor', $request->input('advisor')]]);
         
         if ($request->input('type') == 'Description')
-            $this->update_resource($idea, 'description', 'description', 'Description', [['Description', $request->input('Description')]]);
+            $this->update_resource($idea, 'description', 'description', 'description', [['Description', $request->input('Description')]]);
+        if ($request->input('type') == 'Customer')
+            $this->update_resource($idea, 'customer', 'customer', 'customer', [['Customer', $request->input('Customer')]]);
+        if ($request->input('type') == 'Demands')
+            $this->update_resource($idea, 'demands', 'demands', 'demands', [['Demands', $request->input('Demands')]]);
+        if ($request->input('type') == 'Product')
+            $this->update_resource($idea, 'product', 'product', 'product', [['Product', $request->input('Product')]]);
+        if ($request->input('type') == 'Value')
+            $this->update_resource($idea, 'value', 'value', 'value', [['Value', $request->input('Value')]]);
+        if ($request->input('type') == 'Use Case')
+            $this->update_resource($idea, 'useCase', 'useCase', 'use case', [['Use Case', $request->input('Use Case')]]);
+        if ($request->input('type') == 'Market')
+            $this->update_resource($idea, 'market', 'market', 'market', [['Market', $request->input('Market')]]);
+        if ($request->input('type') == 'Marketing')
+            $this->update_resource($idea, 'marketing', 'marketing', 'marketing', [['Marketing', $request->input('Marketing')]]);
+        if ($request->input('type') == 'Competition')
+            $this->update_resource($idea, 'competition', 'competition', 'competition', [['Competition', $request->input('Competition')]]);
+        if ($request->input('type') == 'Business Model')
+            $this->update_resource($idea, 'businessModel', 'businessModel', 'business model', [['Business Model', $request->input('Business Model')]]);
+
+        
+        
+        
+//        if($request->input('ask') == 'yes')
+
+                    // add a post for this update
+
+
 
         
         return redirect()->back();
@@ -328,6 +374,8 @@ class ProjectsController extends Controller
                 'name_view' => $name_view
             ]);
         
+            $content = "";
+        
             foreach ($resources as $new_resource)
             {
                 $resource = Resource::create([
@@ -335,8 +383,23 @@ class ProjectsController extends Controller
                     'value' => $new_resource[1],
                     'thinking_id' => $thinking->id
                 ]);
+                if ($content == "")
+                    $content = $resource->descriptor . ": " . $resource->value;
+                else
+                    $content .= "\r\n" . $resource->descriptor . ": " . $resource->value;
             }
-            
+        
+        $post = Post::create([
+            'user_id' => Auth::user()->id,
+            'idea_id' => $idea_id,
+            'title' => " updated its " . $name_view . ".",
+            'content' => $content,
+            'type'=> 'update'
+        ]);
+        
+        $tag = str_replace(" ", "", $name);
+        $tag = strtolower($tag);
+        $post->tag($tag);
             
     }
     

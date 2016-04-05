@@ -20,9 +20,12 @@
             </div>
               
             <div class="user-intro">
-                <div class="post-body">
-                    {{ $post->content }}
-                </div>
+                @if (strstr($post->content, "\n"))
+                    <div class="post-body" style="white-space:pre;">{{ $post->content }}</div>
+                @else
+                    <div class="post-body">{{ $post->content }}</div>
+                @endif
+                
                 <div class="post-tags">
                     
                     @if ($post->tags->count() > 0)

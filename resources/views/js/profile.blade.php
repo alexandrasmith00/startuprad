@@ -32,8 +32,34 @@
                     className: "btn-primary",
                     callback: function () {
                         $('#form-here').submit();
+//                        createUpdateModal('Would you like to post this update?', $('#post-update').text(), $('#form-here'));
                     }
                 }
+            }
+        });
+    }
+      
+    function createUpdateModal(title, form, action) {
+        bootbox.dialog({
+            title: title,
+            message: form,
+            buttons: {
+                "Skip": {
+                  className: "btn-default",
+                  callback: function() {
+                    action.submit();
+                  }
+                },
+                success: {
+                    label: "Post",
+                    className: "btn-primary",
+                    callback: function () {
+                        $('#ask').val('yes');
+                        $('#ask-field').val($('#ask-something').val());
+                        action.submit();
+                    }    
+                }
+
             }
         });
     }
@@ -43,6 +69,8 @@
         var el = $(text);
         return el;
       }
+      
+      
     $(profile_init);
 
 </script>

@@ -20,12 +20,6 @@
                 
             </form>
 
-<!--
-            <div class=" col-md-4 col-sm-4 margin-bottom-10">
-                <a href="#" data-bb="html_forms" class="btn btn-default btn-block"><i class="icon-play"></i>HTML Forms</a>
-            </div>
--->
-
             
         </div>
     </div>

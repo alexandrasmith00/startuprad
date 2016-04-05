@@ -23,6 +23,15 @@ class Profile
     public $advisors = [];
     public $partners = [];
     public $description = "";
-
-
+    public $pitchdeck = "";
+    public $video = "";
+    public $customer = "";
+    public $demands = "";
+    public $product = "";
+    public $value = "";
+    public $usecase = "";
+    public $market = "";
+    public $competition = "";
+    public $marketing = "";
+    public $businessmodel = "";
 }
