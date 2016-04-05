@@ -30,9 +30,12 @@ class FeedController extends Controller
     {
         
         // ordering goes in here!
-        $posts = Post::orderBy('created_at', 'desc')->with('tagged')
+        $posts = Post::orderBy('radnow', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->with('tagged')
             ->paginate(10);
-
+        
+    
         return view('feed.index', compact('posts'));
     }
     

@@ -1,8 +1,8 @@
 <?php $__env->startSection('content'); ?>
 
 <div class="row">    
+    
   <div class="col-md-4">
-      
       <?php echo $__env->make('includes.profile.about', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       <?php echo $__env->make('includes.profile.organization', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -25,11 +25,8 @@
           
         <div role="tabpanel" class="tab-pane" id="profile">
             
-            <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Description', 'label' => 'Describe your startup in one sentence.', 'content' => $this_profile->description->value ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<!--
-             <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Pitch Deck', 'label' => 'Show is your pitch deck.', 'content' => '' ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-             <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Video', 'label' => 'Show us a pitch video.', 'content' => '' ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
--->
+            <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Description', 'label' => 'Describe your startup in one sentence.', 'content' => $this_profile->description != "" ? $this_profile->description->value : '' ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
              <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Customer', 'label' => 'Describe your initial target customer.', 'content' => $this_profile->customer != "" ? $this_profile->customer->value : '' ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
              <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Demands', 'label' => "Describe your customer's needs.", 'content' => $this_profile->demands != "" ? $this_profile->demands->value : '' ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
              <?php echo $__env->make('includes.profile.field', [ 'topic' => 'Product', 'label' => "Describe your product in 1-2 sentences -- what are you building?", 'content' => $this_profile->product != "" ? $this_profile->product->value : ''  ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

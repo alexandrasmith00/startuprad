@@ -35,7 +35,7 @@
             </label>
             <input class="form-control login-frm-input"  type="password" id="password" name="password" placeholder="Password">
                 <span class="hint">
-<!--                    <a  href="<?php echo e(url('/password/reset')); ?>" class="link">Forgot password?</a>-->
+                    <a  href="<?php echo e(url('/password/reset')); ?>" class="link">Forgot password?</a>
                 </span>
         </div>
     </div>

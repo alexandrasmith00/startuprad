@@ -28,6 +28,7 @@ class CommentsController extends Controller
         $type = $info[0];
         $parent_id = $info[1];
         
+        
         if ($type == 'post')
         {
             $parent_post = Post::find($parent_id);

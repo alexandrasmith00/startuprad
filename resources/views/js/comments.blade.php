@@ -13,6 +13,11 @@
             }
         });
         
+        $('#click-post').click(function(e) {
+alert('hey');
+                makeComment($(this.form).serialize());
+        });
+        
         // submit on enter
         $('#big-comment-box textarea').keydown(function(e) {
             if (e.keyCode == 13) {
