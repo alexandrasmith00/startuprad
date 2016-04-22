@@ -14,7 +14,7 @@
 
                     @if ( Auth::user()->idea_id == $post->user->idea['id'] )
                         &nbsp; &middot; &nbsp;
-                        <span class="p-time"><a class="action-link">Thank</a></span>
+                        <span class="p-time"><a id="{{ $comment->id }}" class="thank-comment action-link">Thank</a></span>
                     @endif
 
                     &nbsp; &middot; &nbsp;

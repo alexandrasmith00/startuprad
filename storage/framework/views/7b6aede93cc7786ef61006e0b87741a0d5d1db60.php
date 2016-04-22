@@ -18,6 +18,11 @@
             makeComment($(this.form).serialize());
         });
         
+        $('.thank-comment').click(function(e) {
+            alert('thank');
+        });
+        
+        
         // submit on enter
         $('#big-comment-box textarea').keydown(function(e) {
             if (e.keyCode == 13) {

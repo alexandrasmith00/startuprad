@@ -6,7 +6,8 @@ Route::group(['middleware' => 'web'], function () {
     // feed and comments
     Route::get('/', ['as' => 'feed', 'uses' => 'FeedController@index']);
     Route::get('/home', function() { return redirect()->route('feed'); });
-
+    Route::get('/demoday', ['as' => 'demoday', 'uses' => 'PagesController@demo']);
+    
     Route::post('/bugreport', ['as' => 'bug.create', 'uses' => 'FeedController@bugreport']);
     Route::post('addpost', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
     Route::post('/update', 'ProjectsController@update');
