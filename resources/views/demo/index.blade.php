@@ -57,7 +57,7 @@
         .people {
             color: #0D74FE;
         }
-        @media  screen and (max-width: 480px) {
+        @media screen and (max-width: 480px) {
             .team {
                 text-align: center;
             }
@@ -127,6 +127,8 @@
 						<div class="row">
 							<div class="col-md-12 to-animate">
 								<div class="fh5co-accordion-wrap">
+                                    
+                                    @include('demo.team', ['team' => 'Ambasity', 'people' => 'Alex Harding', 'logo' => 'https://s3.amazonaws.com/startuprad/img/29/1459876518.png', 'description' => 'Ambasity is a platform that helps brands hire and manage promotional staff for their events.', 'email' => 'aharding@ambasity.com', 'web' => ""])
 									
 									<div class="fh5co-accordion">
 										<div class="fh5co-accordion-head">
@@ -147,6 +149,16 @@
 
 									<div class="fh5co-accordion">
 										<div class="fh5co-accordion-head">
+                                            <div style="padding: 1.5em .5em;" class="row">
+                                                <div class="col-md-3 logos">
+                                                    <img height="25px" src="https://s3.amazonaws.com/startuprad/img/29/1459876518.png">
+                                                </div>
+                                                <div class="col-md-9 team">
+                                                    Ambasity | <span class="people">Alex Harding </span>
+                                                </div>
+                                            </div>
+                                            
+                                            
                                             <div class="fh5co-accordion-toggle"><span class="team">Capsul</span> | <a>Nicki Liang, Kazuma Makihara, & Conor Quinn</a></div>
 											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/23/1459968360.png"></h3>
 										</div>

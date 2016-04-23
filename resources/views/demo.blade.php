@@ -35,6 +35,9 @@
 	<![endif]-->
         
         <Style>
+        body {
+            color: #5F666C;   
+        }
         a {
             color: #0D74FE;   
         }
@@ -42,6 +45,25 @@
             color: #005BE5;
             text-decoration: none;
             font-weight: bold;
+        }
+
+        .team {
+            text-align: right;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+        .people {
+            color: #0D74FE;
+        }
+        @media screen and (max-width: 480px) {
+            .team {
+                text-align: center;
+            }
+            .logos {
+                display: none;
+            }
         }
         </Style>
 
@@ -73,18 +95,16 @@
 						<div class="row">
 							<div class="col-md-6 to-animate">
                                 <b>WHEN?</b>
-									<ul style="color: #88929a;" class="fh5co-contact">
-								
+									<ul style="color: #5F666C;" class="fh5co-contact">
 										<li><i class="icon-clock"></i>Thursday, April 28 4:15pm - 6:00pm</li>
 									</ul>
                                 <b>WHERE?</b>
-                                									<ul style="color: #88929a;" class="fh5co-contact">
+                                    <ul style="color: #5F666C;" class="fh5co-contact">
 										<li class="fh5co-contact-address">
-                                            
 											<i class="icon-location-pin"></i>
                                             <a href="https://www.google.com/maps/place/Ticknor+Lounge/@42.3733302,-71.117289,15z/data=!4m2!3m1!1s0x0:0xdcebac0c6c897f64?sa=X&ved=0ahUKEwjH_sfcyaDMAhULPD4KHQ2CDKIQ_BIIcTAK">Ticknor Lounge</a><br>Boylston Hall<br>Harvard Yard<br>Cambridge, MA
 										</li>
-                                </ul>
+                                    </ul>
 							</div>
 							<div class="col-md-6 to-animate">
 								<p>Startup R&D is a class at the John A. Paulson School of Engineering and Applied Sciences.  Students in the course are founders working on their own companies.</p>
@@ -110,8 +130,14 @@
 									
 									<div class="fh5co-accordion">
 										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Ambasity</span> | <a>Alex Harding</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/29/1459876518.png"></h3>
+                                            <div style="padding: 1.5em .5em;" class="row">
+                                                <div class="col-md-3 logos">
+                                                    <img height="25px" src="https://s3.amazonaws.com/startuprad/img/29/1459876518.png">
+                                                </div>
+                                                <div class="col-md-9 team">
+                                                    Ambasity | <span class="people">Alex Harding </span>
+                                                </div>
+                                            </div>
 										</div>
 										<div>
 											<p> Ambasity is a platform that helps brands hire and manage promotional staff for their events. Learn more by reaching out to <a href="mailto:aharding@ambasity.com">aharding@ambasity.com</a>.</p>
@@ -121,6 +147,16 @@
 
 									<div class="fh5co-accordion">
 										<div class="fh5co-accordion-head">
+                                            <div style="padding: 1.5em .5em;" class="row">
+                                                <div class="col-md-3 logos">
+                                                    <img height="25px" src="https://s3.amazonaws.com/startuprad/img/29/1459876518.png">
+                                                </div>
+                                                <div class="col-md-9 team">
+                                                    Ambasity | <span class="people">Alex Harding </span>
+                                                </div>
+                                            </div>
+                                            
+                                            
                                             <div class="fh5co-accordion-toggle"><span class="team">Capsul</span> | <a>Nicki Liang, Kazuma Makihara, & Conor Quinn</a></div>
 											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/23/1459968360.png"></h3>
 										</div>

@@ -18,7 +18,7 @@ class PagesController extends Controller
     
     public function demo() 
     {
-        return view('demo');   
+        return view('demo.index');   
     }
 
 }
