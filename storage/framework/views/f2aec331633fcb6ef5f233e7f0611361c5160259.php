@@ -129,245 +129,50 @@
 								<div class="fh5co-accordion-wrap">
                                     
                                     <?php echo $__env->make('demo.team', ['team' => 'Ambasity', 'people' => 'Alex Harding', 'logo' => 'https://s3.amazonaws.com/startuprad/img/29/1459876518.png', 'description' => 'Ambasity is a platform that helps brands hire and manage promotional staff for their events.', 'email' => 'aharding@ambasity.com', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                    
+                                    <?php echo $__env->make('demo.team', ['team' => 'Capsul', 'people' => 'Nicki Liang, Kazuma Makihara, & Conor Quinn', 'logo' => 'https://s3.amazonaws.com/startuprad/img/23/1459968360.png', 'description' => 'Capsul is a location-based video sharing app that allows you to both view and contribute to the visual history of a location.', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 									
-									<div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div style="padding: 1.5em .5em;" class="row">
-                                                <div class="col-md-3 logos">
-                                                    <img height="25px" src="https://s3.amazonaws.com/startuprad/img/29/1459876518.png">
-                                                </div>
-                                                <div class="col-md-9 team">
-                                                    Ambasity | <span class="people">Alex Harding </span>
-                                                </div>
-                                            </div>
-										</div>
-										<div>
-											<p> Ambasity is a platform that helps brands hire and manage promotional staff for their events. Learn more by reaching out to <a href="mailto:aharding@ambasity.com">aharding@ambasity.com</a>.</p>
-										</div>	
-									</div>
-
-
-									<div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div style="padding: 1.5em .5em;" class="row">
-                                                <div class="col-md-3 logos">
-                                                    <img height="25px" src="https://s3.amazonaws.com/startuprad/img/29/1459876518.png">
-                                                </div>
-                                                <div class="col-md-9 team">
-                                                    Ambasity | <span class="people">Alex Harding </span>
-                                                </div>
-                                            </div>
-                                            
-                                            
-                                            <div class="fh5co-accordion-toggle"><span class="team">Capsul</span> | <a>Nicki Liang, Kazuma Makihara, & Conor Quinn</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/23/1459968360.png"></h3>
-										</div>
-										<div>
-											<p>Capsul is a location-based video sharing app that allows you to both view and contribute to the visual history of a location.</p>
-                                            
-										</div>	
-									</div>
+                                  
                                     
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Captia</span> | <a>Evan Brown & Cameron Thariani</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/6/1461272203.jpg"></h3>
-										</div>
-										<div>
-											<p>Captia enables users and their friends to make high-quality videos with little effort by providing a collaborative platform where they can share, edit, and combine clips into an elegant video. </p>
-
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">DaDiTea</span> | <a>Priscilla Guo</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/13/1461099202.jpg"></h3>
-										</div>
-										<div>
-											<p>DaDiTea is a personalized, online monthly subscription service for samples of international tea. Learn more on the web at <a href="http://daditea.org/">daditea.org</a>. </p>
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Datanautix</span> | <a>Neel Patel</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/34/1461272346.png"></h3>
-										</div>
-										<div>
-                                            <p>Datanautix builds software to find patterns in customer interactions - discover trends hidden in open-ended comments or service chats to start delivering a better customer experience today. Learn more on the web at <a href="http://datanautix.com">datanautix.com</a> or by reaching out to <a href="mailto:neel@datanautix.com">neel@datanautix.com</a>.</p>
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Doorbell</span> | <a>Aleeza Hashmi, Steven Petteruti, & Ben Pleat</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/11/1459877045.jpg"></h3>
-										</div>
-										<div>
-											<p>Doorbell transforms your building into a community by reimagining property management software for residents. We’re creating the only mobile-first resident portal for the 28 million households in multifamily buildings in the US. Learn more on the web at <a href="http://www.doorbell.me/">doorbell.me</a>. </p>
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Drizl</span> | <a>Ryan Fortin & Leo Lim</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/22/1460059625.jpg"></h3>
-										</div>
-										<div>
-											<p>Drizl is a web application designed to help users make more informed financial purchases using data analytics.</p>
+                                    <?php echo $__env->make('demo.team', ['team' => 'Captia', 'people' => 'Evan Brown & Cameron Thariani', 'logo' => 'https://s3.amazonaws.com/startuprad/img/6/1461272203.jpg', 'description' => 'Captia enables users and their friends to make high-quality videos with little effort by providing a collaborative platform where they can share, edit, and combine clips into an elegant video. ', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+									
                                         
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">FROTH</span> | <a>Catie Cole</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/5/1459877760.jpg"></h3>
-										</div>
-										<div>
-											<p>FROTH is a drinks subscription membership and community of young professionals in NYC. Learn more on the web at <a href="http://froth.nyc /">froth.nyc </a> or by reaching out to <a href="mailto:catie@froth.nyc">catie@froth.nyc</a></p>
+                                    <?php echo $__env->make('demo.team', ['team' => 'DaDiTea', 'people' => 'Priscilla Guo', 'logo' => 'https://s3.amazonaws.com/startuprad/img/13/1461099202.jpg', 'description' => 'DaDiTea is a personalized, online monthly subscription service for samples of international tea.', 'email' => '', 'web' => "daditea.org"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-										</div>
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Keepspace</span> | <a>Rashaad Hossain & Aman Kandola</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/1/1460058157.png"></h3>
-										</div>
-										<div>
-											<p>Keepspace is a journaling revolution that guides people in their journey to discover and save the unique moments present in every day. Learn more on the web at <a href="http://thekeepspace.com/">thekeepspace.com</a>.</p>
-                            
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Kynplex</span> | <a>Raul Jordan</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/2/1460057889.png"></h3>
-										</div>
-										<div>
-											<p>Kynplex is an online network designed for scientific innovation that brings together research labs, companies, and influential scientists to identify and form collaborations.</p>
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Lunos</span> | <a>Andrew Jin & Dhaivat Pandya</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/21/1461179727.png"></h3>
-										</div>
-										<div>
-											<p>Lunos allows artists to gain large-scale, highly targeted exposure for new music releases at live venues, such as nightclubs, where music spreads the fastest.  Learn more on the web at <a href="http://lunosmusic.com/">lunosmusic.com</a>.</p>
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">luvagent.com</span> | <a>Adnan Zaib</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/27/1460667552.png"></h3>
-										</div>
-										<div>
-                                            <p>Luv Agent is an online application allowing individuals to create a profile for their friends, find them potential matches, and then setup actual blind dates. Learn more on the web at <a href="http://luvagent.com">luvagent.com</a>.</p>
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">MedKit</span> | <a>Simone Abegunrin, Tim Bryant & Deven Hurt</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/26/1459977669.png"></h3>
-										</div>
-										<div>
-											<p>MedKit is the most efficient system that combines an innovative scheduling system, customizable visit templates, and a revolutionary UX design to assist primary care physicians to efficiently keep medical records and deliver the ultimate care to the patient. Learn more by reaching out to <a href="mailto:dhurt@college.harvard.edu">dhurt@college.harvard.edu</a>.</p>
-                                    
-										</div>
+                                    <?php echo $__env->make('demo.team', ['team' => 'Datanautix', 'people' => 'Neel Patel', 'logo' => 'https://s3.amazonaws.com/startuprad/img/13/1461099202.jpg', 'description' => 'Datanautix builds software to find patterns in customer interactions - discover trends hidden in open-ended comments or service chats to start delivering a better customer experience today.', 'email' => 'neel@datanautix.com', 'web' => "datanautix.com"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>                              
 
+              <?php echo $__env->make('demo.team', ['team' => 'Doorbell', 'people' => 'Aleeza Hashmi, Steven Petteruti, & Ben Pleat', 'logo' => 'https://s3.amazonaws.com/startuprad/img/11/1459877045.jpg', 'description' => 'Doorbell transforms your building into a community by reimagining property management software for residents. We’re creating the only mobile-first resident portal for the 28 million households in multifamily buildings in the US.', 'email' => '', 'web' => "doorbell.me"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-									</div>
+                                    <?php echo $__env->make('demo.team', ['team' => 'Drizl', 'people' => 'Ryan Fortin & Leo Lim', 'logo' => 'https://s3.amazonaws.com/startuprad/img/22/1460059625.jpg', 'description' => 'Drizl is a web application designed to help users make more informed financial purchases using data analytics', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>                     
+
+            <?php echo $__env->make('demo.team', ['team' => 'FROTH', 'people' => 'Catie Cole', 'logo' => 'https://s3.amazonaws.com/startuprad/img/5/1459877760.jpg', 'description' => 'FROTH is a drinks subscription membership and community of young professionals in NYC.', 'email' => 'catie@froth.nyc', 'web' => "froth.nyc"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>    
+                 <?php echo $__env->make('demo.team', ['team' => 'Keepspace', 'people' => 'Rashaad Hossain & Aman Kandola', 'logo' => 'https://s3.amazonaws.com/startuprad/img/1/1460058157.png', 'description' => 'Keepspace is a journaling revolution that guides people in their journey to discover and save the unique moments present in every day.', 'email' => '', 'web' => "thekeepspace.com"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>    
+                                
+<?php echo $__env->make('demo.team', ['team' => 'Kynplex', 'people' => 'Raul Jordan', 'logo' => 'https://s3.amazonaws.com/startuprad/img/2/1460057889.png', 'description' => 'Kynplex is an online network designed for scientific innovation that brings together research labs, companies, and influential scientists to identify and form collaborations.', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
+
+<?php echo $__env->make('demo.team', ['team' => 'Lunos', 'people' => 'Andrew Jin & Dhaivat Pandya', 'logo' => 'https://s3.amazonaws.com/startuprad/img/21/1461179727.png', 'description' => 'Lunos allows artists to gain large-scale, highly targeted exposure for new music releases at live venues, such as nightclubs, where music spreads the fastest.', 'email' => '', 'web' => "lunosmusic.com"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>    
+
+<?php echo $__env->make('demo.team', ['team' => 'luvagent.com', 'people' => 'Adnan Zaib', 'logo' => "https://s3.amazonaws.com/startuprad/img/27/1460667552.png", 'description' => 'Luv Agent is an online application allowing individuals to create a profile for their friends, find them potential matches, and then setup actual blind dates.', 'email' => '', 'web' => "luvagent.com"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
                                     
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">MindTime</span> | <a> Matt Carter & Rory Glover</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/25/1460039801.png"></h3>
-										</div>
-										<div>
-											<p>MindTime is a mobile software that guides the user through mindfulness exercises to help people lead positive and thoughtful lives.</p>
+<?php echo $__env->make('demo.team', ['team' => 'MedKit', 'people' => 'Simone Abegunrin, Tim Bryant & Deven Hurt', 'logo' => 'https://s3.amazonaws.com/startuprad/img/26/1459977669.png', 'description' => 'MedKit is the most efficient system that combines an innovative scheduling system, customizable visit templates, and a revolutionary UX design to assist primary care physicians to efficiently keep medical records and deliver the ultimate care to the patient. ', 'email' => 'dhurt@college.harvard.edu', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
                                     
-										</div>	
-									</div>
+<?php echo $__env->make('demo.team', ['team' => 'MindTime', 'people' => 'Matt Carter & Rory Glover', 'logo' => "https://s3.amazonaws.com/startuprad/img/25/1460039801.png", 'description' => 'MindTime is a mobile software that guides the user through mindfulness exercises to help people lead positive and thoughtful lives.', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
+
+<?php echo $__env->make('demo.team', ['team' => 'Prudence', 'people' => 'Rohan Pavuluri & Milton Syed', 'logo' => "https://s3.amazonaws.com/startuprad/img/31/1461272247.png", 'description' => 'Legal aid reinvented.', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
                                     
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Prudence</span> | <a>Rohan Pavuluri & Milton Syed</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/31/1461272247.png"></h3>
-										</div>
-										<div>
-											<p>Legal aid reinvented. </p>
+<?php echo $__env->make('demo.team', ['team' => 'Shackleton', 'people' => 'Evan Gastman, Greg Hewett, & Antuan Tran', 'logo' => "https://s3.amazonaws.com/startuprad/img/42/1461274061.png", 'description' => '', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
                                     
-										</div>	
-									</div>
+<?php echo $__env->make('demo.team', ['team' => 'Students of Strength', 'people' => 'Rahsaan King', 'logo' => "https://s3.amazonaws.com/startuprad/img/36/1461022301.png", 'description' => 'Students of Strength is a community of scholars from Ivy League and top tier Universities who serve as online academic coaches and mentors for students nationwide.', 'email' => 'rking@studentsofstrength.com', 'web' => "studentsofstrength.com"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
+   
+<?php echo $__env->make('demo.team', ['team' => 'The Wolfe', 'people' => 'Chase Davis, Christian Ondaatje, & Dino Rodriguez', 'logo' => "https://s3.amazonaws.com/startuprad/img/39/1461276708.png", 'description' => 'A portable device that gives your laptop the power of a desktop.', 'email' => '', 'web' => "thewolfe.io"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>  
                                     
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Shackleton</span> | <a>Evan Gastman, Greg Hewett, & Antuan Tran</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/42/1461274061.png"></h3>
-										</div>
-										<div>
-											<p></p>
+<?php echo $__env->make('demo.team', ['team' => 'Trignis', 'people' => 'Jordan DeGraaf, Jimmy Martter, & Matt Perry', 'logo' => "https://s3.amazonaws.com/startuprad/img/38/1459918240.png", 'description' => 'Next-generation smoker-grill. Scientifically optimized BBQ.', 'email' => 'founders@trignis.com', 'web' => "trignis.com"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>  
+                                   
+<?php echo $__env->make('demo.team', ['team' => 'Twerch', 'people' => 'Benjy Levin', 'logo' => "https://s3.amazonaws.com/startuprad/img/7/1461251456.png", 'description' => 'Twerch is an online e-commerce platform that will provide video game streamers on Twitch.tv an easy way to sell merchandise directly to their viewers while live streaming.', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>        
+                              
+<?php echo $__env->make('demo.team', ['team' => 'VocoChat', 'people' => 'Atallah Atallah', 'logo' => "https://s3.amazonaws.com/startuprad/img/4/1461272291.png", 'description' => 'Book group activities from your group chat.', 'email' => 'support@vocochat.com', 'web' => "vocochat.com"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
                                     
-										</div>	
-									</div>
-                                    
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Students of Strength</span> | <a>Rahsaan King</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/36/1461022301.png"></h3>
-										</div>
-										<div>
-											<p>Students of Strength is a community of scholars from Ivy League and top tier Universities who serve as online academic coaches and mentors for students nationwide. Learn more on the web at <a href="http://www.studentsofstrength.com">studentsofstrength.com</a> or by reaching out to <a href="mailto:rking@studentsofstrength.com">rking@studentsofstrength.com</a>.</p>
-                                    
-										</div>	
-									</div>
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">The Wolfe</span> | <a>Chase Davis, Christian Ondaatje, & Dino Rodriguez</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/39/1461276708.png"></h3>
-										</div>
-										<div>
-                                            <p>A portable device that gives your laptop the power of a desktop. Learn more on the web at <a href="http://www.thewolfe.io">thewolfe.io</a>.</p>
-                                    
-										</div>	
-									</div>
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Trignis</span> | <a>Jordan DeGraaf, Jimmy Martter, & Matt Perry</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/38/1459918240.png"></h3>
-										</div>
-										<div>
-											<p>Next-generation smoker-grill. Scientifically optimized BBQ. Learn more on the web at <a href="http://www.trignis.com">trignis.com</a> or by reaching out to <a href="mailto:founders@trignis.com">founders@trignis.com</a>.</p>
-                                    
-										</div>	
-									</div>
-                                                                        <div class="fh5co-accordion to-animate">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">Twerch</span> | <a>Benjy Levin</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/7/1461251456.png"></h3>
-										</div>
-										<div>
-											<p>Twerch is an online e-commerce platform that will provide video game streamers on Twitch.tv an easy way to sell merchandise directly to their viewers while live streaming.</p>
-                                    
-										</div>	
-									</div>
-                                    <div class="fh5co-accordion">
-										<div class="fh5co-accordion-head">
-                                            <div class="fh5co-accordion-toggle"><span class="team">VocoChat</span> | <a>Atallah Atallah</a></div>
-											<h3><img height="25px" src="https://s3.amazonaws.com/startuprad/img/4/1461272291.png"></h3>
-										</div>
-										<div>
-											<p>Book group activities from your group chat. Learn more on the web at <a href="http://www.vocochat.com">vocochat.com</a> or by reaching out to <a href="mailto:support@vocochat.com">support@vocochat.com</a>.</p>
-                                    
-										</div>	
-									</div>
+                
 								</div>
 							</div>
 						</div>

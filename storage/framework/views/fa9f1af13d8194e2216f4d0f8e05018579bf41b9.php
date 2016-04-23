@@ -18,8 +18,7 @@
                                            
                                             
                                                 <?php if($web !== ""): ?>
-                                                    on the web at <?php echo e($web); ?>
-
+                                                    on the web at <a href="http://<?php echo e($web); ?>"><?php echo e($web); ?></a>
                                                     
                                                     <?php if($email != ""): ?>
                                                      or
@@ -29,7 +28,7 @@
                                                 <?php if($email != ""): ?>
                                                     by reaching out to <a href="mailto:<?php echo e($email); ?>"> <?php echo e($email); ?></a>
                                                 <?php endif; ?>
-                                                .
+                                                
                                             <?php endif; ?>
                                                 
                                             </p>

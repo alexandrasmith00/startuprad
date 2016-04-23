@@ -17,7 +17,7 @@
                                            
                                             
                                                 @if ($web !== "")
-                                                    on the web at {{ $web }}
+                                                    on the web at <a href="http://{{ $web }}">{{ $web }}</a>
                                                     
                                                     @if ($email != "")
                                                      or
@@ -27,7 +27,7 @@
                                                 @if ($email != "")
                                                     by reaching out to <a href="mailto:{{ $email }}"> {{ $email }}</a>
                                                 @endif
-                                                .
+                                                
                                             @endif
                                                 
                                             </p>
