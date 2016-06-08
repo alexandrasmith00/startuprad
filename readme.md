@@ -1,40 +1,79 @@
-## Laravel PHP Framework
+# Welcome to Startup Rad!
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+### Environment Setup
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+*Here's how to setup the environment for startuprad.com *
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+First, make sure you have VirtualBox and Vagrant installed (and of course git).  This can be done...
 
-## Official Documentation
+- ** VirtualBox: **  [Available for download here](https://www.virtualbox.org/wiki/Downloads)
+- ** Vagrant: ** [Available for download here](https://www.vagrantup.com/downloads.html)
+
+Install the homestead vagrant box by tunning the following command
+
+`vagrant box add laravel/homestead`
+
+Go to the directory where you want to store code.  You will be creating two directories here -- one for the Homestead files and one for the RAD files. (I like to store these in my `~/Code` folder.)
+
+Add the Homestead repository by running the command 
+
+`git clone https://github.com/laravel/homestead.git Homestead`
+
+Go into the newly created Homestead directory.  Run `bash init.sh` to initialize Homestead.
+
+Make sure that you have an SSH key (chances are you do.)  If you don't, run the following command in the home directory: `ssh-keygen -t rsa -C “your_email@example.com`
+
+Next, edit your Homestead.yaml file (found at `~/.homestead/Homestead.yaml`)
+
+- Provider: Your provider should be `virtualbox`
+- Folders: Your code directory `~/NAME` should map to `/home/vagrant/NAME` (in my case, `NAME` is `Code`, but set it accordingly)
+- Sites: The site `startuprad.dev` should map to `/home/vagrant/NAME/startuprad/public`
+- IP: Take note of the IP address, I use `192.168.10.10`
+
+Next, configure nginx sites by editing the `~/etc/hosts` file. Add `IP ADDRESS SITE NAME` where the IP is the one from Homestead.yaml and the site name is the local site name taken from Homestead.yaml.  For example, I add the following to my `~/etc/hosts` file: 
+
+`192.168.10.10  startuprad.dev`
+
+Enter your main `~/Code` directory and clone the startuprad repository using:
+
+`git clone https://github.com/alexandrasmith00/startuprad.git`
+
+Enter the `~/Code/Homestead` directory and launch the box.
+
+```
+vagrant up
+vagrant reload --provision
+```
+
+Next, create an alias for the vagrant box so that you can ssh globally.  To edit the `~/.bashrc` file, use the command `sudo vi ~/.bashrc`  Once opened, add the following to the bottom of the file: `alias vm='ssh vagrant@127.0.0.1 -p 2222'`  Lastly, install the bashrc by using the command `source ~/.bashrc`  You can now ssh into the virtual machine using the command `vm`.
+
+Use `vm` to ssh into the VM and then `cd` into `Code/startuprad`.  Once in the startuprad directory, use `composer install` to install all library dependencies.
+
+Next, create a `.env` file by duplicating the `.env.example` file in the source.  Make the following edits to the new `.env` file:
+
+- **DB Credentials:**  Use these credentials to add your local database to a database management software like SequelPro.
+- **Email Username & Password: **  Use your gmail username and password in order to send test emails locally.
+
+Run the following commands to generate an app key, migrate and seed the database.
+
+```
+php artisan key:generate
+php artisan migrate
+php artisan db:seed --class=DatabaseSeeder
+```
+
+**Note: db:seed is currently broken... Will fix!**
+
+Switch to branch `landing` and go to `startuprad.dev` to view the local version of Startup RAD.
+
+### Style Guide
+
+The style guide will be updated as things get more complex. 
+
+### Laravel Documentation
 
 Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
+Additional docs for libraries used will be added here:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
-
-### from me. things you need
-
-composer, npm, gulp .. what are the steps?? (note to self)
-
-
-How to Set up the database
-
-php artisan migrate
-php artisan db:seed --class=DatabaseSeeder
-
-
+* This will be a doc!
