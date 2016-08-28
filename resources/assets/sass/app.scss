@@ -1,12 +1,10 @@
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "variables";
-
-
+@import "universal";
+@import "pages/app";
 
 html, body {
-    
+
     height: 100%;
     background: $background-color;
-    
+
 }
 

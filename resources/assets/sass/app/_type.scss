@@ -1,0 +1,23 @@
+body {
+  font-family: 'Roboto', arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h7 {
+  color: $blue;
+  font-family: Montserrat;
+
+  &.inverse {
+    color: white;
+  }
+}
+
+h1.brand {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 5px;
+  font-size: 7vw;
+}
+
+h3.subheader {
+  color: $nice-gray;
+}

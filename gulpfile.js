@@ -1,6 +1,4 @@
 var elixir = require('laravel-elixir');
-require('laravel-elixir-livereload');
-
 
 /*
  |--------------------------------------------------------------------------
@@ -15,12 +13,14 @@ require('laravel-elixir-livereload');
 
 elixir(function(mix) {
     mix.less('all.less')
-       .scripts([
+      .sass(['admin.scss'], 'public/css/admin.css')
+      .sass(['app.scss'], 'public/css/app.css')
+      .sass(['landing.scss'], 'public/css/landing.css')
+      .scripts([
          "jquery.min.js",
          "bootstrap.min.js",
          "modernizr.min.js",
          "classie.js",
          "sidebar.js"
-       ]);
-
+      ]);
 });

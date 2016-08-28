@@ -15,10 +15,15 @@ class PagesController extends Controller
      * @return void
      */
 
-    
-    public function demo() 
+    public function index()
     {
-        return view('demo.index');   
+        return view('pages.index');
+    }
+
+
+    public function demo()
+    {
+        return view('demo.index');
     }
 
 }

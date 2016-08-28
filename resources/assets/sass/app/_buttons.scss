@@ -1,0 +1,31 @@
+
+.btn {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.btn:hover, .btn:active, .btn:focus {
+  outline: none;
+}
+
+
+.oversized-btn {
+  font-weight: 400;
+  text-decoration: none;
+  padding: 0px 14px;
+  border-radius: 4px;
+  line-height: 50px;
+  display: inline-block;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.btn-blue {
+  color: white;
+  background-color: $blue;
+
+  &:hover {
+    background-color: $emph-blue;
+    color: white;
+  }
+}

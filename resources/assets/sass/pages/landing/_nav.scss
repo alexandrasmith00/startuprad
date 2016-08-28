@@ -1,0 +1,23 @@
+.styled-nav {
+  text-align: right;
+
+  a {
+    padding: 35px 0;
+    margin-right: 30px;
+    color: $faded-gray;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 400;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+
+    &:hover, &:active, &:focus {
+      font-weight: 500;
+      color: $nice-gray;
+      text-decoration: none;
+    }
+  }
+
+}

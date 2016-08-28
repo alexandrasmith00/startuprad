@@ -4,10 +4,10 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::auth();
     // feed and comments
-    Route::get('/', ['as' => 'feed', 'uses' => 'FeedController@index']);
+    Route::get('/', ['as' => 'feed', 'uses' => 'PagesController@index']);
     Route::get('/home', function() { return redirect()->route('feed'); });
     Route::get('/demoday', ['as' => 'demoday', 'uses' => 'PagesController@demo']);
-    
+
     Route::post('/bugreport', ['as' => 'bug.create', 'uses' => 'FeedController@bugreport']);
     Route::post('addpost', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
     Route::post('/update', 'ProjectsController@update');
@@ -18,7 +18,7 @@ Route::group(['middleware' => 'web'], function () {
 
     // user specific pages
     Route::controller('/account', 'UsersController');
-    
+
     // anything to do with projects and ideas
     Route::group(['prefix' => 'project'], function () {
         Route::get('/', ['as' => 'messages', 'uses' => 'ProjectsController@index']);
