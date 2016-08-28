@@ -11,10 +11,10 @@
         </div>
         <div class="col-sm-10 col-xs-12">
           <div style="padding-left: 0px;" class="col-xs-6">
-            <input type="text" class="form-control input-one" name="first" placeholder="First">
+            <input data-parsley-required type="text" class="form-control input-one" name="first" placeholder="First">
           </div>
           <div style="padding-right: 0px;" class="col-xs-6">
-            <input type="text" class="form-control input-one" name="last" placeholder="Last">
+            <input data-parsley-required type="text" class="form-control input-one" name="last" placeholder="Last">
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
           <label>Email</label>
         </div>
         <div class="col-sm-10 col-xs-12">
-          <input type="email" class="form-control input-one" name="email" placeholder="Email Address">
+          <input data-parsley-required type="email" class="form-control input-one" name="email" placeholder="Email Address">
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
           <label>Year</label>
         </div>
         <div class="col-sm-10 col-xs-12">
-          <select class="form-control input-one not-selected" name="year" placeholder="Class year">
+          <select data-parsley-required onchange="check_selected()"  class="form-control input-one not-selected" name="year" placeholder="Class year">
             <option value="" selected disabled>Select class year</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>
@@ -55,58 +55,14 @@
           <label>Concentration</label>
         </div>
         <div class="col-sm-10 col-xs-12">
-          <select class="form-control input-one not-selected" name="concentration" >
+          <select data-parsley-required onchange="check_selected()"  class="form-control input-one not-selected" name="concentration" >
             <option value="" selected disabled>Select a concentration</option>
-            <option value="saab">Undecided</option>
-            <option value="volvo">African and African American Studies</option>
-            <option value="saab">Anthropology</option>
-            <option value="mercedes">Applied Mathematics</option>
-            <option value="audi">Astrophysics</option>
-            <option>Biomedical Engineering</option>
-            <option>Chemical and Physical Biology</option>
-            <option>Chemistry</option>
-            <option>Chemistry and Physics</option>
-            <option>Classics</option>
-            <option>Comparative Literature</option>
-            <option>Computer Science</option>
-            <option>Earth and Planetary Sciences</option>
-            <option>East Asian Studies</option>
-            <option>Economics</option>
-            <option>Electrical Engineering</option>
-            <option>Engineering Sciences</option>
-            <option>English</option>
-            <option>Environmental Science and Public Policy</option>
-            <option>Folklore and Mythology</option>
-            <option>Germanic Languages and Literatures</option>
-            <option>Government</option>
-            <option>History</option>
-            <option>History and Literature</option>
-            <option>History and Science</option>
-            <option>History of Art and Architecture</option>
-            <option>Human Developmental and Regenerative Biology</option>
-            <option>Human Evolutionary Biology</option>
-            <option>Integrative Biology</option>
-            <option>Linguistics</option>
-            <option>Mathematics</option>
-            <option>Mechanical Engineering</option>
-            <option>Molecular and Cellular Biology</option>
-            <option>Music</option>
-            <option>Near Eastern Languages and Civilizations</option>
-            <option>Neurobiology</option>
-            <option>Philosophy</option>
-            <option>Physics</option>
-            <option>Psychology</option>
-            <option>Religion, Comparative Study of</option>
-            <option>Romance Languages and Literatures</option>
-            <option>Slavic Languages and Literatures</option>
-            <option>Social Studies</option>
-            <option>Sociology</option>
-            <option>South Asian Studies</option>
-            <option>Special Concentrations</option>
-            <option>Statistics</option>
-            <option>Theater, Dance, and Media</option>
-            <option>Visual and Environmental Studies</option>
-            <option>Women, Gender, and Sexuality, Studies of</option>
+            <option value="Undecided">Undecided</option>
+
+            <?php foreach($concentrations as $concentration): ?>
+              <option value="<?php echo e($concentration); ?>"><?php echo e($concentration); ?></option>
+            <?php endforeach; ?>
+
           </select>
         </div>
       </div>
@@ -118,58 +74,12 @@
           <label>Secondary</label>
         </div>
         <div class="col-sm-10 col-xs-12">
-          <select class="form-control input-one not-selected" name="secondary" placeholder="Class year">
+          <select onchange="check_selected()" data-parsley-required class="form-control input-one not-selected" name="secondary" placeholder="Class year">
             <option value="" selected disabled>Select a secondary</option>
-            <option value="saab">No secondary</option>
-            <option value="volvo">African and African American Studies</option>
-            <option value="saab">Anthropology</option>
-            <option value="mercedes">Applied Mathematics</option>
-            <option value="audi">Astrophysics</option>
-            <option>Biomedical Engineering</option>
-            <option>Chemical and Physical Biology</option>
-            <option>Chemistry</option>
-            <option>Chemistry and Physics</option>
-            <option>Classics</option>
-            <option>Comparative Literature</option>
-            <option>Computer Science</option>
-            <option>Earth and Planetary Sciences</option>
-            <option>East Asian Studies</option>
-            <option>Economics</option>
-            <option>Electrical Engineering</option>
-            <option>Engineering Sciences</option>
-            <option>English</option>
-            <option>Environmental Science and Public Policy</option>
-            <option>Folklore and Mythology</option>
-            <option>Germanic Languages and Literatures</option>
-            <option>Government</option>
-            <option>History</option>
-            <option>History and Literature</option>
-            <option>History and Science</option>
-            <option>History of Art and Architecture</option>
-            <option>Human Developmental and Regenerative Biology</option>
-            <option>Human Evolutionary Biology</option>
-            <option>Integrative Biology</option>
-            <option>Linguistics</option>
-            <option>Mathematics</option>
-            <option>Mechanical Engineering</option>
-            <option>Molecular and Cellular Biology</option>
-            <option>Music</option>
-            <option>Near Eastern Languages and Civilizations</option>
-            <option>Neurobiology</option>
-            <option>Philosophy</option>
-            <option>Physics</option>
-            <option>Psychology</option>
-            <option>Religion, Comparative Study of</option>
-            <option>Romance Languages and Literatures</option>
-            <option>Slavic Languages and Literatures</option>
-            <option>Social Studies</option>
-            <option>Sociology</option>
-            <option>South Asian Studies</option>
-            <option>Special Concentrations</option>
-            <option>Statistics</option>
-            <option>Theater, Dance, and Media</option>
-            <option>Visual and Environmental Studies</option>
-            <option>Women, Gender, and Sexuality, Studies of</option>
+            <option value="No secondary">No secondary</option>
+            <?php foreach($concentrations as $secondary): ?>
+              <option value="<?php echo e($secondary); ?>"><?php echo e($secondary); ?></option>
+            <?php endforeach; ?>
           </select>
         </div>
       </div>
@@ -184,9 +94,37 @@
           <label for="file-upload" class="custom-file-upload form-control input-one not-selected">
             <i class="blue fa fa-cloud-upload"></i> Upload Your Resume (in PDF format)
           </label>
-          <input id="file-upload" name="resume" type="file"/>
+          <input data-parsley-required id="file-upload" name="resume" type="file"/>
         </div>
       </div>
     </div>
 
 </div>
+
+<?php $__env->startSection('scripts'); ?>
+@parent
+
+
+<script>
+
+  $( document ).ready(function() {
+    check_selected();
+  });
+
+  function check_selected() {
+
+    $('#single-team-member select').each(function() {
+      if ($(this).val() == null) {
+        $(this).removeClass("blue-selected");
+      } else {
+         $(this).removeClass("not-selected");
+//         $(this).addClass("blue-selected");
+      }
+    });
+
+  }
+
+</script>
+
+
+<?php $__env->stopSection(); ?>

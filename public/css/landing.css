@@ -8948,6 +8948,9 @@ input[type="file"] {
 .not-selected {
   color: #999999; }
 
+.blue-selected {
+  border: 1px solid #0D74FE; }
+
 .form-line {
   padding-bottom: 25px; }
 

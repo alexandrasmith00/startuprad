@@ -10,7 +10,7 @@
 
     <div class="col-md-8 col-md-push-1">
 
-      <form class="form-inline" action="POST">
+      <form class="form-inline" method="POST" action="/" data-parsley-validate>
 
           <div class="application-section">
             <h3>Team Members</h3>
@@ -38,7 +38,7 @@
                   <label>Startup Name</label>
                 </div>
                 <div class="col-sm-10 col-xs-12">
-                  <input type="text" class="form-control input-one" name="name" placeholder="Startup Name">
+                  <input data-parsley-required  type="text" class="form-control input-one" name="name" placeholder="Startup Name">
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@
                   <label>Video Link</label>
                 </div>
                 <div class="col-sm-10 col-xs-12">
-                  <input type="email" class="form-control input-one" name="email" placeholder="Video link">
+                  <input type="url" class="form-control input-one" name="email" placeholder="Video link">
                 </div>
               </div>
             </div>
@@ -103,12 +103,18 @@
 
         team_member.find("#mem_num").html("Team Member #" + x);
 
+
+
         team_member.find("input").each(function(i) {
           $(this).attr('name', $(this).attr('name') + x);
+          $(this).val('');
         });
 
         team_member.find("select").each(function(i) {
           $(this).attr('name', $(this).attr('name') + x);
+          $(this).addClass('not-selected');
+          $(this).removeClass('blue-selected');
+          $(this).val('');
         });
 
         //customize for next num

@@ -21,6 +21,10 @@ input[type="file"] {
   color: $placeholder-gray;
 }
 
+.blue-selected {
+  border: 1px solid $blue;
+}
+
 
 .form-line {
   padding-bottom: 25px;
