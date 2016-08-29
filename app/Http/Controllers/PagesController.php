@@ -145,11 +145,11 @@ class PagesController extends Controller
 
   public function pdf()
   {
-    $data = ['staff' => 'Lexi', 'startup' => 'The Wolfe'];
-    $pdf = PDF::loadView('pdf.application', $data);
-    return $pdf->download('application.pdf');
+//    $data = ['staff' => 'Lexi', 'startup' => 'The Wolfe'];
+//    $pdf = PDF::loadView('pdf.application', $data);
+//    return $pdf->download('application.pdf');
 
-//    return view('pdf.application');
+    return view('pdf.application');
   }
 
 

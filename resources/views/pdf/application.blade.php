@@ -7,18 +7,14 @@
   <style>
     .pdf-header {
       width: 100%;
-      height: auto;
       background-image: url("http://startuprad.com/images/background_extra_wide.jpg");
       background-size: cover;
+      height: 100%;
     }
   </style>
 
-  <section class="section pdf-header">
-    <div class="title">
-      <h1>Startup RAD</h1>
-      <h3>New Application</h3>
-      <h3>September 2, 2016 @ 8pm</h3>
-    </div>
+  <section class="pdf-header">
+    <h1 style="text-align: center; color: white; padding-top: 25px; padding-bottom: 25px;">Startup Rad</h1>
   </section>
 
 
