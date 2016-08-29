@@ -25,7 +25,7 @@
       /*STYLES*/
       table[class=full] { width: 100%; clear: both; }
       /*IPAD STYLES*/
-      @media only screen and (max-width: 640px) {
+      @media  only screen and (max-width: 640px) {
         a[href^="tel"], a[href^="sms"] {
           text-decoration: none;
           color: #33b9ff; /* or whatever your want */
@@ -46,7 +46,7 @@
 
       }
       /*IPHONE STYLES*/
-      @media only screen and (max-width: 480px) {
+      @media  only screen and (max-width: 480px) {
         a[href^="tel"], a[href^="sms"] {
           text-decoration: none;
           color: #33b9ff; /* or whatever your want */
@@ -189,7 +189,7 @@
                                 <!-- Title -->
                                 <tr align="center">
                                   <td style="font-family: Helvetica, arial, sans-serif; font-size: 18px; color: #0D74FE; text-align:center; line-height: 24px;">
-                                    <b>You have another applicant.</b><br><br>
+                                    <b>Thank you for applying.</b><br><br>
                                   </td>
                                 </tr>
                                 <!-- End of Title -->
@@ -199,12 +199,12 @@
                                 <!-- content -->
                                 <tr>
                                   <td style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #323A45; text-align:left; line-height: 24px; padding-left: 25px;">
-                                    Hi {{ $staff->first }},<br><br>
+                                    Hi <?php echo e($name); ?>,<br><br>
 
-                                    {{ $startup->name }} has applied to join Startup RAD.  Here is a copy of the application.  As a reminder, you can view all applications by visiting the admin dashboard<br><br>
+                                    We've received your application to join the RAD for Fall 2016. We've attached a copy of your application for your records.  We will be in touch during reading period with next steps.<br><br>
 
 
-
+                                    Sincerely, <br>The RAD Staff<br><a style="color: #0D74FE;" href="http://startuprad.com">http://startuprad.com</a>
                                   </td>
                                 </tr>
                                 <tr>

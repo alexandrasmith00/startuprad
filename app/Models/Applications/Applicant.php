@@ -17,4 +17,11 @@ class Applicant extends Model
     'resume'
   ];
 
+
+
+  public function application()
+  {
+    return $this->belongsTo('App\Models\Applications\Application', 'application');
+  }
+
 }

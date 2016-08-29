@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Filesystem\Filesystem;
-
+use App\Events\TeamApplied;
 use App\Models\Applications\Applicant;
 use App\Models\Applications\Application;
 use PDF;
@@ -121,6 +121,7 @@ class PagesController extends Controller
       }
 
       // Fire application created event
+      event (new TeamApplied($app));
 
       return redirect()->back()->with('flash-message','You have successfully applied to Startup RAD!');
 
@@ -145,9 +146,7 @@ class PagesController extends Controller
 
   public function pdf()
   {
-    $data = ['staff' => 'Lexi', 'startup' => 'The Wolfe'];
-    $pdf = PDF::loadView('pdf.application', $data);
-    return $pdf->download('application.pdf');
+
 
     return view('pdf.application')->withStartup('The Wolfe');
   }

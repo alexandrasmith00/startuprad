@@ -14,6 +14,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'App\Events\TeamApplied' => [
+            'App\Listeners\GenerateApplicationPDF',
             'App\Listeners\SendConfirmationEmails',
             'App\Listeners\SendApplicationEmail',
         ],
@@ -29,6 +30,6 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot($events);
 
-        //
+
     }
 }
