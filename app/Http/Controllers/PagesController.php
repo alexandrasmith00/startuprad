@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
+use App\Models\Applications\Applicant;
+use App\Models\Applications\Application;
+
 
 class PagesController extends Controller
 {
@@ -83,55 +86,48 @@ class PagesController extends Controller
 
     public function apply(Request $request)
     {
-      var_dump('team size: ' . $request->input('team_size') );
+
+      // Create application
+      $app = Application::create([
+        'team' => $request->input('name'),
+        'description' => $request->input('description'),
+        'url' => $request->input('url'),
+        'video' => $request->input('video'),
+      ]);
+
 
       $team_size = $request->input('team_size');
 
-      var_dump($request->file('resume'));
-      $file = $this->upload_image($request->file('resume'));
-      var_dump($file);
-
-      // Get first team member
-      $members = [];
-      $members[0] = [
-        "first" => $request->input('first'),
-        "last" => $request->input('last'),
-        "email" => $request->input('email'),
-        "year" => $request->input('year'),
-        "concentration" => $request->input('concentration'),
-        "secondary" => $request->input('secondary'),
-        "resume" => $request->input('resume'),
-      ];
-
-
-      // Get all other team members
-      for ( $i = 1; $i < $team_size; $i++ )
+      // Get all team team members
+      for ( $i = 0; $i < $team_size; $i++ )
       {
-        $counter = $i + 1;
+        if ($i == 0)
+          $counter = '';
+        else
+          $counter = $i + 1;
 
-        // Get the next team member
-        $members[$i] = [
+        // Create the next team member
+        $applicant = Applicant::create([
+          'application' => $app->id,
           "first" => $request->input('first' . $counter),
           "last" => $request->input('last' . $counter),
           "email" => $request->input('email' . $counter),
           "year" => $request->input('year' . $counter),
           "concentration" => $request->input('concentration' . $counter),
           "secondary" => $request->input('secondary' . $counter),
-          "resume" => $request->input('resume' . $counter),
-        ];
-
+          "resume" => $this->resume_file( $request->file('resume' . $counter)),
+        ]);
       }
 
-
-
+      // Fire application created event
 
     }
 
-  private function upload_image($image)
+  private function resume_file($image)
   {
     $imageFileName = time() . '.' . $image->getClientOriginalExtension();
 
-    $filePath =  'img/' . Auth::user()->id . '/' . $imageFileName;
+    $filePath =  'img/applications/' . $imageFileName;
 
     $s3 = \AWS::createClient('s3');
     $s3->putObject(array(
@@ -140,7 +136,7 @@ class PagesController extends Controller
       'SourceFile' => $image,
     ));
 
-    return $filePath;
+    return getenv('FILE_BASE') . $filePath;
 
   }
 

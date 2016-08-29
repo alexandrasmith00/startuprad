@@ -18,6 +18,7 @@ class CreateApplicationsTable extends Migration
         $table->text('description');
         $table->string('url')->nullable();
         $table->string('video');
+        $table->timestamps();
       });
     }
 

@@ -10,7 +10,7 @@
 
     <div class="col-md-8 col-md-push-1">
 
-      <form class="form-inline" method="POST" action="/" data-parsley-validate>
+      <form id="apply-form" class="form-inline" method="POST" action="/" data-parsley-validate enctype="multipart/form-data">
 
           <div class="application-section">
             <h3>Team Members</h3>
@@ -46,13 +46,27 @@
             <div class="form-line form-labels">
               <div class="row">
                 <div class="col-sm-2 col-xs-12">
-                  <label>Description</label>
+                  <label>URL, if any</label>
                 </div>
                 <div class="col-sm-10 col-xs-12">
-                  <textarea rows="10" class="form-control input-one" placeholder="Brief description of your startup"></textarea>
+                  <input type="url" class="form-control input-one" name="url" placeholder="Startup URL">
                 </div>
               </div>
             </div>
+
+            <div class="form-line form-labels">
+              <p><i class="fa fa-angle-right blue"></i> &nbsp; Please briefly describe your startup, including how it originated, the work you have done to date, the roles of the team members and the work you are hoping to accomplish in the RAD</i></p>
+              <div class="row">
+                <div class="col-sm-2 col-xs-12">
+                  <label>Description</label>
+                </div>
+                <div class="col-sm-10 col-xs-12">
+                  <textarea data-parsley-required  rows="10" class="form-control input-one" name="description" placeholder="Description of your startup"></textarea>
+                </div>
+              </div>
+            </div>
+
+
 
             <div class="form-line form-labels">
               <p><i class="fa fa-angle-right blue"></i> &nbsp; Please provide a link to a video (5 minutes max) introducting yourself, your teammates, and your startup.  <i>(Nothing fancy is required, just you in front of your computer or phone is fine)</i></p>
@@ -61,14 +75,14 @@
                   <label>Video Link</label>
                 </div>
                 <div class="col-sm-10 col-xs-12">
-                  <input type="url" class="form-control input-one" name="email" placeholder="Video link">
+                  <input data-parsley-required  type="url" class="form-control input-one" name="video" placeholder="Video link">
                 </div>
               </div>
             </div>
           </div>
 
           <div class="application-section">
-            <button class="btn oversized-btn btn-blue" type="submit">Apply</button>
+            <button id="apply-button" class="btn oversized-btn btn-blue" type="submit">Apply</button>
           </div>
 
       </form>
@@ -103,9 +117,11 @@
 
         team_member.find("#mem_num").html("Team Member #" + x);
 
-
-
+        team_member.find('#set-label').attr('for', ( 'resume' + x ));
         team_member.find("input").each(function(i) {
+          if ($(this).attr('name') == 'resume') {
+            $(this).attr('id', $(this).attr('name') + x);
+          }
           $(this).attr('name', $(this).attr('name') + x);
           $(this).val('');
         });
@@ -122,9 +138,12 @@
       }
     });
 
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-      e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
+
+    $( "#apply-form" ).submit(function( event ) {
+      $( "#apply-button" ).html("<i class='fa fa-spinner fa-spin fa-fw'></i>");
+      $( "#apply-button" ).attr("disabled", "disabled");
+    });
+
   });
 
 
