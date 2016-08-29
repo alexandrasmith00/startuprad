@@ -118,6 +118,10 @@
         team_member.find("#mem_num").html("Team Member #" + x);
 
         team_member.find('#set-label').attr('for', ( 'resume' + x ));
+        team_member.find('#set-label').attr('id', ( 'set-label' + x ));
+
+        team_member.find('#set-label' + x).html('<i class="blue fa fa-cloud-upload"></i> Upload Your Resume (in PDF format)');
+
         team_member.find("input").each(function(i) {
           if ($(this).attr('name') == 'resume') {
             $(this).attr('id', $(this).attr('name') + x);

@@ -94,7 +94,7 @@
           <label id="set-label" for="resume" class="custom-file-upload form-control input-one not-selected">
             <i class="blue fa fa-cloud-upload"></i> Upload Your Resume (in PDF format)
           </label>
-          <input onchange="check_file()" data-parsley-required accept="application/pdf" id="resume" name="resume" type="file"/>
+          <input onchange="check_file(this)" data-parsley-required accept="application/pdf" id="resume" name="resume" type="file"/>
         </div>
       </div>
     </div>
@@ -123,16 +123,13 @@
     });
   }
 
-  function check_file() {
-    $('input[name="resume"]').each(function() {
-      var path = $(this).val();
-      var filename = path.replace(/^.*\\/, "");
-
-      var label = $("label[for='"+$(this).attr('id')+"']");
-      $(label).html('<span class="blue"><i class="blue fa fa-cloud-upload"></i> Uploaded: ' + filename + '</span>');
-    });
-
+  function check_file(changed) {
+    var path = $(changed).val();
+    var filename = path.replace(/^.*\\/, "");
+    var label = $('label[for="' + changed.id + '"]');
+    $(label).html('<span class="blue"><i class="blue fa fa-cloud-upload"></i> Uploaded: ' + filename + '</span>');
   }
+
 
 </script>
 
