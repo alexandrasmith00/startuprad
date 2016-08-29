@@ -11,79 +11,94 @@
       background-size: cover;
       height: 100%;
     }
+
+    body {
+      background-color: white;
+    }
   </style>
 
-  <section class="pdf-header">
-    <h1 style="text-align: center; color: white; padding-top: 25px; padding-bottom: 25px;">Startup Rad</h1>
+  <section style="padding-left: 50px; padding-right: 50px;" class="pdf-header">
+    <h3 style="font-family: Roboto; color: white; padding-top: 25px;">Startup RAD</h3>
+    <h5 style="font-family: Roboto; color: #5F666C;">New Application</h5>
+    <h5 style="font-family: Roboto; padding-bottom: 25px; color: #5F666C;">September 2, 2016 @ 8:06pm</h5>
   </section>
 
 
-  <section class="section">
+  <section style="padding-top: 10px; padding-bottom: 0px;" class="section" >
     <div class="container">
+
       <div id="details" class="row">
-        <div class="col-md-3">
-          <h2 class="section-heading">About<span class="border"></span></h2>
+        <div class="col-xs-12">
+          <h2 class="section-heading" style="font-family: Roboto;"><b>Founders (4)</b><span class="border"></span></h2>
         </div>
-        <div class="col-md-8 col-md-push-1">
-          <div class="row">
-            <div class="col-md-6">
-              <b><i class="fa fa-graduation-cap blue"></i>&nbsp; About</b>
-              <p>Engineering Sciences 95r: Startup R&D<br>In the course catalog as <span class="blue">#60126</span></p>
+        <div class="col-xs-4">
+          <p><i class="fa fa-angle-right blue"></i>&nbsp;
+            Lexi Smith
+            <br>alexandrasmith00@gmail.com
+            <br>Class of 2017
+            <br> Studying computer science
+            <br> No secondary
+          </p>
 
-              <b><i class="fa fa-clock-o blue"></i> &nbsp; When</b>
-              <p>Thursdays 4pm-6pm weekly<br>Outside meetings with staff biweekly</p>
+        </div>
+        <div class="col-xs-4">
+          <p><i class="fa fa-angle-right blue"></i>&nbsp;
+            Lexi Smith
+            <br>alexandrasmith00@gmail.com
+            <br>Class of 2017
+            <br> Studying computer science
+            <br> No secondary
+          </p>
+        </div>
+        <div class="col-xs-4">
+          <p><i class="fa fa-angle-right blue"></i>&nbsp;
+            Lexi Smith
+            <br>alexandrasmith00@gmail.com
+            <br>Class of 2017
+            <br> Studying computer science
+            <br> No secondary
+          </p>
 
-              <b><i class="fa fa-user blue"></i> &nbsp; Who </b>
-              <p><i class="fa fa-angle-right blue"></i> Students seeking actual experience as a founder of a startup, whether commercial, social or another type of innovative project</p>
-              <p><i class="fa fa-angle-right blue"></i> Students working in teams are preferred</p>
-              <p><i class="fa fa-angle-right blue"></i> Students must do self-directed independent work and actively search for and outreach to mentors, customers, and partners for guidance and feedback</p>
-              <p><i class="fa fa-angle-right blue"></i> Students willing to share their work regularly in an online and classroom feedback forum that includes their peers</p>
-
-
-              <b><i class="fa fa-question blue"></i> &nbsp; How</b>
-              <p>Interested? <a href="#apply-today">Apply as a team below <i class="fa fa-angle-down blue"></i></a></p>
-            </div>
-
-            <div class="col-md-6">
-              <p>Startup R&D is a class at the John A. Paulson School of Engineering and Applied Sciences.  Students in the course are founders working on their own companies.</p>
-              <p>If you are interested in applying to the course, you must submit an application <a href="#apply-today">here</a>. Applications are accepted anytime before the end of shopping week.  An interview  with the teaching staff is usually required before enrollment permission is granted.  You will be contacted to schedule an interview if needed.  Enrollment decisions are made no later than the evening before study card day. </p>
-
-              <p>Students should expect to meet with the full Rad every week and individually or in teams with the teaching staff every other week.  A fixed 2 hour meeting time is scheduled for Thursdays 4pm-6pm.  Students must have this time free on their schedule to enroll.</p>
-
-              <p>There is no general syllabus for ES95r.  Each student or team project is custom designed and grading is based on progress toward mutually agreed upon goals and preparation for and participation in class, team meetings, and the feedback forums.</p>
-
-            </div>
-          </div>
+        </div>
+        <div class="col-xs-4">
+          <p><i class="fa fa-angle-right blue"></i>&nbsp;
+            Lexi Smith
+            <br>alexandrasmith00@gmail.com
+            <br>Class of 2017
+            <br> Studying computer science
+            <br> No secondary
+          </p>
         </div>
       </div>
+
     </div>
-
-
   </section>
 
-</main>
+  <section style="padding-top: 10px;" class="section" >
+    <div class="container">
 
-@stop
+      <div id="details" class="row">
+        <div class="col-xs-12">
+          <h2 class="section-heading" style="font-family: Roboto;"><b>Startup</b><span class="border"></span></h2>
+        </div>
+        <div class="col-xs-4">
+          <p><i class="fa fa-angle-right blue"></i>&nbsp; The Wolfe</p>
+        </div>
+        <div class="col-xs-4">
+          <p><i class="fa fa-angle-right blue"></i>&nbsp; <a href="http://thewolfe.io">http://thewolfe.io</a></p>
+        </div>
+        <div class="col-xs-4">
+          <p><i class="fa fa-angle-right blue"></i>&nbsp; <a href="http://youtube.com">http://youtube.com</a></p>
+        </div>
+        <hr>
+        <div class="col-xs-12">
+          <p><i class="fa fa-angle-right blue"></i>&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis odio eu quam vestibulum finibus. Donec sit amet risus ultrices, semper orci et, commodo risus. Donec nec ante et turpis commodo ultrices. Quisque quis magna in quam congue fringilla. Suspendisse eu scelerisque nisl, ut dignissim sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam eu lectus hendrerit, porttitor eros ac, scelerisque eros.
 
+            Quisque luctus dictum urna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed scelerisque elementum purus, at euismod metus blandit vitae. Quisque ut tellus non sem condimentum dignissim id quis orci. Maecenas auctor turpis sed ipsum lobortis, ut fermentum dui lobortis. Aenean a ante porttitor, aliquam magna a, laoreet velit. Nunc malesuada quam vel posuere dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
-<!--
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Startup RAD</title>
-
-  </head>
-
-  <body>
-
-
-    <div class="body">
-
-
+            Etiam consequat turpis vitae ligula aliquam malesuada. Phasellus blandit, nisi vel interdum vehicula, est justo fermentum risus, sit amet laoreet lectus eros et felis. Nullam pharetra ultricies quam, sed ornare est pharetra eget.
+      </div>
     </div>
-
-  </body>
-</html>
--->
+  </section>
+</main>
+@stop
