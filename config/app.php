@@ -151,6 +151,7 @@ return [
         Vinkla\Pusher\PusherServiceProvider::class,
         Conner\Tagging\Providers\TaggingServiceProvider::class,
         Aws\Laravel\AwsServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
 
 
         /*
@@ -207,6 +208,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'AWS'       => Aws\Laravel\AwsFacade::class,
+        'PDF'       => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
     ],
 
 ];
