@@ -6,7 +6,7 @@
     .pdf-header {
       width: 100%;
       height: auto;
-      background-image: url("http://startuprad.com/images/background_wide.jpg");
+      background-image: url("http://startuprad.com/images/background_extra_wide.jpg");
       background-size: cover;
     }
   </style>
