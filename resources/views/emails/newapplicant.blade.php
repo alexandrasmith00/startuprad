@@ -122,7 +122,7 @@
                                   <td height="100" align="center">
                                     <div class="imgpop">
                                       <a target="_blank" href="#">
-                                        <img src="../../../public/images/background_wide.jpg" alt="" title="" border="0" width="100%" style="display:block; border:none; outline:none; text-decoration:none;">
+                                        <img src="http://startuprad.com/images/background_wide.jpg" alt="" title="" border="0" width="100%" style="display:block; border:none; outline:none; text-decoration:none;">
                                       </a>
 
                                     </div>
