@@ -28,10 +28,10 @@ class SendApplicationEmail
      */
     public function handle(TeamApplied $event)
     {
-        $data = ['startup' => $event->app->team, 'staff' => 'Lexi'];
+        $data = ['startup' => $event->app->team, 'staff' => 'Paul'];
         Mail::send('emails.newforstaff', $data, function($message) use($event)
         {
-             $message->to('alexandrasmith00@gmail.com')->subject('New Application');
+             $message->to('pbottino@seas.harvard.edu')->subject('New Application');
              $message->attachData($event->pdf->output(), $event->app->team . ".pdf");
         });
     }
