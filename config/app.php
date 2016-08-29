@@ -149,7 +149,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
         Vinkla\Pusher\PusherServiceProvider::class,
-        Slynova\Commentable\ServiceProvider::class,
         Conner\Tagging\Providers\TaggingServiceProvider::class,
         Aws\Laravel\AwsServiceProvider::class,
 
