@@ -15,10 +15,10 @@
               <p>Thursdays 4pm-6pm weekly<br>Outside meetings with staff biweekly</p>
 
               <b><i class="fa fa-user blue"></i> &nbsp; Who </b>
-              <p>Students seeking actual experience as a founder of a startup, whether commercial, social or another type of innovative project</p>
-              <p>Students working in teams are preferred</p>
-              <p>Students must do self-directed independent work and actively search for and outreach to mentors, customers, and partners for guidance and feedback</p>
-              <p>Students willing to share their work regularly in an online and classroom feedback forum that includes their peers</p>
+              <p><i class="fa fa-angle-right blue"></i> Students seeking actual experience as a founder of a startup, whether commercial, social or another type of innovative project</p>
+              <p><i class="fa fa-angle-right blue"></i> Students working in teams are preferred</p>
+              <p><i class="fa fa-angle-right blue"></i> Students must do self-directed independent work and actively search for and outreach to mentors, customers, and partners for guidance and feedback</p>
+              <p><i class="fa fa-angle-right blue"></i> Students willing to share their work regularly in an online and classroom feedback forum that includes their peers</p>
 
 
               <b><i class="fa fa-question blue"></i> &nbsp; How</b>

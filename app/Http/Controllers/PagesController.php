@@ -10,6 +10,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 
 use App\Models\Applications\Applicant;
 use App\Models\Applications\Application;
+use PDF;
 
 
 class PagesController extends Controller
@@ -140,6 +141,12 @@ class PagesController extends Controller
 
     return getenv('FILE_BASE') . $filePath;
 
+  }
+
+  public function pdf()
+  {
+    $pdf = PDF::loadView('pdf.invoice', $data);
+    return $pdf->download('invoice.pdf');
   }
 
 

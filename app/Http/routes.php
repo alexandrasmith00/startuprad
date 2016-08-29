@@ -7,6 +7,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', ['as' => 'feed', 'uses' => 'PagesController@index']);
     Route::post('/', ['as' => 'apply', 'uses' => 'PagesController@apply']);
 
+
+    Route::get('/pdf', ['as' => 'feed', 'uses' => 'PagesController@pdf']);
+
     Route::get('/home', function() { return redirect()->route('feed'); });
     Route::get('/demoday', ['as' => 'demoday', 'uses' => 'PagesController@demo']);
 
