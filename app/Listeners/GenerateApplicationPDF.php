@@ -32,8 +32,6 @@ class GenerateApplicationPDF
         $file_name = "apps/" . str_replace(' ', '', $event->app->team) . $date . ".pdf";
 
         $event->pdf = PDF::loadView('pdf.application', $data);
-        $pdf = PDF::loadView('pdf.application', $data)->save($file_name);
-
         $event->app->pdf = "/".$file_name;
         $event->app->save();
     }
