@@ -8980,7 +8980,7 @@ input[type="file"] {
 .btn-blue {
   color: white;
   background-color: #0D74FE; }
-  .btn-blue:hover {
+  .btn-blue:hover, .btn-blue:focus {
     background-color: #005BE5;
     color: white; }
 

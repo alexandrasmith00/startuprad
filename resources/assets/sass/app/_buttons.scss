@@ -24,7 +24,7 @@
   color: white;
   background-color: $blue;
 
-  &:hover {
+  &:hover, &:focus {
     background-color: $emph-blue;
     color: white;
   }
