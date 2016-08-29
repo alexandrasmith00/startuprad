@@ -10,7 +10,6 @@
         "nesbot/carbon": "^1.21",
         "laravel/cashier": "^6.0",
         "vinkla/pusher": "^2.2",
-        "slynova/laravel-commentable": "^2.0",
         "doctrine/dbal": "^2.5",
         "guzzlehttp/guzzle": "^6.1",
         "rtconner/laravel-tagging": "^2.0",
