@@ -121,6 +121,8 @@ class PagesController extends Controller
 
       // Fire application created event
 
+      return redirect()->back()->with('flash-message','You have successfully applied to Startup RAD!');
+
     }
 
   private function resume_file($image)

@@ -9036,6 +9036,14 @@ ul {
     padding-left: 0px;
     list-style-type: none; }
 
+#banner {
+  background: #0D74FE;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 500; }
+
 body {
   font-family: "Roboto", arial, sans-serif;
   font-weight: 300;

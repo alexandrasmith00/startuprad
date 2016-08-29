@@ -5,6 +5,8 @@
   </head>
   <body>
 
+    @include('layouts.general.banner')
+
     @yield('content')
 
     @include('layouts.landing.scripts')

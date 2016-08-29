@@ -9,6 +9,7 @@
   @include('pages.landing.about')
 <!--  @include('pages.landing.alumni')-->
   @include('pages.landing.apply')
+
 </main>
 
 @stop
