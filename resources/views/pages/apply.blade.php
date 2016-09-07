@@ -8,7 +8,7 @@
 <main role="main">
   @include('pages.landing.about')
 <!--  @include('pages.landing.alumni')-->
-  @include('pages.landing.apply')
+<!--  @include('pages.landing.apply')-->
 
 </main>
 
