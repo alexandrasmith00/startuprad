@@ -29,3 +29,18 @@
     color: white;
   }
 }
+
+
+.btn-loadmore {
+  border-top: #eee 1px solid;
+  padding: 20px 30px 24px 30px;
+  color: $text-gray;
+  background-color: $nice-gray;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $emph-blue;
+    color: white;
+  }
+}
