@@ -9,7 +9,7 @@ use Laravel\Cashier\Billable;
 class User extends Authenticatable
 {
     use Billable;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,7 +27,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+
     /**
      * Get the roles a user has
      */
@@ -35,27 +35,27 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Role', 'users_roles');
     }
-    
+
     public function teams()
     {
         return $this->belongsToMany('App\Models\Team', 'teams_users');
     }
-    
+
     public function idea()
     {
         return $this->belongsTo('App\Models\Idea', 'idea_id');
     }
-    
+
     public function cohorts()
     {
         return $this->belongsToMany('App\Models\Cohort', 'cohorts_users');
     }
-    
+
     public function sharesCohort($other_user_id)
     {
-        
+
     }
-    
+
     public function hasProject($check)
     {
         $projects = [];
@@ -63,8 +63,8 @@ class User extends Authenticatable
                 array_push($projects, $team->idea->id);
         return in_array($check, $projects);
     }
-    
-    
+
+
     /**
      * Find out if a user has a certain role
      *
@@ -72,8 +72,16 @@ class User extends Authenticatable
      */
     public function hasRole($check)
     {
-        return in_array($check, array_fetch($this->roles->toArray(), 'name'));
+        return in_array($check, array_pluck($this->roles->toArray(), 'name'));
     }
-    
- 
+
+    public function isStaff()
+    {
+        if ($this->hasRole("TF") || $this->hasRole("Professor") || $this->hasRole("Admin"))
+          return true;
+
+        return false;
+    }
+
+
 }

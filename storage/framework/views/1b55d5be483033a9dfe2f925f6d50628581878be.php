@@ -30,19 +30,21 @@
   <h3 class="menu-section-title">Dashboard</h3>
   <ul class="menu-section-list">
     <li><a href="">Home</a></li>
-    <li><a href="">RAD NOW</a></li>
+    <li><a href="">Profile</a></li>
   </ul>
 </section>
 
-
+<?php if( Auth::user()->isStaff() ): ?>
 <section class="menu-section">
-  <h3 class="menu-section-title">Dashboard</h3>
+  <h3 class="menu-section-title">Admin</h3>
   <ul class="menu-section-list">
-    <li><a href="">Home</a></li>
-    <li><a href="" >Profile</a></li>
+    <li><a href="">Analytics</a></li>
+    <?php if(Auth::user()->hasRole('Admin')): ?>
+    <li><a href="">Advisors</a></li>
+    <?php endif; ?>
   </ul>
 </section>
-
+<?php endif; ?>
 
 
 </section>
