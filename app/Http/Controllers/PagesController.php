@@ -10,6 +10,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use App\Events\TeamApplied;
 use App\Models\Applications\Applicant;
 use App\Models\Applications\Application;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 
 
@@ -23,6 +24,9 @@ class PagesController extends Controller
 
     public function index()
     {
+
+        if ( Auth::check() )
+          return redirect()->route('dashboard');
 
         $concentrations = [
           'African and African American Studies',

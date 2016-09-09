@@ -1,23 +1,34 @@
-<?php $__env->startSection('content'); ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <?php echo $__env->make('layouts.admin.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2 col-sm-12">
-        <?php echo $__env->make('includes.posts.make', ["placeholder" => "Ask a question or share something interesting...", 'button' => 'Get feedback now', 'isYours' => true], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-        
-        <?php echo $__env->make('includes.posts.all', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </head>
+  <body>
 
-    </div>
-</div>
+    <nav id="menu" class="menu slideout-menu">
+      <?php echo $__env->make('layouts.admin.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </nav>
+
+    <main id="main">
+      <?php echo $__env->make('layouts.admin.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <div id="page-content" style="display: none;" class="page-content-wrapper">
+
+        <div style="padding-top: 25px;" class="container">
+          <?php echo $__env->yieldContent('content'); ?>
+        </div>
+      </div>
+    </main>
+
+    <?php echo $__env->make('layouts.general.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <script>
+      $(window).load(function() {
+        $("#page-content").fadeIn("slow");
+      });
+    </script>
+
+  </body>
+</html>
 
 
-
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('scripts'); ?>
-    @parent
-    <script src="js/lib/additional-methods.js"></script>
-<?php $__env->stopSection(); ?>
-
-
-
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -8919,6 +8919,10 @@ h1, h2, h3, h4, h5, h7 {
   font-family: Montserrat; }
   h1.inverse, h2.inverse, h3.inverse, h4.inverse, h5.inverse, h7.inverse {
     color: white; }
+  h1.brand, h2.brand, h3.brand, h4.brand, h5.brand, h7.brand {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 5px; }
 
 h1.brand {
   text-transform: uppercase;

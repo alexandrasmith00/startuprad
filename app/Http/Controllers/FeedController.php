@@ -28,17 +28,15 @@ class FeedController extends Controller
 
     public function index()
     {
-        
         // ordering goes in here!
         $posts = Post::orderBy('radnow', 'desc')
             ->orderBy('created_at', 'desc')
             ->with('tagged')
             ->paginate(10);
-        
-    
+
         return view('feed.index', compact('posts'));
     }
-    
+
 
     public function showPost($slug)
     {
@@ -46,13 +44,13 @@ class FeedController extends Controller
 
         return view('blog.post')->withPost($post);
     }
-    
+
     public function createPost(Request $request)
     {
         $title = 'asked a question';
         if ($request->input('type') == 'chat')
             $title = 'said to someone else';
-        
+
         $post = new Post;
         $post->content = $request->input('message');
         $post->user_id = $request->input('user-id');
@@ -61,14 +59,14 @@ class FeedController extends Controller
         $post->title = $title;
         $post->save();
 
- 
+
         $post->tag(explode(',', str_replace("#", "", $request->input('tags'))));
-        
-        
+
+
         return [$post, $post->user, $post->idea, $post->tagged];
 
     }
-    
+
     public function bugreport(Request $request)
     {
         DB::table('bugs')->insert(

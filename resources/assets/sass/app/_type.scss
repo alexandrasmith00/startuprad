@@ -9,6 +9,12 @@ h1, h2, h3, h4, h5, h7 {
   &.inverse {
     color: white;
   }
+
+  &.brand {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 5px;
+  }
 }
 
 h1.brand {
@@ -17,6 +23,9 @@ h1.brand {
   letter-spacing: 5px;
   font-size: 7vw;
 }
+
+
+
 
 h3.subheader {
   color: $nice-gray;

@@ -4,8 +4,11 @@ Route::group(['middleware' => 'web'], function () {
 
 
     // feed and comments
+    Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'FeedController@index']);
+
+
     Route::get('/', ['as' => 'feed', 'uses' => 'PagesController@index']);
-    Route::post('/', ['as' => 'apply', 'uses' => 'PagesController@apply']);
+//    Route::post('/', ['as' => 'apply', 'uses' => 'PagesController@apply']); // can
 
 
     Route::get('/pdf', ['as' => 'feed', 'uses' => 'PagesController@pdf']);
