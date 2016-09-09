@@ -6,8 +6,8 @@
         <div class="comment-user-info">
             <ul>
                 <li class="u-name">
-                    <a style="color:#17bab8;" href="#"><b>{{ $comment->user->name }}</b></a> 
-                    {{ $comment->body }} 
+                    <a style="color:#17bab8;" href="#"><b>{{ $comment->user->name }}</b></a>
+                    {{ $comment->body }}
                 </li>
                 <li class="comment-info">
                     <span class="p-time"><i class="zmdi zmdi-time"></i>  {{ $comment->created_at->diffForHumans() }}</span>

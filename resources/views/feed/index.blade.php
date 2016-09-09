@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    @include('layouts.admin.head')
+@extends('layouts.app')
 
-  </head>
-  <body>
+@section('content')
 
-    <nav id="menu" class="menu slideout-menu">
-      @include('layouts.admin.sidebar')
-    </nav>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-sm-12">
+    @include('includes.posts.make', ["placeholder" => "Ask a question or share something interesting...", 'button' => 'Get feedback now', 'isYours' => true])
 
-    <main id="main">
-      @include('layouts.admin.navbar')
-      <div id="page-content" style="display: none;" class="page-content-wrapper">
+    @include('includes.posts.all')
 
-        <div style="padding-top: 25px;" class="container">
-          @yield('content')
-        </div>
-      </div>
-    </main>
+  </div>
+</div>
 
-    @include('layouts.general.scripts')
 
-    <script>
-      $(window).load(function() {
-        $("#page-content").fadeIn("slow");
-      });
-    </script>
 
-  </body>
-</html>
+@stop
+
+@section('scripts')
+@parent
+<script src="js/lib/additional-methods.js"></script>
+@stop
 
 

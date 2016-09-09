@@ -1,5 +1,7 @@
 @import 'app/variables';
 @import 'app/animations';
+@import 'app/components';
+@import 'app/widgets';
 @import 'app/type';
 @import 'app/form';
 @import 'app/buttons';
@@ -8,7 +10,6 @@
 @import 'app/links';
 @import 'app/lists';
 @import 'app/banner';
-
 
 body {
   font-family: "Roboto", arial, sans-serif;

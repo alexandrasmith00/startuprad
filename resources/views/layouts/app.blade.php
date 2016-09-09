@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        @include('includes.head')
-    </head>
+  <head>
+    @include('layouts.admin.head')
 
-    <body class="overlay-leftbar">
-        @include('includes.header')
-        @include('includes.sidebar')
+  </head>
+  <body>
 
-        <section class="main-container">
-          <div class="container">
-            @yield('content')
-          </div>
-        </section>
+    <nav id="menu" class="menu slideout-menu">
+      @include('layouts.admin.sidebar')
+    </nav>
 
-        @include('includes.footer')
+    <main id="main">
+      @include('layouts.admin.navbar')
+      <div id="page-content" style="display: none;" class="page-content-wrapper">
 
-        @include('includes.scripts')
-        
-    </body>
+        <div style="padding-top: 25px;" class="container">
+          @yield('content')
+        </div>
+      </div>
+    </main>
+
+    @include('layouts.general.scripts')
+
+    <script>
+      $(window).load(function() {
+        $("#page-content").fadeIn("slow");
+      });
+    </script>
+
+  </body>
 </html>
+
+

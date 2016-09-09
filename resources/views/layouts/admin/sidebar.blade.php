@@ -30,6 +30,15 @@
   <h3 class="menu-section-title">Dashboard</h3>
   <ul class="menu-section-list">
     <li><a href="">Home</a></li>
+    <li><a href="">RAD NOW</a></li>
+  </ul>
+</section>
+
+
+<section class="menu-section">
+  <h3 class="menu-section-title">Dashboard</h3>
+  <ul class="menu-section-list">
+    <li><a href="">Home</a></li>
     <li><a href="" >Profile</a></li>
   </ul>
 </section>

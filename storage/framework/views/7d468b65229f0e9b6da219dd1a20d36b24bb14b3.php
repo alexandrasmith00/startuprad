@@ -6,15 +6,16 @@
         <div class="comment-user-info">
             <ul>
                 <li class="u-name">
-                    <a style="color:#17bab8;" href="#"><b><?php echo e($comment->user->name); ?></b></a> 
-                    <?php echo e($comment->body); ?> 
+                    <a style="color:#17bab8;" href="#"><b><?php echo e($comment->user->name); ?></b></a>
+                    <?php echo e($comment->body); ?>
+
                 </li>
                 <li class="comment-info">
                     <span class="p-time"><i class="zmdi zmdi-time"></i>  <?php echo e($comment->created_at->diffForHumans()); ?></span>
 
                     <?php if( Auth::user()->idea_id == $post->user->idea['id'] ): ?>
                         &nbsp; &middot; &nbsp;
-                        <span class="p-time"><a class="action-link">Thank</a></span>
+                        <span class="p-time"><a id="<?php echo e($comment->id); ?>" class="thank-comment action-link">Thank</a></span>
                     <?php endif; ?>
 
                     &nbsp; &middot; &nbsp;

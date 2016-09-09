@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <?php echo $__env->make('includes.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    </head>
+  <head>
+    <?php echo $__env->make('layouts.admin.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    <body class="overlay-leftbar">
-        <?php echo $__env->make('includes.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-        <?php echo $__env->make('includes.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </head>
+  <body>
 
-        <section class="main-container">
-          <div class="container">
-            <?php echo $__env->yieldContent('content'); ?>
-          </div>
-        </section>
+    <nav id="menu" class="menu slideout-menu">
+      <?php echo $__env->make('layouts.admin.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </nav>
 
-        <?php echo $__env->make('includes.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <main id="main">
+      <?php echo $__env->make('layouts.admin.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <div id="page-content" style="display: none;" class="page-content-wrapper">
 
-        <?php echo $__env->make('includes.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-        
-    </body>
+        <div style="padding-top: 25px;" class="container">
+          <?php echo $__env->yieldContent('content'); ?>
+        </div>
+      </div>
+    </main>
+
+    <?php echo $__env->make('layouts.general.scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    <script>
+      $(window).load(function() {
+        $("#page-content").fadeIn("slow");
+      });
+    </script>
+
+  </body>
 </html>
+
+
