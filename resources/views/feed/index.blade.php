@@ -10,14 +10,6 @@
 
   </div>
 </div>
-
-
-
-@stop
-
-@section('scripts')
-@parent
-<script src="js/lib/additional-methods.js"></script>
 @stop
 
 

@@ -34,7 +34,7 @@ class FeedController extends Controller
             ->with('tagged')
             ->paginate(10);
 
-        return view('feed.index', compact('posts'));
+        return view('feed.index')->withPosts($posts);
     }
 
 

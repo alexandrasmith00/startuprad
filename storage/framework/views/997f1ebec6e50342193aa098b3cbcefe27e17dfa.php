@@ -8,14 +8,6 @@
 
   </div>
 </div>
-
-
-
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('scripts'); ?>
-@parent
-<script src="js/lib/additional-methods.js"></script>
 <?php $__env->stopSection(); ?>
 
 
