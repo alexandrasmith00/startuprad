@@ -3,15 +3,17 @@ a {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
+
 a:hover, a:active, a:focus {
   outline: none;
 }
 
 a {
   color: $blue;
-}
-a:hover {
-  color: $emph-blue;
-  text-decoration: none;
-  font-weight: bold;
+
+  &:hover, &:focus {
+    color: $emph-blue;
+    text-decoration: none;
+    font-weight: 500;
+  }
 }

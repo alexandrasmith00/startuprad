@@ -5,8 +5,8 @@
         </div>
         <div class="comment-user-info">
             <ul>
-                <li class="u-name">
-                    <a style="color:#17bab8;" href="#"><b><?php echo e($comment->user->name); ?></b></a>
+                <li class="name">
+                    <a class="subtle" href="#"><?php echo e($comment->user->name); ?></a>
                     <?php echo e($comment->body); ?>
 
                 </li>

@@ -1,26 +1,29 @@
 <div class="recent-comments">
     <div class="recent-comment-meta">
         <div class="comment-user-thumb">
-            <a href="#"><img src="<?php echo e(asset('images/avatar/oykun.jpg')); ?>"></a>
+          <a href="#"><img src="<?php echo e(asset('images/avatar/oykun.jpg')); ?>"></a>
         </div>
         <div class="comment-user-info">
             <ul>
-                <li class="u-name">
-                    <a style="color:#17bab8;" href="#"><b><?php echo e($comment->user->name); ?></b></a> 
-                    <?php echo e($comment->body); ?> 
+                <li class="name">
+                    <a href="#"><?php echo e($comment->user->name); ?></a>
+                    <?php echo e($comment->body); ?>
+
                 </li>
                 <li class="comment-info">
-                    <span class="p-time"><i class="zmdi zmdi-time"></i>  <?php echo e($comment->created_at->diffForHumans()); ?></span>
+                    <i class="zmdi zmdi-time"></i>
+                    <?php echo e($comment->created_at->diffForHumans()); ?>
+
 
                     <?php if( Auth::user()->idea_id == $post->user->idea['id'] ): ?>
                         &nbsp; &middot; &nbsp;
-                        <span class="p-time"><a id="<?php echo e($comment->id); ?>" class="thank-comment action-link">Thank</a></span>
+                        <a id="<?php echo e($comment->id); ?>" class="thank-comment">Thank</a>
                     <?php endif; ?>
 
                     &nbsp; &middot; &nbsp;
-                    <span class="p-time"> <a id="<?php echo e($comment->id); ?>"class="action-link reply-link">Reply</a></span>
+                    <a id="<?php echo e($comment->id); ?>" class="reply-link">Reply</a>
                 </li>
-                
+
             </ul>
         </div>
     </div>
@@ -35,6 +38,6 @@
 <?php echo $__env->make('includes.comments.make_reply', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 
-                
 
-     
+
+

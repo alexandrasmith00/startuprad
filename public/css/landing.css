@@ -8918,6 +8918,8 @@ Copyright (c) 2015 Daniel Eden
   .recent-comments-list .recent-comments {
     border-bottom: #eee 1px solid; }
   .recent-comments-list .recent-comment-meta {
+    padding-left: 30px;
+    padding-right: 30px;
     display: table;
     width: 100%;
     position: relative; }
@@ -8939,10 +8941,6 @@ Copyright (c) 2015 Daniel Eden
           list-style: none;
           line-height: normal;
           color: #666; }
-      .recent-comments-list .recent-comment-meta .comment-user-info .u-name a {
-        color: #444; }
-        .recent-comments-list .recent-comment-meta .comment-user-info .u-name a:hover, .recent-comments-list .recent-comment-meta .comment-user-info .u-name a:focus {
-          text-decoration: none; }
       .recent-comments-list .recent-comment-meta .comment-user-info .p-time {
         font-size: 12px; }
   .recent-comments-list .comment-text {
@@ -8980,17 +8978,14 @@ Copyright (c) 2015 Daniel Eden
     .recent-comments-list .btn-loadmore:hover, .recent-comments-list .btn-loadmore:focus {
       -webkit-border-radius: 0px 0px 3px 3px; }
 
-.label-tag {
-  margin: 2px; }
+.name > a {
+  font-weight: 400; }
 
 .post-tags {
   padding-top: 2em; }
 
 .comment-info {
   padding-top: 2px; }
-
-a.action-link {
-  font-weight: bold; }
 
 .profile-nav {
   width: 50%;
@@ -9068,13 +9063,18 @@ textarea.comment {
   margin: 0px;
   border-radius: none; }
 
-/*---------------------------
-2.6 Tags Input / .tagsinput
------------------------------*/
+.label-tag {
+  margin: 2px;
+  background-color: #0D74FE;
+  font-weight: 400; }
+
+input#little-tags_tag {
+  min-width: 150px; }
+
 #little-tags {
   font-size: 12px;
   font-weight: 500;
-  background-color: #139c9b;
+  background-color: #0D74FE;
   padding: .2em .6em .3em;
   font-size: 75%;
   line-height: 1;
@@ -9096,7 +9096,7 @@ div.tagsinput span.tag {
   text-decoration: none;
   font-size: 12px;
   font-weight: 500;
-  background-color: #139c9b;
+  background-color: #0D74FE;
   padding: .2em .6em .3em;
   font-size: 80%;
   line-height: 1.846;
@@ -9106,10 +9106,13 @@ div.tagsinput span.tag {
   vertical-align: baseline;
   border-radius: .25em;
   margin: 2px; }
+  div.tagsinput span.tag span {
+    vertical-align: middle;
+    line-height: 13px; }
 
 div.tagsinput span.tag a {
   font-weight: bold;
-  color: #444;
+  color: white;
   text-decoration: none;
   font-size: 11px; }
 
@@ -9117,6 +9120,7 @@ div.tagsinput input {
   margin: 0px;
   font-family: helvetica;
   font-size: 13px;
+  line-height: 13px;
   border: 1px solid transparent;
   padding: 5px;
   background: transparent;
@@ -9137,6 +9141,10 @@ div.tagsinput div {
 .not_valid {
   background: #FBD8DB !important;
   color: #90111A !important; }
+
+.comment-info {
+  font-size: 12px;
+  padding-top: 2px; }
 
 .widget-wrap {
   background-color: #fff;
@@ -9534,10 +9542,6 @@ div.tagsinput div {
         line-height: normal; }
     .recent-users-list .user-intro .users-info .u-name {
       font-size: 16px; }
-      .recent-users-list .user-intro .users-info .u-name a {
-        color: #444; }
-        .recent-users-list .user-intro .users-info .u-name a:hover, .recent-users-list .user-intro .users-info .u-name a:focus {
-          text-decoration: none; }
     .recent-users-list .user-intro .users-info .u-location {
       font-size: 12px;
       color: #888;
@@ -10181,6 +10185,9 @@ h1.brand {
 h3.subheader {
   color: #88929a; }
 
+.emphasized {
+  color: #0D74FE; }
+
 .form-control {
   box-shadow: none;
   background: transparent;
@@ -10247,6 +10254,33 @@ input[type="file"] {
     background-color: #005BE5;
     color: white; }
 
+.navbar-admin {
+  border-radius: 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+  height: 60px;
+  margin-bottom: 0px;
+  z-index: 5; }
+
+.navbar-admin .navbar-title {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: auto;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #7A8670;
+  line-height: 50px; }
+
+.navbar-admin .container {
+  padding-right: 100px; }
+
+.navbar-logo {
+  height: 25px; }
+
 .section {
   width: 100%;
   padding-top: 75px;
@@ -10287,11 +10321,10 @@ a:hover, a:active, a:focus {
 
 a {
   color: #0D74FE; }
-
-a:hover {
-  color: #005BE5;
-  text-decoration: none;
-  font-weight: bold; }
+  a:hover, a:focus {
+    color: #005BE5;
+    text-decoration: none;
+    font-weight: 500; }
 
 ul {
   padding-left: 0px; }
@@ -10306,6 +10339,126 @@ ul {
   top: 0;
   width: 100%;
   z-index: 500; }
+
+#page-content {
+  background-color: #f5f5f5; }
+
+body {
+  width: 100%;
+  height: 100%; }
+
+.menu,
+.slideout-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  width: 256px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none; }
+
+.panel,
+.slideout-panel {
+  position: relative;
+  z-index: 1; }
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden; }
+
+.slideout-open .slideout-menu {
+  display: block; }
+
+body {
+  width: 100%;
+  height: 100%; }
+
+.menu,
+.slideout-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  width: 256px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none; }
+
+.panel,
+.slideout-panel {
+  position: relative;
+  z-index: 1; }
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden; }
+
+.slideout-open .slideout-menu {
+  display: block; }
+
+.menu {
+  background-color: #323A45;
+  background-image: linear-gradient(145deg, #323A45, #404348); }
+
+.menu a {
+  color: #fff; }
+
+.menu a:hover {
+  text-decoration: underline; }
+
+.menu-header {
+  height: 60px;
+  border-bottom: 1px solid #555555;
+  padding: 20px 0 20px 20px; }
+
+.menu-header img {
+  border-radius: 50%;
+  height: 32px;
+  margin-right: 15px; }
+
+.menu-header-title {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin: 0; }
+
+.menu-section {
+  margin: 25px 0; }
+
+.menu-section-title {
+  text-transform: uppercase;
+  color: #88929a;
+  font-weight: 200;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 0 20px;
+  margin: 0; }
+
+.menu-section-list {
+  padding: 0;
+  margin: 10px 0;
+  list-style: none; }
+
+.menu-section-list a {
+  display: block;
+  font-weight: 200;
+  padding: 10px 20px; }
+
+.menu-section-list a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: #F4F4F4; }
+
+.panel {
+  text-align: center;
+  padding-top: 5px;
+  min-height: 100%; }
 
 body {
   font-family: "Roboto", arial, sans-serif;

@@ -1,0 +1,23 @@
+.navbar-admin {
+  border-radius: 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+  height: 60px;
+  margin-bottom: 0px;
+  z-index: 5; }
+.navbar-admin .navbar-title {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: auto;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #7A8670;
+  line-height: 50px; }
+.navbar-admin .container {
+  padding-right: 100px; }
+.navbar-logo {
+  height: 25px; }

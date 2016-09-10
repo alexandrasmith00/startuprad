@@ -22,375 +22,7 @@ jQuery(document).ready(function($) {
             s.parentNode.insertBefore(wf, s);
         })();
 
-    // **---------------------------------------
-    // Left Bar and Right Bar Height Calculation
-    // **---------------------------------------
-    function AsideHeight() {
-        var wh = $(window).outerHeight(),
-            TopBarHeight = $('.topbar').height(),
-            calc_wh = wh - TopBarHeight;
-        $(".leftbar").css({
-            "height": calc_wh + "px"
-        });
-        $(".rightbar").css({
-            "height": calc_wh + "px"
-        });
-        $('.left-aside-container').slimscroll({
-            height: calc_wh,
-            width: "250px",
-            size: '4px',
-            color: 'rgba(255,255,255,.5)',
-            distance: '1px',
-            railVisible: true,
-            railColor: '#222',
-            railOpacity: 0.3,
-            wheelStep: 20,
-            borderRadius: '0px',
-            railBorderRadius: '0px',
-            allowPageScroll: false
-        });
-    }
 
-
-    // **------------------------------
-    // Rightbar Chat Height Calculation
-    // **------------------------------
-
-    function ChatHeight() {
-
-        var RightBarTabHeight = $(".rightbar-tab").outerHeight(),
-            ChatToolbarHeight = $(".chat-user-toolbar").outerHeight(),
-            TopSectionHeight = RightBarTabHeight + ChatToolbarHeight,
-            ConvToolbarHeight = $(".coversation-toolbar").outerHeight(),
-            ChatTextInput = $(".chat-text-input").outerHeight(),
-            ConvSectionHeight = ConvToolbarHeight + ChatTextInput;
-
-
-        var wh = $(window).outerHeight(),
-            TopBarHeight = $('.topbar').height(),
-            calc_wh = wh - TopBarHeight,
-            ChatContainerHeight = calc_wh - TopSectionHeight,
-            tabCon_h = wh - (TopBarHeight + RightBarTabHeight),
-            ConvContainerHeight = calc_wh - ConvSectionHeight;
-
-
-        $(".chat-user-container").css({
-            "height": ChatContainerHeight + "px"
-        });
-
-        $(".chat-user-container").slimscroll({
-            height: ChatContainerHeight,
-            width: "300px",
-            size: '4px',
-            color: 'rgba(000,000,000,.5)',
-            distance: '1px',
-            railVisible: true,
-            railColor: '#222',
-            railOpacity: 0.3,
-            wheelStep: 20,
-            borderRadius: '0px',
-            railBorderRadius: '0px',
-            allowPageScroll: false
-        });
-
-        // **------------------------
-        // Activities Timeline Height
-        // **------------------------
-        $(".activities-timeline, .rightbar .message-list-container, .rightbar .notification-wrap").css({
-            "height": tabCon_h + "px"
-        });
-        $(".activities-timeline").slimscroll({
-            height: tabCon_h,
-            width: "300px",
-            size: '4px',
-            color: 'rgba(000,000,000,.5)',
-            distance: '1px',
-            railVisible: true,
-            railColor: '#222',
-            railOpacity: 0.3,
-            wheelStep: 20,
-            borderRadius: '0px',
-            railBorderRadius: '0px',
-            allowPageScroll: false
-        });
-        $(".rightbar .message-list-container, .rightbar .notification-wrap").slimscroll({
-            height: tabCon_h,
-            width: "300px",
-            size: '4px',
-            color: 'rgba(000,000,000,.5)',
-            distance: '1px',
-            railVisible: true,
-            railColor: '#222',
-            railOpacity: 0.3,
-            wheelStep: 20,
-            borderRadius: '0px',
-            railBorderRadius: '0px',
-            allowPageScroll: false
-        });
-        $(".conversation-container").slimscroll({
-            height: ConvContainerHeight,
-            width: "300px",
-            size: '4px',
-            color: 'rgba(000,000,000,.5)',
-            distance: '1px',
-            railVisible: true,
-            railColor: '#222',
-            railOpacity: 0.3,
-            wheelStep: 20,
-            borderRadius: '0px',
-            railBorderRadius: '0px',
-            allowPageScroll: false
-        });
-
-    }
-
-    // **---------------------------
-    // Bootstrap Tooltip and Popover
-    // **---------------------------
-    $('[data-toggle="tooltip"]').tooltip();
-
-    // **----------
-    // Chat Popover
-    // **----------
-    $('[data-toggle="popover"]').popover();
-    $(".chat-user-list > li > div").popover({
-        html: true,
-        container: ".rightbar",
-        delay: {
-            "show": 100,
-            "hide": 100
-        }
-    });
-
-    // **------------------
-    // Popover Hide onClick
-    // **------------------
-    $('body').on('click', function(e) {
-        $('.chat-user-list > li > a').each(function() {
-            //the 'is' for buttons that trigger popups
-            //the 'has' for icons within a button that triggers a popup
-            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-                $(this).popover('hide');
-            }
-        });
-    });
-
-
-
-    // **----------------
-    // Velocity Animation
-    // **----------------
-    try {
-        $('.slidePanel').velocity({
-            translateX: "-100%"
-        }, 300, "swing");
-
-    } catch (err) {
-        console.log('velocity is not found');
-    }
-
-    // **------------
-    // Leftbar Toggle
-    // **------------
-    $(".left-toggle-switch").hammer().on("click touchstart", function(e) {
-        e.preventDefault();
-        if ($("body").hasClass("left-aside-toggle")) {
-            $("body").removeClass("left-aside-toggle");
-        } else {
-            $("body").addClass("left-aside-toggle");
-        }
-    });
-
-    // **-------------
-    // Rightbar Toggle
-    // **-------------
-    $(".right-toggle-switch").hammer().on("click touchstart", function(e) {
-        e.preventDefault();
-        if ($(".rightbar").hasClass("right-aside-toggle")) {
-            $(".rightbar").removeClass("right-aside-toggle");
-        } else {
-            $(".rightbar").addClass("right-aside-toggle");
-        }
-        $(window).trigger("resize");
-    });
-
-    // **-----------
-    // Mobile Topbar
-    // **-----------
-    $(".btn-mobile-bar").hammer().on("click touchstart", function(e) {
-        e.preventDefault();
-        if ($(".topbar-right").hasClass("bar-toggle")) {
-            $(".topbar-right").removeClass("bar-toggle");
-        } else {
-            $(".topbar-right").addClass("bar-toggle");
-        }
-    });
-
-    // **--------
-    // Search Bar
-    // **--------
-    $(".btn-top-search").hammer().on("click touchstart", function(e) {
-        e.preventDefault();
-        if ($(".top-search-bar").hasClass("search-bar-toggle")) {
-            $(".top-search-bar").removeClass("search-bar-toggle");
-        } else {
-            $(".top-search-bar").addClass("search-bar-toggle");
-        }
-    });
-
-    // **------------------
-    // Individual Chat Open
-    // **------------------
-    $(".chat-user-list > li > div, .chat-back").hammer().on("click touchstart", function(e) {
-        e.preventDefault();
-        if ($(".aside-chat-box").hasClass("right-chat-toggle")) {
-            $(".aside-chat-box").removeClass("right-chat-toggle");
-        } else {
-            $(".aside-chat-box").addClass("right-chat-toggle");
-        }
-    });
-
-    // **-------------------------
-    // Hide Elements On Body Click
-    // **-------------------------
-    $(document).on('click touchstart', function(e) {
-        if ($(e.target).closest(".right-aside-toggle").length === 0 && $(e.target).closest(".right-toggle-switch").length === 0) {
-            $(".rightbar").removeClass("right-aside-toggle");
-        }
-        if ($("body").hasClass("overlay-leftbar")) {
-            if ($(e.target).closest(".leftbar").length === 0 && $(e.target).closest(".left-toggle-switch").length === 0) {
-                $("body").removeClass("left-aside-toggle");
-            }
-        }
-        if ($(e.target).closest(".topbar-right").length === 0 && $(e.target).closest(".btn-mobile-bar").length === 0) {
-            $(".topbar-right").removeClass("bar-toggle");
-        }
-        if ($(e.target).closest(".top-search-bar").length === 0 && $(e.target).closest(".btn-top-search").length === 0) {
-            $(".top-search-bar").removeClass("search-bar-toggle");
-        }
-    });
-
-    // **-----------------------------------------------
-    // Notification Dropdpown Tab Will Not Close onClick
-    // **-----------------------------------------------
-    $('.notifications-tabs').on('click touchstart', '.nav-tabs a', function(e) {
-        e.preventDefault();
-        $(this).closest('.dropdown').addClass('dontClose');
-    });
-
-    $('.notifications-dropdown').on('hide.bs.dropdown', function(e) {
-        if ($(this).hasClass('dontClose')) {
-            e.preventDefault();
-        }
-        $(this).removeClass('dontClose');
-    });
-
-    // **---------------
-    // Leftbar Accordion
-    // **---------------
-
-    if ($.fn.navAccordion) {
-        $('.list-accordion').each(function() {
-            $(this).navAccordion({
-                eventType: 'click',
-                hoverDelay: 100,
-                autoClose: true,
-                saveState: false,
-                disableLink: true,
-                speed: 'fast',
-                showCount: false,
-                autoExpand: true,
-                classExpand: 'acc-current-parent'
-            });
-        });
-    }
-    $(document).on("mouseleave", ".iconic-leftbar", function() {
-        $(".list-accordion .dcjq-parent").removeClass('active');
-        $(".list-accordion .acc-parent-li .acc-parent").removeClass('active');
-        $(".list-accordion ul").hide();
-    });
-
-    // **--------
-    // Scroll Top
-    // **--------
-    if($.fn.scrollUp){
-        $.scrollUp({
-            scrollName: 'scrollTop', // Element ID
-            topDistance: '300', // Distance from top before showing element (px)
-            topSpeed: 300, // Speed back to top (ms)
-            animation: 'fade',
-            animationInSpeed: 200, // Animation in speed (ms)
-            animationOutSpeed: 200, // Animation out speed (ms)
-            scrollText: '<i class="fa fa-angle-up"></i>', // Text for element
-            activeOverlay: false // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-        });
-    }
-
-
-    var SyntaxHighlight = $.SyntaxHighlighter;
-    if (SyntaxHighlight) {
-        SyntaxHighlight.init({
-            'theme': 'balupton',
-            'themes': ['balupton']
-        });
-    }
-
-    // **---------------------
-    // Initialize both sidebar
-    // **---------------------
-    AsideHeight();
-    ChatHeight();
-
-    // **-----------
-    // Window Resize
-    // **-----------
-    $(window).smartresize(function() {
-        AsideHeight();
-        ChatHeight();
-    });
-    // **---------------
-    // Responsive Handle
-    // **---------------
-    var jRes = jRespond([{
-        label: 'handheld',
-        enter: 0,
-        exit: 767
-    }, {
-        label: 'tablet',
-        enter: 768,
-        exit: 979
-    }, {
-        label: 'laptop',
-        enter: 980,
-        exit: 1199
-    }, {
-        label: 'desktop',
-        enter: 1200,
-        exit: 10000
-    }]);
-
-    jRes.addFunc({
-        breakpoint: 'handheld',
-        enter: function() {
-            $(".dropdown").removeClass("open");
-            $(".rightbar").removeClass("right-aside-toggle");
-            $("body").addClass("isMobile");
-            $(document).on('click touchstart', function(e) {
-                if ($("body").hasClass("overlay-leftbar") || $("body").hasClass("isMobile")) {
-                    if ($(e.target).closest(".leftbar").length === 0 && $(e.target).closest(".left-toggle-switch").length === 0) {
-                        $("body").removeClass("left-aside-toggle");
-                    }
-                }
-            });
-        },
-        exit: function() {
-            $(".isMobile").removeClass("left-aside-toggle");
-            $(".rightbar").removeClass("right-aside-toggle");
-            $("body").removeClass("isMobile");
-        }
-    });
-
-    // **---------------------
     // Advanced Forms Elements
     // **---------------------
     /**
@@ -1405,7 +1037,7 @@ jQuery(document).ready(function($) {
 
 
     // **---------------
-    // Widgets Re Loader 
+    // Widgets Re Loader
     // **---------------
 
     var ThisLoad;
@@ -1988,7 +1620,7 @@ $(".spark-pie-chart").each(function(){
     try {
 
         $(".switch-mini").switchButton({
-            show_labels: false,			// Should we show the on and off labels?
+            show_labels: false,      // Should we show the on and off labels?
             on_label: 'C',
             off_label: 'F',
 //      on_callback: wc, //callback function that will be executed after going to on state
@@ -1999,7 +1631,7 @@ $(".spark-pie-chart").each(function(){
         });
 
         $(".switch-sm").switchButton({
-            show_labels: false,			// Should we show the on and off labels?
+            show_labels: false,      // Should we show the on and off labels?
             on_label: 'C',
             off_label: 'F',
 //      on_callback: wc, //callback function that will be executed after going to on state
@@ -2011,7 +1643,7 @@ $(".spark-pie-chart").each(function(){
 
 
         $(".switch-large").switchButton({
-            show_labels: false,			// Should we show the on and off labels?
+            show_labels: false,      // Should we show the on and off labels?
             on_label: 'C',
             off_label: 'F',
 //      on_callback: wc, //callback function that will be executed after going to on state
@@ -2022,7 +1654,7 @@ $(".spark-pie-chart").each(function(){
         });
 
         $(".switch-xs").switchButton({
-            show_labels: false,			// Should we show the on and off labels?
+            show_labels: false,      // Should we show the on and off labels?
             on_label: 'C',
             off_label: 'F',
 //      on_callback: wc, //callback function that will be executed after going to on state

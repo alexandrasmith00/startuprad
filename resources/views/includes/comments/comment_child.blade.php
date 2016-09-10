@@ -5,8 +5,8 @@
         </div>
         <div class="comment-user-info">
             <ul>
-                <li class="u-name">
-                    <a style="color:#17bab8;" href="#"><b>{{ $comment->user->name }}</b></a>
+                <li class="name">
+                    <a class="subtle" href="#">{{ $comment->user->name }}</a>
                     {{ $comment->body }}
                 </li>
                 <li class="comment-info">

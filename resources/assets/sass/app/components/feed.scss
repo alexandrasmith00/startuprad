@@ -1,4 +1,3 @@
-
 //Recent Comments
 .recent-comments-list{
   margin-left: -30px;
@@ -9,6 +8,8 @@
     border-bottom: #eee 1px solid;
   }
   .recent-comment-meta{
+    padding-left: 30px;
+    padding-right: 30px;
     display: table;
     width: 100%;
     position: relative;
@@ -34,20 +35,12 @@
           color: #666;
         }
       }
-      .u-name{
-        a{
-          color: #444;
-          &:hover,
-          &:focus{
-            text-decoration: none;
-          }
-        }
-      }
       .p-time{
         font-size: 12px;
       }
     }
   }
+
   .comment-text{
     margin-bottom: 25px;
     color: #666;

@@ -6,7 +6,7 @@
                     <?php echo $__env->make('includes.comments.comment', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 <?php endforeach; ?>
             <?php endif; ?>
-            
+
             <div id="post-<?php echo e($post->id); ?>-show"></div>
 
             <?php echo $__env->make('includes.comments.make', ['action' => 'Comment'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -19,7 +19,7 @@
 
 <?php $__env->startSection('scripts'); ?>
     @parent
-    
+
     <script id="add-the-comment" type="text/template">
         <div id="add-offset" class="recent-comments">
             <div class="recent-comment-meta">
@@ -28,17 +28,14 @@
                 </div>
                 <div class="comment-user-info">
                     <ul>
-                        <li class="u-name">
-                            <a style="color:#17bab8;" href="#"><b><span id="new-comment-name"></span></b></a> 
+                        <li class="name">
+                            <a href="#"><span id="new-comment-name"></span></a>
                             <span id="new-comment-content"></span>
                         </li>
                         <li class="comment-info">
-                            <span class="p-time"><i class="zmdi zmdi-time"></i> Now</span>
-
-
+                            <i class="zmdi zmdi-time"></i> Just Now
                             &nbsp; &middot; &nbsp;
-                            <span class="p-time"> <a id="reply-link" class="action-link reply-link">Reply</a></span>
-
+                            <a id="reply-link" class="action-link reply-link">Reply</a>
                         </li>
                     </ul>
                 </div>
@@ -47,7 +44,7 @@
     </script>
 
     <script id="add-the-reply-form" type="text/template">
-    
+
         <div id="add-comment-id"></div>
 
         <div style="display: none;"  id="new-reply" class="recent-comments ">
@@ -71,8 +68,5 @@
             </div>
         </div>
     </script>
-
-
-
 
 <?php $__env->stopSection(); ?>
