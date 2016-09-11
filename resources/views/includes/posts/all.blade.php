@@ -20,7 +20,7 @@
 
 <script>
   var infinite = new Waypoint.Infinite({
-    element: $('.infinite-container')[0]
+    element: $('.infinite-container')[0],
   })
 </script>
 

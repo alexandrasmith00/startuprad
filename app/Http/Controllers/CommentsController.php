@@ -32,14 +32,14 @@ class CommentsController extends Controller
         {
             $parent_post = Post::find($parent_id);
             $new_comment = $parent_post->comments()->create(['body' => $content, 'user_id' => Auth::user()->id]);
-        }   
+        }
         else if ($type == 'comment')
         {
             $parent_comment = Comment::find($parent_id);
             $new_comment = Comment::create(['body' => $content, 'user_id' => Auth::user()->id]);
             $new_comment->makeChildOf($parent_comment);
         }
-        
+
         return [$request->input(), Auth::user(), $new_comment];
     }
 }

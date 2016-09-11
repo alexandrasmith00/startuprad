@@ -1,39 +1,54 @@
   <script>
-      
-    function init() {
-        
+
+    function comments_init() {
+
         // autosize the input area on typing
         autosize($('textarea'));
-        
+
         // submit on enter
         $('#comment-box textarea').keydown(function(e) {
             if (e.keyCode == 13) {
                 e.preventDefault();
+
+              if ( $("#comment-box").parsley().isValid() ) {
                 makeComment($(this.form).serialize());
+              } else {
+                $(this).val('').attr("Placeholder", "Your comment needs some substance");
+              }
             }
         });
-        
+
         $('#click-post').click(function(e) {
+            console.log('click button');
             e.preventDefault();
-            makeComment($(this.form).serialize());
+            if ( $("#big-comment-box").parsley().isValid() ) {
+              makeComment($(this.form).serialize());
+            } else {
+              $('#big-comment-box textarea').val('').attr("Placeholder", "Your comment needs some substance");
+            }
         });
-        
+
         $('.thank-comment').click(function(e) {
             alert('thank');
         });
-        
-        
+
+
         // submit on enter
         $('#big-comment-box textarea').keydown(function(e) {
             if (e.keyCode == 13) {
                 e.preventDefault();
-                makeComment($(this.form).serialize());
-                $('#big-comment-box textarea').val('').attr("Placeholder", 'Adding your thought... ');
+
+                if ( $("#big-comment-box").parsley().isValid() ) {
+                  makeComment($(this.form).serialize());
+                } else {
+                  $(this).val('').attr("Placeholder", "Your comment needs some substance");
+                }
+
             }
         });
 
         // show reply form
-        $('.reply-link').click(function() { 
+        $('.reply-link').click(function() {
             $('[id*="reply-"]').hide();
 
             var reply_to = $(this).attr("id");
@@ -41,15 +56,15 @@
             $('#' + found).show();
         });
     }
-      
+
     function showReply(button) {
         $('[id*="reply-"]').hide();
         var reply_to = $(button).attr("id");
         var found = "reply-" + reply_to;
         $('#' + found).show();
-        
+
     }
-      
+
     function makeComment(data) {
 
       // Build POST data and make AJAX request
@@ -58,7 +73,7 @@
       // Ensure the normal browser event doesn't take place
       return false;
     }
-      
+
     function commentSuccess(data) {
         console.log(data);
         $('[id*="reply-"]').hide();
@@ -67,14 +82,14 @@
         $('#big-comment-box textarea').val('').attr("Placeholder", 'Add another thought');
 
     }
-      
+
     function showComment(data) {
 
         var message = data[0];
         var user = data[1];
         var new_c = data[2];
-        
-        // add information to comment 
+
+        // add information to comment
         var el = createCommentEl();
         var offset = "col-xs-offset-" + message['depth'];
         $('#' + message['comment-id'] + '-show').append(el);
@@ -83,17 +98,17 @@
         el.find('#new-comment-name').text(user['name']);
         el.addClass(offset);
         el.find('#reply-link').attr('id', data[2]['id']);
-        
+
         // add information to hidden new reply
         var reply_el = createReplyEl();
         var offset = parseInt(message['depth']) + 1;
         var reply_offset = "col-xs-offset-" + offset;
-        
+
         $('#' + message['comment-id'] + '-show').after(reply_el);
-        
+
         var change = $('#new-reply');
         var change_2 =  $('#add-comment-id')
-        
+
         change.attr('id', "reply-" + new_c['id']);
         change_2.attr('id', "comment-" + new_c['id'] + '-show');
         change.addClass(reply_offset);
@@ -102,22 +117,22 @@
 
     }
 
-      
+
     function createCommentEl() {
         var text = $('#add-the-comment').text();
         var el = $(text);
         return el;
-    }    
+    }
 
-      
+
     function createReplyEl() {
         var text = $('#add-the-reply-form').text();
         var el = $(text);
         return el;
-    }    
+    }
 
 
-      
-    $(init);
+
+    $(comments_init);
 
 </script>
