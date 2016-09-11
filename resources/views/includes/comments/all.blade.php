@@ -33,7 +33,7 @@
                             <span id="new-comment-content"></span>
                         </li>
                         <li class="comment-info">
-                            <i class="zmdi zmdi-time"></i> Just Now
+                            <i class="fa fa-clock-o"></i> Just Now
                             &nbsp; &middot; &nbsp;
                             <a id="reply-link" class="action-link reply-link">Reply</a>
                         </li>

@@ -11,7 +11,7 @@
 
                 </li>
                 <li class="comment-info">
-                    <i class="zmdi zmdi-time"></i>
+                    <i class="fa fa-clock-o"></i>
                     <?php echo e($comment->created_at->diffForHumans()); ?>
 
 

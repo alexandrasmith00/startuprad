@@ -11,7 +11,7 @@
 
                 </li>
                 <li class="comment-info">
-                    <span class="p-time"><i class="zmdi zmdi-time"></i>  <?php echo e($comment->created_at->diffForHumans()); ?></span>
+                    <span class="p-time"><i class="fa fa-clock-o"></i>  <?php echo e($comment->created_at->diffForHumans()); ?></span>
 
                     <?php if( Auth::user()->idea_id == $post->user->idea['id'] ): ?>
                         &nbsp; &middot; &nbsp;

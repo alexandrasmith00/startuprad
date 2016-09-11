@@ -10,7 +10,7 @@
                     {{ $comment->body }}
                 </li>
                 <li class="comment-info">
-                    <i class="zmdi zmdi-time"></i>
+                    <i class="fa fa-clock-o"></i>
                     {{ $comment->created_at->diffForHumans() }}
 
                     @if ( Auth::user()->idea_id == $post->user->idea['id'] )

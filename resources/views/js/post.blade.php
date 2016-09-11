@@ -27,7 +27,6 @@
         $.post('/addpost', data).success(postSuccess);
         $("#make-post-textarea").attr("placeholder", "{{ $placeholder }}");
 
-
         // Ensure the normal browser event doesn't take place
         return false;
       } else {
@@ -63,7 +62,6 @@
 
         var tag_html = "";
         for (var tag in tags) {
-            console.log(tags[tag]);
             tag_html += "<label class='label label-primary label-tag'>#" + tags[tag]['tag_slug'] + "</label>";
         }
 
