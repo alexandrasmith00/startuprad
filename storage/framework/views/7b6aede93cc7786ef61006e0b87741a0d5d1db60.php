@@ -6,54 +6,39 @@
         autosize($('textarea'));
 
         // submit on enter
-        $('#comment-box textarea').keydown(function(e) {
-            if (e.keyCode == 13) {
-                e.preventDefault();
+      $('body').on('keydown', 'textarea[name="message"]', function(e) {
 
-              if ( $("#comment-box").parsley().isValid() ) {
-                makeComment($(this.form).serialize());
-              } else {
-                $(this).val('').attr("Placeholder", "Your comment needs some substance");
-              }
+          if (e.keyCode == 13) {
+            e.preventDefault();
+
+            if ( $(this.form).parsley().isValid() ) {
+              makeComment($(this.form).serialize());
+            } else {
+              $(this).val('').attr("Placeholder", "Your comment needs some substance");
             }
+          }
         });
 
-        $('#click-post').click(function(e) {
-            console.log('click button');
+        $('body').on('keydown', 'button[name="click-post"]', function(e) {
             e.preventDefault();
             if ( $("#big-comment-box").parsley().isValid() ) {
               makeComment($(this.form).serialize());
             } else {
-              $('#big-comment-box textarea').val('').attr("Placeholder", "Your comment needs some substance");
+              $(this.form).find('textarea').val('').attr("Placeholder", "Your comment needs some substance");
             }
         });
 
-        $('.thank-comment').click(function(e) {
-            alert('thank');
-        });
 
-
-        // submit on enter
-        $('#big-comment-box textarea').keydown(function(e) {
-            if (e.keyCode == 13) {
-                e.preventDefault();
-
-                if ( $("#big-comment-box").parsley().isValid() ) {
-                  makeComment($(this.form).serialize());
-                } else {
-                  $(this).val('').attr("Placeholder", "Your comment needs some substance");
-                }
-
-            }
+        $('body').on('click', '.thank-comment', function(e) {
+          alert('thank');
         });
 
         // show reply form
-        $('.reply-link').click(function() {
-            $('[id*="reply-"]').hide();
-
-            var reply_to = $(this).attr("id");
-            var found = "reply-" + reply_to;
-            $('#' + found).show();
+        $('body').on('click', '.reply-link', function(e) {
+          $('[id*="reply-"]').hide();
+          var reply_to = $(this).attr("id");
+          var found = "reply-" + reply_to;
+          $('#' + found).show();
         });
     }
 
@@ -75,7 +60,6 @@
     }
 
     function commentSuccess(data) {
-        console.log(data);
         $('[id*="reply-"]').hide();
         $('[id*="reply-"]').find('textarea').val('');
         showComment(data);
