@@ -21,7 +21,7 @@
 
         $('body').on('keydown', 'button[name="click-post"]', function(e) {
             e.preventDefault();
-            if ( $("#big-comment-box").parsley().isValid() ) {
+          if ( $(this.form).parsley().isValid() ) {
               makeComment($(this.form).serialize());
             } else {
               $(this.form).find('textarea').val('').attr("Placeholder", "Your comment needs some substance");
