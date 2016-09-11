@@ -1,71 +1,57 @@
 <?php $__env->startSection('content'); ?>
 
-
 <section class="section">
-
   <div class="container">
-    <div id="details" class="row">
-      <div class="col-md-3">
-        <h2 class="section-heading">Login<span class="border"></span></h2>
-      </div>
-      <div class="col-md-8 col-md-push-1">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
 
-            <form  id="form-logins"  class="j-forms" role="form" method="POST" action="<?php echo e(url('/login')); ?>" novalidate>
+        <div class="show-form">
 
-              <div style="text-align: center;">
-                <h3 class="brand">Startup Rad</h1>
-              </div>
+            <form id="apply-form" class="form-inline" method="POST" action="/" data-parsley-validate>
+                <h3>Sign In</h3>
+                <p class="section-description">Log in to the Startup RAD dashboard.</p>
 
-              <div class="login-form-content">
-
-                <div class="unit">
-                  <div class="input login-input form-group">
-                    <input class="form-control login-frm-input"  type="email" id="login" name="email" value="<?php echo e(old('email')); ?>" placeholder="Email">
-
-                    <?php if($errors->has('email')): ?>
-                    <span class="help-block">
-                      <strong><?php echo e($errors->first('email')); ?></strong>
-                    </span>
-                    <?php endif; ?>
+                <div class="form-line form-labels">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <input data-parsley-required id="login" type="email" class="form-control input-one" name="email" placeholder="Email Address" value="<?php echo e(old('email')); ?>">
+                    </div>
                   </div>
                 </div>
 
-                <div class="unit">
-                  <div class="input login-input">
-                    <label class="icon-left" for="password">
-                      <i class="zmdi zmdi-key"></i>
-                    </label>
-                    <input class="form-control login-frm-input"  type="password" id="password" name="password" placeholder="Password">
-                    <span class="hint">
-                      <a  href="<?php echo e(url('/password/reset')); ?>" class="link">Forgot password?</a>
-                    </span>
+                <div class="form-line form-labels">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <input data-parsley-required  type="password" class="form-control input-one" name="password" placeholder="Password">
+                    </div>
                   </div>
                 </div>
 
-                <div class="unit">
-                  <label class="checkbox">
-                    <input type="checkbox" name="logged" value="true" checked="">
-                    <i></i>
-                    Keep me logged in
-                  </label>
+                <div class="form-line form-labels">
+                  <div class="row">
+                    <div class="col-xs-12">
+                        <input type="checkbox" name="logged" value="true" checked=""> Keep me logged in
+
+                    </div>
+                  </div>
                 </div>
 
-              </div>
 
-              <div class="login-form-footer">
-                <button type="submit" class="btn-block btn">Sign in</button>
-              </div>
 
+
+                <button id="apply-button" class="btn oversized-btn btn-blue" type="submit">Sign in</button>
             </form>
-          </div>
+
+
+
+            <div style="margin-top: 25px; text-align: center;" class="link">
+              <a  href="<?php echo e(url('/password/reset')); ?>" class="link">Forgot password?</a>
+            </div>
         </div>
+
       </div>
     </div>
   </div>
-
-
 </section>
 
 
