@@ -26,6 +26,6 @@ class CreateNewUser
      */
     public function handle(StudentInvited $event)
     {
-        //
+        $event->
     }
 }
