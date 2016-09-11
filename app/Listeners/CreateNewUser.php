@@ -6,6 +6,8 @@ use App\Events\StudentInvited;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+use App\Models\User, App\Models\Role;
+
 class CreateNewUser
 {
     /**
@@ -26,6 +28,12 @@ class CreateNewUser
      */
     public function handle(StudentInvited $event)
     {
-        $event->
+        $user = User::create([
+          'first' => $event->applicant->first,
+          'last' => $event->applicant->last,
+          'name' => $event->applicant->first . ' ' . $event->applicant->last,
+          'email' => $event->applicant->email,
+          'applicant' => $event->applicant->id
+        ]);
     }
 }

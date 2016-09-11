@@ -160,7 +160,7 @@
 
 <?php echo $__env->make('demo.team', ['team' => 'Prudence', 'people' => 'Rohan Pavuluri & Milton Syed', 'logo' => "https://s3.amazonaws.com/startuprad/img/31/1461272247.png", 'description' => 'Legal aid reinvented.', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
                                     
-<?php echo $__env->make('demo.team', ['team' => 'Shackleton', 'people' => 'Evan Gastman, Greg Hewett, & Antuan Tran', 'logo' => "https://s3.amazonaws.com/startuprad/img/42/1461274061.png", 'description' => '', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
+<?php echo $__env->make('demo.team', ['team' => 'Shackleton', 'people' => 'Evan Gastman, Greg Hewett, & Antuan Tran', 'logo' => "https://s3.amazonaws.com/startuprad/img/42/1461274061.png", 'description' => 'We love adventure cyclists.', 'email' => '', 'web' => ""], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
                                     
 <?php echo $__env->make('demo.team', ['team' => 'Students of Strength', 'people' => 'Rahsaan King', 'logo' => "https://s3.amazonaws.com/startuprad/img/36/1461022301.png", 'description' => 'Students of Strength is a community of scholars from Ivy League and top tier Universities who serve as online academic coaches and mentors for students nationwide.', 'email' => 'rking@studentsofstrength.com', 'web' => "studentsofstrength.com"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>   
    

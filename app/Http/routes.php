@@ -2,37 +2,36 @@
 
 Route::group(['middleware' => 'web'], function () {
 
+    // Home
+    Route::get('/', ['as' => 'feed', 'uses' => 'PagesController@index']);
 
-    // feed and comments
+    // Feed
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'FeedController@index']);
 
-
-    Route::get('/', ['as' => 'feed', 'uses' => 'PagesController@index']);
-//    Route::post('/', ['as' => 'apply', 'uses' => 'PagesController@apply']); // can
-
-
-    Route::get('/pdf', ['as' => 'feed', 'uses' => 'PagesController@pdf']);
-
-    Route::get('/home', function() { return redirect()->route('feed'); });
-    Route::get('/demoday', ['as' => 'demoday', 'uses' => 'PagesController@demo']);
-
-    Route::post('/bugreport', ['as' => 'bug.create', 'uses' => 'FeedController@bugreport']);
+    // Posts and comments
     Route::post('addpost', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
     Route::post('/update', 'ProjectsController@update');
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
 
-    // update pieces of profile
-    Route::auth();
+    // Developmental links
+    Route::post('/bugreport', ['as' => 'bug.create', 'uses' => 'FeedController@bugreport']);
 
-    // user specific pages
+    // Application routes
+    Route::post('/', ['as' => 'apply', 'uses' => 'PagesController@apply']); // can
+    Route::get('/pdf', ['as' => 'feed', 'uses' => 'PagesController@pdf']);
+
+    // User account pages
     Route::controller('/account', 'UsersController');
 
-    // anything to do with projects and ideas
+    // Projects pages
     Route::group(['prefix' => 'project'], function () {
-        Route::get('/', ['as' => 'messages', 'uses' => 'ProjectsController@index']);
-        Route::post('/add', ['as' => 'messages.add', 'uses' => 'ProjectsController@add']);
+        Route::get('/', ['as' => 'projects', 'uses' => 'ProjectsController@index']);
+        Route::post('/add', ['as' => 'project.add', 'uses' => 'ProjectsController@add']);
         Route::get('{id}', ['as' => 'project.show', 'uses' => 'ProjectsController@show']);
     });
+
+    // Login, resets, etc.
+    Route::auth();
 
 });
 
