@@ -1,0 +1,12 @@
+.organization-nav {
+  width: 25%;
+  text-align: center;
+
+  a {
+    color: $text-gray;
+  }
+
+  &.active > a {
+    color: $blue;
+  }
+}

@@ -18,6 +18,13 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\SendConfirmationEmails',
             'App\Listeners\SendApplicationEmail',
         ],
+
+        'App\Events\StudentInvited' => [
+          'App\Listeners\CreateNewUser',
+          'App\Listeners\AddToTeam',
+          'App\Listeners\SetupOnboarding',
+          'App\Listeners\SendInviteEmail',
+        ],
     ];
 
     /**

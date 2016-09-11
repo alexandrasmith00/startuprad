@@ -9001,13 +9001,8 @@ Copyright (c) 2015 Daniel Eden
   padding-left: 30px;
   padding-right: 30px; }
 
-.organization-nav {
-  width: 25%;
-  text-align: center; }
-
 .emph {
-  color: #17bab8;
-  font-weight: bold; }
+  color: #0D74FE; }
 
 #add-border {
   border-bottom: #eee 1px solid;
@@ -9145,6 +9140,14 @@ div.tagsinput div {
 .comment-info {
   font-size: 12px;
   padding-top: 2px; }
+
+.organization-nav {
+  width: 25%;
+  text-align: center; }
+  .organization-nav a {
+    color: #5F666C; }
+  .organization-nav.active > a {
+    color: #0D74FE; }
 
 .widget-wrap {
   background-color: #fff;
