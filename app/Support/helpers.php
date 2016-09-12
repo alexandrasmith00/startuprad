@@ -16,3 +16,12 @@ function hello_token($length)
 
   return $token;
 }
+
+
+// DISPLAY
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+function name_view($name)
+{
+  $name = preg_replace('/(?<!\ )[A-Z]/', ' $0', $name);
+  return strtolower($name);
+}

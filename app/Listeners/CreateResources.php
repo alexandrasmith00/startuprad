@@ -5,6 +5,8 @@ namespace App\Listeners;
 use App\Events\NewThinking;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Models\Resource;
+use Log;
 
 class CreateResources
 {
@@ -26,6 +28,13 @@ class CreateResources
      */
     public function handle(NewThinking $event)
     {
-        //
+        foreach ($event->resources as $descriptor => $value)
+        {
+          Resource::create([
+            'descriptor' => $descriptor,
+            'value' => $value,
+            'thinking' => $event->thinking->idea_id
+          ]);
+        }
     }
 }

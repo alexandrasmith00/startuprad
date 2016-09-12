@@ -5,28 +5,21 @@ namespace App\Events;
 use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use App\Models\Resource;
 
-class NewThinking extends Event
+class ResourceCreated extends Event
 {
     use SerializesModels;
 
-    public $idea;
-    public $name;
-    public $resources;
-    public $thinking;
-    public $author;
-
+    public $resource;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($idea, $name, $resources, $author)
+    public function __construct(Resource $resource)
     {
-        $this->idea = $idea;
-        $this->name = $name;
-        $this->resources = $resources;
-        $this->author = $author;
+        $this->resource = $resource;
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Events\StudentInvited;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\Idea;
+use App\Events\NewThinking;
 
 class CreateIdea
 {
@@ -38,6 +39,12 @@ class CreateIdea
           'name' => $app->team,
           'application' => $app->id
         ]);
+
+        event(new NewThinking($idea, 'site', ["Site" => $app->url], $event->user));
+        event(new NewThinking($idea, 'site', ["Site" => $app->url], $event->user));
+        event(new NewThinking($idea, 'site', ["Site" => $app->url], $event->user));
+        event(new NewThinking($idea, 'site', ["Site" => $app->url], $event->user));
+
       }
 
     }
