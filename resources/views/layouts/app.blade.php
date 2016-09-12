@@ -6,6 +6,9 @@
   </head>
   <body>
 
+    @include('layouts.general.banner')
+
+
     <nav id="menu" class="menu slideout-menu">
       @include('layouts.admin.sidebar')
     </nav>

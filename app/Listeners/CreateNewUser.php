@@ -28,12 +28,12 @@ class CreateNewUser
      */
     public function handle(StudentInvited $event)
     {
-        $user = User::create([
+        $this->user = User::firstOrCreate([
           'first' => $event->applicant->first,
           'last' => $event->applicant->last,
           'name' => $event->applicant->first . ' ' . $event->applicant->last,
           'email' => $event->applicant->email,
-          'applicant' => $event->applicant->id
+          'applicant' => $event->applicant->id,
         ]);
     }
 }

@@ -2,13 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\StudentInvited;
+use App\Events\NewThinking;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Models\Applications\Application;
-use App\Models\Idea;
 
-class AddToTeam
+class CreateResources
 {
     /**
      * Create the event listener.
@@ -23,14 +21,11 @@ class AddToTeam
     /**
      * Handle the event.
      *
-     * @param  StudentInvited  $event
+     * @param  NewThinking  $event
      * @return void
      */
-    public function handle(StudentInvited $event)
+    public function handle(NewThinking $event)
     {
-
-
-
-        // Associate team with applicant
+        //
     }
 }

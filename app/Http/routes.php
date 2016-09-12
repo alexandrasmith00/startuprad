@@ -20,6 +20,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/', ['as' => 'apply', 'uses' => 'PagesController@apply']); // can
     Route::get('/pdf', ['as' => 'feed', 'uses' => 'PagesController@pdf']);
 
+    // Invitations
+    Route::get('/student-invite', 'OnboardingController@studentInvite')->name('student-invite');
+    Route::post('/advisor-invite', 'OnboardingController@advisorInvite')->name('advisor-invite');
+
     // User account pages
     Route::controller('/account', 'UsersController');
 

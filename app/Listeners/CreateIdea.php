@@ -5,10 +5,9 @@ namespace App\Listeners;
 use App\Events\StudentInvited;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Models\Applications\Application;
 use App\Models\Idea;
 
-class AddToTeam
+class CreateIdea
 {
     /**
      * Create the event listener.
@@ -28,9 +27,18 @@ class AddToTeam
      */
     public function handle(StudentInvited $event)
     {
+      // Get applicants startup application
+      $app = $event->applicant->application()->first();
 
+      // Check if an idea has already been created for the idea
+      if (Idea::where('application', $app->id)->exists() )
+        $idea = Idea::where('application', $app->id)->first();
+      else { // If not, create one
+        $idea = Idea::create([
+          'name' => $app->team,
+          'application' => $app->id
+        ]);
+      }
 
-
-        // Associate team with applicant
     }
 }

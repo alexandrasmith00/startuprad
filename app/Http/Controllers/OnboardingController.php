@@ -10,10 +10,13 @@ use Illuminate\Support\Facades\Auth;
 // use these Models
 use App\Models\User, App\Models\Role;
 use App\Models\Onboard\AccountSetup;
+use App\Models\Applications\Applicant;
 use App\Models\Checklist\Checklist, App\Models\Checklist\Todo;
 
+use App\Events\StudentInvited;
+
 // use these class Aliases
-use Validator, Mail, Carbon;
+use Validator, Mail, Carbon, Log;
 
 // use these
 use App\Http\Controllers\Controller;
@@ -23,7 +26,6 @@ class OnboardingController extends Controller
 
   public $step_one = ['Add your name'];
   public $step_two = ['Attach accounts'];
-  public $step_three = ['Show stuff'];
 
 
   /**
@@ -35,9 +37,13 @@ class OnboardingController extends Controller
   {
   }
 
-  public function start()
+  public function studentInvite()
   {
-    return view('onboard.phone');
+    Log::info('in student invite');
+
+      $applicant = Applicant::where('id', 56)->first();
+      event (new StudentInvited($applicant));
+      return redirect()->back()->with('flash-message', $applicant->first . ' has been invited to join Startup RAD.');
   }
 
   public function confirm($token)

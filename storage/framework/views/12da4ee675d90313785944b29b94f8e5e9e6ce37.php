@@ -6,6 +6,9 @@
   </head>
   <body>
 
+    <?php echo $__env->make('layouts.general.banner', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
     <nav id="menu" class="menu slideout-menu">
       <?php echo $__env->make('layouts.admin.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     </nav>

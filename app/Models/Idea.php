@@ -10,6 +10,10 @@ class Idea extends Model
     protected $table = 'ideas';
     public $timestamps = false;
 
+    protected $fillable = [
+      'name', 'logo', 'application'
+    ];
+
     /**
      * Get the team from an idea
      */
@@ -17,7 +21,7 @@ class Idea extends Model
     {
         return $this->hasOne('App\Models\Team');
     }
-//    public function people() 
+//    public function people()
 //    {
 //        return $this->hasManyThrough('App\Models\Team', 'App\Models\User');
 //    }
@@ -26,8 +30,8 @@ class Idea extends Model
     {
         return $this->hasMany('App\Models\Thinking');
     }
-   
-    
-   
+
+
+
 
 }

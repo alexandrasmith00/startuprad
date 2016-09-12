@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php echo $__env->make('layouts.admin.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('layouts.outside.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </head>
   <body>
     <section class="section">

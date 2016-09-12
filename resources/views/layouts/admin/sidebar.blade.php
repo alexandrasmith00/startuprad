@@ -41,6 +41,8 @@
     <li><a href="">Analytics</a></li>
     @if (Auth::user()->hasRole('Admin'))
     <li><a href="">Advisors</a></li>
+    <li><a href="{{ route('student-invite') }}">Student Invite Test</a></li>
+
     @endif
   </ul>
 </section>

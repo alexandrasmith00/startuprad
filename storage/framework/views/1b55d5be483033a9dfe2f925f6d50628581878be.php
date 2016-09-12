@@ -41,6 +41,8 @@
     <li><a href="">Analytics</a></li>
     <?php if(Auth::user()->hasRole('Admin')): ?>
     <li><a href="">Advisors</a></li>
+    <li><a href="<?php echo e(route('student-invite')); ?>">Student Invite Test</a></li>
+
     <?php endif; ?>
   </ul>
 </section>

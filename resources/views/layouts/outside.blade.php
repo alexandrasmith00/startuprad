@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('layouts.admin.head')
+    @include('layouts.outside.head')
 </head>
   <body>
     <section class="section">

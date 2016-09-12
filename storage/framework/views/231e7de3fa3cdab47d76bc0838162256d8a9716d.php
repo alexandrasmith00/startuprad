@@ -2,7 +2,7 @@
 
 <div id="banner" class="collapse">
   <div class="container">
-    <div style="margin-bottom: 0px;" class="alert" role="alert">
+    <div style="margin-bottom: 5px; margin-top: 5px;" class="alert" role="alert">
       <button type="button" class="close" data-toggle="collapse" data-target="#banner" aria-label="Close">
         <span>&times;</span>
       </button>
