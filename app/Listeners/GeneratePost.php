@@ -6,6 +6,7 @@ use App\Events\NewThinking;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\Post;
+use Log;
 
 class GeneratePost
 {
@@ -25,19 +26,23 @@ class GeneratePost
      * @param  NewThinking  $event
      * @return void
      */
-    public function handle(ResourceCreated $event)
+    public function handle(NewThinking $event)
     {
         // Generate the content
-        if ($content == "")
-          $content = $resource->descriptor . ": " . $resource->value;
-        else
-          $content .= "\r\n" . $resource->descriptor . ": " . $resource->value;
+        $content = "";
+        foreach ($event->resources as $descriptor => $value) {
+          if ($content == "")
+            $content = $descriptor . ": " . $value;
+          else
+            $content .= "\r\n" . $descriptor . ": " . $value;
+        }
 
+        Log::info($event->author);
 
         $post = Post::create([
           'user_id' => $event->author->id,
           'idea_id' => $event->idea->id,
-          'title' => " updated its " .  . ".",
+          'title' => " updated its " . name_view($event->name)  . ".",
           'content' => $content,
           'type'=> 'update'
         ]);

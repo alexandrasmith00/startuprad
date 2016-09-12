@@ -28,7 +28,7 @@ class CreateNewUser
      */
     public function handle(StudentInvited $event)
     {
-        $this->user = User::firstOrCreate([
+        $event->user = User::firstOrCreate([
           'first' => $event->applicant->first,
           'last' => $event->applicant->last,
           'name' => $event->applicant->first . ' ' . $event->applicant->last,

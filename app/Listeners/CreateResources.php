@@ -33,7 +33,7 @@ class CreateResources
           Resource::create([
             'descriptor' => $descriptor,
             'value' => $value,
-            'thinking' => $event->thinking->idea_id
+            'thinking_id' => $event->thinking->id,
           ]);
         }
     }

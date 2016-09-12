@@ -34,9 +34,6 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\NewThinking' => [
           'App\Listeners\CreateThinking',
           'App\Listeners\CreateResources',
-        ],
-
-        'App\Events\ResourceCreated' => [
           'App\Listeners\GeneratePost',
         ],
 
