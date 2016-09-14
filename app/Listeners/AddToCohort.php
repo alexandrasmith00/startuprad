@@ -5,11 +5,9 @@ namespace App\Listeners;
 use App\Events\StudentInvited;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Models\Applications\Application;
-use App\Models\TeamUser, App\Models\Team;
-use DB;
+use App\Models\Cohort, App\Models\Cohorts\CohortIdea, App\Models\Cohorts\CohortUser;
 
-class AddToTeam
+class AddToCohort
 {
     /**
      * Create the event listener.
@@ -29,11 +27,12 @@ class AddToTeam
      */
     public function handle(StudentInvited $event)
     {
-        // Generate team for the idea
-        $team = Team::firstOrNew(['idea_id' => $event->idea->id]);
+      // Generate team for the idea
+      $cohort = Cohort::firstOrNew(['name' => 'Fall 2016']);
 
-        // Add applicant to team
-        $user = TeamUser::firstOrNew(['team_id' => $team->id, 'user_id' => $event->user->id]);
+      $cohortIdea = CohortIdea::firstOrCreate(['idea_id' => $event->idea->id, 'cohort_id' => $cohort->id]);
+
+      $cohortUser = CohortUser::firstOrCreate(['user_id' => $event->user->id, 'cohort_id' => $cohort->id]);
 
     }
 }

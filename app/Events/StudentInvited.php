@@ -14,6 +14,7 @@ class StudentInvited extends Event
 
     public $applicant;
     public $user;
+    public $idea;
 
     /**
      * Create a new event instance.

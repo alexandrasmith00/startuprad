@@ -9,6 +9,8 @@ class Team extends Model
     protected $table = 'teams';
     public $timestamps = false;
 
+    protected $fillable = ['idea_id'];
+
     /**
      * Get the roles a user has
      */
@@ -16,7 +18,7 @@ class Team extends Model
     {
         return $this->belongsToMany('App\Models\User', 'teams_users');
     }
-    
+
     /**
      * Get the ideas a team has
      */
@@ -25,5 +27,5 @@ class Team extends Model
         return $this->belongsTo('App\Models\Idea');
     }
 
- 
+
 }

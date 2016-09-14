@@ -21,7 +21,7 @@ use App\Models\Resource;
 
 class ProjectsController extends Controller
 {
-     
+
     var $pusher;
     var $user;
     var $chatChannel;
@@ -34,7 +34,7 @@ class ProjectsController extends Controller
     const DEFAULT_COMMENT_CHANNEL = 'comment';
     const DEFAULT_EDITS_CHANNEL = 'edits';
 
-    
+
     /**
      * Create a new controller instance.
      *
@@ -51,7 +51,7 @@ class ProjectsController extends Controller
         $this->EDITSChannel = self::DEFAULT_EDITS_CHANNEL;
 
     }
-    
+
 
     /**
      * Show the application dashboard.
@@ -62,7 +62,7 @@ class ProjectsController extends Controller
     {
         return view('projects.index');
     }
-    
+
     /**
      * Show the application dashboard.
      *
@@ -72,19 +72,19 @@ class ProjectsController extends Controller
     {
         $editsChannel = 'edits' . $index .'Channel';
         $project = Idea::where('id', $index)->first();
-        
+
         $posts = Post::where('idea_id', $project->id)->orderBy('created_at', 'desc')->paginate(10);
 
         $isYours = false;
         if( Auth::user()->hasProject($index) )
-            $isYours = true; 
-        
+            $isYours = true;
+
         $this_profile = new Profile();
-        
+
         foreach ($project->thinkings as $thinking) {
 
             if ($thinking->name == 'teamMember' and $thinking->current == 1)
-                array_push($this_profile->team, $thinking->resources);   
+                array_push($this_profile->team, $thinking->resources);
             if ($thinking->name == 'name' and $thinking->current == 1)
                 $this_profile->name = $thinking->resources[0];
             if ($thinking->name == 'tagline' and $thinking->current == 1)
@@ -96,7 +96,7 @@ class ProjectsController extends Controller
             if ($thinking->name == 'facebook' and $thinking->current == 1)
                 $this_profile->facebook = $thinking->resources[0];
             if ($thinking->name == 'twitter' and $thinking->current == 1)
-                $this_profile->twitter = $thinking->resources[0];            
+                $this_profile->twitter = $thinking->resources[0];
             if ($thinking->name == 'linkedIn' and $thinking->current == 1)
                 $this_profile->linkedin = $thinking->resources[0];
             if ($thinking->name == 'contact' and $thinking->current == 1)
@@ -106,9 +106,9 @@ class ProjectsController extends Controller
             if ($thinking->name == 'lawyers' and $thinking->current == 1)
                 $this_profile->lawyers = $thinking->resources[0];
             if ($thinking->name == 'advisor' and $thinking->current == 1)
-                array_push($this_profile->advisors,  $thinking->resources[0]->value);   
+                array_push($this_profile->advisors,  $thinking->resources[0]->value);
             if ($thinking->name == 'partnership' and $thinking->current == 1)
-                array_push($this_profile->partners, $thinking->resources[0]->value);   
+                array_push($this_profile->partners, $thinking->resources[0]->value);
             if ($thinking->name == 'fundingRound' and $thinking->current == 1)
                 $this_profile->fundinground = $thinking->resources[0];
             if ($thinking->name == 'outsideInvestors' and $thinking->current == 1)
@@ -126,7 +126,7 @@ class ProjectsController extends Controller
             if ($thinking->name == 'customer' and $thinking->current == 1)
                 $this_profile->customer = $thinking->resources[0];
             if ($thinking->name == 'demands' and $thinking->current == 1)
-                $this_profile->demands = $thinking->resources[0];            
+                $this_profile->demands = $thinking->resources[0];
             if ($thinking->name == 'product' and $thinking->current == 1)
                 $this_profile->product = $thinking->resources[0];
             if ($thinking->name == 'value' and $thinking->current == 1)
@@ -134,7 +134,7 @@ class ProjectsController extends Controller
             if ($thinking->name == 'usecase' and $thinking->current == 1)
                 $this_profile->usecase = $thinking->resources[0];
             if ($thinking->name == 'market' and $thinking->current == 1)
-                $this_profile->market = $thinking->resources[0];            
+                $this_profile->market = $thinking->resources[0];
             if ($thinking->name == 'competition' and $thinking->current == 1)
                 $this_profile->competition = $thinking->resources[0];
             if ($thinking->name == 'marketing' and $thinking->current == 1)
@@ -146,7 +146,7 @@ class ProjectsController extends Controller
         return view('projects.show', compact('project', 'editsChannel', 'isYours', 'posts', 'this_profile'));
 
     }
-    
+
     public function add(Request $request)
     {
         $message = 'hey there';
@@ -156,14 +156,14 @@ class ProjectsController extends Controller
         $this->pusher->trigger($editsChannel, 'something-edited', $message);
 
     }
-    
+
     public function old_update(Request $request)
     {
         $project_id = $request->input('id');
         $editsChannel = 'edits' . $project_id .'Channel';
         $field_name = $request->input('field');
         $new_value = $request->input('new_val');
-        
+
         // update current of current thinking to 0
         $category= DB::table('categories')->where('name', $field_name)->first();
 
@@ -171,13 +171,13 @@ class ProjectsController extends Controller
             ->where('category_id', '=', $category->id)
             ->where('idea_id', '=', $project_id)
             ->update(['current' => 0]);
-              
+
 
         $new_thinking = new Thinking;
 
         $new_thinking->category_id = $category->id;
         $new_thinking->idea_id = $project_id;
-        $new_thinking->body = $new_value;   
+        $new_thinking->body = $new_value;
         $new_thinking->current = 1;
 
         $new_thinking->save();
@@ -189,34 +189,34 @@ class ProjectsController extends Controller
             'field' => $field_name,
             'new_val' => $new_value
         ];
-        
+
         $this->pusher->trigger($editsChannel, 'something-edited', $updated);
     }
-    
+
     public function update(Request $request)
     {
         $idea = $request->input('idea_id');
-        
+
         if ($request->input('type') == 'name')
         {
             $this->update_resource($idea, $request->input('type'), 'name', 'name', [['Name', $request->input('name')]]);
             Idea::where('id', $idea)->update(['name' => $request->input('name')]);
         }
-         
+
         if ($request->input('type') == 'tagline')
            $this->update_resource($idea, $request->input('type'), 'tagline', 'tagline', [['Tagline', $request->input('tagline')]]);
-                
+
         if ($request->input('type') == 'logo')
         {
             $file = $this->upload_image($request->file('logo'));
             $this->update_resource($idea, $request->input('type'), 'logo', 'logo', [['Logo', (env('FILE_BASE') . $file)]]);
             Idea::where('id', $idea)->update(['logo' => (env('FILE_BASE') . $file)]);
         }
-        
+
         if ($request->input('type') == 'website')
             $this->update_resource($idea, $request->input('type'), 'site', 'website', [['Site', $request->input('site')]] );
-        
-                
+
+
         if ($request->input('type') == 'social')
         {
             if ($request->input('site') != "")
@@ -230,7 +230,7 @@ class ProjectsController extends Controller
             if ($request->input('contact_email') != "")
               $this->update_resource($idea, $request->input('type'), 'contact', 'contact email', [['Email', $request->input('contact_email')]]);
         }
-        
+
         if ($request->input('type') == 'newteam')
         {
             $this->update_resource($idea, 'teamMember', 'teamMember', 'team member', [
@@ -240,46 +240,46 @@ class ProjectsController extends Controller
             ], true);
 
         }
-        
-          
+
+
         if ($request->input('type') == 'editteam')
         {
             $new_name = $request->input('team-name');
             $new_email = $request->input('team-email');
             $new_role = $request->input('team-role');
-            
+
             if ($new_name == "")
                 $new_name = Resource::where('thinking_id', $request->input('resource_id'))->where('Descriptor', 'Name')->value('value');
-            
+
             if ($new_email == "")
                 $new_email = Resource::where('thinking_id', $request->input('resource_id'))->where('Descriptor', 'Email')->value('value');
 
             if ($new_role == "")
-                $new_role = Resource::where('thinking_id', $request->input('resource_id'))->where('Descriptor', 'Role')->value('value');   
-            
+                $new_role = Resource::where('thinking_id', $request->input('resource_id'))->where('Descriptor', 'Role')->value('value');
+
             $this->update_resource($idea, 'teamMember', 'teamMember', 'team member', [
                 ['Name', $new_name],
                 ['Email', $new_email],
                 ['Role', $new_role]
             ], true, $request->input('resource_id'));
-        }     
-        
-        
+        }
+
+
         if ($request->input('type') == 'legal')
         {
-            
+
             if ($request->input('legal-status'))
                 $this->update_resource($idea, 'legalStatus', 'legalStatus', 'legal status', [['Legal Status', ($request->input('legal-status-state') . " " . $request->input('legal-status-type'))]]);
             else
                 $this->update_resource($idea, 'legalStatus', 'legalStatus', 'legal status', [['Legal Status', 'None']]);
-            
+
             if ($request->input('lawyers') != "")
                 $this->update_resource($idea, 'lawyers', 'lawyers', 'lawyers', [['Lawyers', $request->input('lawyers') ]]);
         }
-        
+
         if ($request->input('type') == 'funding')
         {
-            
+
             if ($request->input('funding-round') != "")
                 $this->update_resource($idea, 'fundingRound', 'fundingRound', 'funding round', [['Funding Round', $request->input('funding-round')]]);
             if ($request->input('equity-split') != "")
@@ -290,13 +290,13 @@ class ProjectsController extends Controller
                 $this->update_resource($idea, 'debtEquity', 'debtEquity', 'debt equity', [['Debt Equity', $request->input('debt-equity')]]);
 
         }
-        
+
         if ($request->input('type') == 'partner')
             $this->update_resource($idea, 'partnership', 'partnership', 'partnership', [['Partnership', $request->input('partnership')]]);
-        
+
         if ($request->input('type') == 'advisor')
             $this->update_resource($idea, 'advisor', 'advisor', 'advisor', [['Advisor', $request->input('advisor')]]);
-        
+
         if ($request->input('type') == 'Description')
             $this->update_resource($idea, 'description', 'description', 'description', [['Description', $request->input('Description')]]);
         if ($request->input('type') == 'Customer')
@@ -320,33 +320,33 @@ class ProjectsController extends Controller
 
         return redirect()->back();
     }
-    
 
-    
+
+
     public function upload_image($image)
     {
         $imageFileName = time() . '.' . $image->getClientOriginalExtension();
-        
+
         $filePath =  'img/' . Auth::user()->id . '/' . $imageFileName;
-       
+
         $s3 = \AWS::createClient('s3');
         $s3->putObject(array(
             'Bucket'     => 'startuprad',
             'Key'        => $filePath,
             'SourceFile' => $image,
         ));
-        
+
         return $filePath;
 
     }
-    
+
 
     private function update_resource($idea_id, $resource_type, $name, $name_view, $resources, $specific=false, $resource_id=0)
     {
         if ($specific) {
             if ($resource_id != 0) {
                 Thinking::where('id', $resource_id)
-                  ->update(['current' => false]);               
+                  ->update(['current' => false]);
             }
 
         } else {
@@ -363,9 +363,9 @@ class ProjectsController extends Controller
                 'name' => $name,
                 'name_view' => $name_view
             ]);
-        
+
             $content = "";
-        
+
             foreach ($resources as $new_resource)
             {
                 $resource = Resource::create([
@@ -378,7 +378,7 @@ class ProjectsController extends Controller
                 else
                     $content .= "\r\n" . $resource->descriptor . ": " . $resource->value;
             }
-        
+
         $post = Post::create([
             'user_id' => Auth::user()->id,
             'idea_id' => $idea_id,
@@ -386,12 +386,12 @@ class ProjectsController extends Controller
             'content' => $content,
             'type'=> 'update'
         ]);
-        
+
         $tag = str_replace(" ", "", $name);
         $tag = strtolower($tag);
         $post->tag($tag);
-            
+
     }
-    
-    
+
+
 }
