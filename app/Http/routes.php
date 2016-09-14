@@ -2,8 +2,13 @@
 
 Route::group(['middleware' => 'web'], function () {
 
+    // Onboarding routes
+    Route::get('confirm/{token}', 'OnboardingController@confirm')->name('confirm');
+    Route::post('confirm/{token}', 'OnboardingController@create')->name('create');
+    Route::get('setup', 'OnboardingController@setup')->name('setup');
+
     // Home
-    Route::get('/', ['as' => 'feed', 'uses' => 'PagesController@index']);
+    Route::get('/', 'PagesController@index')->name('feed');
 
     // Feed
     Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'FeedController@index']);

@@ -6,9 +6,9 @@ use App\Events\StudentInvited;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\Onboard\AccountSetup;
-use Mail;
+use Carbon\Carbon;
 
-class SendInviteEmail
+class SetupAccount
 {
     /**
      * Create the event listener.
@@ -28,13 +28,9 @@ class SendInviteEmail
      */
     public function handle(StudentInvited $event)
     {
-
-        $token = AccountSetup::where('email', $event->user->email)->first()->token;
-
-        $data = ['email' => $event->user->email, 'user' => $event->user, 'token' => $token];
-
-        Mail::queue('auth.emails.onboard', $data, function($message) use ($data) {
-          $message->to($data['email'])->subject('Create your account');
-        });
+        AccountSetup::updateOrCreate(['email' => $event->user->email], [
+          'token' => hello_token(40),
+          'created_at' => Carbon::now()
+        ]);
     }
 }

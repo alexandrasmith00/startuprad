@@ -29,6 +29,7 @@ class EventServiceProvider extends ServiceProvider
           'App\Listeners\AddToTeam',
           'App\Listeners\AddToCohort',
           'App\Listeners\SetupOnboarding',
+          'App\Listeners\SetupAccount',
           'App\Listeners\SendInviteEmail',
         ],
 

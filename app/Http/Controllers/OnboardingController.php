@@ -16,14 +16,14 @@ use App\Models\Checklist\Checklist, App\Models\Checklist\Todo;
 use App\Events\StudentInvited;
 
 // use these class Aliases
-use Validator, Mail, Carbon, Log;
+use Validator, Mail, Carbon\Carbon, Log;
 
 // use these
 use App\Http\Controllers\Controller;
 
 class OnboardingController extends Controller
 {
-
+  public $setup_zero = ['Confirm email address', 'Create a password'];
   public $step_one = ['Add your name'];
   public $step_two = ['Attach accounts'];
 
@@ -39,35 +39,29 @@ class OnboardingController extends Controller
 
   public function studentInvite()
   {
-    Log::info('in student invite');
-
       $applicant = Applicant::where('id', 56)->first();
       event (new StudentInvited($applicant));
       return redirect()->back()->with('flash-message', $applicant->first . ' has been invited to join Startup RAD.');
   }
 
+  // Check for valid confirmation code
   public function confirm($token)
   {
     $confirmation = AccountSetup::where('token', $token)->where('email', Input::get('email'))->first();
 
     if ($confirmation == null)
-      return 'sorry not valid, signup here';
+      return redirect()->route('feed')->with('flash-message', "Sorry! That confirmation code is invalid.");
     else if ($confirmation->created_at < Carbon::now()->subWeek())
-      return 'that expiered. send it again and check yo email.. should we have them enter phone # and email??';
-    else
-      return $this->valid_confirm(Input::get('email'));
+      return redirect()->route('feed')->with('flash-message', "Sorry! That confirmation code has expired.");
+    else { //  Valid confirmation
+      $phone = User::where('email', Input::get('email'))->first()->phone;
+      return view('onboard.account')->withEmail(Input::get('email'));
+    }
   }
 
-  protected function valid_confirm($email)
-  {
-    $phone = User::where('email', $email)->first()->phone;
-    return view('onboard.account')->withEmail($email)->withPhone(phone_display($phone));
-  }
-
+  // Function to create the user
   public function create($token, Request $request)
   {
-    if ($request->input('agreement') == 'on')
-    {
       // Check for valid confirmation still
       $confirmation = AccountSetup::where('token', $token)->where('email', Input::get('email'))->first();
 
@@ -80,21 +74,19 @@ class OnboardingController extends Controller
       $confirmation = AccountSetup::where('token', $token)->where('email', Input::get('email'))->delete();
 
       // Checklist: email confirmed
-      $confirm = Checklist::where('description', 'Confirm your email')->first()->id;
-      $todo = Todo::where('user_id', $user->id)->where('checklist_id', $confirm)->update(['completed_at' => Carbon::now()]);
-
-      // TODO: Add to activity
+      foreach ($this->setup_zero as $description)
+      {
+        $confirm = Checklist::where('description', $description)->first()->id;
+        $todo = Todo::where('user_id', $user->id)->where('checklist_id', $confirm)->update(['completed_at' => Carbon::now()]);
+      }
 
       Auth::attempt(['email' => Input::get('email'), 'password' => $request->input('password')]);
       return redirect()->route('setup');
-    }
-    else
-      return redirect()->back();
   }
 
   public function setup()
   {
-    return $this->get_step(Auth::user()->id);
+    return 'time to set this bitch up';
   }
 
   public function submit_one(Request $request)

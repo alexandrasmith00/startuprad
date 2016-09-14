@@ -10515,7 +10515,8 @@ body {
     box-shadow: 0 2.5em 0 0; } }
 
 .parsley-errors-list {
-  color: #fe1f0d; }
+  color: #fe1f0d;
+  margin-bottom: 0px; }
 
 input.parsley-error, input:focus.parsley-error {
   border-color: #fe1f0d;

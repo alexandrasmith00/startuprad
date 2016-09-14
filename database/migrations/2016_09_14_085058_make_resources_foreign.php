@@ -16,22 +16,17 @@ class MakeResourcesForeign extends Migration
         $table->integer('thinking_id')->unsigned()->nullable()->change();
         $table->foreign('thinking_id')->references('id')->on('thinkings');
       });
-
-
-
     }
 
     /**
-           * Reverse the migrations.
-           *
-           * @return void
-           */
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-
       Schema::table('resources', function ($table) {
         $table->dropForeign('resources_thinking_id_foreign');
       });
-
     }
 }
