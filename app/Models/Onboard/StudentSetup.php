@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use App\Models\Checklist\Checklist, App\Models\Checklist\Todo;
 use Illuminate\Support\Facades\Auth;
-
+use Carbon\Carbon;
+use App\Models\User;
 
 trait StudentSetup
 {
@@ -62,12 +63,14 @@ trait StudentSetup
 
   protected function student_step_two()
   {
-    return view('onboard.others')->withLovedone(Auth::user()->caringfor()->first);
+    return 'step two';
   }
 
-  protected function student_submit_one()
+  protected function student_submit_one(Request $request)
   {
-    dd('hey');
+    $user = User::where('id', Auth::user()->id)->update(['profile_picture' => $request->input('cropped-profile-picture') ]);
+    $this->complete_student_step(['Add profile picture'], Auth::user()->id);
+    return redirect()->route('setup');
   }
 
 

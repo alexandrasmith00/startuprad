@@ -12,6 +12,7 @@ use App\Models\Applications\Applicant;
 use App\Models\Applications\Application;
 use Illuminate\Support\Facades\Auth;
 use Log;
+use Image, File;
 
 
 class PictureController extends Controller
@@ -22,7 +23,7 @@ class PictureController extends Controller
     $image = $request->file('profile-picture');
     $imageFileName = time() . '.' . $image->getClientOriginalExtension();
 
-    $filePath =  'img/' . Auth::user()->id . '/' . $imageFileName;
+    $filePath =  'img/profile_pictures/' . Auth::user()->id . '/' . $imageFileName;
 
     $s3 = \AWS::createClient('s3');
     $s3->putObject(array(
@@ -37,15 +38,32 @@ class PictureController extends Controller
   public function cropPicture(Request $request)
   {
 
-    return $request->all();
+    $temp = 'temp-' . Auth::user()->id;
 
     // open file a image resource
-    $img = Image::make('public/foo.jpg');
+    $img = Image::make($request->input('image'))->crop(intval($request->input('w')), intval($request->input('h')), intval($request->input('x')), intval($request->input('y')))->save($temp);
 
-    // crop image
-    $img->crop(100, 100, 25, 25);
+    $filePath =  'img/profile_pictures/' . Auth::user()->id . '/cropped';
+
+    $url = $this->saveImage($filePath, $temp);
+
+    File::delete($temp);
+
+    return $url;
 
   }
 
+
+  protected function saveImage($path, $temp)
+  {
+    $s3 = \AWS::createClient('s3');
+    $s3->putObject(array(
+      'Bucket'     => 'startuprad',
+      'Key'        => $path,
+      'SourceFile' => $temp
+    ));
+
+    return getenv('FILE_BASE') . $path;
+  }
 
 }

@@ -8,8 +8,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('setup', 'OnboardingController@setup')->name('setup');
 
     // Student setup routes
-    Route::post('student-step-one', 'OnboardingController@student-submit_one')->name('student-step-one');
-    Route::post('student-step-two', 'OnboardingController@student-submit_two')->name('student-step-two');
+    Route::post('student-step-one', 'OnboardingController@student_submit_one')->name('student-step-one');
+    Route::post('student-step-two', 'OnboardingController@student_submit_two')->name('student-step-two');
 
     //  Pictures
     Route::post('upload-profile-pic', 'PictureController@profilePicture')->name('upload-profile-pic');

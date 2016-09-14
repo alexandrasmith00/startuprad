@@ -7,20 +7,27 @@
 
   <div class="form-line form-labels">
     <div class="row">
-      <div class="col-xs-12">
-        <label id="set-label" for="profile-picture" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"class="custom-file-upload form-control input-one not-selected">
-          <i class="blue fa fa-cloud-upload"></i> &nbsp;Upload Your Picture
-        </label>
-
-        <input onchange="check_file(this)" data-parsley-required accept="image/png, image/jpeg" id="profile-picture" name="profile-picture" type="file"/>
+      <div  class="col-xs-12">
+        <div id="upload-box">
+            <label id="set-label" for="profile-picture" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"class="custom-file-upload form-control input-one not-selected">
+              <i class="blue fa fa-cloud-upload"></i> &nbsp;Upload Your Picture
+            </label>
+            <input onchange="check_file(this)" data-parsley-required accept="image/png, image/jpeg" id="profile-picture" name="profile-picture" type="file"/>
+        </div>
+        <img style="display: none; width: 100%;" id="final-cropped" src="">
+        <input id="cropped-profile-picture" type="hidden" name="cropped-profile-picture" value="">
 
       </div>
     </div>
   </div>
 
 
-  <button class="btn oversized-btn btn-blue" type="submit">Upload</button>
+  <button disabled id="final-submit" class="btn oversized-btn btn-blue" type="submit">Continue</button>
 
+  <div id="restart" style="display: none;">
+    <hr style="margin-top: 25px;">
+    <p class="quick-link">  Don't want this picture? <a href=".">Restart <i class="fa fa-angle-right"></i></a></p>
+  </div>
 </form>
 
 <?php $__env->stopSection(); ?>
@@ -55,7 +62,6 @@
                 autoCrop: true,
                 aspectRatio: 9 / 9,
                 crop: function(e) {
-
                   // Update form values
                   $("#x").val(e.x);
                   $("#y").val(e.y);

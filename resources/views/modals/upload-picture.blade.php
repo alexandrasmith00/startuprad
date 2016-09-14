@@ -13,23 +13,15 @@
 
     <form id="cropped-image" action method="post">
       <input type="hidden" id="x" name="x" />
-      <input type="hidden" id="x" name="x" />
       <input type="hidden" id="y" name="y" />
       <input type="hidden" id="w" name="w" />
       <input type="hidden" id="h" name="h" />
       <button id="crop-button" style="display: none; margin-top: 25px;" class="btn oversized-btn btn-blue">Looks good!</button>
     </form>
 
-
-
-
-
-
     <hr style="margin-top: 25px;">
 
-
-
-    <p class="quick-link" style="margin-bottom: 25px;">  Don't want this picture? <a data-dismiss="modal">Go back <i class="fa fa-angle-right"></i></a></p>
+    <p class="quick-link" style="margin-bottom: 25px;">  Don't want this picture? <a href=".">Go back <i class="fa fa-angle-right"></i></a></p>
 
   </div>
 </div>
@@ -53,11 +45,21 @@
           contentType: false,
           success: function (data) {
             console.log(data);
+            $("#upload-box").hide();
+            $("#crop-picture").modal('hide');
+            $("#final-cropped").attr('src', data);
+            $("#final-submit").prop("disabled",false);
+            $("#restart").show();
+            $("#final-cropped").fadeIn();
+            $("#cropped-profile-picture").val(data);
           },
           error: function () {
             console.log('Upload error');
           }
         });
+
+        $("#crop-button").prop("disabled",true);
+        $("#crop-button").html("<i class='fa fa-spin fa-spinner'></i>");
 
         return false;
   });
