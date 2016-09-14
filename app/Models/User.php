@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
 use App\Models\Checklist\Checklist, App\Models\Checklist\Todo;
-
+use App\Models\TeamUser;
 class User extends Authenticatable
 {
     use Billable;
@@ -41,6 +41,13 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Team', 'teams_users');
     }
 
+
+    public function team()
+    {
+      return $this->teams->first();
+    }
+
+
     public function idea()
     {
         return $this->belongsTo('App\Models\Idea', 'idea_id');
@@ -49,6 +56,11 @@ class User extends Authenticatable
     public function cohorts()
     {
         return $this->belongsToMany('App\Models\Cohort', 'cohorts_users');
+    }
+
+    public function companyRole()
+    {
+        return TeamUser::where('user_id', $this->id)->where('team_id', $this->team()->id)->first()->company_role;
     }
 
     public function sharesCohort($other_user_id)

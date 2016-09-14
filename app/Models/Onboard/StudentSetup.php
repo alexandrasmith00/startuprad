@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use App\Models\Checklist\Checklist, App\Models\Checklist\Todo;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use App\Models\User;
+use App\Models\User, App\Models\TeamUser;
 
 trait StudentSetup
 {
@@ -53,7 +53,6 @@ trait StudentSetup
 
       Todo::where('checklist_id', $checklist->id)->where('user_id', $user_id)->update(['completed_at' => Carbon::now()]);
     }
-
   }
 
   protected function student_step_one()
@@ -63,18 +62,21 @@ trait StudentSetup
 
   protected function student_step_two()
   {
-    return 'step two';
+    return view('onboard.role');
   }
 
   protected function student_submit_one(Request $request)
   {
     $user = User::where('id', Auth::user()->id)->update(['profile_picture' => $request->input('cropped-profile-picture') ]);
-    $this->complete_student_step(['Add profile picture'], Auth::user()->id);
+    $this->complete_student_step($this->student_step_one, Auth::user()->id);
     return redirect()->route('setup');
   }
 
-
-
-
+  protected function student_submit_two(Request $request)
+  {
+    $role = TeamUser::where('user_id', Auth::user()->id)->where('team_id', Auth::user()->team()->id)->update(['company_role' => $request->input('role')]);
+    $this->complete_student_step($this->student_step_two, Auth::user()->id);
+    return redirect()->route('setup');
+  }
 
 }

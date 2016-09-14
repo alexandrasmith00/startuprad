@@ -20,9 +20,13 @@
 </style>
 
 <a href="">
-  <header class="menu-header">
-<!--    <img height="32px" src="/img/lexi.png">-->
-    <span class="menu-header-title"><?php echo e(Auth::user()->name); ?></span>
+  <header style="padding-top: 0px;" class="menu-header">
+    <img style="vertical-align: top; margin-top: 16px;"  height="32px" src="<?php echo e(Auth::user()->profile_picture); ?>">
+    <div style=" display: inline-block;" class="user-details">
+      <div style="margin-top: 10px;" class="menu-header-title"><?php echo e(Auth::user()->name); ?></div>
+      <div style="line-height: 12px; font-size: 12px;" class="subheader"><?php echo e(Auth::user()->companyRole()); ?> at <?php echo e(Auth::user()->team()->idea->name); ?></div>
+    </div>
+
   </header>
 </a>
 

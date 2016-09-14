@@ -8,5 +8,5 @@ class TeamUser extends Model
 {
   protected $table = 'teams_users';
   public $timestamps = false;
-  protected $fillable = ['team_id', 'user_id'];
+  protected $fillable = ['team_id', 'user_id', 'company_role'];
 }
