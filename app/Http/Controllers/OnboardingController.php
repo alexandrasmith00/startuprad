@@ -12,6 +12,7 @@ use App\Models\User, App\Models\Role;
 use App\Models\Onboard\AccountSetup;
 use App\Models\Applications\Applicant;
 use App\Models\Checklist\Checklist, App\Models\Checklist\Todo;
+use App\Models\Onboard\StudentSetup;
 
 use App\Events\StudentInvited;
 
@@ -23,10 +24,7 @@ use App\Http\Controllers\Controller;
 
 class OnboardingController extends Controller
 {
-  public $setup_zero = ['Confirm email address', 'Create a password'];
-  public $step_one = ['Add your name'];
-  public $step_two = ['Attach accounts'];
-
+  use StudentSetup;
 
   /**
      * Create a new authentication controller instance.
@@ -35,6 +33,7 @@ class OnboardingController extends Controller
      */
   public function __construct()
   {
+
   }
 
   public function studentInvite()
@@ -86,8 +85,10 @@ class OnboardingController extends Controller
 
   public function setup()
   {
-    return 'time to set this bitch up';
+      if (Auth::user()->isStudent() )
+        return $this->get_student_step(Auth::user()->id);
   }
+
 
   public function submit_one(Request $request)
   {
@@ -169,77 +170,9 @@ class OnboardingController extends Controller
 
   }
 
-  protected function get_step($user_id)
-  {
-    // Current step
-    $step = 0;
-    $step_one = $this->step_one;
-    $step_two = $this->step_two;
-    $step_three = $this->step_three;
 
-    // Check if step 1 is done yet
-    if (! ($this->check_step($step_one, $user_id)))
-      return $this->step_one();
 
-    // Check if step 2 is done yet
-    if (! ($this->check_step($step_two, $user_id)))
-      return $this->step_two();
 
-    // Check if step 3 is done yet
-    if (! ($this->check_step($step_three, $user_id)))
-      return $this->step_three();
 
-    // Completed and redirect to dashboard
-    return redirect()->route('dashboard');
-
-  }
-
-  protected function check_step($descriptions, $user_id)
-  {
-    $step_completed = true;
-    foreach ($descriptions as $description)
-    {
-      $checklist = Checklist::where('description', $description)->first();
-      if (! (Todo::where('checklist_id', $checklist->id)->where('user_id', $user_id)->where('completed_at', '!=', null)->exists()))
-        $step_completed = false;
-    }
-
-    return $step_completed;
-  }
-
-  protected function complete_step($descriptions, $user_id)
-  {
-    foreach ($descriptions as $description)
-    {
-      $checklist = Checklist::where('description', $description)->first();
-
-      Todo::where('checklist_id', $checklist->id)->where('user_id', $user_id)->update(['completed_at' => Carbon::now()]);
-    }
-
-  }
-
-  protected function step_one()
-  {
-    $their_first = $their_last = $nickname = '';
-    if (Auth::user()->hasLovedOne())
-    {
-      $their_first = Auth::user()->caringfor()->first;
-      $their_last = Auth::user()->caringfor()->last;
-      $nickname = Auth::user()->caregiver->nickname;
-    }
-
-    return view('onboard.names')->withFirst(Auth::user()->first)->withLast(Auth::user()->last)->withTheirFirst($their_first)->withTheirLast($their_last)->withNickname($nickname);
-  }
-
-  protected function step_two()
-  {
-    return view('onboard.others')->withLovedone(Auth::user()->caringfor()->first);
-  }
-
-  protected function step_three()
-  {
-
-    return view('onboard.illness')->withLovedone(Auth::user()->caringfor());
-  }
 
 }

@@ -25,8 +25,10 @@ class Authenticate
                 return redirect()->guest('login');
             }
         }
-        
-        
+
+        if (Auth::check())
+          if (! (Auth::user()->onboarded()) )
+            return redirect()->route('setup');
 
         return $next($request);
     }

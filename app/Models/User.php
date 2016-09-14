@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
-
+use App\Models\Checklist\Checklist, App\Models\Checklist\Todo;
 
 class User extends Authenticatable
 {
@@ -83,5 +83,36 @@ class User extends Authenticatable
         return false;
     }
 
+    public function isStudent()
+    {
+      if ($this->hasRole("Student"))
+        return true;
+
+      return false;
+    }
+
+    public function onboarded()
+    {
+        $completed = true;
+
+        $checklists = [];
+        if ($this->hasRole("Student"))
+            $checklists = Checklist::where('internal', 'student-onboarding')->get();
+
+        if ($this->hasRole("TF"))
+          $checklists = Checklist::where('internal', 'tf-onboarding')->get();
+
+        if ($this->hasRole("Admin"))
+          $checklists = Checklist::where('internal', 'admin-onboarding')->get();
+
+        if ($this->hasRole("Advisor"))
+          $checklists = Checklist::where('internal', 'advisor-onboarding')->get();
+
+        foreach ($checklists as $checklist)
+          if (! (Todo::where('checklist_id', $checklist->id)->where('user_id', $this->id)->where('completed_at', '!=', null)->exists()))
+            $completed = false;
+
+        return $completed;
+    }
 
 }

@@ -4,6 +4,8 @@
     @include('layouts.outside.head')
 </head>
   <body>
+    @include('modals.upload-picture')
+
     <section class="section">
       <div class="container">
         <div class="row">

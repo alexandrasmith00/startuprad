@@ -1,6 +1,9 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="{{asset('js/lib/bootstrap.js')}}"></script>
 <!--<script src="{{ asset('/js/bootstrap-table.min.js') }}"></script>-->
+<link href="/css/cropper.min.css" rel="stylesheet">
+<script src="{{asset('js/cropper.min.js')}}"></script>
+
 
 <script src="{{ asset('/js/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('/js/infinite.min.js') }}"></script>

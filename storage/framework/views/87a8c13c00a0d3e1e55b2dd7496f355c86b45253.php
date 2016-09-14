@@ -1,6 +1,9 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="<?php echo e(asset('js/lib/bootstrap.js')); ?>"></script>
 <!--<script src="<?php echo e(asset('/js/bootstrap-table.min.js')); ?>"></script>-->
+<link href="/css/cropper.min.css" rel="stylesheet">
+<script src="<?php echo e(asset('js/cropper.min.js')); ?>"></script>
+
 
 <script src="<?php echo e(asset('/js/jquery.waypoints.min.js')); ?>"></script>
 <script src="<?php echo e(asset('/js/infinite.min.js')); ?>"></script>

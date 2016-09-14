@@ -6,7 +6,7 @@ use App\Events\StudentInvited;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-use App\Models\User, App\Models\Role;
+use App\Models\User, App\Models\Role, App\Models\Roles\UserRole;
 
 class CreateNewUser
 {
@@ -35,5 +35,8 @@ class CreateNewUser
           'email' => $event->applicant->email,
           'applicant' => $event->applicant->id,
         ]);
+
+        $role = Role::firstOrCreate(['name' => 'Student']);
+        $userRole = UserRole::firstOrCreate(['role_id' => $role->id, 'user_id' => $event->user->id]);
     }
 }

@@ -145,13 +145,10 @@ class PagesController extends Controller
     ));
 
     return getenv('FILE_BASE') . $filePath;
-
   }
 
   public function pdf()
   {
-
-
     return view('pdf.application')->withStartup('The Wolfe');
   }
 
