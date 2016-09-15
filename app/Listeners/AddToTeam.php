@@ -7,7 +7,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\Applications\Application;
 use App\Models\TeamUser, App\Models\Team;
-use DB;
+use DB, Log;
 
 class AddToTeam
 {
@@ -30,10 +30,10 @@ class AddToTeam
     public function handle(StudentInvited $event)
     {
         // Generate team for the idea
-        $team = Team::firstOrNew(['idea_id' => $event->idea->id]);
+        $team = Team::firstOrCreate(['idea_id' => $event->idea->id]);
 
         // Add applicant to team
-        $user = TeamUser::firstOrNew(['team_id' => $team->id, 'user_id' => $event->user->id]);
+        $user = TeamUser::firstOrCreate(['team_id' => $team->id, 'user_id' => $event->user->id]);
 
     }
 }
