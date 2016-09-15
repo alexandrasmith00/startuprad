@@ -11,7 +11,11 @@
   </div>
 
   <div style="font-size: .3em;" class="loader">Loading...</div>
-  <a class="infinite-more-link" href="<?php echo e($posts->nextPageUrl()); ?>"></a>
+  <?php if( $posts->hasMorePages() ): ?>
+    <a class="infinite-more-link" href="<?php echo e($posts->nextPageUrl()); ?>"></a>
+  <?php endif; ?>
+
+  <div id="inview-example"></div>
 
 <?php endif; ?>
 
@@ -22,6 +26,8 @@
   var infinite = new Waypoint.Infinite({
     element: $('.infinite-container')[0],
   })
+
+
 </script>
 
 <?php $__env->stopSection(); ?>

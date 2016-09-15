@@ -7,6 +7,7 @@
 
 <script src="{{ asset('/js/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('/js/infinite.min.js') }}"></script>
+<script src="{{ asset('/js/inview.min.js') }}"></script>
 
 <script src="{{ asset('/js/slideout.min.js') }}"></script>
 <script src="{{asset('js/parsley.min.js')}}"></script>

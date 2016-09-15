@@ -7,6 +7,7 @@
 
 <script src="<?php echo e(asset('/js/jquery.waypoints.min.js')); ?>"></script>
 <script src="<?php echo e(asset('/js/infinite.min.js')); ?>"></script>
+<script src="<?php echo e(asset('/js/inview.min.js')); ?>"></script>
 
 <script src="<?php echo e(asset('/js/slideout.min.js')); ?>"></script>
 <script src="<?php echo e(asset('js/parsley.min.js')); ?>"></script>
