@@ -56,6 +56,8 @@ class OnboardingController extends Controller
     foreach ($applicants as $app)
       foreach ($app->applicants as $applicant)
         event (new StudentInvited($applicant));
+
+    return redirect()->route('dashboard')->with('flash-message', "The teams have been invited.");
   }
 
   public function studentInvite()
