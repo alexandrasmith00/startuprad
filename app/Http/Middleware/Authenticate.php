@@ -25,6 +25,7 @@ class Authenticate
             }
         }
 
+
         if (Auth::check())
           if (! (Auth::user()->onboarded()) )
             return redirect()->route('setup');

@@ -46,6 +46,8 @@ class CreateIdea
         event(new NewThinking($idea, 'teamMember', ["Name" => $event->user->name, 'Email' => $event->user->email, 'Year' => $event->applicant->year, 'Concentration' => $event->applicant->concentration, 'Secondary' => $event->applicant->secondary], $event->user));
       }
 
+      $event->user->idea_id = $idea->id;
+      $event->user->save();
 
       $event->idea = $idea;
     }

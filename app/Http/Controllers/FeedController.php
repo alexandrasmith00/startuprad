@@ -36,6 +36,8 @@ class FeedController extends Controller
             ->paginate(10);
 
         return view('feed.index')->withPosts($posts);
+
+        return (Auth::user()->team()->idea);
     }
 
 

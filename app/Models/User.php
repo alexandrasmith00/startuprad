@@ -119,7 +119,7 @@ class User extends Authenticatable
 
         $checklists = [];
         if ($this->hasRole("Student"))
-            $checklists = Checklist::where('internal', 'student-onboarding')->orWhere('internal', 'team-onboarding')->get();
+            $checklists = Checklist::where('internal', 'student-onboarding')->get();
 
         if ($this->hasRole("TF"))
           $checklists = Checklist::where('internal', 'tf-onboarding')->get();
