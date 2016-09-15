@@ -152,7 +152,7 @@ return [
         Conner\Tagging\Providers\TaggingServiceProvider::class,
         Aws\Laravel\AwsServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
-//        Intervention\Image\ImageServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
         /*
