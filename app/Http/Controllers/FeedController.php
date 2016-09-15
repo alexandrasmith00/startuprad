@@ -71,8 +71,10 @@ class FeedController extends Controller
     public function bugreport(Request $request)
     {
         DB::table('bugs')->insert(
-            ['user_id' => Auth::user()->id, 'report' => $request->input('bug'), 'importance' => $request->input('importance'),
+            ['user_id' => Auth::user()->id, 'report' => $request->input('feedback'), 'importance' => $request->input('importance'),
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(), 'updated_at' => \Carbon\Carbon::now()->toDateTimeString()]
         );
+
+        return redirect()->back()->with('flash-strong', 'Thanks!')->with('flash-message', "We've received your feedback.");
     }
 }

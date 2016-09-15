@@ -3,7 +3,7 @@
     <button style="margin-top: 10px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <br>
 
-    <form action="{{ route('bug.create') }}" method="post" data-parsley-validate>
+    <form action="<?php echo e(route('bug.create')); ?>" method="post" data-parsley-validate>
       <h3>Provide us with feedback</h3>
       <p class="section-description">Create your password for Startup RAD.</p>
 

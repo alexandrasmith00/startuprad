@@ -6,6 +6,9 @@
       <button type="button" class="close" data-toggle="collapse" data-target="#banner" aria-label="Close">
         <span>&times;</span>
       </button>
+      <?php if( Session::has('flash-strong')): ?>
+        <strong><?php echo e(Session::get('flash-strong')); ?></strong>
+      <?php endif; ?>
       <span id="flash-message"><?php echo e(Session::get('flash-message')); ?></span>
 
     </div>

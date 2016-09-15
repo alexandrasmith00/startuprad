@@ -10203,7 +10203,8 @@ h3.subheader {
 
 .form-control:active, .form-control:focus, .form-control:hover {
   outline: none;
-  box-shadow: none; }
+  box-shadow: none;
+  border-color: #0D74FE; }
 
 input[type="file"] {
   display: none; }
@@ -10227,6 +10228,11 @@ input[type="file"] {
 
 .form-labels .input-one {
   width: 100%; }
+
+.regular-textarea-block {
+  border: 1px solid rgba(0, 0, 0, 0.5); }
+  .regular-textarea-block:focus {
+    border: 1px solid #0D74FE; }
 
 .btn {
   transition: 0.5s; }

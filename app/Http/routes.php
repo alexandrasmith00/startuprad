@@ -30,7 +30,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/settings', 'UsersController@settings')->name('settings');
 
     // Developmental links
-    Route::post('/bugreport', ['as' => 'bug.create', 'uses' => 'FeedController@bugreport']);
+    Route::post('/bugreport', 'FeedController@bugreport')->name('bug.create');
 
     // Application routes
     Route::post('/', ['as' => 'apply', 'uses' => 'PagesController@apply']); // can

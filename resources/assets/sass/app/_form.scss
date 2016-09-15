@@ -12,6 +12,7 @@
 .form-control:active, .form-control:focus, .form-control:hover {
   outline: none;
   box-shadow: none;
+  border-color: $blue;
 }
 
 
@@ -45,5 +46,13 @@ input[type="file"] {
 
   .input-one {
     width: 100%;
+  }
+}
+
+.regular-textarea-block {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+
+  &:focus {
+    border: 1px solid $blue;
   }
 }

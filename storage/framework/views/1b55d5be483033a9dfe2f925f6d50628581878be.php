@@ -76,7 +76,7 @@
   <!--  <h3 class="menu-section-title">People</h3>-->
   <ul class="menu-section-list">
     <li><a href="<?php echo e(route('settings')); ?>">Settings</a></li>
-    <li><a href="">Feedback</a></li>
+    <li><a data-toggle="modal" href="#feedback-modal">Feedback</a></li>
     <li><a href="/logout">Logout<span class="pull-right"><i class="fa fa-angle-right"></i></span></a></li>
   </ul>
 </section>

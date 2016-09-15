@@ -6,6 +6,9 @@
       <button type="button" class="close" data-toggle="collapse" data-target="#banner" aria-label="Close">
         <span>&times;</span>
       </button>
+      @if( Session::has('flash-strong'))
+        <strong>{{ Session::get('flash-strong') }}</strong>
+      @endif
       <span id="flash-message">{{ Session::get('flash-message') }}</span>
 
     </div>

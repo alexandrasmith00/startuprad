@@ -7,6 +7,7 @@
   <body>
 
     @include('layouts.general.banner')
+    @include('layouts.general.modals')
 
 
     <nav id="menu" class="menu slideout-menu">
