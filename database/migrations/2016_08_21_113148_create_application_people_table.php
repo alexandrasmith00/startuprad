@@ -12,18 +12,18 @@ class CreateApplicationPeopleTable extends Migration
      */
     public function up()
     {
-      Schema::create('applicants', function (Blueprint $table) {
-        $table->increments('id');
-        $table->integer('application')->unsigned()->nullable();
-        $table->foreign('application')->references('id')->on('applications');
-        $table->string('first');
-        $table->string('last');
-        $table->string('email');
-        $table->integer('year');
-        $table->string('concentration');
-        $table->string('secondary');
-        $table->string('resume');
-      });
+//      Schema::create('applicants', function (Blueprint $table) {
+//        $table->increments('id');
+//        $table->integer('application')->unsigned()->nullable();
+//        $table->foreign('application')->references('id')->on('applications');
+//        $table->string('first');
+//        $table->string('last');
+//        $table->string('email');
+//        $table->integer('year');
+//        $table->string('concentration');
+//        $table->string('secondary');
+//        $table->string('resume');
+//      });
     }
 
     /**

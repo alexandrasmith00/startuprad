@@ -12,14 +12,14 @@ class CreateApplicationsTable extends Migration
      */
     public function up()
     {
-      Schema::create('applications', function (Blueprint $table) {
-        $table->increments('id');
-        $table->string('team');
-        $table->text('description');
-        $table->string('url')->nullable();
-        $table->string('video');
-        $table->timestamps();
-      });
+//      Schema::create('applications', function (Blueprint $table) {
+//        $table->increments('id');
+//        $table->string('team');
+//        $table->text('description');
+//        $table->string('url')->nullable();
+//        $table->string('video');
+//        $table->timestamps();
+//      });
     }
 
     /**
