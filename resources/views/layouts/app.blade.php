@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    @include('layouts.admin.head')
+    @include('layouts.app.head')
 
   </head>
   <body>
@@ -11,11 +11,11 @@
 
 
     <nav id="menu" class="menu slideout-menu">
-      @include('layouts.admin.sidebar')
+      @include('layouts.app.sidebar')
     </nav>
 
     <main id="main">
-      @include('layouts.admin.navbar')
+      @include('layouts.app.navbar')
       <div id="page-content" style="display: none;" class="page-content-wrapper">
 
         <div style="padding-top: 25px;" class="container">

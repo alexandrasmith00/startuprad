@@ -19,22 +19,9 @@
       </div>
     </div>
   </div>
-  <div style="padding-top: 30px;" class="details">
-    <div class="form-line form-labels">
-      <div class="row">
-        <div class="col-xs-12">
+  <div style="padding-top: 30px; text-align: center;" class="details">
 
-        </div>
-      </div>
-    </div>
-
-    <div class="form-line form-labels">
-      <div class="row">
-        <div class="col-xs-12">
-          <input data-parsley-required data-parsley-minlength="6" type="password" class="form-control input-one" name="password" placeholder="Password">
-        </div>
-      </div>
-    </div>
+      <?php echo $__env->make('snips.construction', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
   </div>
 

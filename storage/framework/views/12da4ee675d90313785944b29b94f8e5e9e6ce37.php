@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php echo $__env->make('layouts.admin.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('layouts.app.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
   </head>
   <body>
@@ -11,11 +11,11 @@
 
 
     <nav id="menu" class="menu slideout-menu">
-      <?php echo $__env->make('layouts.admin.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <?php echo $__env->make('layouts.app.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     </nav>
 
     <main id="main">
-      <?php echo $__env->make('layouts.admin.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <?php echo $__env->make('layouts.app.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       <div id="page-content" style="display: none;" class="page-content-wrapper">
 
         <div style="padding-top: 25px;" class="container">
