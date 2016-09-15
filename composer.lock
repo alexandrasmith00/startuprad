@@ -4530,52 +4530,6 @@
             "time": "2015-06-21 13:59:46"
         },
         {
-            "name": "slynova/laravel-commentable",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Slynova-Org/laravel-commentable.git",
-                "reference": "5ced0a9ffd39dd8766152433a1a5639b0c2c591d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Slynova-Org/laravel-commentable/zipball/5ced0a9ffd39dd8766152433a1a5639b0c2c591d",
-                "reference": "5ced0a9ffd39dd8766152433a1a5639b0c2c591d",
-                "shasum": ""
-            },
-            "require": {
-                "baum/baum": "~1.1",
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Slynova\\Commentable\\": "src/Commentable"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Romain Lanz",
-                    "email": "romain.lanz@slynova.ch",
-                    "homepage": "https://github.com/RomainLanz",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Polymorphic threaded comments for Laravel",
-            "keywords": [
-                "comment",
-                "commentable",
-                "laravel",
-                "nested set",
-                "threaded"
-            ],
-            "time": "2016-01-13 08:43:06"
-        },
-        {
             "name": "symfony/css-selector",
             "version": "v3.0.9",
             "source": {
