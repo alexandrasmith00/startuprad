@@ -20,24 +20,16 @@ class PictureController extends Controller
 
   public function profilePicture(Request $request)
   {
-//    $image = $request->file('profile-picture');
-//    $imageFileName = time() . '.' . $image->getClientOriginalExtension();
-
-    $temp = 'temp-' . Auth::user()->id;
-
-    // open file a image resource
-    $img = Image::make($request->file('profile-picture'))->resize(null, 400, function ($constraint) {
-      $constraint->aspectRatio();
-      $constraint->upsize();
-    })->save($temp);
-
-    $filePath =  'img/profile_pictures/' . Auth::user()->id . '/a;;';
-
-    $url = $this->saveImage($filePath, $temp);
-
-    File::delete($temp);
-
-    return $url;
+    $image = $request->file('profile-picture');
+    $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+    $filePath =  'img/profile_pictures/' . Auth::user()->id . '/' . $imageFileName;
+    $s3 = \AWS::createClient('s3');
+    $s3->putObject(array(
+      'Bucket'     => 'startuprad',
+      'Key'        => $filePath,
+      'SourceFile' => $image,
+    ));
+    return getenv('FILE_BASE') . $filePath;
   }
 
   public function cropPicture(Request $request)
