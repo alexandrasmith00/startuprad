@@ -58,6 +58,16 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Cohort', 'cohorts_users');
     }
 
+    public function cohortTeams()
+    {
+        $teams = [];
+        foreach ($this->cohorts as $cohort)
+          foreach($cohort->ideas as $idea)
+            array_push($teams, $idea->id);
+
+        return $teams;
+    }
+
     public function companyRole()
     {
         return TeamUser::where('user_id', $this->id)->where('team_id', $this->team()->id)->first()->company_role;
@@ -109,7 +119,7 @@ class User extends Authenticatable
 
         $checklists = [];
         if ($this->hasRole("Student"))
-            $checklists = Checklist::where('internal', 'student-onboarding')->get();
+            $checklists = Checklist::where('internal', 'student-onboarding')->orWhere('internal', 'team-onboarding')->get();
 
         if ($this->hasRole("TF"))
           $checklists = Checklist::where('internal', 'tf-onboarding')->get();

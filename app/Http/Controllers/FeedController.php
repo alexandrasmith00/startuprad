@@ -28,8 +28,9 @@ class FeedController extends Controller
 
     public function index()
     {
-        // ordering goes in here!
-        $posts = Post::orderBy('radnow', 'desc')
+      // ordering goes in here!
+      $posts = Post::whereIn('idea_id', Auth::user()->cohortTeams())
+            ->orderBy('radnow', 'desc')
             ->orderBy('created_at', 'desc')
             ->with('tagged')
             ->paginate(10);

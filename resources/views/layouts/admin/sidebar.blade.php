@@ -35,7 +35,7 @@
   <ul class="menu-section-list">
     <li><a href="{{ route('dashboard') }}">Home</a></li>
     <li><a href="{{ route('profile') }}">Profile</a></li>
-    <li><a href="">{{ Auth::user()->team()->idea->name }}</a></li>
+    <li><a href="{{ route('project.show', ['id' => Auth::user()->team()->idea->id ]) }}">{{ Auth::user()->team()->idea->name }}</a></li>
 
   </ul>
 </section>
@@ -88,7 +88,6 @@
 <script>
 
   $(document).ready(function() {
-
 
     // Slideout Variable
     var slideout = new Slideout({

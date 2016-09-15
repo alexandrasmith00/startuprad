@@ -25,6 +25,7 @@ class EventServiceProvider extends ServiceProvider
 
         'App\Events\StudentInvited' => [
           'App\Listeners\CreateNewUser',
+          'App\Listeners\CreateNewStudent',
           'App\Listeners\CreateIdea',
           'App\Listeners\AddToTeam',
           'App\Listeners\AddToCohort',

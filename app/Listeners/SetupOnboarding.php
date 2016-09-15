@@ -9,6 +9,8 @@ use App\Models\Checklist\Checklist, App\Models\Checklist\Todo;
 
 class SetupOnboarding
 {
+
+
     /**
      * Create the event listener.
      *
@@ -40,6 +42,24 @@ class SetupOnboarding
             'description' => $description,
             'completed' => $completed,
             'internal' => 'student-onboarding'
+          ]);
+
+          $todo = Todo::firstOrCreate(['user_id' => $event->user->id, 'checklist_id' => $checklist->id]);
+        }
+
+        $descriptions = [
+          'Add legal' => 'Legal added',
+          'Add funding' => 'Funding added',
+          'Add advisors' => 'Advisors added',
+          'Add partnerships' => 'Partnerships added'
+        ];
+
+        foreach ($descriptions as $description => $completed)
+        {
+          $checklist = Checklist::firstOrCreate([
+            'description' => $description,
+            'completed' => $completed,
+            'internal' => 'team-onboarding'
           ]);
 
           $todo = Todo::firstOrCreate(['user_id' => $event->user->id, 'checklist_id' => $checklist->id]);

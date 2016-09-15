@@ -2,31 +2,31 @@
 
 @section('content')
 
-<div class="row">    
-    
+<div class="row">
+
   <div class="col-md-4">
       @include('includes.profile.about')
       @include('includes.profile.organization')
-
   </div>
 
   <div class="col-md-8">
-    @include('includes.posts.make', ['placeholder' => "Share something with $project->name...", 'button' => 'Start the conversation'])
-      
+
       <ul class="nav nav-tabs material-tabs rightbar-tab" role="tablist">
-        <li class="active profile-nav"><a href="#feed" aria-controls="message" role="tab" data-toggle="tab">Feed</a></li>
         <li class="profile-nav"><a href="#profile" aria-controls="notifications" role="tab" data-toggle="tab">Profile</a></li>
+        <li class="active profile-nav"><a href="#feed" aria-controls="message" role="tab" data-toggle="tab">Feed</a></li>
       </ul>
-      
+
       <div class="tab-content">
-          
-        <div role="tabpanel" class="tab-pane active" 
+
+        <div role="tabpanel" class="tab-pane active"
              id="feed">
+          @include('includes.posts.make', ['placeholder' => "Share something with $project->name...", 'button' => 'Start the conversation'])
+
             @include('includes.posts.all')
         </div>
-          
+
         <div role="tabpanel" class="tab-pane" id="profile">
-            
+
             @include('includes.profile.field', [ 'topic' => 'Description', 'label' => 'Describe your startup in one sentence.', 'content' => $this_profile->description != "" ? $this_profile->description->value : '' ])
 
              @include('includes.profile.field', [ 'topic' => 'Customer', 'label' => 'Describe your initial target customer.', 'content' => $this_profile->customer != "" ? $this_profile->customer->value : '' ])
@@ -41,11 +41,11 @@
 
         </div>
       </div>
-      
-      
+
+
 
   </div>
-    
+
 </div>
 
 @stop
@@ -55,19 +55,19 @@
 @parent
     @include('js.profile')
 
- 
+
     <script id="post-update" type="text/template">
-    
+
             <form id="post-box" action="" method="post">
 
-                
+
                 <textarea id="ask-something" spellcheck="false" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" name="message" class="form-control comment" placeholder="Ask something about this update"></textarea>
-               
-                
+
+
             </form>
 
     </script>
 
-    
+
 
 @stop

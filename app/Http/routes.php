@@ -27,7 +27,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/update', 'ProjectsController@update');
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
 
-
     Route::get('/settings', 'UsersController@settings')->name('settings');
 
     // Developmental links

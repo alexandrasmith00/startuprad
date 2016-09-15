@@ -35,7 +35,7 @@
   <ul class="menu-section-list">
     <li><a href="<?php echo e(route('dashboard')); ?>">Home</a></li>
     <li><a href="<?php echo e(route('profile')); ?>">Profile</a></li>
-    <li><a href=""><?php echo e(Auth::user()->team()->idea->name); ?></a></li>
+    <li><a href="<?php echo e(route('project.show', ['id' => Auth::user()->team()->idea->id ])); ?>"><?php echo e(Auth::user()->team()->idea->name); ?></a></li>
 
   </ul>
 </section>
@@ -88,7 +88,6 @@
 <script>
 
   $(document).ready(function() {
-
 
     // Slideout Variable
     var slideout = new Slideout({

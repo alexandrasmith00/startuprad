@@ -70,7 +70,6 @@ class ProjectsController extends Controller
      */
     public function show($index)
     {
-        $editsChannel = 'edits' . $index .'Channel';
         $project = Idea::where('id', $index)->first();
 
         $posts = Post::where('idea_id', $project->id)->orderBy('created_at', 'desc')->paginate(10);

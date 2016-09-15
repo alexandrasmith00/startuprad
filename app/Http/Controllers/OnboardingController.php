@@ -73,8 +73,9 @@ class OnboardingController extends Controller
       $confirmation = AccountSetup::where('token', $token)->where('email', Input::get('email'))->delete();
 
       // Checklist: email confirmed
-      foreach ($this->setup_zero as $description)
+      foreach ($this->student_setup_zero as $description)
       {
+
         $confirm = Checklist::where('description', $description)->first()->id;
         $todo = Todo::where('user_id', $user->id)->where('checklist_id', $confirm)->update(['completed_at' => Carbon::now()]);
       }
