@@ -10,11 +10,13 @@ use Illuminate\Support\Facades\Auth;
 // use these Models
 use App\Models\User, App\Models\Role;
 use App\Models\Onboard\AccountSetup;
-use App\Models\Applications\Applicant;
+use App\Models\Applications\Applicant, App\Models\Applications\Application;
 use App\Models\Checklist\Checklist, App\Models\Checklist\Todo;
 use App\Models\Onboard\StudentSetup;
+use App\Models\Idea;
 
 use App\Events\StudentInvited;
+use App\Events\TeamReturned;
 
 // use these class Aliases
 use Validator, Mail, Carbon\Carbon, Log;
@@ -36,11 +38,36 @@ class OnboardingController extends Controller
 
   }
 
+  public function returningStudentInvite()
+  {
+//    $idea = Idea::where('id', 12)->first();
+  }
+
+  public function sending()
+  {
+    $ids = [12, 21, 10, 17];
+
+    $returning = Idea::whereIn('id', $ids)->get();
+
+    foreach ($returning as $return)
+      event (new TeamReturned($return));
+
+    $applicants = Application::where('status', 'accepted')->get();
+    foreach ($applicants as $app)
+      foreach ($app->applicants as $applicant)
+        event (new StudentInvited($applicant));
+  }
+
   public function studentInvite()
   {
-      $applicant = Applicant::where('id', 56)->first();
-      event (new StudentInvited($applicant));
-      return redirect()->back()->with('flash-message', $applicant->first . ' has been invited to join Startup RAD.');
+      $ids = [12, 21, 10, 17];
+
+      $returning = Idea::whereIn('id', $ids)->get()->lists('name');
+      $applicants = Application::where('status', 'accepted')->get()->lists('team');
+
+      return redirect()->back()->with('invite-modal', [$applicants, $returning]);
+
+//      return redirect()->back()->with('flash-message', $applicant->first . ' has been invited to join Startup RAD.');
   }
 
   // Check for valid confirmation code

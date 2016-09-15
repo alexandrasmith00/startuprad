@@ -1,11 +1,11 @@
-<div class="modal fade" id="feedback-modal" tabindex="-1" role="dialog" aria-labelledby="feedback-modal">
-  <div style="margin-top: 10%; background-color: white;" class="holder col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+<div  class="modal fade" id="feedback-modal" tabindex="-1" role="dialog" aria-labelledby="feedback-modal">
+  <div style="margin-top: 10%; margin-bottom: 10%; background-color: white;" class="holder col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
     <button style="margin-top: 10px;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <br>
 
     <form action="<?php echo e(route('bug.create')); ?>" method="post" data-parsley-validate>
       <h3>Provide us with feedback</h3>
-      <p class="section-description">Create your password for Startup RAD.</p>
+      <p class="section-description">So we can improve startuprad.com!</p>
 
       <div class="form-line form-labels">
 

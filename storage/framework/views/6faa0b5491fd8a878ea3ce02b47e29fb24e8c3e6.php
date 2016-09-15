@@ -40,6 +40,21 @@
   </ul>
 </section>
 
+<?php if( Auth::user()->isStaff() ): ?>
+<section class="menu-section">
+  <h3 class="menu-section-title">Admin</h3>
+  <ul class="menu-section-list">
+<!--    <li><a href="">Analytics</a></li>-->
+    <?php if(Auth::user()->hasRole('Admin')): ?>
+<!--    <li><a href="">Advisors</a></li>-->
+    <li><a href="<?php echo e(route('student-invite')); ?>">Invite Rad</a></li>
+
+    <?php endif; ?>
+  </ul>
+</section>
+<?php endif; ?>
+
+
 <?php if( Auth::user()->isStudent() ): ?>
 <?php foreach(Auth::user()->cohorts as $cohort): ?>
 <section class="menu-section">
@@ -64,18 +79,6 @@
 <?php endif; ?>
 
 
-<?php if( Auth::user()->isStaff() ): ?>
-<section class="menu-section">
-  <h3 class="menu-section-title">Admin</h3>
-  <ul class="menu-section-list">
-    <li><a href="">Analytics</a></li>
-    <?php if(Auth::user()->hasRole('Admin')): ?>
-    <li><a href="">Advisors</a></li>
-    <li><a href="<?php echo e(route('student-invite')); ?>">Student Invite Test</a></li>
-    <?php endif; ?>
-  </ul>
-</section>
-<?php endif; ?>
 
 <section class="menu-section">
   <!--  <h3 class="menu-section-title">People</h3>-->

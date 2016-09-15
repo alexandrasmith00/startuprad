@@ -40,6 +40,21 @@
   </ul>
 </section>
 
+@if ( Auth::user()->isStaff() )
+<section class="menu-section">
+  <h3 class="menu-section-title">Admin</h3>
+  <ul class="menu-section-list">
+<!--    <li><a href="">Analytics</a></li>-->
+    @if (Auth::user()->hasRole('Admin'))
+<!--    <li><a href="">Advisors</a></li>-->
+    <li><a href="{{ route('student-invite') }}">Invite Rad</a></li>
+
+    @endif
+  </ul>
+</section>
+@endif
+
+
 @if ( Auth::user()->isStudent() )
 @foreach (Auth::user()->cohorts as $cohort)
 <section class="menu-section">
@@ -64,18 +79,6 @@
 @endif
 
 
-@if ( Auth::user()->isStaff() )
-<section class="menu-section">
-  <h3 class="menu-section-title">Admin</h3>
-  <ul class="menu-section-list">
-    <li><a href="">Analytics</a></li>
-    @if (Auth::user()->hasRole('Admin'))
-    <li><a href="">Advisors</a></li>
-    <li><a href="{{ route('student-invite') }}">Student Invite Test</a></li>
-    @endif
-  </ul>
-</section>
-@endif
 
 <section class="menu-section">
   <!--  <h3 class="menu-section-title">People</h3>-->

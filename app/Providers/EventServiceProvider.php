@@ -31,7 +31,15 @@ class EventServiceProvider extends ServiceProvider
           'App\Listeners\AddToCohort',
           'App\Listeners\SetupOnboarding',
           'App\Listeners\SetupAccount',
-          'App\Listeners\SendInviteEmail',
+//          'App\Listeners\SendInviteEmail',
+        ],
+
+        'App\Events\TeamReturned' => [
+          'App\Listeners\CreateNewStudents',
+          'App\Listeners\AddToNewCohort',
+          'App\Listeners\SetupOnboardings',
+          'App\Listeners\SetupAccounts',
+//          'App\Listeners\SendInviteEmails',
         ],
 
         'App\Events\NewThinking' => [

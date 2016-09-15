@@ -2,7 +2,18 @@
 
 @section('content')
 
+
 <div class="row">
+  <div style="text-align: center; ">
+    <div style="padding-bottom: 100px;" class="col-xs-12">
+        @include('snips.construction')
+      <p>We are updating some functionality of viewing and editing profiles.  You can still comment and browse.</p>
+
+    </div>
+  </div>
+</div>
+<div class="row">
+
 
   <div class="col-md-4">
       @include('includes.profile.about')

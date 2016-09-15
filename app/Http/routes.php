@@ -37,7 +37,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/pdf', ['as' => 'feed', 'uses' => 'PagesController@pdf']);
 
     // Invitations
+    Route::get('/sending-student-invites', 'OnboardingController@sending')->name('sending-student-invites');
+
     Route::get('/student-invite', 'OnboardingController@studentInvite')->name('student-invite');
+    Route::get('/returning-student-invite', 'OnboardingController@returningStudentInvite')->name('return-student-invite');
     Route::post('/advisor-invite', 'OnboardingController@advisorInvite')->name('advisor-invite');
 
     // User account pages

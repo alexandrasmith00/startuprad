@@ -20,17 +20,8 @@
       </div>
     </div>
   </div>
-  <div style="padding-top: 30px;" class="details">
-    <div class="form-line form-labels">
-      <div class="row">
-        <div class="col-xs-12">
-            <h4> Studies </h4>
-        </div>
-      </div>
-    </div>
-
-
-
+  <div style="padding-top: 30px; text-align: center;" class="details">
+    @include('snips.construction')
   </div>
 
 </div>

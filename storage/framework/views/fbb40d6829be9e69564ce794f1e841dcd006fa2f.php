@@ -1,6 +1,17 @@
 <?php $__env->startSection('content'); ?>
 
+
 <div class="row">
+  <div style="text-align: center; ">
+    <div style="padding-bottom: 100px;" class="col-xs-12">
+        <?php echo $__env->make('snips.construction', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <p>We are updating some functionality of viewing and editing profiles.  You can still comment and browse.</p>
+
+    </div>
+  </div>
+</div>
+<div class="row">
+
 
   <div class="col-md-4">
       <?php echo $__env->make('includes.profile.about', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
