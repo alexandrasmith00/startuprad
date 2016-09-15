@@ -59,7 +59,6 @@
             header_html = '<a href="/project/' + idea['id'] + '">' + user['name'] + '</a> <small class="text-muted"> <i class="fa fa-angle-right"></i></small> <a href="/project/' + idea['id'] + '">' + idea['name'] + '</a></li>';
         }
 
-
         var tag_html = "";
         for (var tag in tags) {
             tag_html += "<label class='label label-primary label-tag'>#" + tags[tag]['tag_slug'] + "</label>";

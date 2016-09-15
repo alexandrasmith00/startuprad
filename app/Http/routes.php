@@ -28,6 +28,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
 
     Route::get('/settings', 'UsersController@settings')->name('settings');
+    Route::post('/settings', 'UsersController@updateSettings')->name('update-settings');
 
     // Developmental links
     Route::post('/bugreport', 'FeedController@bugreport')->name('bug.create');

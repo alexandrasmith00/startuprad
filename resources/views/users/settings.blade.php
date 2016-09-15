@@ -2,7 +2,8 @@
 
 @section('content')
 
-
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-sm-12">
 <div class="widget-wrap">
   <div class="widget-header block-header margin-bottom-0 clearfix">
     <div class="pull-left">
@@ -20,11 +21,21 @@
       </div>
     </div>
   </div>
-  <div style="padding-top: 30px; text-align: center;" class="details">
-    @include('snips.construction')
-  </div>
+
+  <form action="{{ route('update-settings')}}" method="POST" data-parsley-validate>
+    @include('users.settings.account')
+
+    <hr style="margin-top: 25px; margin-bottom: 25px;">
+
+    @include('users.settings.student')
+
+    <hr style="margin-top: 25px; margin-bottom: 25px;">
+
+    <button id="apply-button" class="btn oversized-btn btn-blue" type="submit">Update Settings</button>
+  </form>
 
 </div>
 
-
+  </div>
+</div>
 @stop
