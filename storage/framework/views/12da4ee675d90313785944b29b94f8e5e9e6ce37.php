@@ -18,7 +18,11 @@
       <div id="page-content" style="display: none;" class="page-content-wrapper">
 
         <div style="padding-top: 25px;" class="container">
-          <?php echo $__env->yieldContent('content'); ?>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-sm-12">
+              <?php echo $__env->yieldContent('content'); ?>
+            </div>
+          </div>
         </div>
       </div>
     </main>

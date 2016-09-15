@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
 use App\Models\User;
 
 
 class UsersController extends Controller
 {
-    
+
     /**
      * Create a new authentication controller instance.
      *
@@ -22,7 +22,7 @@ class UsersController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
 
     /**
      * Show the application dashboard.
@@ -33,7 +33,7 @@ class UsersController extends Controller
     {
         return view('users.index', ['users' => User::all()]);
     }
-    
+
     /**
      * Show the application dashboard.
      *
@@ -43,7 +43,17 @@ class UsersController extends Controller
     {
         return view('users.show', ['user' => User::find($index)]);
     }
-    
-    
-    
+
+    public function profile()
+    {
+        return view('users.show')->withUser(Auth::user());
+    }
+
+    public function settings()
+    {
+      return view('users.settings')->withUser(Auth::user());
+    }
+
+
+
 }

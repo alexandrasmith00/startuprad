@@ -33,10 +33,31 @@
 <section class="menu-section">
   <h3 class="menu-section-title">Dashboard</h3>
   <ul class="menu-section-list">
-    <li><a href="">Home</a></li>
-    <li><a href="">Profile</a></li>
+    <li><a href="<?php echo e(route('dashboard')); ?>">Home</a></li>
+    <li><a href="<?php echo e(route('profile')); ?>">Profile</a></li>
+    <li><a href=""><?php echo e(Auth::user()->team()->idea->name); ?></a></li>
+
   </ul>
 </section>
+
+<?php if( Auth::user()->isStudent() ): ?>
+<?php foreach(Auth::user()->cohorts as $cohort): ?>
+<section class="menu-section">
+  <h3 class="menu-section-title"><?php echo e($cohort->name); ?></h3>
+  <ul class="menu-section-list">
+    <li><a href="">View All<span class="pull-right"><i class="fa fa-angle-right"></i></span></a></li>
+
+    <?php foreach($cohort->ideas as $team): ?>
+      <?php if(Auth::user()->team()->idea->id != $team->id): ?>
+        <li><a href=""><?php echo e($team->name); ?></a></li>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  </ul>
+</section>
+
+<?php endforeach; ?>
+<?php endif; ?>
+
 
 <?php if( Auth::user()->isStaff() ): ?>
 <section class="menu-section">
@@ -44,21 +65,18 @@
   <ul class="menu-section-list">
     <li><a href="">Analytics</a></li>
     <?php if(Auth::user()->hasRole('Admin')): ?>
-    <li><a href="">Advisors</a></li>
-    <li><a href="<?php echo e(route('student-invite')); ?>">Student Invite Test</a></li>
-
+      <li><a href="">Advisors</a></li>
+      <li><a href="<?php echo e(route('student-invite')); ?>">Student Invite Test</a></li>
     <?php endif; ?>
   </ul>
 </section>
 <?php endif; ?>
 
-
-</section>
-
-
 <section class="menu-section">
   <!--  <h3 class="menu-section-title">People</h3>-->
   <ul class="menu-section-list">
+    <li><a href="<?php echo e(route('settings')); ?>">Settings</a></li>
+    <li><a href="">Feedback</a></li>
     <li><a href="/logout">Logout<span class="pull-right"><i class="fa fa-angle-right"></i></span></a></li>
   </ul>
 </section>

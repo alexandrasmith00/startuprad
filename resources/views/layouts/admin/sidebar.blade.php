@@ -33,10 +33,31 @@
 <section class="menu-section">
   <h3 class="menu-section-title">Dashboard</h3>
   <ul class="menu-section-list">
-    <li><a href="">Home</a></li>
-    <li><a href="">Profile</a></li>
+    <li><a href="{{ route('dashboard') }}">Home</a></li>
+    <li><a href="{{ route('profile') }}">Profile</a></li>
+    <li><a href="">{{ Auth::user()->team()->idea->name }}</a></li>
+
   </ul>
 </section>
+
+@if ( Auth::user()->isStudent() )
+@foreach (Auth::user()->cohorts as $cohort)
+<section class="menu-section">
+  <h3 class="menu-section-title">{{ $cohort->name }}</h3>
+  <ul class="menu-section-list">
+    <li><a href="">View All<span class="pull-right"><i class="fa fa-angle-right"></i></span></a></li>
+
+    @foreach ($cohort->ideas as $team)
+      @if (Auth::user()->team()->idea->id != $team->id)
+        <li><a href="">{{ $team->name }}</a></li>
+      @endif
+    @endforeach
+  </ul>
+</section>
+
+@endforeach
+@endif
+
 
 @if ( Auth::user()->isStaff() )
 <section class="menu-section">
@@ -44,21 +65,18 @@
   <ul class="menu-section-list">
     <li><a href="">Analytics</a></li>
     @if (Auth::user()->hasRole('Admin'))
-    <li><a href="">Advisors</a></li>
-    <li><a href="{{ route('student-invite') }}">Student Invite Test</a></li>
-
+      <li><a href="">Advisors</a></li>
+      <li><a href="{{ route('student-invite') }}">Student Invite Test</a></li>
     @endif
   </ul>
 </section>
 @endif
 
-
-</section>
-
-
 <section class="menu-section">
   <!--  <h3 class="menu-section-title">People</h3>-->
   <ul class="menu-section-list">
+    <li><a href="{{ route('settings') }}">Settings</a></li>
+    <li><a href="">Feedback</a></li>
     <li><a href="/logout">Logout<span class="pull-right"><i class="fa fa-angle-right"></i></span></a></li>
   </ul>
 </section>

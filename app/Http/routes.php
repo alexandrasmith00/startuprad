@@ -19,12 +19,16 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'PagesController@index')->name('feed');
 
     // Feed
-    Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'FeedController@index']);
+    Route::get('/dashboard', 'FeedController@index')->name('dashboard');
+    Route::get('/profile', 'UsersController@profile')->name('profile');
 
     // Posts and comments
     Route::post('addpost', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
     Route::post('/update', 'ProjectsController@update');
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
+
+
+    Route::get('/settings', 'UsersController@settings')->name('settings');
 
     // Developmental links
     Route::post('/bugreport', ['as' => 'bug.create', 'uses' => 'FeedController@bugreport']);
