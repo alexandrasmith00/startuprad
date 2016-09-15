@@ -153,6 +153,8 @@ return [
         Aws\Laravel\AwsServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Slynova\Commentable\ServiceProvider::class,
+
 
 
         /*
