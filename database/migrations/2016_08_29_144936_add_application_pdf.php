@@ -12,10 +12,10 @@ class AddApplicationPdf extends Migration
      */
   public function up()
   {
-    Schema::table('applications', function($table)
-    {
-      $table->string('pdf');
-    });
+//    Schema::table('applications', function($table)
+//    {
+//      $table->string('pdf');
+//    });
   }
 
   /**
