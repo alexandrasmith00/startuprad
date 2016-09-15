@@ -7,7 +7,7 @@
           <div class="pull-left">
             <div class="recent-users-list">
               <div class="user-intro">
-                <div class="user-thumb"><a href="#"><img src="{{asset('images/avatar/amarkdalen.jpg')}}" alt="user"></a></div>
+                <div class="user-thumb"><a href="#"><img id="add-image" src="{{asset('images/avatar/amarkdalen.jpg')}}" alt="user"></a></div>
                 <div class="users-info">
                     <ul>
                         <li id="add-post-header" class="u-name"></li>
@@ -15,7 +15,6 @@
                     </ul>
                 </div>
               </div>
-
               <div class="user-intro">
                 <div id="add-post-content" class="post-body">
 

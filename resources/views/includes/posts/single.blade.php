@@ -7,11 +7,11 @@
                 <div class="users-info">
                     <ul>
                         @if ($post->type == 'chat')
-                          <li class="name"><a href="/project/{{ $post->user->idea['id'] }}">{{ $post->user->name }}</a> <small class="text-muted"> <i class="fa fa-angle-right"></i></small> <a href="/project/{{ $post->idea->id }}">{{ $post->idea->name }}</a></li>
+                          <li class="u-name"><a href="/project/{{ $post->user->idea['id'] }}">{{ $post->user->name }}</a> <small class="text-muted"> <i class="fa fa-angle-right"></i></small> <a href="/project/{{ $post->idea->id }}">{{ $post->idea->name }}</a></li>
                         @elseif ($post->type == 'question')
-                          <li class="name"><a href="/project/{{ $post->user->idea['id'] }}">{{ $post->user->idea['name'] }}</a></li>
+                          <li class="u-name"><a href="/project/{{ $post->user->idea['id'] }}">{{ $post->user->idea['name'] }}</a></li>
                         @else
-                          <li class="name"><a href="/project/{{ $post->user->idea['id'] }}">{{ $post->user->idea['name'] }}</a><small class="text-muted"> {{ $post->title }}</small></li>
+                          <li class="u-name"><a href="/project/{{ $post->user->idea['id'] }}">{{ $post->user->idea['name'] }}</a><small class="text-muted"> {{ $post->title }}</small></li>
                         @endif
 
                         <li class="u-location"> <i class="fa fa-clock-o"></i> {{ $post->created_at->diffForHumans() }}</li>

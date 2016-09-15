@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use Log;
 use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -58,14 +59,14 @@ class FeedController extends Controller
         $post->idea_id = $request->input('idea-id');
         $post->type = $request->input('type');
         $post->title = $title;
+        if(stristr($request->input('tags'), '#radnow') !== FALSE)
+          $post->radnow = true;
         $post->save();
 
 
         $post->tag(explode(',', str_replace("#", "", $request->input('tags'))));
 
-
         return [$post, $post->user, $post->idea, $post->tagged];
-
     }
 
     public function bugreport(Request $request)

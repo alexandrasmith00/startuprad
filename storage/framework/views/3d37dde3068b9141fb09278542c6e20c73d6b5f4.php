@@ -7,11 +7,11 @@
                 <div class="users-info">
                     <ul>
                         <?php if($post->type == 'chat'): ?>
-                          <li class="name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->name); ?></a> <small class="text-muted"> <i class="fa fa-angle-right"></i></small> <a href="/project/<?php echo e($post->idea->id); ?>"><?php echo e($post->idea->name); ?></a></li>
+                          <li class="u-name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->name); ?></a> <small class="text-muted"> <i class="fa fa-angle-right"></i></small> <a href="/project/<?php echo e($post->idea->id); ?>"><?php echo e($post->idea->name); ?></a></li>
                         <?php elseif($post->type == 'question'): ?>
-                          <li class="name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->idea['name']); ?></a></li>
+                          <li class="u-name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->idea['name']); ?></a></li>
                         <?php else: ?>
-                          <li class="name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->idea['name']); ?></a><small class="text-muted"> <?php echo e($post->title); ?></small></li>
+                          <li class="u-name"><a href="/project/<?php echo e($post->user->idea['id']); ?>"><?php echo e($post->user->idea['name']); ?></a><small class="text-muted"> <?php echo e($post->title); ?></small></li>
                         <?php endif; ?>
 
                         <li class="u-location"> <i class="fa fa-clock-o"></i> <?php echo e($post->created_at->diffForHumans()); ?></li>

@@ -56,7 +56,7 @@
         } else if (post['type'] == 'question') {
             header_html = '<a href="/project/' + idea['id'] + '">' + idea['name'] + '</a>'
         } else if (post['type'] == 'chat') {
-            header_html = '<a href="/project/' + idea['id'] + '">' + user['name'] + '</a> <small class="text-muted"> <i style="color: #17bab8;"class="zmdi zmdi-chevron-right"></i></small> <a href="/project/' + idea['id'] + '">' + idea['name'] + '</a></li>';
+            header_html = '<a href="/project/' + idea['id'] + '">' + user['name'] + '</a> <small class="text-muted"> <i class="fa fa-angle-right"></i></small> <a href="/project/' + idea['id'] + '">' + idea['name'] + '</a></li>';
         }
 
 
@@ -69,6 +69,8 @@
         var el = createPostEl();
         el.find('#add-post-header').append(header_html);
         el.find('#add-post-content').text(post['content']);
+        if (idea['logo'] != '')
+          el.find('#add-image').attr('src', idea['logo']);
         el.find('#add-post-tags').append(tag_html);
         $('#top-of-the-feed').append(el);
     }
