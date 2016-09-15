@@ -7,3 +7,7 @@ input.parsley-error, input:focus.parsley-error {
   border-color: $error;
   margin-bottom: 0px;
 }
+
+.parsley-show-error {
+  color: $error;
+}

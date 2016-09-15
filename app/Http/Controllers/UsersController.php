@@ -109,8 +109,10 @@ class UsersController extends Controller
     {
       // Check if email has changed
       if (Auth::user()->email != $request->input('email'))
-        if (User::where('email', $request->input('email'))->exists() ) // Check if email is associated with another account
-          return redirect()->back()->withErrors(['email' => 'That email is associated with another account.']);
+        if (User::where('email', $request->input('email'))->exists() ) { // Check if email is associated with another account
+          $errors['email'] = 'The email is already associated with another account.';
+          return redirect()->back()->withErrors($errors)->withInput();
+        }
 
       Auth::user()->first = $request->input('first');
       Auth::user()->last = $request->input('last');
@@ -124,8 +126,29 @@ class UsersController extends Controller
       Auth::user()->student->save();
 
       return redirect()->route('settings')->with('flash-message', 'Your settings have been updated.');
+    }
 
+    public function password()
+    {
+      return view('users.password')->withUser(Auth::user());
 
+    }
+
+    public function updatePassword(Request $request)
+    {
+      if (Auth::attempt(['email' => Auth::user()->email, 'password' => $request->input('password') ]))
+      {
+        $user = Auth::user();
+        $user->password = bcrypt($request->input('new_password'));
+        $user->save();
+
+        Auth::login(Auth::user());
+        return redirect()->back()->with('flash-message', "You successfully reset your password.")->with('flash-strong', 'Success!')->withUser(Auth::user());
+      }
+
+      $errors = ['password' => 'This is not the correct password.'];
+
+      return redirect()->back()->withUser(Auth::user())->withErrors($errors);
     }
 
 

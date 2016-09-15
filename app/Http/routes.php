@@ -28,6 +28,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
 
     Route::get('/settings', 'UsersController@settings')->name('settings');
+    Route::get('/settings/password', 'UsersController@password')->name('change-password');
+    Route::post('/settings/password', 'UsersController@updatePassword')->name('update-password');
     Route::post('/settings', 'UsersController@updateSettings')->name('update-settings');
 
     // Developmental links

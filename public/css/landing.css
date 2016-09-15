@@ -10531,6 +10531,9 @@ input.parsley-error, input:focus.parsley-error {
   border-color: #fe1f0d;
   margin-bottom: 0px; }
 
+.parsley-show-error {
+  color: #fe1f0d; }
+
 body {
   font-family: "Roboto", arial, sans-serif;
   font-weight: 300;
