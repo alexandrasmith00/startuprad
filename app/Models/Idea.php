@@ -65,7 +65,15 @@ class Idea extends Model
     public function marketing() { return $this->singleResource('marketing'); }
     public function businessModel() { return $this->singleResource('businessModel'); }
     public function video() { return $this->singleResource('video'); }
+    public function equitySplit() { return $this->singleResource('equitySplit'); }
+    public function fundingRound() { return $this->singleResource('fundingRound'); }
+    public function debtEquity() { return $this->singleResource('debtEquity'); }
+    public function legalStatus() { return $this->singleResource('legalStatus'); }
+
     public function partnerships() { return $this->multiResource('partnership'); }
+    public function lawyers() { return $this->multiResource('lawyer'); }
+    public function advisors() { return $this->multiResource('advisor'); }
+    public function outsideInvestors() { return $this->multiResource('outsideInvestors'); }
 
     protected function singleResource($name)
     {

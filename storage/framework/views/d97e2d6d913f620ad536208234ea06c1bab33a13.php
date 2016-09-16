@@ -4,12 +4,12 @@
   </div>
   <div class="col-sm-8 col-xs-12">
     <p>
-      <?php if($idea->partnerships()): ?>
+      <?php if($idea->partnerships() != '[]'): ?>
         <?php foreach($idea->partnerships() as $partnership): ?>
           <p><?php echo e(resourceHelper($partnership, 'Partnership')); ?></p>
         <?php endforeach; ?>
       <?php else: ?>
-        <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Partnerships
+        <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Lawyers
       <?php endif; ?>
     </p>
   </div>

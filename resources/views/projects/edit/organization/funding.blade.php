@@ -3,7 +3,7 @@
     <label><strong>Equity Split</strong></label>
   </div>
   <div class="col-sm-8 col-xs-12">
-    <p>Legal</p>
+    <p>@if ($idea->equitySplit()) {{ $idea->equitySplit() }} @else <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Equity Split @endif</p>
   </div>
 </div>
 
@@ -12,7 +12,13 @@
     <label><strong>Outside Investors</strong></label>
   </div>
   <div class="col-sm-8 col-xs-12">
-    <p>Legal</p>
+    @if ($idea->outsideInvestors() != '[]')
+      @foreach ($idea->outsideInvestors() as $investor)
+        <p>{{ resourceHelper($investor, 'Name') }}</p>
+      @endforeach
+    @else
+      <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Outside Investors
+    @endif
   </div>
 </div>
 
@@ -21,7 +27,7 @@
     <label><strong>Funding Round</strong></label>
   </div>
   <div class="col-sm-8 col-xs-12">
-    <p>Legal</p>
+    <p>@if ($idea->fundingRound()) {{ $idea->fundingRound() }} @else <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Funding Round @endif</p>
   </div>
 </div>
 
@@ -30,6 +36,6 @@
     <label><strong>Debt Equity</strong></label>
   </div>
   <div class="col-sm-8 col-xs-12">
-    <p>Legal</p>
+    <p>@if ($idea->debtEquity()) {{ $idea->debtEquity() }} @else <i class="blue fa fa-exclamation-circle"></i> &nbsp;  No Debt Equity @endif</p>
   </div>
 </div>

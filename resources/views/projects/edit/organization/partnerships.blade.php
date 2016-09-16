@@ -4,12 +4,12 @@
   </div>
   <div class="col-sm-8 col-xs-12">
     <p>
-      @if ($idea->partnerships())
+      @if ($idea->partnerships() != '[]')
         @foreach ($idea->partnerships() as $partnership)
           <p>{{ resourceHelper($partnership, 'Partnership') }}</p>
         @endforeach
       @else
-        <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Partnerships
+        <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Lawyers
       @endif
     </p>
   </div>
