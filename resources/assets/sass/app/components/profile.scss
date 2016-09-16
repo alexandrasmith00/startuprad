@@ -10,3 +10,45 @@
     color: $blue;
   }
 }
+
+
+ul.profile-social-links {
+  height: 50px;
+  line-height: 50px;
+  display: inline-block;
+
+  li {
+    display: inline;
+    padding-right: 25px;
+  }
+}
+
+
+.user-intro {
+  .user-thumb, .users-info {
+    display: inline-block;
+  }
+
+  .user-thumb {
+    img {
+      width: auto;
+      border-radius: 0;
+      padding-right: 15px;
+      height: 40px;
+    }
+  }
+}
+
+.user-header-left, .user-header-right {
+  text-align: center;
+}
+
+@media (min-width: $screen-sm-min) {
+  .user-header-left {
+    text-align: left;
+  }
+
+  .user-header-right {
+    text-align: right;
+  }
+}

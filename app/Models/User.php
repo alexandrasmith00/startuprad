@@ -47,6 +47,11 @@ class User extends Authenticatable
       return $this->teams->first();
     }
 
+    public function social()
+    {
+      return $this->hasOne('App\Models\Social', 'user_id');
+    }
+
     public function student()
     {
       return $this->hasOne('App\Models\Student', 'user_id');

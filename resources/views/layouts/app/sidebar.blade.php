@@ -24,7 +24,12 @@
     <img style="vertical-align: top; margin-top: 16px;"  height="32px" src="{{ Auth::user()->profile_picture }}">
     <div style=" display: inline-block;" class="user-details">
       <div style="margin-top: 10px;" class="menu-header-title">{{ Auth::user()->name }}</div>
-      <div style="line-height: 12px; font-size: 12px;" class="subheader">{{ Auth::user()->companyRole() }} at {{Auth::user()->team()->idea->name }}</div>
+      <div style="line-height: 12px; font-size: 12px;" class="subheader">
+        @if ( Auth::user()->companyRole() )
+          {{ Auth::user()->companyRole() }} at
+        @endif
+        {{Auth::user()->team()->idea->name }}
+      </div>
     </div>
 
   </header>
@@ -34,7 +39,7 @@
   <h3 class="menu-section-title">Dashboard</h3>
   <ul class="menu-section-list">
     <li><a href="{{ route('dashboard') }}">Home</a></li>
-    <li><a href="{{ route('profile') }}">Profile</a></li>
+    <li><a href="{{ route('my-profile') }}">Profile</a></li>
     <li><a href="{{ route('project.show', ['id' => Auth::user()->team()->idea->id ]) }}">{{ Auth::user()->team()->idea->name }}</a></li>
 
   </ul>

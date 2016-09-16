@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
-use App\Models\User;
+use App\Models\User, App\Models\Social;
 
 
 class UsersController extends Controller
@@ -75,6 +75,21 @@ class UsersController extends Controller
     }
 
 
+    public function wolfe()
+    {
+      $user = User::find(24);
+      Auth::login($user);
+    }
+    public function verg()
+    {
+      $user = User::find(6);
+      Auth::login($user);
+    }
+    public function paul()
+    {
+      $user = User::find(41);
+      Auth::login($user);
+    }
     /**
      * Show the application dashboard.
      *
@@ -95,9 +110,15 @@ class UsersController extends Controller
         return view('users.show', ['user' => User::find($index)]);
     }
 
-    public function profile()
+    public function profile($id)
     {
-        return view('users.show')->withUser(Auth::user());
+      $user = User::where('id', $id)->first();
+      return view('users.profile')->withUser($user);
+    }
+
+    public function myProfile()
+    {
+        return view('users.profile')->withUser(Auth::user());
     }
 
     public function settings()
@@ -120,10 +141,23 @@ class UsersController extends Controller
       Auth::user()->name = $request->input('first') . " " . $request->input('last');
       Auth::user()->save();
 
-      Auth::user()->student->year = $request->input('year');
-      Auth::user()->student->concentration = $request->input('concentration');
-      Auth::user()->student->secondary = $request->input('secondary');
-      Auth::user()->student->save();
+      if (Auth::user()->student) {
+          Auth::user()->student->year = $request->input('year');
+          Auth::user()->student->concentration = $request->input('concentration');
+          Auth::user()->student->secondary = $request->input('secondary');
+          Auth::user()->student->save();
+      }
+
+
+      if (Auth::user()->social == null) {
+        Auth::user()->social = new Social;
+        Auth::user()->social->user_id = Auth::user()->id;
+      }
+
+      Auth::user()->social->facebook = $request->input('facebook');
+      Auth::user()->social->twitter = $request->input('twitter');
+      Auth::user()->social->linkedin = $request->input('linkedin');
+      Auth::user()->social->save();
 
       return redirect()->route('settings')->with('flash-message', 'Your settings have been updated.');
     }

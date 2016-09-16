@@ -63,6 +63,14 @@ class ProjectsController extends Controller
         return view('projects.index');
     }
 
+
+    public function showRadTeam()
+    {
+      $rad = Idea::where('id', 22)->first();
+      $posts = Post::where('idea_id', $rad->id)->orderBy('created_at', 'desc')->paginate(10);
+
+      return view('projects.rad')->withPosts($posts)->withIdea($rad);
+    }
     /**
      * Show the application dashboard.
      *
@@ -70,7 +78,11 @@ class ProjectsController extends Controller
      */
     public function show($index)
     {
+        if ($index == 22)
+          return $this->showRadTeam();
+
         $project = Idea::where('id', $index)->first();
+
 
         $posts = Post::where('idea_id', $project->id)->orderBy('created_at', 'desc')->paginate(10);
 

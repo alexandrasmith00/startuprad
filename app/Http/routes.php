@@ -2,6 +2,10 @@
 
 Route::group(['middleware' => 'web'], function () {
 
+    Route::get('test-as-wolfe', 'UsersController@wolfe')->name('wolfe');
+    Route::get('test-as-verg', 'UsersController@verg')->name('verg');
+    Route::get('test-as-paul', 'UsersController@paul')->name('paul');
+
     // Onboarding routes
     Route::get('confirm/{token}', 'OnboardingController@confirm')->name('confirm');
     Route::post('confirm/{token}', 'OnboardingController@create')->name('create');
@@ -20,7 +24,8 @@ Route::group(['middleware' => 'web'], function () {
 
     // Feed
     Route::get('/dashboard', 'FeedController@index')->name('dashboard');
-    Route::get('/profile', 'UsersController@profile')->name('profile');
+    Route::get('/profile', 'UsersController@myProfile')->name('my-profile');
+    Route::get('/profile/{id}', 'UsersController@profile')->name('profile');
 
     // Posts and comments
     Route::post('addpost', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);

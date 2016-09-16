@@ -9152,6 +9152,32 @@ div.tagsinput div {
   .organization-nav.active > a {
     color: #0D74FE; }
 
+ul.profile-social-links {
+  height: 50px;
+  line-height: 50px;
+  display: inline-block; }
+  ul.profile-social-links li {
+    display: inline;
+    padding-right: 25px; }
+
+.user-intro .user-thumb, .user-intro .users-info {
+  display: inline-block; }
+
+.user-intro .user-thumb img {
+  width: auto;
+  border-radius: 0;
+  padding-right: 15px;
+  height: 40px; }
+
+.user-header-left, .user-header-right {
+  text-align: center; }
+
+@media (min-width: 768px) {
+  .user-header-left {
+    text-align: left; }
+  .user-header-right {
+    text-align: right; } }
+
 .widget-wrap {
   background-color: #fff;
   margin-bottom: 30px;

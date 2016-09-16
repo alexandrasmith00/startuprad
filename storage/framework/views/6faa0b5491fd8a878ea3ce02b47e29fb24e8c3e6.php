@@ -24,7 +24,13 @@
     <img style="vertical-align: top; margin-top: 16px;"  height="32px" src="<?php echo e(Auth::user()->profile_picture); ?>">
     <div style=" display: inline-block;" class="user-details">
       <div style="margin-top: 10px;" class="menu-header-title"><?php echo e(Auth::user()->name); ?></div>
-      <div style="line-height: 12px; font-size: 12px;" class="subheader"><?php echo e(Auth::user()->companyRole()); ?> at <?php echo e(Auth::user()->team()->idea->name); ?></div>
+      <div style="line-height: 12px; font-size: 12px;" class="subheader">
+        <?php if( Auth::user()->companyRole() ): ?>
+          <?php echo e(Auth::user()->companyRole()); ?> at
+        <?php endif; ?>
+        <?php echo e(Auth::user()->team()->idea->name); ?>
+
+      </div>
     </div>
 
   </header>
@@ -34,7 +40,7 @@
   <h3 class="menu-section-title">Dashboard</h3>
   <ul class="menu-section-list">
     <li><a href="<?php echo e(route('dashboard')); ?>">Home</a></li>
-    <li><a href="<?php echo e(route('profile')); ?>">Profile</a></li>
+    <li><a href="<?php echo e(route('my-profile')); ?>">Profile</a></li>
     <li><a href="<?php echo e(route('project.show', ['id' => Auth::user()->team()->idea->id ])); ?>"><?php echo e(Auth::user()->team()->idea->name); ?></a></li>
 
   </ul>
