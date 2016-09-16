@@ -38,6 +38,16 @@
         @include('projects.edit.team')
         <hr style="margin-top: 25px; margin-bottom: 25px;">
 
+        @include('projects.edit.organization')
+        <hr style="margin-top: 25px; margin-bottom: 25px;">
+
+        @include('projects.edit.value')
+        <hr style="margin-top: 25px; margin-bottom: 25px;">
+
+        @include('projects.edit.misc')
+        <hr style="margin-top: 25px; margin-bottom: 25px;">
+
+
 
 <!--        <button id="apply-button" class="btn oversized-btn btn-blue" type="submit">Update Profile</button>-->
 <!--      </form>-->

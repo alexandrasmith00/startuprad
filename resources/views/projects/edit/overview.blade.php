@@ -40,6 +40,15 @@
 
         <div class="row">
           <div class="col-sm-4 col-xs-12">
+            <label><strong>Description</strong></label>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+            <p>@if ($idea->description()) {{ $idea->description() }} @else <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Description @endif</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
             <label><strong>URL</strong></label>
           </div>
           <div class="col-sm-8 col-xs-12">
@@ -55,6 +64,23 @@
             <p>@if ($idea->location()) {{ $idea->location() }} @else <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Location @endif</p>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <label><strong>Video</strong></label>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+            <p>
+              @if ($idea->video())
+                <i class="fa fa-youtube"></i> {{ $idea->video() }}
+              @else
+                <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Video
+              @endif
+            </p>
+          </div>
+        </div>
+
+
       </div>
 
 

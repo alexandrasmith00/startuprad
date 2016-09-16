@@ -47,61 +47,40 @@ class Idea extends Model
       return User::whereIn('id', $users)->get();
     }
 
+    public function linkedin() { return $this->singleResource('linkedIn'); }
+    public function facebook() { return $this->singleResource('facebook'); }
+    public function twitter() { return $this->singleResource('twitter'); }
+    public function url() { return $this->singleResource('site'); }
+    public function tagline() { return $this->singleResource('tagline'); }
+    public function logo() { return $this->singleResource('logo'); }
+    public function location() { return $this->singleResource('location'); }
+    public function description() { return $this->singleResource('description'); }
+    public function customer() { return $this->singleResource('customer'); }
+    public function demands() { return $this->singleResource('demands'); }
+    public function product() { return $this->singleResource('product'); }
+    public function value() { return $this->singleResource('value'); }
+    public function useCase() { return $this->singleResource('useCase'); }
+    public function market() { return $this->singleResource('market'); }
+    public function competition() { return $this->singleResource('competition'); }
+    public function marketing() { return $this->singleResource('marketing'); }
+    public function businessModel() { return $this->singleResource('businessModel'); }
+    public function video() { return $this->singleResource('video'); }
+    public function partnerships() { return $this->multiResource('partnership'); }
 
-    public function facebook()
+    protected function singleResource($name)
     {
-        $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'facebook')->first();
-
-        if ($thinking != null)
-          return Resource::where('thinking_id', $thinking->id)->first()->value;
-    }
-
-    public function linkedin()
-    {
-      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'linkedIn')->first();
-
+      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', $name)->first();
       if ($thinking != null)
         return Resource::where('thinking_id', $thinking->id)->first()->value;
     }
 
-    public function twitter()
+    protected function multiResource($name)
     {
-      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'twitter')->first();
+      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', $name)->get()->lists('id');
 
-      if ($thinking != null)
-        return Resource::where('thinking_id', $thinking->id)->first()->value;
+      if ($thinking != null) {
+        $resources = Resource::whereIn('thinking_id', $thinking)->get();
+        return $resources->groupBy('thinking_id');
+      }
     }
-
-    public function url()
-    {
-      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'site')->first();
-
-      if ($thinking != null)
-        return Resource::where('thinking_id', $thinking->id)->first()->value;
-    }
-
-    public function tagline()
-    {
-      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'tagline')->first();
-
-      if ($thinking != null)
-        return Resource::where('thinking_id', $thinking->id)->first()->value;
-    }
-
-    public function logo()
-    {
-      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'logo')->first();
-
-      if ($thinking != null)
-        return Resource::where('thinking_id', $thinking->id)->first()->value;
-    }
-
-    public function location()
-    {
-      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'location')->first();
-
-      if ($thinking != null)
-        return Resource::where('thinking_id', $thinking->id)->first()->value;
-    }
-
 }

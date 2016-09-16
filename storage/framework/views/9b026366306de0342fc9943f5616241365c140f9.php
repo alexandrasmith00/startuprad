@@ -36,6 +36,16 @@
         <?php echo $__env->make('projects.edit.team', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <hr style="margin-top: 25px; margin-bottom: 25px;">
 
+        <?php echo $__env->make('projects.edit.organization', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <hr style="margin-top: 25px; margin-bottom: 25px;">
+
+        <?php echo $__env->make('projects.edit.value', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <hr style="margin-top: 25px; margin-bottom: 25px;">
+
+        <?php echo $__env->make('projects.edit.misc', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <hr style="margin-top: 25px; margin-bottom: 25px;">
+
+
 
 <!--        <button id="apply-button" class="btn oversized-btn btn-blue" type="submit">Update Profile</button>-->
 <!--      </form>-->

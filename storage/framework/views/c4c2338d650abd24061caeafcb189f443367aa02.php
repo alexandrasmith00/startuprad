@@ -41,6 +41,15 @@
 
         <div class="row">
           <div class="col-sm-4 col-xs-12">
+            <label><strong>Description</strong></label>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+            <p><?php if($idea->description()): ?> <?php echo e($idea->description()); ?> <?php else: ?> <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Description <?php endif; ?></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
             <label><strong>URL</strong></label>
           </div>
           <div class="col-sm-8 col-xs-12">
@@ -56,6 +65,24 @@
             <p><?php if($idea->location()): ?> <?php echo e($idea->location()); ?> <?php else: ?> <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Location <?php endif; ?></p>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <label><strong>Video</strong></label>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+            <p>
+              <?php if($idea->video()): ?>
+                <i class="fa fa-youtube"></i> <?php echo e($idea->video()); ?>
+
+              <?php else: ?>
+                <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Video
+              <?php endif; ?>
+            </p>
+          </div>
+        </div>
+
+
       </div>
 
 
