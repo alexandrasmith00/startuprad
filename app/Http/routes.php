@@ -26,7 +26,15 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/dashboard', 'FeedController@index')->name('dashboard');
     Route::get('/profile', 'UsersController@myProfile')->name('my-profile');
     Route::get('/profile/{id}', 'UsersController@profile')->name('profile');
+
+    // Editing profile
     Route::get('/edit-profile', 'ProjectsController@editProfile')->name('edit-profile');
+    Route::get('/edit-profile/general', 'ProjectsController@editGeneral')->name('edit-general');
+    Route::get('/edit-profile/social', 'ProjectsController@editSocial')->name('edit-social');
+    Route::get('/edit-profile/team', 'ProjectsController@editTeam')->name('edit-team');
+    Route::get('/edit-profile/organization', 'ProjectsController@editOrganization')->name('edit-organization');
+    Route::get('/edit-profile/value-chain', 'ProjectsController@editValueChain')->name('edit-value-chain');
+    Route::get('/edit-profile/strategy', 'ProjectsController@editStrategy')->name('edit-strategy');
 
     // Posts and comments
     Route::post('addpost', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
