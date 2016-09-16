@@ -6,9 +6,7 @@
     <p>
       <?php if($idea->partnerships()): ?>
         <?php foreach($idea->partnerships() as $partnership): ?>
-          <?php foreach($partnership as $cool): ?>
-          <p> <?php echo e($cool); ?></p><br>
-    <?php endforeach; ?>
+          <p><?php echo e(resourceHelper($partnership, 'Partnership')); ?></p>
         <?php endforeach; ?>
       <?php else: ?>
         <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Partnerships

@@ -6,9 +6,7 @@
     <p>
       @if ($idea->partnerships())
         @foreach ($idea->partnerships() as $partnership)
-          @foreach($partnership as $cool)
-          <p> {{ $cool }}</p><br>
-          @endforeach
+          <p>{{ resourceHelper($partnership, 'Partnership') }}</p>
         @endforeach
       @else
         <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Partnerships

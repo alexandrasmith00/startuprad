@@ -27,9 +27,30 @@ function name_view($name)
 }
 
 
-function linkOut($url) {
+function linkOut($url) { // Make sure that link actually goes out from site
   if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
     $url = "http://" . $url;
   }
   return $url;
+}
+
+// ARRAY HELP
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+function resourceHelper($arrayOfObjects, $searchedValue) {
+
+  $arrayOfObjects = $arrayOfObjects->toArray();
+
+
+  $neededObject = array_filter(
+    $arrayOfObjects,
+    function ($e) use ($searchedValue) {
+      if ($e['descriptor'] == $searchedValue)
+        return ($e['value']);
+    }
+  );
+
+  return $neededObject[0]['value'];
+
+
+
 }
