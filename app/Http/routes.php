@@ -1,10 +1,10 @@
 <?php
 
 Route::group(['middleware' => 'web'], function () {
-
-    Route::get('test-as-wolfe', 'UsersController@wolfe')->name('wolfe');
-    Route::get('test-as-verg', 'UsersController@verg')->name('verg');
-    Route::get('test-as-paul', 'UsersController@paul')->name('paul');
+//
+//    Route::get('test-as-wolfe', 'UsersController@wolfe')->name('wolfe');
+//    Route::get('test-as-verg', 'UsersController@verg')->name('verg');
+//    Route::get('test-as-paul', 'UsersController@paul')->name('paul');
 
     // Onboarding routes
     Route::get('confirm/{token}', 'OnboardingController@confirm')->name('confirm');
@@ -26,6 +26,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/dashboard', 'FeedController@index')->name('dashboard');
     Route::get('/profile', 'UsersController@myProfile')->name('my-profile');
     Route::get('/profile/{id}', 'UsersController@profile')->name('profile');
+    Route::get('/edit-profile', 'ProjectsController@editProfile')->name('edit-profile');
 
     // Posts and comments
     Route::post('addpost', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);
@@ -42,7 +43,7 @@ Route::group(['middleware' => 'web'], function () {
 
     // Application routes
     Route::post('/', ['as' => 'apply', 'uses' => 'PagesController@apply']); // can
-    Route::get('/pdf', ['as' => 'feed', 'uses' => 'PagesController@pdf']);
+//    Route::get('/pdf', ['as' => 'feed', 'uses' => 'PagesController@pdf']);
 
     // Invitations
     Route::get('/sending-student-invites', 'OnboardingController@sending')->name('sending-student-invites');
