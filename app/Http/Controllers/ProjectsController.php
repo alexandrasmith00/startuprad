@@ -71,6 +71,12 @@ class ProjectsController extends Controller
 
       return view('projects.rad')->withPosts($posts)->withIdea($rad);
     }
+
+
+    public function editProfile()
+    {
+        return view('projects.edit')->withIdea(Auth::user()->idea);
+    }
     /**
      * Show the application dashboard.
      *

@@ -149,7 +149,7 @@ class PagesController extends Controller
 
   public function pdf()
   {
-    return view('pdf.application')->withStartup('The Wolfe');
+//    return view('pdf.application')->withStartup('The Wolfe');
   }
 
 

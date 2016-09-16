@@ -5,6 +5,18 @@
 <div class="row">
   <div class="col-md-7 col-md-offset-2 col-sm-12">
 
+<!--
+    <div style="border: 1px solid #0d74fe; background-color: white; margin-bottom: 25px; border-radius: 4px;">
+      <div class="container">
+        <div style="margin-bottom: 5px; margin-top: 5px;" class="alert" role="alert">
+
+          <strong> Looks like this is your team!</strong>  You can edit this profile by clicking <a href="{{ route('edit-profile') }}" >here</a>.
+
+        </div>
+      </div>
+    </div>
+-->
+
     <div style="padding-left: 0px; padding-right: 0px;" class="widget-wrap">
       <div style="padding-left: 30px; padding-right: 30px; margin-left: 0px; margin-right: 0px;" class="widget-header block-header margin-bottom-0 clearfix">
         <div class="row">
@@ -23,15 +35,7 @@
           </div>
 
           <div class="user-header-right col-xs-12 col-sm-4">
-
-            <div class="user-intro">
-              <ul class="profile-social-links">
-                @if ( $idea->linkedin() ) <li><a href='{{ $idea->linkedin() }}'><i class="fa fa-lg fa-linkedin blue"></i></a></li>@endif
-                @if ( $idea->facebook() ) <li><a href='{{ $idea->facebook() }}'><i class="fa fa-lg fa-facebook blue"></i></a></li>@endif
-                @if ( $idea->twitter() ) <li><a href='{{ $idea->twitter() }}'><i class="fa fa-lg fa-twitter blue"></i></a></li>@endif
-              </ul>
-            </div>
-
+              @include('projects.includes.social')
           </div>
         </div>
       </div>
@@ -76,9 +80,6 @@
                 @endforeach
 
           </div>
-
-
-
         </div>
       </div>
 

@@ -25,3 +25,11 @@ function name_view($name)
   $name = preg_replace('/(?<!\ )[A-Z]/', ' $0', $name);
   return strtolower($name);
 }
+
+
+function linkOut($url) {
+  if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+    $url = "http://" . $url;
+  }
+  return $url;
+}

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User, App\Models\Roles\UserRole, App\Models\Role;
-
+use Log;
 class Idea extends Model
 {
 
@@ -53,7 +53,7 @@ class Idea extends Model
         $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'facebook')->first();
 
         if ($thinking != null)
-          return Resource::where('thinking_id', $thinking)->first()->value;
+          return Resource::where('thinking_id', $thinking->id)->first()->value;
     }
 
     public function linkedin()
@@ -61,7 +61,7 @@ class Idea extends Model
       $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'linkedIn')->first();
 
       if ($thinking != null)
-        return Resource::where('thinking_id', $thinking)->first()->value;
+        return Resource::where('thinking_id', $thinking->id)->first()->value;
     }
 
     public function twitter()
@@ -69,10 +69,39 @@ class Idea extends Model
       $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'twitter')->first();
 
       if ($thinking != null)
-        return Resource::where('thinking_id', $thinking)->first()->value;
+        return Resource::where('thinking_id', $thinking->id)->first()->value;
     }
 
+    public function url()
+    {
+      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'site')->first();
 
+      if ($thinking != null)
+        return Resource::where('thinking_id', $thinking->id)->first()->value;
+    }
 
+    public function tagline()
+    {
+      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'tagline')->first();
+
+      if ($thinking != null)
+        return Resource::where('thinking_id', $thinking->id)->first()->value;
+    }
+
+    public function logo()
+    {
+      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'logo')->first();
+
+      if ($thinking != null)
+        return Resource::where('thinking_id', $thinking->id)->first()->value;
+    }
+
+    public function location()
+    {
+      $thinking = Thinking::where('idea_id', $this->id)->where('current', '1')->where('name', 'location')->first();
+
+      if ($thinking != null)
+        return Resource::where('thinking_id', $thinking->id)->first()->value;
+    }
 
 }
