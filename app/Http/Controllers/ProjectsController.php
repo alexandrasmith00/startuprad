@@ -66,9 +66,9 @@ class ProjectsController extends Controller
 
       if ($canUpdate)
       {
-          if ($idea->name() != $request->input('name')) {
-            $idea->name = $request->input('name');
-            $idea->save();
+
+          if ($idea->name != $request->input('name')) {
+            $idea->update(['name' => $request->input('name')]);
             event(new UpdateThinking($idea, 'name', ["Name" => $request->input('name')], Auth::user()));
           }
 
@@ -108,7 +108,7 @@ class ProjectsController extends Controller
           event(new UpdateThinking($idea, 'twitter', ["Twitter" => $request->input('twitter')], Auth::user()));
 
         if ($idea->linkedIn() != $request->input('linkedIn'))
-          event(new UpdateThinking($idea, 'linkedIn', ["LinkedIn" => $request->input('linkedin')], Auth::user()));
+          event(new UpdateThinking($idea, 'linkedIn', ["LinkedIn" => $request->input('linkedIn')], Auth::user()));
 
 
         return redirect()->back()->with('flash-message', 'The overview has been updated.');

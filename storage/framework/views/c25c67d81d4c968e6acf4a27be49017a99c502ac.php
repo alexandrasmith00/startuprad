@@ -13,4 +13,4 @@
     </div>
   </div>
 </div>
-<h1><?php echo e(breakLegalStatus("Massachusetts LLC")['state']); ?></h1>
+<h1><?php echo e(breakLegalStatus("Massachusetts LLC")); ?></h1>
