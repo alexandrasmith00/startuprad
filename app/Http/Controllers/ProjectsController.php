@@ -63,4 +63,48 @@ class ProjectsController extends Controller
         return view('projects.edit.edit-component.general')->withIdea(Auth::user()->idea);
     }
 
+    public function updateGeneral(Request $request)
+    {
+      $idea = Idea::where('id', $request->input('idea'))->first();
+      $canUpdate = $this->canUpdate($idea);
+
+      if ($canUpdate)
+      {
+          if ($idea->name() != $request->input('name'))
+            var_dump('name changed');
+
+          if ($idea->tagline() != $request->input('tagline'))
+            var_dump('tagline changed');
+
+          if ($idea->description() != $request->input('description'))
+            var_dump('description changed');
+
+          if ($idea->url() != $request->input('url'))
+            var_dump('url changed');
+
+          if ($idea->location() != $request->input('location'))
+            var_dump('location changed');
+
+          if ($idea->video() != $request->input('video'))
+            var_dump('video changed');
+
+      }
+      else
+        return redirect()->back()->withInput()->with('flash-message', $canUpdate);
+    }
+
+    protected function canUpdate($idea)
+    {
+      if ($idea == null)
+        return "There was an error updating.";
+
+      $canEdit = $idea->team->users()->lists('user_id');
+      foreach ($canEdit as $member)
+        if ($member == Auth::user()->id )
+          return true;
+
+      return "You cannot update this profile page.";
+    }
+
+
 }

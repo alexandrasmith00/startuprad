@@ -23,7 +23,7 @@
             <label>Logo</label>
           </div>
           <div class="col-sm-10 col-xs-12">
-            <p> <a href="{{ route('change-password') }}"> Change logo  &nbsp;<i class="fa fa-angle-right blue"></i> </a></p>
+            <p> <a href="{{ route('edit-logo') }}"> Change logo  &nbsp;<i class="fa fa-angle-right blue"></i> </a></p>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
             <label>Tagline</label>
           </div>
           <div class="col-sm-10 col-xs-12">
-            <input data-parsley-required type="text" class="form-control input-one" name="name" value="{{ $idea->tagline() }}" placeholder="Tagline">
+            <input type="text" class="form-control input-one" name="tagline" value="{{ $idea->tagline() }}" placeholder="Tagline">
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
             <label>Description</label>
           </div>
           <div class="col-sm-10 col-xs-12">
-            <textarea data-parsley-required type="text" class="form-control input-one" name="name" value="{{ $idea->description() }}" placeholder="Description">{{ $idea->description() }}</textarea>
+            <textarea type="text" class="form-control input-one" name="description" value="{{ $idea->description() }}" placeholder="Description">{{ $idea->description() }}</textarea>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
             <label>URL</label>
           </div>
           <div class="col-sm-10 col-xs-12">
-            <input data-parsley-required type="text" class="form-control input-one" name="name" value="{{ $idea->url() }}" placeholder="URL">
+            <input type="url" class="form-control input-one" name="url" value="{{ $idea->url() }}" placeholder="URL">
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
             <label>Location</label>
           </div>
           <div class="col-sm-10 col-xs-12">
-            <input data-parsley-required type="text" class="form-control input-one" name="location" value="{{ $idea->location() }}" placeholder="Location">
+            <input type="text" class="form-control input-one" name="location" value="{{ $idea->location() }}" placeholder="Location">
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@
             <label>Video</label>
           </div>
           <div class="col-sm-10 col-xs-12">
-            <input data-parsley-required type="text" class="form-control input-one" name="name" value="{{ $idea->video() }}" placeholder="Video">
+            <input type="url" class="form-control input-one" name="video" value="{{ $idea->video() }}" placeholder="Video">
           </div>
         </div>
       </div>

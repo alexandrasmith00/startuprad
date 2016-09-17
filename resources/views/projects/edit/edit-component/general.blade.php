@@ -29,7 +29,7 @@
       </div>
 
       <form action="" method="POST" data-parsley-validate>
-
+          <input type="hidden" name="idea" value="{{ Auth::user()->idea->id }}">
           @include('projects.edit.edit-component.forms.general')
           <hr style="margin-top: 25px; margin-bottom: 25px;">
 

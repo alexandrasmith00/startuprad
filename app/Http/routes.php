@@ -30,11 +30,13 @@ Route::group(['middleware' => 'web'], function () {
     // Editing profile
     Route::get('/edit-profile', 'ProjectsController@editProfile')->name('edit-profile');
     Route::get('/edit-profile/general', 'ProjectsController@editGeneral')->name('edit-general');
+    Route::post('/edit-profile/general', 'ProjectsController@updateGeneral')->name('update-general');
     Route::get('/edit-profile/social', 'ProjectsController@editSocial')->name('edit-social');
     Route::get('/edit-profile/team', 'ProjectsController@editTeam')->name('edit-team');
     Route::get('/edit-profile/organization', 'ProjectsController@editOrganization')->name('edit-organization');
     Route::get('/edit-profile/value-chain', 'ProjectsController@editValueChain')->name('edit-value-chain');
     Route::get('/edit-profile/strategy', 'ProjectsController@editStrategy')->name('edit-strategy');
+    Route::get('/edit-profile/logo', 'ProjectsController@editLogo')->name('edit-logo');
 
     // Posts and comments
     Route::post('addpost', ['as' => 'posts.create', 'uses' => 'FeedController@createPost']);

@@ -27,7 +27,7 @@
       </div>
 
       <form action="" method="POST" data-parsley-validate>
-
+          <input type="hidden" name="idea" value="<?php echo e(Auth::user()->idea->id); ?>">
           <?php echo $__env->make('projects.edit.edit-component.forms.general', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
           <hr style="margin-top: 25px; margin-bottom: 25px;">
 

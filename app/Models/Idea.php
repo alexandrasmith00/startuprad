@@ -47,6 +47,7 @@ class Idea extends Model
       return User::whereIn('id', $users)->get();
     }
 
+    public function name() { return $this->singleResource('name'); }
     public function linkedin() { return $this->singleResource('linkedIn'); }
     public function facebook() { return $this->singleResource('facebook'); }
     public function twitter() { return $this->singleResource('twitter'); }
