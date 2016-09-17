@@ -18,6 +18,7 @@ use App\Models\Post;
 use App\Models\Profile;
 use App\Models\Thinking;
 use App\Models\Resource;
+use App\Events\UpdateThinking;
 
 class ProjectsController extends Controller
 {
@@ -53,15 +54,10 @@ class ProjectsController extends Controller
     }
 
 
-    public function editProfile()
-    {
-        return view('projects.edit')->withIdea(Auth::user()->idea);
-    }
-
-    public function editGeneral()
-    {
-        return view('projects.edit.edit-component.general')->withIdea(Auth::user()->idea);
-    }
+    public function editProfile() { return view('projects.edit')->withIdea(Auth::user()->idea); }
+    public function editGeneral() { return view('projects.edit.edit-component.general')->withIdea(Auth::user()->idea); }
+    public function editSocial() { return view('projects.edit.edit-component.social')->withIdea(Auth::user()->idea); }
+    public function editOrganization() { return view('projects.edit.edit-component.organization')->withIdea(Auth::user()->idea); }
 
     public function updateGeneral(Request $request)
     {
@@ -70,24 +66,52 @@ class ProjectsController extends Controller
 
       if ($canUpdate)
       {
-          if ($idea->name() != $request->input('name'))
-            var_dump('name changed');
+          if ($idea->name() != $request->input('name')) {
+            $idea->name = $request->input('name');
+            $idea->save();
+            event(new UpdateThinking($idea, 'name', ["Name" => $request->input('name')], Auth::user()));
+          }
 
           if ($idea->tagline() != $request->input('tagline'))
-            var_dump('tagline changed');
+            event(new UpdateThinking($idea, 'tagline', ["Tagline" => $request->input('tagline')], Auth::user()));
 
           if ($idea->description() != $request->input('description'))
-            var_dump('description changed');
+            event(new UpdateThinking($idea, 'description', ["Description" => $request->input('description')], Auth::user()));
 
           if ($idea->url() != $request->input('url'))
-            var_dump('url changed');
+            event(new UpdateThinking($idea, 'site', ["Site" => $request->input('url')], Auth::user()));
 
           if ($idea->location() != $request->input('location'))
-            var_dump('location changed');
+            event(new UpdateThinking($idea, 'location', ["Location" => $request->input('location')], Auth::user()));
 
           if ($idea->video() != $request->input('video'))
-            var_dump('video changed');
+            event(new UpdateThinking($idea, 'video', ["Video" => $request->input('video')], Auth::user()));
 
+          return redirect()->back()->with('flash-message', 'The overview has been updated.');
+      }
+      else
+        return redirect()->back()->withInput()->with('flash-message', $canUpdate);
+    }
+
+    public function updateSocial(Request $request)
+    {
+      $idea = Idea::where('id', $request->input('idea'))->first();
+      $canUpdate = $this->canUpdate($idea);
+
+      if ($canUpdate)
+      {
+
+        if ($idea->facebook() != $request->input('facebook'))
+          event(new UpdateThinking($idea, 'facebook', ["Facebook" => $request->input('facebook')], Auth::user()));
+
+        if ($idea->twitter() != $request->input('twitter'))
+          event(new UpdateThinking($idea, 'twitter', ["Twitter" => $request->input('twitter')], Auth::user()));
+
+        if ($idea->linkedIn() != $request->input('linkedIn'))
+          event(new UpdateThinking($idea, 'linkedIn', ["LinkedIn" => $request->input('linkedin')], Auth::user()));
+
+
+        return redirect()->back()->with('flash-message', 'The overview has been updated.');
       }
       else
         return redirect()->back()->withInput()->with('flash-message', $canUpdate);

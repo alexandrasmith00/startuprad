@@ -48,6 +48,13 @@ class EventServiceProvider extends ServiceProvider
           'App\Listeners\GeneratePost',
         ],
 
+
+        'App\Events\UpdateThinking' => [
+          'App\Listeners\RemoveOldThinking',
+          'App\Listeners\StartNewThinking',
+        ],
+
+
     ];
 
     /**

@@ -19,9 +19,9 @@
 
       <form action="" method="POST" data-parsley-validate>
         <input type="hidden" name="idea" value="{{ Auth::user()->idea->id }}">
-        @include('projects.edit.edit-component.forms.general')
+        @include('projects.edit.edit-component.forms.organization')
         <hr style="margin-top: 25px; margin-bottom: 25px;">
-        <button id="apply-button" class="btn oversized-btn btn-blue" type="submit">Update Overview</button>
+        <button id="apply-button" class="btn oversized-btn btn-blue" type="submit">Update Organization</button>
       </form>
 
     </div>
