@@ -60,7 +60,7 @@
 @endif
 
 
-@if ( Auth::user()->isStudent() )
+
 @foreach (Auth::user()->cohorts as $cohort)
 <section class="menu-section">
   <h3 class="menu-section-title">{{ $cohort->name }}</h3>
@@ -79,9 +79,7 @@
 
   </ul>
 </section>
-
 @endforeach
-@endif
 
 
 

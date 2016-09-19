@@ -61,7 +61,7 @@
 <?php endif; ?>
 
 
-<?php if( Auth::user()->isStudent() ): ?>
+
 <?php foreach(Auth::user()->cohorts as $cohort): ?>
 <section class="menu-section">
   <h3 class="menu-section-title"><?php echo e($cohort->name); ?></h3>
@@ -80,9 +80,7 @@
 
   </ul>
 </section>
-
 <?php endforeach; ?>
-<?php endif; ?>
 
 
 
