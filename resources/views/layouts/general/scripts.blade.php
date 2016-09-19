@@ -25,6 +25,23 @@
 <script src="{{asset('js/apps.js')}}"></script>
 
 
+<script>
+  // autosize the input area on typing
+  autosize($('textarea'));
+</script>
+
+<script>
+
+  $(function(){
+
+    autosize.update($('textarea'));
+
+  });
+</script>
+
+
 @include('js.comments')
+
+
 
 @yield('scripts')

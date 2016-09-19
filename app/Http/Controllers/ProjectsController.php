@@ -131,6 +131,62 @@ class ProjectsController extends Controller
         return redirect()->back()->withInput()->with('flash-message', $canUpdate);
     }
 
+    public function updateValue(Request $request)
+    {
+      $idea = Idea::where('id', $request->input('idea'))->first();
+      $canUpdate = $this->canUpdate($idea);
+
+      if ($canUpdate)
+      {
+        if ($idea->customer() != $request->input('customer'))
+          event(new UpdateThinking($idea, 'customer', ["Customer" => $request->input('customer')], Auth::user()));
+
+        if ($idea->demands() != $request->input('demands'))
+          event(new UpdateThinking($idea, 'demands', ["Demands" => $request->input('demands')], Auth::user()));
+
+        if ($idea->product() != $request->input('product'))
+          event(new UpdateThinking($idea, 'product', ["Product" => $request->input('product')], Auth::user()));
+
+        if ($idea->value() != $request->input('value'))
+          event(new UpdateThinking($idea, 'value', ["Value" => $request->input('value')], Auth::user()));
+
+        if ($idea->useCase() != $request->input('useCase'))
+          event(new UpdateThinking($idea, 'useCase', ["Use Case" => $request->input('useCase')], Auth::user()));
+
+        return redirect()->back()->with('flash-message', 'The value chain has been updated.');
+      }
+      else
+        return redirect()->back()->withInput()->with('flash-message', $canUpdate);
+    }
+
+
+    public function updateStrategy(Request $request)
+    {
+      $idea = Idea::where('id', $request->input('idea'))->first();
+      $canUpdate = $this->canUpdate($idea);
+
+      if ($canUpdate)
+      {
+
+        if ($idea->market() != $request->input('market'))
+          event(new UpdateThinking($idea, 'market', ["Market" => $request->input('market')], Auth::user()));
+
+        if ($idea->competition() != $request->input('competition'))
+          event(new UpdateThinking($idea, 'competition', ["Competition" => $request->input('competition')], Auth::user()));
+
+        if ($idea->marketing() != $request->input('marketing'))
+          event(new UpdateThinking($idea, 'marketing', ["Marketing" => $request->input('marketing')], Auth::user()));
+
+
+        if ($idea->businessModel() != $request->input('businessModel'))
+          event(new UpdateThinking($idea, 'businessModel', ["Business Model" => $request->input('businessModel')], Auth::user()));
+
+        return redirect()->back()->with('flash-message', 'The strategy has been updated.');
+      }
+      else
+        return redirect()->back()->withInput()->with('flash-message', $canUpdate);
+    }
+
     protected function canUpdate($idea)
     {
       if ($idea == null)

@@ -30,8 +30,9 @@
         <input type="text" class="form-control input-one" name="tagline" value="<?php echo e($idea->tagline()); ?>" placeholder="Tagline">
       <?php endif; ?>
       <?php if($formTitle == 'Description'): ?>
-        <textarea type="text" class="form-control input-one" name="description" value="<?php echo e($idea->description()); ?>" placeholder="Description"><?php echo e($idea->description()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;"  class="form-control input-one" name="description" placeholder="Description"><?php echo e($idea->description()); ?></textarea>
       <?php endif; ?>
+
       <?php if($formTitle == 'URL'): ?>
         <input type="url" class="form-control input-one" name="url" value="<?php echo e($idea->url()); ?>" placeholder="URL">
       <?php endif; ?>
@@ -60,19 +61,19 @@
       <!--Value Chain Inputs-->
       <!--* * * * * * * * * -->
       <?php if($formTitle == 'Customer'): ?>
-        <textarea type="text" class="form-control input-one" name="customer" value="<?php echo e($idea->customer()); ?>" placeholder="Customer Description"><?php echo e($idea->customer()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" class="form-control input-one" name="customer" value="<?php echo e($idea->customer()); ?>" placeholder="Customer Description"><?php echo e($idea->customer()); ?></textarea>
       <?php endif; ?>
       <?php if($formTitle == 'Demands'): ?>
-        <textarea type="text" class="form-control input-one" name="demands" value="<?php echo e($idea->demands()); ?>" placeholder="Demands"><?php echo e($idea->demands()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" class="form-control input-one" name="demands" value="<?php echo e($idea->demands()); ?>" placeholder="Demands"><?php echo e($idea->demands()); ?></textarea>
       <?php endif; ?>
       <?php if($formTitle == 'Product'): ?>
-        <textarea type="text" class="form-control input-one" name="product" value="<?php echo e($idea->product()); ?>" placeholder="Product"><?php echo e($idea->product()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" class="form-control input-one" name="product" value="<?php echo e($idea->product()); ?>" placeholder="Product"><?php echo e($idea->product()); ?></textarea>
       <?php endif; ?>
       <?php if($formTitle == 'Value'): ?>
-        <textarea type="text" class="form-control input-one" name="value" value="<?php echo e($idea->value()); ?>" placeholder="Value"><?php echo e($idea->value()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" class="form-control input-one" name="value" value="<?php echo e($idea->value()); ?>" placeholder="Value"><?php echo e($idea->value()); ?></textarea>
       <?php endif; ?>
       <?php if($formTitle == 'Use Case'): ?>
-        <textarea type="text" class="form-control input-one" name="useCase" value="<?php echo e($idea->useCase()); ?>" placeholder="Use Case"><?php echo e($idea->useCase()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" class="form-control input-one" name="useCase" value="<?php echo e($idea->useCase()); ?>" placeholder="Use Case"><?php echo e($idea->useCase()); ?></textarea>
       <?php endif; ?>
 
 
@@ -80,16 +81,16 @@
       <!-- Strategy Inputs  -->
       <!--* * * * * * * * * -->
       <?php if($formTitle == 'Market'): ?>
-        <textarea type="text" class="form-control input-one" name="market" value="<?php echo e($idea->market()); ?>" placeholder="Market Description"><?php echo e($idea->market()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;"  class="form-control input-one" name="market" value="<?php echo e($idea->market()); ?>" placeholder="Market Description"><?php echo e($idea->market()); ?></textarea>
       <?php endif; ?>
       <?php if($formTitle == 'Competition'): ?>
-        <textarea type="text" class="form-control input-one" name="competition" value="<?php echo e($idea->competition()); ?>" placeholder="Competition"><?php echo e($idea->competition()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" class="form-control input-one" name="competition" value="<?php echo e($idea->competition()); ?>" placeholder="Competition"><?php echo e($idea->competition()); ?></textarea>
       <?php endif; ?>
       <?php if($formTitle == 'Marketing'): ?>
-        <textarea type="text" class="form-control input-one" name="marketing" value="<?php echo e($idea->marketing()); ?>" placeholder="Marketing"><?php echo e($idea->marketing()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" class="form-control input-one" name="marketing" value="<?php echo e($idea->marketing()); ?>" placeholder="Marketing"><?php echo e($idea->marketing()); ?></textarea>
       <?php endif; ?>
       <?php if($formTitle == 'Business Model'): ?>
-        <textarea type="text" class="form-control input-one" name="businessModel" value="<?php echo e($idea->businessModel()); ?>" placeholder="Business Model"><?php echo e($idea->businessModel()); ?></textarea>
+      <textarea type="text" style="resize: none; overflow: hidden; word-wrap: break-word; height: 62px;" class="form-control input-one" name="businessModel" value="<?php echo e($idea->businessModel()); ?>" placeholder="Business Model"><?php echo e($idea->businessModel()); ?></textarea>
       <?php endif; ?>
 
 
@@ -97,3 +98,19 @@
     </div>
   </div>
 </div>
+
+
+<?php $__env->startSection('scripts'); ?>
+@parent
+
+<script>
+
+  window.onload = function () {
+    autosize.update($('textarea'));
+  }
+
+
+
+</script>
+
+<?php $__env->stopSection(); ?>

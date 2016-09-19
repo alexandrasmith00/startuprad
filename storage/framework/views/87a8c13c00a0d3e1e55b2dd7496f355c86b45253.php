@@ -25,6 +25,23 @@
 <script src="<?php echo e(asset('js/apps.js')); ?>"></script>
 
 
+<script>
+  // autosize the input area on typing
+  autosize($('textarea'));
+</script>
+
+<script>
+
+  $(function(){
+
+    autosize.update($('textarea'));
+
+  });
+</script>
+
+
 <?php echo $__env->make('js.comments', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
 
 <?php echo $__env->yieldContent('scripts'); ?>
