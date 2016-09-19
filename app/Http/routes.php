@@ -41,7 +41,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/edit-profile/value-chain', 'ProjectsController@updateValue')->name('update-value');
     Route::get('/edit-profile/strategy', 'ProjectsController@editStrategy')->name('edit-strategy');
     Route::post('/edit-profile/strategy', 'ProjectsController@updateStrategy')->name('update-strategy');
-
     Route::get('/edit-profile/logo', 'ProjectsController@editLogo')->name('edit-logo');
 
     // Posts and comments

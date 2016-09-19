@@ -56,10 +56,17 @@ class ProjectsController extends Controller
     public function show($id)
     {
       $idea = Idea::where('id', $id)->first();
-      return view('projects.show')->withIdea($idea);
+
+      if (Auth::user()->hasProject($id))
+        return view('projects.edit')->withIdea(Auth::user()->idea);
+      else
+        return view('projects.show')->withIdea($idea);
     }
 
-    public function editProfile() { return view('projects.edit')->withIdea(Auth::user()->idea); }
+    public function editProfile() {
+
+      return view('projects.edit')->withIdea(Auth::user()->idea);
+    }
     public function editGeneral() { return view('projects.edit.general')->withIdea(Auth::user()->idea); }
     public function editSocial() { return view('projects.edit.social')->withIdea(Auth::user()->idea); }
     public function editOrganization() { return view('projects.edit.organization')->withIdea(Auth::user()->idea); }
