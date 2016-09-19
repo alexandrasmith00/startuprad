@@ -55,7 +55,7 @@ class ProjectsController extends Controller
 
     public function show($id)
     {
-      if ($id = 22)
+      if ($id == 22)
         return $this->showRadTeam();
 
       $idea = Idea::where('id', $id)->first();
