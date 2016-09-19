@@ -12,13 +12,10 @@
     <label><strong>Outside Investors</strong></label>
   </div>
   <div class="col-sm-8 col-xs-12">
-    <?php if($idea->outsideInvestors() != '[]'): ?>
-    <?php foreach($idea->outsideInvestors() as $investor): ?>
-    <p><?php echo e(resourceHelper($investor, 'Name')); ?></p>
-    <?php endforeach; ?>
-    <?php else: ?>
-    <p><i class="blue fa fa-exclamation-circle"></i> &nbsp; No Outside Investors</p>
-    <?php endif; ?>
+
+    <?php if($idea->outsideInvestors()): ?> <?php echo e($idea->outsideInvestors()); ?> <?php else: ?> <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Outside Investors <?php endif; ?></p>
+
+
   </div>
 </div>
 

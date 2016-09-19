@@ -9,7 +9,7 @@
     <p><?php echo e(resourceHelper($partnership, 'Partnership')); ?></p>
     <?php endforeach; ?>
     <?php else: ?>
-    <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Lawyers
+    <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Partnerships
     <?php endif; ?>
     </p>
 </div>

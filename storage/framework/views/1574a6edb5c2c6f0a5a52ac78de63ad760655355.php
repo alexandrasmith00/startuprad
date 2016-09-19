@@ -77,8 +77,7 @@
           <div class="col-sm-8 col-xs-12">
             <p>
               <?php if($idea->video()): ?>
-              <i class="fa fa-youtube"></i> <?php echo e($idea->video()); ?>
-
+              <a href="<?php echo e(linkout($idea->video())); ?>"><?php echo e(linkout($idea->video())); ?></a>
               <?php else: ?>
               <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Video
               <?php endif; ?>

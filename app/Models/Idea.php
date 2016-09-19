@@ -70,11 +70,12 @@ class Idea extends Model
     public function fundingRound() { return $this->singleResource('fundingRound'); }
     public function debtEquity() { return $this->singleResource('debtEquity'); }
     public function legalStatus() { return $this->singleResource('legalStatus'); }
+    public function outsideInvestors() { return $this->singleResource('outsideInvestors'); }
 
     public function partnerships() { return $this->multiResource('partnership'); }
     public function lawyers() { return $this->multiResource('lawyer'); }
     public function advisors() { return $this->multiResource('advisor'); }
-    public function outsideInvestors() { return $this->multiResource('outsideInvestors'); }
+//    public function outsideInvestors() { return $this->multiResource('outsideInvestors'); }
 
     protected function singleResource($name)
     {

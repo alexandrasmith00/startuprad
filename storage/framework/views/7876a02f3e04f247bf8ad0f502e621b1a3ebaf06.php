@@ -18,7 +18,7 @@
     <p><?php echo e(resourceHelper($lawyer, 'Name')); ?> @ <?php echo e(resourceHelper($lawyer, 'Firm')); ?> </p>
     <?php endforeach; ?>
     <?php else: ?>
-    <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Partnerships
+      <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Lawyers
     <?php endif; ?>
     </p>
 </div>

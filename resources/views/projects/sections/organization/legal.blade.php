@@ -18,7 +18,7 @@
     <p>{{ resourceHelper($lawyer, 'Name') }} @ {{ resourceHelper($lawyer, 'Firm') }} </p>
     @endforeach
     @else
-    <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Partnerships
+      <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Lawyers
     @endif
     </p>
 </div>

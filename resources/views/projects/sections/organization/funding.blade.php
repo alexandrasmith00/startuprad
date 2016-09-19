@@ -12,13 +12,10 @@
     <label><strong>Outside Investors</strong></label>
   </div>
   <div class="col-sm-8 col-xs-12">
-    @if ($idea->outsideInvestors() != '[]')
-    @foreach ($idea->outsideInvestors() as $investor)
-    <p>{{ resourceHelper($investor, 'Name') }}</p>
-    @endforeach
-    @else
-    <p><i class="blue fa fa-exclamation-circle"></i> &nbsp; No Outside Investors</p>
-    @endif
+
+    @if ($idea->outsideInvestors()) {{ $idea->outsideInvestors() }} @else <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Outside Investors @endif</p>
+
+
   </div>
 </div>
 
