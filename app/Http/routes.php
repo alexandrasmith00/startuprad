@@ -2,9 +2,8 @@
 
 Route::group(['middleware' => 'web'], function () {
 
-    Route::get('test-as-wolfe', 'UsersController@wolfe')->name('wolfe');
-    Route::get('test-as-verg', 'UsersController@verg')->name('verg');
-    Route::get('test-as-paul', 'UsersController@paul')->name('paul');
+    // Testing routes
+    Route::get('test-as/{id}', 'UsersController@testAs')->name('test-as');
 
     // Onboarding routes
     Route::get('confirm/{token}', 'OnboardingController@confirm')->name('confirm');
@@ -48,10 +47,15 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/update', 'ProjectsController@update');
     Route::post('/reply', ['as' => 'comments.reply', 'uses' => 'CommentsController@reply']);
 
+    // User settings
     Route::get('/settings', 'UsersController@settings')->name('settings');
     Route::get('/settings/password', 'UsersController@password')->name('change-password');
     Route::post('/settings/password', 'UsersController@updatePassword')->name('update-password');
     Route::post('/settings', 'UsersController@updateSettings')->name('update-settings');
+
+    // Admin controllers
+    Route::get('/manage-rad', 'RADController@manageRad')->name('manage-rad');
+    Route::post('/manage-rad', 'RADController@addTF')->name('add-tf');
 
     // Developmental links
     Route::post('/bugreport', 'FeedController@bugreport')->name('bug.create');
@@ -62,7 +66,6 @@ Route::group(['middleware' => 'web'], function () {
 
     // Invitations
     Route::get('/sending-student-invites', 'OnboardingController@sending')->name('sending-student-invites');
-
     Route::get('/student-invite', 'OnboardingController@studentInvite')->name('student-invite');
     Route::get('/returning-student-invite', 'OnboardingController@returningStudentInvite')->name('return-student-invite');
     Route::post('/advisor-invite', 'OnboardingController@advisorInvite')->name('advisor-invite');

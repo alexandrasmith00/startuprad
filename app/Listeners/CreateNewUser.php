@@ -37,7 +37,7 @@ class CreateNewUser
       $event->user->applicant = $event->applicant->id;
       $event->user->save();
 
-        $role = Role::firstOrCreate(['name' => 'Student']);
-        $userRole = UserRole::firstOrCreate(['role_id' => $role->id, 'user_id' => $event->user->id]);
+      $role = Role::firstOrCreate(['name' => 'Student']);
+      $userRole = UserRole::firstOrCreate(['role_id' => $role->id, 'user_id' => $event->user->id]);
     }
 }

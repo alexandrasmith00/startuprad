@@ -1,49 +1,16 @@
 <?php $__env->startSection('content'); ?>
 
 <div class="row">
-  <div class="col-md-7 col-md-offset-2 col-sm-12">
+  <div class="col-md-8 col-md-offset-2 col-sm-12">
+    <div class="widget-wrap">
 
-<!--
-    <div style="border: 1px solid #0d74fe; background-color: white; margin-bottom: 25px; border-radius: 4px;">
-      <div class="container">
-        <div style="margin-bottom: 5px; margin-top: 5px;" class="alert" role="alert">
+      <?php echo $__env->make('projects.includes.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-          <strong> Looks like this is your team!</strong>  You can edit this profile by clicking <a href="<?php echo e(route('edit-profile')); ?>" >here</a>.
+      <div style="padding-top: 30px;" class="details">
+        <h4>Team Information</h4><br>
 
-        </div>
-      </div>
-    </div>
--->
-
-    <div style="padding-left: 0px; padding-right: 0px;" class="widget-wrap">
-      <div style="padding-left: 30px; padding-right: 30px; margin-left: 0px; margin-right: 0px;" class="widget-header block-header margin-bottom-0 clearfix">
         <div class="row">
-          <div class="user-header-left col-xs-12 col-sm-8">
-
-            <div class="user-intro">
-              <div class="user-thumb"><a href=""><img src="<?php echo e($idea->logo); ?>" alt="user"></a></div>
-              <div class="users-info">
-                <ul>
-                  <li class="name"><a><?php echo e($idea->name); ?></a></li>
-                  <li class="u-location">Cambridge, MA</li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="user-header-right col-xs-12 col-sm-4">
-              <?php echo $__env->make('projects.includes.social', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-          </div>
-        </div>
-      </div>
-
-
-      <div style="padding-left: 30px; padding-right: 30px; margin-top: 25px;" class="row">
-        <div class="col-xs-12">
-          <div  class="details">
-
-            <h4>Team Information</h4><br>
+          <div class="col-xs-12  col-sm-10 col-sm-offset-1">
 
                 <?php foreach($idea->instructor() as $instructor): ?>
                     <div class="form-line form-labels">

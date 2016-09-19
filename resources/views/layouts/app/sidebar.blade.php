@@ -49,13 +49,13 @@
 <section class="menu-section">
   <h3 class="menu-section-title">Admin</h3>
   <ul class="menu-section-list">
-    <li><a href=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> &nbsp;  Under Construction</a></li>
 
-<!--    <li><a href="">Analytics</a></li>-->
-    @if (Auth::user()->hasRole('Admin'))
-<!--    <li><a href="">Advisors</a></li>-->
-    <li><a href="{{ route('student-invite') }}">Invite Rad</a></li>
-
+    @if (Auth::user()->hasRole('Professor'))
+      <li><a href="{{ route('manage-rad') }}">Manage RAD Team</a></li>
+    @elseif (Auth::user()->hasRole('Admin'))
+      <li><a href="{{ route('student-invite') }}">Invite Rad</a></li>
+    @else
+      <li><a href=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> &nbsp;  Under Construction</a></li>
     @endif
   </ul>
 </section>

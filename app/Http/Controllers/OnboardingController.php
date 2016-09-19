@@ -117,6 +117,8 @@ class OnboardingController extends Controller
   {
       if (Auth::user()->isStudent() )
         return $this->get_student_step(Auth::user()->id);
+      else
+        return redirect()->route('dashboard');
   }
 
 

@@ -54,6 +54,17 @@ class EventServiceProvider extends ServiceProvider
           'App\Listeners\StartNewThinking',
         ],
 
+        'App\Events\AddTF' => [
+          'App\Listeners\CheckIfNewUser',
+          'App\Listeners\AddToRadTeam',
+          'App\Listeners\AddToCurrentCohort',
+          'App\Listeners\AddStaffRole',
+        ],
+
+        'App\Events\TFCreated' => [
+          'App\Listeners\TFAccountSetup',
+          'App\Listeners\SendTFInviteEmail',
+        ],
 
     ];
 

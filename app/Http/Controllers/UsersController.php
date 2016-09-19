@@ -75,29 +75,18 @@ class UsersController extends Controller
     }
 
 
-    public function wolfe()
+    public function testAs($id)
     {
       if (Auth::user()->hasRole('Admin')) {
-        $user = User::find(24);
+        $user = User::find($id);
         Auth::login($user);
-      }
-    }
-    public function verg()
-    {
-      if (Auth::user()->hasRole('Admin')) {
-        $user = User::find(6);
-        Auth::login($user);
-      }
-    }
-    public function paul()
-    {
-      if (Auth::user()->hasRole('Admin')) {
-        $user = User::find(41);
-        Auth::login($user);
+        return redirect()->back()->with('flash-message', 'You are logged in as '  . $user->name);
       }
 
+      return redirect()->back()->with('flash-message', "You don't have permission.");
 
     }
+
     /**
      * Show the application dashboard.
      *
