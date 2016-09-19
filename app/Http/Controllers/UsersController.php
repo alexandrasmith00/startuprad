@@ -77,18 +77,26 @@ class UsersController extends Controller
 
     public function wolfe()
     {
-      $user = User::find(24);
-      Auth::login($user);
+      if (Auth::user()->hasRole('admin')) {
+        $user = User::find(24);
+        Auth::login($user);
+      }
     }
     public function verg()
     {
-      $user = User::find(6);
-      Auth::login($user);
+      if (Auth::user()->hasRole('admin')) {
+        $user = User::find(6);
+        Auth::login($user);
+      }
     }
     public function paul()
     {
-      $user = User::find(41);
-      Auth::login($user);
+      if (Auth::user()->hasRole('admin')) {
+        $user = User::find(41);
+        Auth::login($user);
+      }
+
+
     }
     /**
      * Show the application dashboard.

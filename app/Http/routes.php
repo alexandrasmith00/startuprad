@@ -1,10 +1,10 @@
 <?php
 
 Route::group(['middleware' => 'web'], function () {
-//
-//    Route::get('test-as-wolfe', 'UsersController@wolfe')->name('wolfe');
-//    Route::get('test-as-verg', 'UsersController@verg')->name('verg');
-//    Route::get('test-as-paul', 'UsersController@paul')->name('paul');
+
+    Route::get('test-as-wolfe', 'UsersController@wolfe')->name('wolfe');
+    Route::get('test-as-verg', 'UsersController@verg')->name('verg');
+    Route::get('test-as-paul', 'UsersController@paul')->name('paul');
 
     // Onboarding routes
     Route::get('confirm/{token}', 'OnboardingController@confirm')->name('confirm');
