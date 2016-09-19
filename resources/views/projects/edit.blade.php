@@ -18,7 +18,7 @@
       @include('projects.sections.team', ['edit' => true ])
       <hr style="margin-top: 25px; margin-bottom: 25px;">
 
-      @include('projects.sections.organization', ['edit' => true ])
+      @include('projects.sections.organization', ['edit' => false ])
       <hr style="margin-top: 25px; margin-bottom: 25px;">
 
       @include('projects.sections.value', ['edit' => true ])

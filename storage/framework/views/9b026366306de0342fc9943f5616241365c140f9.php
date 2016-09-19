@@ -16,7 +16,7 @@
       <?php echo $__env->make('projects.sections.team', ['edit' => true ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       <hr style="margin-top: 25px; margin-bottom: 25px;">
 
-      <?php echo $__env->make('projects.sections.organization', ['edit' => true ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <?php echo $__env->make('projects.sections.organization', ['edit' => false ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       <hr style="margin-top: 25px; margin-bottom: 25px;">
 
       <?php echo $__env->make('projects.sections.value', ['edit' => true ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
