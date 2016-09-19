@@ -76,7 +76,7 @@
           <div class="col-sm-8 col-xs-12">
             <p>
               @if ($idea->video())
-              <i class="fa fa-youtube"></i> {{ $idea->video() }}
+              <a href="{{ linkout($idea->video()) }}">{{ linkout($idea->video()) }}</a>
               @else
               <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Video
               @endif
