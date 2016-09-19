@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-md-7 col-md-offset-2 col-sm-12">
 
+<!--
     <div style="border: 1px solid #0d74fe; background-color: white; margin-bottom: 25px; border-radius: 4px;">
       <div class="container">
         <div style="margin-bottom: 5px; margin-top: 5px;" class="alert" role="alert">
@@ -12,6 +13,7 @@
         </div>
       </div>
     </div>
+-->
 
     <div style="padding-left: 0px; padding-right: 0px;" class="widget-wrap">
       <div style="padding-left: 30px; padding-right: 30px; margin-left: 0px; margin-right: 0px;" class="widget-header block-header margin-bottom-0 clearfix">
@@ -31,9 +33,7 @@
           </div>
 
           <div class="user-header-right col-xs-12 col-sm-4">
-
               <?php echo $__env->make('projects.includes.social', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
           </div>
         </div>
       </div>
