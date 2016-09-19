@@ -8,10 +8,10 @@
 
       <div class="form-line form-labels">
         <div class="row">
-          <div class="col-sm-2 col-xs-12">
+          <div class="col-sm-4 col-xs-12">
             <label>Year</label>
           </div>
-          <div class="col-sm-10 col-xs-12">
+          <div class="col-sm-8 col-xs-12">
             <select id="class-year" data-parsley-required  class="form-control input-one" name="year" placeholder="Class year">
               <option value="" selected disabled>Select class year</option>
               <option value="2016">2016</option>
@@ -26,10 +26,10 @@
 
       <div class="form-line form-labels">
         <div class="row">
-          <div class="col-sm-2 col-xs-12">
+          <div class="col-sm-4 col-xs-12">
             <label>Concentration</label>
           </div>
-          <div class="col-sm-10 col-xs-12">
+          <div class="col-sm-8 col-xs-12">
             <select id="concentration" data-parsley-required class="form-control input-one" name="concentration" >
               <option value="" selected disabled>Select a concentration</option>
               <option value="Undecided">Undecided</option>
@@ -45,10 +45,10 @@
 
       <div class="form-line form-labels">
         <div class="row">
-          <div class="col-sm-2 col-xs-12">
+          <div class="col-sm-4 col-xs-12">
             <label>Secondary</label>
           </div>
-          <div class="col-sm-10 col-xs-12">
+          <div class="col-sm-8 col-xs-12">
             <select id="secondary" data-parsley-required class="form-control input-one" name="secondary" placeholder="Class year">
               <option value="" selected disabled>Select a secondary</option>
               <option value="No secondary">No secondary</option>
