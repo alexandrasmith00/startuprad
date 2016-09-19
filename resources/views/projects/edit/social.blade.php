@@ -1,42 +1,23 @@
+@extends('layouts.app')
 
-<div style="padding-top: 30px;" class="details">
+@section('content')
 
-  <h4>Social Information</h4><br>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-sm-12">
+    <div class="widget-wrap">
 
-  <div class="row">
-    <div class="col-xs-12  col-sm-10 col-sm-offset-1">
+      @include('projects.includes.header')
 
-      <div class="form-line form-labels">
-        <div class="row">
-          <div class="col-sm-4 col-xs-12">
-            <label><i class="fa fa-facebook blue"></i> &nbsp; <strong>Facebook</strong></label>
-          </div>
-          <div class="col-sm-8 col-xs-12">
-            <p>@if ($idea->facebook()) <a href="{{ linkout($idea->facebook()) }}">{{ linkout($idea->facebook()) }}</a> @else <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Facebook @endif</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4 col-xs-12">
-            <label><i class="fa fa-twitter blue"></i> &nbsp; <strong>Twitter</strong></label>
-          </div>
-          <div class="col-sm-8 col-xs-12">
-            <p>@if ($idea->twitter()) <a href="{{ linkout($idea->twitter()) }}">{{ linkout($idea->twitter()) }}</a> @else <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Twitter @endif</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4 col-xs-12">
-            <label><i class="fa fa-linkedin blue"></i> &nbsp; <strong>LinkedIn</strong></label>
-          </div>
-          <div class="col-sm-8 col-xs-12">
-            <p>@if ($idea->linkedin()) <a href="{{ linkout($idea->linkedin()) }}">{{ linkout($idea->linkedin()) }}</a> @else <i class="blue fa fa-exclamation-circle"></i> &nbsp; No LinkedIn @endif</p>
-          </div>
-        </div>
-      </div>
-
+      <form action="" method="POST" data-parsley-validate>
+        <input type="hidden" name="idea" value="{{ Auth::user()->idea->id }}">
+        @include('projects.edit.forms.social')
+        <hr style="margin-top: 25px; margin-bottom: 25px;">
+        <button id="apply-button" class="btn oversized-btn btn-blue" type="submit">Update Social Media</button>
+      </form>
 
     </div>
   </div>
 </div>
+@stop
+
 

@@ -37,9 +37,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/edit-profile/team', 'ProjectsController@updateTeam')->name('update-team');
     Route::get('/edit-profile/organization', 'ProjectsController@editOrganization')->name('edit-organization');
     Route::post('/edit-profile/organization', 'ProjectsController@updateOrganization')->name('update-organization');
-
-    Route::get('/edit-profile/value-chain', 'ProjectsController@editValueChain')->name('edit-value-chain');
+    Route::get('/edit-profile/value-chain', 'ProjectsController@editValue')->name('edit-value');
+    Route::post('/edit-profile/value-chain', 'ProjectsController@updateValue')->name('update-value');
     Route::get('/edit-profile/strategy', 'ProjectsController@editStrategy')->name('edit-strategy');
+    Route::post('/edit-profile/strategy', 'ProjectsController@updateStrategy')->name('update-strategy');
+
     Route::get('/edit-profile/logo', 'ProjectsController@editLogo')->name('edit-logo');
 
     // Posts and comments

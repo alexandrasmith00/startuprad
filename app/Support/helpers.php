@@ -79,7 +79,7 @@ function breakLegalStatus($legal)
     {
       $pos = stripos($legal, $state);
       if ( $pos !== false ) {
-        return explode($state, $legal);
+        return ['state' => $state, 'type' => trim(explode($state, $legal)[1]) ];
       }
     }
 

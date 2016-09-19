@@ -27,6 +27,6 @@ class RemoveOldThinking
      */
     public function handle(UpdateThinking $event)
     {
-        Thinking::where('idea_id', $event->idea->id)->where('name', $event->name)->update(['current' => 1]);
+        Thinking::where('idea_id', $event->idea->id)->where('name', $event->name)->update(['current' => 0]);
     }
 }

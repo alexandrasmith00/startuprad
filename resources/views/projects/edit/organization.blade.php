@@ -1,24 +1,23 @@
+@extends('layouts.app')
 
-<div style="padding-top: 30px;" class="details">
+@section('content')
 
-  <h4>Organization</h4><br>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-sm-12">
+    <div class="widget-wrap">
 
-  <div class="row">
-    <div class="col-xs-12  col-sm-10 col-sm-offset-1">
+      @include('projects.includes.header')
 
-      <div class="form-line form-labels">
-
-          @include('projects.edit.organization.legal')
-          <hr>
-          @include('projects.edit.organization.funding')
-          <hr>
-          @include('projects.edit.organization.advisors')
-          <hr>
-          @include('projects.edit.organization.partnerships')
-
-      </div>
+      <form action="" method="POST" data-parsley-validate>
+        <input type="hidden" name="idea" value="{{ Auth::user()->idea->id }}">
+        @include('projects.edit.forms.organization')
+        <hr style="margin-top: 25px; margin-bottom: 25px;">
+        <button id="apply-button" class="btn oversized-btn btn-blue" type="submit">Update Organization</button>
+      </form>
 
     </div>
   </div>
 </div>
+@stop
+
 

@@ -17,3 +17,9 @@ a {
     font-weight: 500;
   }
 }
+
+a.edit-section {
+  &:hover {
+    font-weight: 300;
+  }
+}

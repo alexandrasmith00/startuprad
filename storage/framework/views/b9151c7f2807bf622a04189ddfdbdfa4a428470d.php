@@ -3,7 +3,7 @@
     <label><strong>Equity Split</strong></label>
   </div>
   <div class="col-sm-8 col-xs-12">
-    <p><?php if($idea->equitySplit()): ?> <?php echo e($idea->equitySplit()); ?> <?php else: ?> <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Equity Split <?php endif; ?></p>
+    <?php if($idea->equitySplit()): ?> <?php echo e($idea->equitySplit()); ?> <?php else: ?> <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Equity Split <?php endif; ?></p>
   </div>
 </div>
 
@@ -17,7 +17,7 @@
         <p><?php echo e(resourceHelper($investor, 'Name')); ?></p>
       <?php endforeach; ?>
     <?php else: ?>
-      <i class="blue fa fa-exclamation-circle"></i> &nbsp; No Outside Investors
+      <p><i class="blue fa fa-exclamation-circle"></i> &nbsp; No Outside Investors</p>
     <?php endif; ?>
   </div>
 </div>
