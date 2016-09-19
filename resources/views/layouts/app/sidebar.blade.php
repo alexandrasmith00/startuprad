@@ -49,6 +49,8 @@
 <section class="menu-section">
   <h3 class="menu-section-title">Admin</h3>
   <ul class="menu-section-list">
+    <li><a href="">Under construction</a></li>
+
 <!--    <li><a href="">Analytics</a></li>-->
     @if (Auth::user()->hasRole('Admin'))
 <!--    <li><a href="">Advisors</a></li>-->
