@@ -28,7 +28,7 @@
         <?php if( Auth::user()->companyRole() ): ?>
           <?php echo e(Auth::user()->companyRole()); ?> at
         <?php endif; ?>
-        <?php echo e(Auth::user()->team()->idea->name); ?>
+        <?php echo e(Auth::user()->idea->name); ?>
 
       </div>
     </div>
@@ -41,7 +41,7 @@
   <ul class="menu-section-list">
     <li><a href="<?php echo e(route('dashboard')); ?>">Home</a></li>
     <li><a href="<?php echo e(route('my-profile')); ?>">Profile</a></li>
-    <li><a href="<?php echo e(route('project.show', ['id' => Auth::user()->team()->idea->id ])); ?>"><?php echo e(Auth::user()->team()->idea->name); ?></a></li>
+    <li><a href="<?php echo e(route('project.show', ['id' => Auth::user()->idea->id ])); ?>"><?php echo e(Auth::user()->idea->name); ?></a></li>
 
   </ul>
 </section>
