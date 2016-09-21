@@ -115,8 +115,10 @@ class OnboardingController extends Controller
 
   public function setup()
   {
-      if (Auth::user()->isStudent() )
+
+      if (Auth::user()->isStudent() ) {
         return $this->get_student_step(Auth::user()->id);
+      }
       else
         return redirect()->route('dashboard');
   }

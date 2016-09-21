@@ -15,6 +15,15 @@ trait StudentSetup
 
   protected function get_student_step($user_id)
   {
+
+    // Make sure that the steps exist; i.e. for previous users
+    $checklists = Checklist::where('description', $description)->where('internal', 'student-onboarding')->get();
+    foreach ($checklists as $check)
+    {
+      if (!(Todo::where('user_id', $user_id)->where('checklist_id', $check->id)->exists()))
+        Todo::create(['user_id' => $user_id, 'checklist_id', $check->id]);
+    }
+
     // Current step
     $step = 0;
     $step_one = $this->student_step_one;
