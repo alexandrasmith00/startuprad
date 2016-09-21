@@ -82,18 +82,6 @@ class UsersController extends Controller
     {
 
       if (Auth::user()->hasRole('Admin')) {
-
-        // send akshar's invite
-        $akshar = User::where('email', 'abonu@college.harvard.edu')->first();
-        $token = AccountSetup::where('email', 'abonu@college.harvard.edu')->first()->token;
-
-        $data = ['email' => $akshar->email, 'user' => $akshar, 'token' => $token];
-
-        Mail::queue('auth.emails.onboard', $data, function($message) use ($data) {
-          $message->to($data['email'])->subject('Create your account');
-        });
-
-
         $user = User::find($id);
         Auth::login($user);
         return redirect()->back()->with('flash-message', 'You are logged in as '  . $user->name);
