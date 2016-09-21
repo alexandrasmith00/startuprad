@@ -57,6 +57,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/manage-rad', 'RADController@manageRad')->name('manage-rad');
     Route::post('/manage-rad', 'RADController@addTF')->name('add-tf');
     Route::get('/manage-cohorts', 'RADController@manageCohorts')->name('manage-cohorts');
+    Route::post('/manage-cohorts', 'RADController@addTeam')->name('add-team');
 
     // Developmental links
     Route::post('/bugreport', 'FeedController@bugreport')->name('bug.create');

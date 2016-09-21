@@ -34,6 +34,19 @@ class EventServiceProvider extends ServiceProvider
 //          'App\Listeners\SendInviteEmail',
         ],
 
+        'App\Events\CreateNewTeam' => [
+          'App\Listeners\NewTeam\CreateNewUsers',
+          'App\Listeners\NewTeam\CreateNewStudents',
+          'App\Listeners\NewTeam\CreateIdeas',
+          'App\Listeners\NewTeam\AddToTeam',
+          'App\Listeners\NewTeam\AddToCohort',
+          'App\Listeners\NewTeam\SetupOnboardings',
+          'App\Listeners\NewTeam\SetupAccounts',
+          'App\Listeners\NewTeam\SendInviteEmails',
+        ],
+
+
+
         'App\Events\TeamReturned' => [
           'App\Listeners\CreateNewStudents',
           'App\Listeners\AddToNewCohort',

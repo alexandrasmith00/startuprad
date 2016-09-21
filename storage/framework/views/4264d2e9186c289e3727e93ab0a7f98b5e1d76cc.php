@@ -1,6 +1,6 @@
 <div style="padding-top: 30px;" class="details">
 
-  <h4>Invite Team</h4><br>
+  <h4>Invite A New Team</h4><br>
 
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
@@ -12,7 +12,7 @@
             <label>Startup Name</label>
           </div>
           <div class="col-sm-8 col-xs-12">
-            <input data-parsley-required type="text" class="form-control input-one <?php echo e($errors->first('email') != '' ? 'parsley-error' : ''); ?>" name="email" placeholder="Startup Name">
+            <input data-parsley-required type="text" class="form-control input-one <?php echo e($errors->first('email') != '' ? 'parsley-error' : ''); ?>" name="name" placeholder="Startup Name">
             <span style="padding: 0px; margin: 0px;" class="help-block thin-help-block parsley-show-error"><?php echo e($errors->first('email')); ?></span>
           </div>
         </div>
@@ -24,7 +24,7 @@
             <label>Cohorts</label>
           </div>
           <div class="col-sm-8 col-xs-12">
-            <select name="legal-status-type" class="form-control">
+            <select name="cohort" class="form-control">
               <option value="none" selected="" disabled="">Select cohort</option>
               <?php foreach($cohorts as $cohort): ?>
                 <option value="<?php echo e($cohort->id); ?>"><?php echo e($cohort->name); ?></option>
