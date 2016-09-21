@@ -55,9 +55,9 @@
       <li><a href="<?php echo e(route('manage-rad')); ?>">Manage RAD Team</a></li>
     <?php elseif(Auth::user()->hasRole('Admin')): ?>
       <li><a href="<?php echo e(route('student-invite')); ?>">Invite Rad</a></li>
-    <?php else: ?>
-      <li><a href=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> &nbsp;  Under Construction</a></li>
     <?php endif; ?>
+    <li><a href="<?php echo e(route('manage-cohorts')); ?>"> Manage Cohorts</a></li>
+
   </ul>
 </section>
 <?php endif; ?>

@@ -54,9 +54,9 @@
       <li><a href="{{ route('manage-rad') }}">Manage RAD Team</a></li>
     @elseif (Auth::user()->hasRole('Admin'))
       <li><a href="{{ route('student-invite') }}">Invite Rad</a></li>
-    @else
-      <li><a href=""><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> &nbsp;  Under Construction</a></li>
     @endif
+    <li><a href="{{ route('manage-cohorts') }}"> Manage Cohorts</a></li>
+
   </ul>
 </section>
 @endif

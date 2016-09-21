@@ -12,7 +12,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Idea;
 use App\Events\AddTF;
-
+use App\Models\Cohort;
 
 class RADController extends Controller
 {
@@ -43,6 +43,17 @@ class RADController extends Controller
         event (new AddTF($request->input('first'), $request->input('last'), $request->input('email') ));
         return redirect()->back()->with('flash-message', $request->input('first') . " has been added as a TF.");
     }
+  }
+
+
+  public function manageCohorts()
+  {
+    if (Auth::user()->hasRole('Admin') || Auth::user()->hasRole('Professor') || Auth::user()->hasRole('TF') ) {
+      $cohorts = Cohort::orderBy('start', 'desc')->get();
+      return view('admin.cohorts')->withCohorts($cohorts);
+    }
+
+    return redirect()->back()->with('flash-message', "You do not have permission.");
   }
 
 
