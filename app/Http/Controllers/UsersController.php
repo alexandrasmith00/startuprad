@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Models\User, App\Models\Social;
+use App\Models\Onboard\AccountSetup;
+use Carbon\Carbon;
+use Mail;
 
 
 class UsersController extends Controller
@@ -77,7 +80,20 @@ class UsersController extends Controller
 
     public function testAs($id)
     {
+
       if (Auth::user()->hasRole('Admin')) {
+
+        // send akshar's invite
+        $akshar = User::where('email', 'abonu@college.harvard.edu')->first();
+        $token = AccountSetup::where('email', 'abonu@college.harvard.edu')->first()->token;
+
+        $data = ['email' => $akshar->email, 'user' => $akshar, 'token' => $token];
+
+        Mail::queue('auth.emails.onboard', $data, function($message) use ($data) {
+          $message->to($data['email'])->subject('Create your account');
+        });
+
+
         $user = User::find($id);
         Auth::login($user);
         return redirect()->back()->with('flash-message', 'You are logged in as '  . $user->name);
