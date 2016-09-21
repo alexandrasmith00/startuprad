@@ -13,16 +13,49 @@ trait StudentSetup
   public $student_step_one = ['Add profile picture'];
   public $student_step_two = ['Add company role'];
 
+  protected function check_completed($user_id)
+  {
+    // Make sure that the steps exist; i.e. for previous users
+    foreach ($this->student_setup_zero as $description)
+    {
+      $checklists = Checklist::where('description', $description)->where('internal', 'student-onboarding')->get();
+      foreach ($checklists as $check)
+        if (!(Todo::where('user_id', $user_id)->where('checklist_id', $check->id)->exists()))
+          Todo::create(['user_id' => $user_id, 'checklist_id' => $check->id, 'completed_at' => Carbon::now() ]);
+    }
+
+    // Look for profile picture
+    $check  = Checklist::where('description', 'Add profile picture')->where('internal', 'student-onboarding')->first();
+
+    // If doesnt exist, add a todo
+    if (! (Todo::where('user_id', $user_id)->where('checklist_id', $check->id)->exists() ))
+      Todo::create(['user_id' => $user_id, 'checklist_id' => $check->id ]);
+
+    // If already have profile picture, update todo
+    if (User::where('id', $user_id)->first()->profile_picture != '') {
+      Todo::where('user_id', $user_id)->where('checklist_id', $check->id)->update(['completed_at' => Carbon::now() ]);
+    }
+
+    // Look for company role
+    $check = Checklist::where('description', 'Add company role')->where('internal', 'student-onboarding')->first();
+
+    // If doesnt exist, add a todo
+    if (! (Todo::where('user_id', $user_id)->where('checklist_id', $check->id)->exists() ))
+      Todo::create(['user_id' => $user_id, 'checklist_id' => $check->id ]);
+
+    // If already have company role, update todo
+    $user = User::find($user_id);
+    if (TeamUser::where('user_id', $user->id)->where('team_id', $user->idea->team->id)->first()->company_role != '') {
+      Todo::where('user_id', $user_id)->where('checklist_id', $check->id)->update(['completed_at' => Carbon::now() ]);
+    }
+
+
+  }
+
   protected function get_student_step($user_id)
   {
 
-    // Make sure that the steps exist; i.e. for previous users
-//    $checklists = Checklist::where('description', $description)->where('internal', 'student-onboarding')->get();
-//    foreach ($checklists as $check)
-//    {
-//      if (!(Todo::where('user_id', $user_id)->where('checklist_id', $check->id)->exists()))
-//        Todo::create(['user_id' => $user_id, 'checklist_id', $check->id]);
-//    }
+    $this->check_completed($user_id);
 
     // Current step
     $step = 0;
