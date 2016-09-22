@@ -68,7 +68,8 @@ class RADController extends Controller
         $team_members[$i] = ['first' => $request->input('first' . ($i + 1) ), 'last' => $request->input('last' . ($i + 1) ), 'email' => $request->input('email' . ($i + 1) )];
     }
 
-    event (new CreateNewTeam($request->input('name'), $request->input('cohort'), $team_members));
+    $idea = Idea::where('name', $request->input('name'))->first();
+    return redirect()::back()::with('flash-message', $request->input('name') . " has been created and members invited.");
   }
 
 
