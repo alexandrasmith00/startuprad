@@ -5,6 +5,8 @@ namespace App\Listeners\NewTeam;
 use App\Events\CreateNewTeam;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Models\Idea;
+use App\Events\NewThinking;
 
 class CreateIdeas
 {
@@ -26,6 +28,17 @@ class CreateIdeas
      */
     public function handle(CreateNewTeam $event)
     {
-        //
+
+      $idea = Idea::create(['name' => $event->name]);
+      $event->idea = $idea;
+
+
+      foreach ($event->users as $user)
+      {
+        $user->idea_id = $idea->id;
+        $user->save();
+
+        event(new NewThinking($idea, 'name', ["Name" => $event->name], $user));
+      }
     }
 }
