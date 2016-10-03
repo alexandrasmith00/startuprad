@@ -26,7 +26,7 @@
       <div style="margin-top: 10px;" class="menu-header-title"><?php echo e(Auth::user()->name); ?></div>
       <div style="line-height: 12px; font-size: 12px;" class="subheader">
         <?php if( Auth::user()->companyRole() ): ?>
-          <?php echo e(Auth::user()->companyRole()); ?> at
+          <?php echo e(splitter(Auth::user()->companyRole(), 10)); ?> at
         <?php endif; ?>
         <?php echo e(Auth::user()->idea->name); ?>
 

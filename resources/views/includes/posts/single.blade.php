@@ -1,6 +1,6 @@
 <div class="widget-wrap">
     <div class="widget-header block-header margin-bottom-0 clearfix">
-        <div class="pull-left">
+
           <div class="recent-users-list">
             <div class="user-intro">
                 <div class="user-thumb"><a href="/project/{{ $post->idea->id }}"><img style="width: auto; border-radius: 0; padding-right: 15px;" src="{{{ $post->idea->logo  != "" ? $post->idea->logo : asset('images/avatar/amarkdalen.jpg')  }}}" alt="user"></a></div>
@@ -19,26 +19,27 @@
                 </div>
             </div>
 
-            <div class="user-intro">
+              <div class="row">
+                <div class="col-xs-12">
                 @if (strstr($post->content, "\n"))
-                    <div class="post-body" style="white-space:pre;">{{ $post->content }}</div>
+                    <div class="post-body" style="white-space:pre-wrap;">{{ $post->content }}</div>
                 @else
                     <div class="post-body">{{ $post->content }}</div>
                 @endif
-
-                <div class="post-tags">
-
-                    @if ($post->tags->count() > 0)
-                        @foreach ($post->tags as $tag)
-                            <label class="label label-tag">#{{ $tag->name }} </label>
-                        @endforeach
-                    @endif
-
                 </div>
+              </div>
+              <div class="post-tags">
 
-            </div>
+                  @if ($post->tags->count() > 0)
+                      @foreach ($post->tags as $tag)
+                          <label class="label label-tag">#{{ $tag->name }} </label>
+                      @endforeach
+                  @endif
 
-          </div>
+              </div>
+
+
+
         </div>
     </div>
 

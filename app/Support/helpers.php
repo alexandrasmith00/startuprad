@@ -106,6 +106,9 @@ function linkOut($url) { // Make sure that link actually goes out from site
 
 // ARRAY HELP
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+function splitter($string, $num) {
+  return substr($string, 0, strrpos(substr($string, 0, $num), ' '));
+}
 function resourceHelper($arrayOfObjects, $searchedValue) {
 
   $arrayOfObjects = $arrayOfObjects->toArray();

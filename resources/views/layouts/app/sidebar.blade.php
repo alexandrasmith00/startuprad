@@ -26,7 +26,7 @@
       <div style="margin-top: 10px;" class="menu-header-title">{{ Auth::user()->name }}</div>
       <div style="line-height: 12px; font-size: 12px;" class="subheader">
         @if ( Auth::user()->companyRole() )
-          {{ Auth::user()->companyRole() }} at
+          {{ splitter(Auth::user()->companyRole(), 10) }} at
         @endif
         {{Auth::user()->idea->name }}
       </div>
