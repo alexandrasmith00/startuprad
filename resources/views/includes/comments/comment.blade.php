@@ -1,7 +1,7 @@
 <div class="recent-comments">
     <div class="recent-comment-meta">
         <div class="comment-user-thumb">
-          <a href="#"><img src="{{asset('images/avatar/oykun.jpg')}}"></a>
+          <a href="#"><img style="border-radius: 4px;" src="{{ $comment->user->profile_picture }}"></a>
         </div>
         <div class="comment-user-info">
             <ul>
