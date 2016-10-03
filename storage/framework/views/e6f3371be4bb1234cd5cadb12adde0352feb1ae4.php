@@ -1,3 +1,8 @@
+<div style="background: #0D74FE; color: white;" class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Hi everyone!</strong> Just so you know, the return key no longer submits a post.  You can use it for spacing in your posts now.
+</div>
+
 <div class="widget-wrap" style="padding-top: 0px;">
 <div class="widget-container margin-top-0">
     <div class="widget-content">
