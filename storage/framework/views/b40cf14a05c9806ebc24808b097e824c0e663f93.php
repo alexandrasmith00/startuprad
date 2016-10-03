@@ -5,14 +5,6 @@
         // autosize the input area on typing
         autosize($('textarea'));
 
-        // submit on enter
-        $('#post-box textarea').keydown(function(e) {
-            if (e.keyCode == 13) {
-                e.preventDefault();
-                makePost($(this.form).serialize());
-            }
-        });
-
         $("#post-button").click(function(e){
             e.preventDefault();
             makePost($(this.form).serialize());

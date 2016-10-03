@@ -16,7 +16,7 @@
                 </div>
               </div>
               <div class="user-intro">
-                <div id="add-post-content" class="post-body">
+                <div id="add-post-content" style="white-space:pre-wrap;" class="post-body">
 
                 </div>
                 <div id="add-post-tags" class="post-tags">

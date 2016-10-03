@@ -54,7 +54,7 @@ class FeedController extends Controller
             $title = 'said to someone else';
 
         $post = new Post;
-        $post->content = $request->input('message');
+        $post->content = $request->input('content');
         $post->user_id = $request->input('user-id');
         $post->idea_id = $request->input('idea-id');
         $post->type = $request->input('type');
