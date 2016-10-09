@@ -21,9 +21,9 @@
 
             <div class="user-intro">
                 <?php if(strstr($post->content, "\n")): ?>
-                    <div class="post-body" style="white-space:pre-wrap;"><?php echo e($post->content); ?></div>
+                    <div id="content-<?php echo e($post->id); ?>" class="post-body" style="white-space:pre-wrap;"><?php echo e($post->content); ?></div>
                 <?php else: ?>
-                    <div class="post-body"><?php echo e($post->content); ?></div>
+                    <div id="content-<?php echo e($post->id); ?>" class="post-body"><?php echo e($post->content); ?></div>
                 <?php endif; ?>
 
                 <div class="post-tags">
@@ -45,3 +45,15 @@
     <?php echo $__env->make('includes.comments.all', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 </div>
+
+
+<?php $__env->startSection('scripts'); ?>
+@parent
+
+<script>
+  var text = $("#content-<?php echo e($post->id); ?>").text();
+  var result = anchorme.js(text);
+  $("#content-<?php echo e($post->id); ?>").html(result);
+
+</script>
+<?php $__env->stopSection(); ?>

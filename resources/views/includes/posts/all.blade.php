@@ -22,12 +22,12 @@
 @section('scripts')
 @parent
 
+<script type="text/javascript" src="js/anchorme.min.js"></script>
+
 <script>
   var infinite = new Waypoint.Infinite({
     element: $('.infinite-container')[0],
   })
-
-
 </script>
 
 @stop

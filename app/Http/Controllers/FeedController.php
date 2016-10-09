@@ -13,10 +13,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\User;
 use Carbon\Carbon;
+use Dusterio\LinkPreview\Client;
 
 
 class FeedController extends Controller
 {
+
+
+
+
     /**
      * Create a new controller instance.
      *
@@ -29,6 +34,9 @@ class FeedController extends Controller
 
     public function index()
     {
+
+
+
       // ordering goes in here!
       $posts = Post::whereIn('idea_id', Auth::user()->cohortTeams())
             ->orderBy('radnow', 'desc')

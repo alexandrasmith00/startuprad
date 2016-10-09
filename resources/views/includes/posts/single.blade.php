@@ -21,9 +21,9 @@
 
             <div class="user-intro">
                 @if (strstr($post->content, "\n"))
-                    <div class="post-body" style="white-space:pre-wrap;">{{ $post->content }}</div>
+                    <div id="content-{{ $post->id }}" class="post-body" style="white-space:pre-wrap;">{{ $post->content }}</div>
                 @else
-                    <div class="post-body">{{ $post->content }}</div>
+                    <div id="content-{{ $post->id }}" class="post-body">{{ $post->content }}</div>
                 @endif
 
                 <div class="post-tags">
@@ -45,3 +45,15 @@
     @include('includes.comments.all')
 
 </div>
+
+
+@section('scripts')
+@parent
+
+<script>
+  var text = $("#content-{{ $post->id }}").text();
+  var result = anchorme.js(text);
+  $("#content-{{ $post->id }}").html(result);
+
+</script>
+@stop

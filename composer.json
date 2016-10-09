@@ -20,7 +20,8 @@
         "h4cc/wkhtmltopdf-amd64": "0.12.x",
         "intervention/image": "^2.3",
         "ext-gd": "^7.0",
-        "baum/baum": "^1.1"
+        "baum/baum": "^1.1",
+        "dusterio/link-preview": "^1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
