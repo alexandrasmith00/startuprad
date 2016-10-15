@@ -62,8 +62,13 @@ class ProjectsController extends Controller
 
       if (Auth::user()->hasProject($id))
         return view('projects.edit')->withIdea(Auth::user()->idea);
-      else
-        return view('projects.show')->withIdea($idea);
+      else {
+        $posts = Post::where('idea_id', $id)
+          ->orderBy('created_at', 'desc')
+          ->with('tagged')
+          ->paginate(10);
+        return view('projects.show')->withIdea($idea)->withPosts($posts);
+      }
     }
 
     public function editProfile() {

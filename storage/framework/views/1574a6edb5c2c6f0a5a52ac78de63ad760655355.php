@@ -27,8 +27,7 @@
           <div class="col-sm-8 col-xs-12">
             <p>
               <?php if( $idea->logo() ): ?>
-              <?php echo e($idea->logo()); ?>
-
+              <img width="100%;" src="<?php echo e($idea->logo()); ?>">
               <?php else: ?> <i class="blue fa fa-exclamation-circle"></i> &nbsp; No logo <?php endif; ?>
             </p>
           </div>

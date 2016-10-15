@@ -27,7 +27,7 @@
           <div class="col-sm-8 col-xs-12">
             <p>
               @if ( $idea->logo() )
-              {{ $idea->logo() }}
+              <img width="100%;" src="{{ $idea->logo() }}">
               @else <i class="blue fa fa-exclamation-circle"></i> &nbsp; No logo @endif
             </p>
           </div>

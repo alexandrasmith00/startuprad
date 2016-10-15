@@ -10356,9 +10356,6 @@ input[type="file"] {
   .section-heading {
     text-align: center; } }
 
-a {
-  transition: 0.5s; }
-
 a:hover, a:active, a:focus {
   outline: none; }
 
@@ -10367,7 +10364,7 @@ a {
   a:hover, a:focus {
     color: #005BE5;
     text-decoration: none;
-    font-weight: 500; }
+    font-weight: 400; }
 
 a.edit-section:hover {
   font-weight: 300; }

@@ -6,7 +6,7 @@
         <div class="comment-user-info">
             <ul>
                 <li class="name">
-                    <a href="#">{{ $comment->user->name }}</a>
+                    <a href="{{ route('profile', ['id' => $comment->user->id ] ) }}">{{ $comment->user->name }}</a>
                     {{ $comment->body }}
                 </li>
                 <li class="comment-info">

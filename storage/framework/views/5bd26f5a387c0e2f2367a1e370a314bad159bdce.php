@@ -6,7 +6,7 @@
         <div class="comment-user-info">
             <ul>
                 <li class="name">
-                    <a href="#"><?php echo e($comment->user->name); ?></a>
+                    <a href="<?php echo e(route('profile', ['id' => $comment->user->id ] )); ?>"><?php echo e($comment->user->name); ?></a>
                     <?php echo e($comment->body); ?>
 
                 </li>
